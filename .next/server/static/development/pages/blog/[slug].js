@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -114,6 +114,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var gray_matter__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(gray_matter__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! next/head */ "next/head");
 /* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(next_head__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var marked__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! marked */ "marked");
+/* harmony import */ var marked__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(marked__WEBPACK_IMPORTED_MODULE_5__);
 var _jsxFileName = "F:\\Projekter\\PortfolioSSG\\pages\\blog\\[slug].tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -122,8 +124,9 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
+
 const Post = ({
-  content,
+  htmlString,
   data
 }) => {
   return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx(next_head__WEBPACK_IMPORTED_MODULE_4___default.a, {
@@ -147,21 +150,17 @@ const Post = ({
       lineNumber: 19,
       columnNumber: 7
     }
-  }, __jsx("div", {
+  }, __jsx("article", {
+    dangerouslySetInnerHTML: {
+      __html: htmlString
+    },
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 20,
       columnNumber: 9
     }
-  }, " Content below "), __jsx("pre", {
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 21,
-      columnNumber: 9
-    }
-  }, " ", content, " ")));
+  })));
 };
 /**
  * This is used to determine the paths during export
@@ -202,10 +201,11 @@ const getStaticProps = async ({
     content,
     data
   } = gray_matter__WEBPACK_IMPORTED_MODULE_3___default()(markdownWithMetadata);
+  const htmlString = marked__WEBPACK_IMPORTED_MODULE_5___default()(content);
   return {
     // Anything passed to the "props" object will be passed to the component as props.
     props: {
-      content,
+      htmlString,
       data
     }
   };
@@ -214,7 +214,7 @@ const getStaticProps = async ({
 
 /***/ }),
 
-/***/ 4:
+/***/ 5:
 /*!*************************************!*\
   !*** multi ./pages/blog/[slug].tsx ***!
   \*************************************/
@@ -245,6 +245,17 @@ module.exports = require("fs");
 /***/ (function(module, exports) {
 
 module.exports = require("gray-matter");
+
+/***/ }),
+
+/***/ "marked":
+/*!*************************!*\
+  !*** external "marked" ***!
+  \*************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("marked");
 
 /***/ }),
 
