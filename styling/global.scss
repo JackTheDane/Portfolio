@@ -170,11 +170,11 @@ $translateAmount: 80px;
 
   padding: 90px 25px 30px;
 
-  overflow-y: scroll;
+  // overflow-y: scroll;
 
-  @media (min-width: 1200px) {
-    width: calc(100% + 17px);
-  }
+  // @media (min-width: 1200px) {
+  //   width: calc(100% + 17px);
+  // }
 }
 
 @media (max-width: 599px) {
