@@ -39,12 +39,12 @@ const Home = ({
 
 export const getStaticProps: GetStaticProps<IHomeProps> = async () => {
   // Get the content of the md file by checking for it using the file name + the .md extension
-  const postFileNames: string[] = fs.readdirSync('posts');
+  const postFileNames: string[] = fs.readdirSync('data/posts/blog');
 
   const posts: IPost[] = await Promise.all(postFileNames.map(
     (fn): Promise<IPost> => new Promise<IPost>((res, rej) => {
 
-      fs.readFile(path.join('posts', fn), (err, data) => {
+      fs.readFile(path.join('data/posts/blog', fn), (err, data) => {
 
         if (err) {
           rej(err);

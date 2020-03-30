@@ -29,9 +29,7 @@ const Post = ({
 export const getStaticPaths = async () => {
 
   // Get all of the file names from the "posts" folder
-  const files = fs.readdirSync('posts');
-
-  console.log({ files });
+  const files = fs.readdirSync('data/posts/blog');
 
   return {
     // Create a route for each md file
@@ -52,7 +50,7 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async ({ params: { slug } }) => {
 
   // Get the content of the md file by checking for it using the file name + the .md extension
-  const markdownWithMetadata = fs.readFileSync(path.join('posts', `${slug}.md`)).toString();
+  const markdownWithMetadata = fs.readFileSync(path.join('data/posts/blog', `${slug}.md`)).toString();
 
   const { content, data } = matter(markdownWithMetadata);
 

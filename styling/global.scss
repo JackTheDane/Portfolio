@@ -1,0 +1,221 @@
+@import './spectre/spectre.scss';
+// @import '~react-id-swiper/lib/styles/scss/swiper.scss';
+
+html, body, #__next {
+  height: 100%;
+}
+
+* {
+  font-size: .9rem;
+}
+
+a:active, a:focus {
+  outline: none;
+  outline-style:none;
+  box-shadow:none;
+}
+
+img {
+  max-width: 100%;
+}
+
+.fw {
+  &-light {
+    font-weight: 300;
+  }
+
+  &-medium {
+    font-weight: 400;
+  }
+
+  &-bold {
+    font-weight: 700;
+  }
+}
+
+.ml-a {
+  margin-left: auto !important;
+}
+
+.mr-a {
+  margin-right: auto !important;
+}
+
+.mt-a {
+  margin-top: auto !important;
+}
+
+.mb-a {
+  margin-bottom: auto !important;
+}
+
+.my-a {
+  @extend .mt-a;
+  @extend .mb-a;
+}
+
+$transitionSpeed: 700ms;
+$transitionStagger: 80ms;
+// $transitionStagger: 0ms;
+$translateAmount: 80px;
+
+.fade {
+  &-appear,
+  &-enter {
+
+    .transition-elem {
+      opacity: 0;
+      transform: translateZ(0) translateY($translateAmount);
+    }
+
+    &-active {
+      z-index: 1;
+
+      .transition-elem {
+        opacity: 1;
+        transform: translateZ(0) translateY(0px);
+
+        -webkit-transition-timing-function: cubic-bezier(0.165, 0.840, 0.440, 1.000);
+   -moz-transition-timing-function: cubic-bezier(0.165, 0.840, 0.440, 1.000);
+     -o-transition-timing-function: cubic-bezier(0.165, 0.840, 0.440, 1.000);
+        transition-timing-function: cubic-bezier(0.165, 0.840, 0.440, 1.000); /* easeOutQuart */
+      }
+    }
+  }
+
+  &-enter {
+    &-active {
+      .transition-elem {
+        transition-duration: $transitionSpeed;
+
+        @for $i from 0 through 5 {
+          &.delay-#{$i}{
+            transition-delay: $transitionSpeed/2 + $transitionStagger * ($i+1);
+          }
+        }
+      }
+    }
+  }
+
+  &-appear {
+    &-active {
+      .transition-elem {
+        transition-duration: $transitionSpeed + $transitionSpeed/2;
+
+        @for $i from 0 through 5 {
+          &.delay-#{$i}{
+            transition-delay: $transitionStagger * $i + 300ms;
+          }
+        }
+      }
+    }
+  }
+
+  &-exit {
+    .transition-elem {
+      opacity: 1;
+      transform: translateZ(0) translateY(0px);
+    }
+
+    &-active {
+      .transition-elem {
+        opacity: 0;
+        transform: translateZ(0) translateY(-100px);
+        transition-duration: $transitionSpeed/2;
+
+        -webkit-transition-timing-function: cubic-bezier(0.600, 0, 0.735, 0.045); /* older webkit */
+-webkit-transition-timing-function: cubic-bezier(0.600, -0.280, 0.735, 0.045);
+   -moz-transition-timing-function: cubic-bezier(0.600, -0.280, 0.735, 0.045);
+     -o-transition-timing-function: cubic-bezier(0.600, -0.280, 0.735, 0.045);
+        transition-timing-function: cubic-bezier(0.600, -0.280, 0.735, 0.045); /* easeInBack */
+
+        @for $i from 0 through 5 {
+          &.delay-#{$i}{
+            @if $i < 2 {
+              transition-delay: $transitionStagger * $i;
+            } @else {
+              transition-delay: $transitionStagger * 2;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.transition-elem {
+  transition-property: transform, opacity;
+  transform: translateZ(0);
+}
+
+.btn-icon-right {
+  i {
+    margin-left: 5px;
+  }
+}
+
+.btn-icon-left {
+  i {
+    margin-right: 5px;
+  }
+}
+
+.content-page {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  height: 100%;
+
+  padding: 90px 25px 30px;
+
+  overflow-y: scroll;
+
+  @media (min-width: 1200px) {
+    width: calc(100% + 17px);
+  }
+}
+
+@media (max-width: 599px) {
+  .padx-xs {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+@media (min-width: 600px) {
+  .content-page {
+    padding: 90px 45px 30px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .content-page {
+    padding: 60px 100px;
+  }
+
+  .btn-icon-right {
+    i {
+      transition: margin-left .3s;
+    }
+
+    &:hover {
+      i {
+        margin-left: 10px;
+      }
+    }
+  }
+
+  .btn-icon-left {
+    i {
+      transition: margin-right .3s;
+    }
+
+    &:hover {
+      i {
+        margin-right: 10px;
+      }
+    }
+  }
+}
