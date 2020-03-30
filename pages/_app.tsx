@@ -2,6 +2,7 @@ import '../styling/global.scss';
 import styles from './_app.module.scss';
 import { AppProps } from 'next/app';
 import Nav from '../components/Nav/Nav';
+import 'swiper/css/swiper.min.css';
 
 const AppCustomized = ({ Component, pageProps }: AppProps) => {
   return (

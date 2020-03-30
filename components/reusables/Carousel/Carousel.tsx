@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Carousel.module.scss';
-// import Swiper from 'react-id-swiper';
+import Swiper from 'react-id-swiper';
 
 export interface CarouselProps {
   images: string[];
@@ -16,34 +16,39 @@ class Carousel extends React.Component<CarouselProps> {
       images
     } = this.props;
 
-    // const params = {
-    //   containerClass: `swiper-container ${styles.carousel} ${className} card my-4`,
-    //   loop: true,
-    //   pagination: {
-    //     el: '.swiper-pagination',
-    //     clickable: true,
-    //     bulletActiveClass: styles.slideIndexButtonActive,
-    //     renderBullet: (idx: number, clsName: string) => `
-    //       <button
-    //         class="${styles.slideIndexButton} ${clsName ? clsName : ''}"}
-    //       </button>
-    //     `
-    //   }
-    // }
+    const params = {
+      containerClass: `swiper-container ${styles.carousel} ${className} card my-4`,
+      loop: true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+        bulletActiveClass: styles.slideIndexButtonActive,
+        renderBullet: (idx: number, clsName: string) => `
+          <button
+            class="${styles.slideIndexButton} ${clsName || ''}"}
+          </button>
+        `
+      }
+    }
 
     return (
-      // <Swiper {...params}>
-      //   {
-      //     images.map(
-      //       (image, i: number) => (
-      //         <div
-      //           key={'CarImg_' + i}
-      //           className={styles['carousel__image']}
-      //           style={{ backgroundImage: `url(${image})` }}></div>
-      //       )
-      //     )
-      //   }
-      // </Swiper>
+
+      <Swiper {...params}>
+        {
+          images.map(
+            (image, i: number) => (
+              <div
+                key={'CarImg_' + i}
+                style={{
+                  backgroundImage: `url(${image})`
+                }}
+                className={`swiper-slide ${styles['carousel__image']}`}
+              />
+            )
+          )
+        }
+      </Swiper>
+
 
       // <div>
       //   <button onClick={() => { this.changeSlide(-1) }} className={`btn ${styles['carousel__navigation-button']} ${styles['carousel__navigation-button--left']}`}>
@@ -66,17 +71,7 @@ class Carousel extends React.Component<CarouselProps> {
       //   </div>
       // </div>
 
-      <div>
-
-      </div>
-
     );
-  }
-
-  public componentWillReceiveProps(nextProps: CarouselProps) {
-    this.setState({
-      currentIndex: 0
-    })
   }
 
   // ---- Carousel interactions ---- //
