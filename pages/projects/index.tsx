@@ -18,13 +18,13 @@ const Projects = ({
   return (
     <div className={`content-page ${styles.projects}`}>
 
-      <h2 className={`transition-elem delay-0 text-primary ${styles['projects__title']}`}>
+      <h2 className={`transition-elem delay-0 text-primary ${styles.title}`}>
         Udvalgte Projekter
       </h2>
 
       <div className="divider transition-elem delay-0"></div>
 
-      <div className={`${styles['projects__columns']} columns`}>
+      <div className={`${styles.columns} columns`}>
 
         {projects.map(
           ({
@@ -34,10 +34,10 @@ const Projects = ({
             role,
             url
           }): JSX.Element => (
-              <div key={slug} className={`column col-6 col-md-12 ${styles['projects__column']}`}>
+              <div key={slug} className={`column col-6 col-md-12 ${styles.column}`}>
                 <div className="card">
-                  <div className={styles['projects__image-wrapper']}>
-                    <div className={styles['projects__image']} style={{ backgroundImage: `url(${images[0]})` }} />
+                  <div className={styles.imageWrapper}>
+                    <div className={styles.image} style={{ backgroundImage: `url(${images[0]})` }} />
                   </div>
 
                   <div className={`card-header ${styles.cardHeader}`}>

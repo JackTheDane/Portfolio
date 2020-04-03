@@ -7,13 +7,9 @@ import 'swiper/css/swiper.min.css';
 const AppCustomized = ({ Component, pageProps }: AppProps) => {
   return (
     <div className={styles.app} style={{ backgroundImage: 'url(/images/bg-1920.jpg)' }}>
-      {/* <div className={styles['app__sidebar']}> */}
-
       <Nav />
 
-      {/* </div> */}
-
-      <div className={styles['app__content']}>
+      <div className={styles.content}>
         <Component {...pageProps} />
       </div>
     </div>
