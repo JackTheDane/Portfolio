@@ -8,7 +8,7 @@ import { IProject } from '../../models/interfaces/IProject';
 import { GetStaticProps } from 'next';
 import { getSkillObjectsFromArray } from '../../utils/getSkillObjectsFromArray';
 import styles from './project.module.scss';
-import Carousel from '../../components/reusables/Carousel/Carousel';
+import {Carousel} from '../../components/reusables/Carousel/Carousel';
 import Link from 'next/link';
 
 interface ProjectPageProps extends Omit<IProject, 'slug'> {
