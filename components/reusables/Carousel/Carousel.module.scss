@@ -1,22 +1,49 @@
-@import 'styling/spectre/variables';
+@import "styling/spectre/variables";
 
 .carousel {
   width: 100%;
 
   .image {
     width: 100%;
-    padding-top: 60%;
+    padding-top: 56.25%;
 
-    transition: opacity .2s ease-in-out;
+    transition: opacity 0.2s ease-in-out;
 
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
   }
 
+  .thumbnailWrapper {
+    padding: 5px;
+    background-color: $primary-color;
+  }
+
+  .slidePreview {
+    opacity: 0.65;
+
+    background-position: center center;
+    background-size: cover;
+    width: 100%;
+    height: 80px;
+    cursor: pointer;
+
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  .selected {
+    .slidePreview {
+      cursor: initial;
+      opacity: 1;
+    }
+  }
+
   .navigationButton {
     background-color: transparent !important;
-
 
     color: $bg-color-light;
     border: none;
@@ -30,7 +57,7 @@
     z-index: 5;
 
     &::before {
-      content: '';
+      content: "";
       height: 100%;
       width: 100%;
 
@@ -38,39 +65,37 @@
       top: 0;
       bottom: 0;
 
-      opacity: .5;
-      transition: opacity .2s;
+      opacity: 0.5;
+      transition: opacity 0.2s;
     }
 
-    &.navigationButtonLeft {
-
+    .navigationButtonLeft {
       &,
       &::before {
         left: 0;
       }
 
       &::before {
-        background-image: linear-gradient(to right, rgba(0,0,0, .5), transparent);
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), transparent);
       }
     }
 
-    &.navigationButtonRight {
-
+    .navigationButtonRight {
       &,
       &::before {
         right: 0;
       }
 
       &::before {
-        background-image: linear-gradient(to left, rgba(0,0,0, .5), transparent);
+        background-image: linear-gradient(to left, rgba(0, 0, 0, 0.5), transparent);
       }
     }
 
     &:active,
     &:focus {
       outline: none;
-      outline-style:none;
-      box-shadow:none;
+      outline-style: none;
+      box-shadow: none;
     }
   }
 }
@@ -88,22 +113,24 @@
   height: 12px !important;
   border-radius: 50%;
   background-color: #fff !important;
-  border: 1px solid rgba(0,0,0, .25) !important;
+  border: 1px solid rgba(0, 0, 0, 0.25) !important;
 
-  transform: scale(.5);
+  transform: scale(0.5);
 
   background-color: transparent;
 
   cursor: pointer;
 
-  opacity: .4;
+  opacity: 0.4;
 
-  transition: opacity .2s, transform .2s;
+  transition: opacity 0.2s, transform 0.2s;
 
-  &:focus {outline:0;}
+  &:focus {
+    outline: 0;
+  }
 
   &.slideIndexButtonActive {
-    opacity: .9;
+    opacity: 0.9;
   }
 
   &:hover,
@@ -114,7 +141,6 @@
 
 @media (min-width: 1200px) {
   .carousel {
-
     .image {
       padding-top: 45%;
     }

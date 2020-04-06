@@ -17,22 +17,23 @@ export const Carousel = ({
   const [gallerySwiper, getGallerySwiper] = useState(null);
   const [thumbnailSwiper, getThumbnailSwiper] = useState(null);
 
-  const gallerySwiperParams = {
+  const gallerySwiperParams: IExtendedSwiperOptions = {
     getSwiper: getGallerySwiper,
-    containerClass: `swiper-container ${styles.carousel} ${className} card my-4`,
+    containerClass: `swiper-container ${styles.carousel} ${className} mt-4`,
     spaceBetween: 10,
     navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
+      nextEl: styles.navigationButtonRight,
+      prevEl: styles.navigationButtonLeft,
     }
   };
-  const thumbnailSwiperParams = {
+  const thumbnailSwiperParams: IExtendedSwiperOptions = {
     getSwiper: getThumbnailSwiper,
     spaceBetween: 10,
     centeredSlides: true,
-    // slidesPerView: 'auto',
-    touchRatio: 0.2,
-    slideToClickedSlide: true
+    slidesPerView: 5,
+    touchRatio: 0.75,
+    slideToClickedSlide: true,
+    slideActiveClass: styles.selected
   };
 
 
@@ -68,7 +69,11 @@ export const Carousel = ({
   const slides: JSX.Element[] = images.map(
     (image, i: number) => {
 
-      slidePreview.push(<div key={`prev_${i}`} style={{ backgroundImage: `url(${image})` }} />)
+      slidePreview.push(
+        <div>
+          <div className={styles.slidePreview} key={`prev_${i}`} style={{ backgroundImage: `url(${image})` }} />
+        </div>
+      )
 
       return (
         <div
@@ -84,9 +89,11 @@ export const Carousel = ({
 
 
   return (
-    <div>
+    <div className={`${styles.carousel} card`}>
       <Swiper {...gallerySwiperParams} children={slides} />
-      <Swiper {...thumbnailSwiperParams} children={slides} />
+      <div className={styles.thumbnailWrapper}>
+        <Swiper {...thumbnailSwiperParams} children={slidePreview} />
+      </div>
     </div>
 
 
