@@ -87,28 +87,26 @@ const Nav = () => {
   let menuClass: string = '';
 
   if (isInMobileView && isMobileMenuOpen) {
-    navClass = styles['nav--shown'];
-    menuClass = styles['menu--shown'];
+    navClass = styles.navShown;
+    menuClass = styles.menuShown;
   }
 
   const closeMobileMenu = () => setIsMobileMenuOpen(false);
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
-
-
 
   return (
     <nav className={`${styles.nav} ${navClass}`}>
       {
         !isInMobileView ? (
           <Link href="/">
-            <a onClick={closeMobileMenu} className={styles['nav__logo']} >
+            <a onClick={closeMobileMenu} className={styles.logo} >
               <img src="/images/mainLogo-white.png" className="img-fit-contain" alt="MBP Media" />
             </a>
           </Link>
         ) : (
-            <div className={styles['nav__mobileMenu']}>
+            <div className={styles.mobileMenu}>
               <Link href="/">
-                <a className={styles['nav__logo--mobile']} >
+                <a className={styles.logoMobile} >
                   <img src="/images/mainLogoOnly-white.png" className="img-fit-contain" alt="MBP Media" />
                 </a>
               </Link>
@@ -121,31 +119,18 @@ const Nav = () => {
       }
 
       <ul
-        className={`${styles['menu']} ${menuClass}`}
+        className={`${styles.menu} ${menuClass}`}
       >
         {
           menuItems.map((item, i: number) => {
             return (
-              <span key={'navItem_' + i} className={styles['menu__item-wrapper']} >
-                <NavLink onClick={closeMobileMenu} exact={item.isExact} activeClassName={styles['menu__item--selected']} href={`/${item.url}`} className={styles['menu__item']}>
+              <span key={'navItem_' + i} className={styles.itemWrapper} >
+                <NavLink onClick={closeMobileMenu} exact={item.isExact} activeClassName={styles.selected} href={`/${item.url}`} className={styles.menuItem}>
                   <li>
-                    {item.icon && <i className={`icon icon-${item.icon} ${styles['menu__item-icon']}`} />}
+                    {item.icon && <i className={`icon icon-${item.icon} ${styles.itemIcon}`} />}
                     {item.title}
                   </li>
                 </NavLink>
-
-                {/* {item.subItems && (
-                  <ul className={styles['menu__subitem-list']}>
-                    {item.subItems.map((item, i: number) => (
-                      <NavLink key={'subItem_' + i} onClick={closeMobileMenu} className={styles['menu__subitem']} activeClassName={styles['menu__subitem--selected']} to={`/projekter/${item.url}`} >
-                        <li>
-                          {item.title}
-                        </li>
-                      </NavLink>
-                    ))}
-                  </ul>
-
-                )} */}
               </span>
             )
           })

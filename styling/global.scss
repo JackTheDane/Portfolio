@@ -161,7 +161,6 @@ $translateAmount: 80px;
 }
 
 .content-page {
-  position: absolute;
   top: 0;
   left: 0;
   right: 0;
@@ -169,12 +168,6 @@ $translateAmount: 80px;
   height: 100%;
 
   padding: 90px 25px 30px;
-
-  // overflow-y: scroll;
-
-  // @media (min-width: 1200px) {
-  //   width: calc(100% + 17px);
-  // }
 }
 
 @media (max-width: 599px) {

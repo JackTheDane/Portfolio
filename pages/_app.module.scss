@@ -4,11 +4,11 @@
   height: 100%;
   width: 100%;
   display: flex;
-  overflow: hidden;
   background-color: $primary-color;
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
+  overflow: hidden;
 
   background-blend-mode: multiply;
 
@@ -18,8 +18,7 @@
     margin-left: auto;
     margin-right: auto;
     background-color: $bg-color-light;
-    position: relative;
-    overflow: hidden;
+    overflow: auto;
 
     max-width: 900px;
 

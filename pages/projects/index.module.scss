@@ -1,9 +1,33 @@
 @import 'styling/spectre/variables';
 
+.projectCard {
+  opacity: 1;
+  transition: all .2s;
+
+  &,
+  &:hover {
+    text-decoration: none;
+  }
+
+  &:hover {
+    transform: scale(1.02);
+  }
+}
+
 .projects {
-  .columns {
+  .projectsWrapper {
     margin-left: -10px;
     margin-right: -10px;
+
+    &:hover {
+      .projectCard {
+        opacity: .85;
+
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
   }
 
   .column {

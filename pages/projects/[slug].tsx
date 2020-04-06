@@ -8,7 +8,7 @@ import { IProject } from '../../models/interfaces/IProject';
 import { GetStaticProps } from 'next';
 import { getSkillObjectsFromArray } from '../../utils/getSkillObjectsFromArray';
 import styles from './project.module.scss';
-import {Carousel} from '../../components/reusables/Carousel/Carousel';
+import { Carousel } from '../../components/reusables/Carousel/Carousel';
 import Link from 'next/link';
 
 interface ProjectPageProps extends Omit<IProject, 'slug'> {
@@ -30,8 +30,8 @@ const ProjectPage = ({
           {title} - Martin Bøje Petersen
         </title>
       </Head>
-      <div className={`content-page ${styles.project}`}>
-        <div className="padx-xs" style={{ display: 'flex', justifyContent: 'space-between' }}>
+      <div className={`${styles.project}`}>
+        <div className="px-5 my-4" style={{ display: 'flex', justifyContent: 'space-between' }}>
           <Link href='/projects'>
             <a className="btn btn-link btn-lg pl-0 btn-icon-left transition-elem delay-0">
               <i className="icon icon-back"></i>
@@ -48,36 +48,40 @@ const ProjectPage = ({
 
         <Carousel className={"transition-elem delay-0"} images={images} />
 
-        <div className="d-flex padx-xs mt-3" style={{ justifyContent: 'space-between', alignItems: 'flex-start' }}>
-          <h2 className={`text-primary mb-2 transition-elem delay-1 ${styles.title}`}>
-            {title}
-            <div className="text-gray fw-medium"> {role} </div>
-          </h2>
+        <div className="px-5 py-1">
 
-        </div>
-
-        <div className="divider transition-elem delay-1 my-3"></div>
-
-        <div className="transition-elem delay-1 my-5 padx-xs">
-          <article dangerouslySetInnerHTML={{ __html: body }} />
-        </div>
-
-        {
-          skills &&
-          <div className={`transition-elem delay-2 ${styles.subcontent}`}>
-            <h5 className={`text-primary`}>
-              Færdigheder brugt
-              </h5>
-
-            {
-              skills.map(skill => <div className="chip mr-4 mt-4" key={'skill_' + skill.name}>
-                <img src={skill.img} className="avatar" />
-                {skill.name}
-              </div>)
-            }
+          <div className="d-flex padx-xs mt-3" style={{ justifyContent: 'space-between', alignItems: 'flex-start' }}>
+            <h2 className={`text-primary mb-2 transition-elem delay-1 ${styles.title}`}>
+              {title}
+              <div className="text-gray fw-medium"> {role} </div>
+            </h2>
 
           </div>
-        }
+
+          <div className="divider transition-elem delay-1 my-3"></div>
+
+          <div className="transition-elem delay-1 my-5 padx-xs">
+            <article dangerouslySetInnerHTML={{ __html: body }} />
+          </div>
+
+          {
+            skills &&
+            <div className={`transition-elem delay-2 ${styles.subcontent}`}>
+              <h5 className={`text-primary`}>
+                Færdigheder brugt
+              </h5>
+
+              {
+                skills.map(skill => <div className="chip mr-4 mt-4" key={'skill_' + skill.name}>
+                  <img src={skill.img} className="avatar" />
+                  {skill.name}
+                </div>)
+              }
+
+            </div>
+          }
+        </div>
+
       </div>
     </>
   )

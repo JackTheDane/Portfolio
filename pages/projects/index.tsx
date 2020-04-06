@@ -24,7 +24,7 @@ const Projects = ({
 
       <div className="divider transition-elem delay-0"></div>
 
-      <div className={`${styles.columns} columns`}>
+      <div className={`${styles.projectsWrapper} columns`}>
 
         {projects.map(
           ({
@@ -35,30 +35,17 @@ const Projects = ({
             url
           }): JSX.Element => (
               <div key={slug} className={`column col-6 col-md-12 ${styles.column}`}>
-                <div className="card">
-                  <div className={styles.imageWrapper}>
-                    <div className={styles.image} style={{ backgroundImage: `url(${images[0]})` }} />
-                  </div>
-
-                  <div className={`card-header ${styles.cardHeader}`}>
-                    <div className="card-title h4 text-primary"> {title} <div className={`text-gray fw-medium ${styles.cardRoles}`}>{role}</div> </div>
-                  </div>
-
-                  <div className={`card-footer ${styles.cardFooter}`}>
-                    <div className="btn-group btn-group-block">
-                      <Link href={`/projects/[slug]`} as={'/projects/' + slug}>
-                        <a
-                          className="btn btn-primary btn-lg"
-                        >
-                          Vis projekt
-                      </a>
-                      </Link>
-
-                      {url && <a href={url} target='_blank' rel='noopener' className="btn btn-icon-right btn-lg">Besøg side<i className="icon icon-link" /></a>}
+                <Link href={`/projects/[slug]`} as={'/projects/' + slug}>
+                  <a className={`card ${styles.projectCard}`} href={url}>
+                    <div className={styles.imageWrapper}>
+                      <div className={styles.image} style={{ backgroundImage: `url(${images[0]})` }} />
                     </div>
-                  </div>
-                </div>
 
+                    <div className={`card-header ${styles.cardHeader}`}>
+                      <div className="card-title h4 text-primary"> {title} <div className={`text-gray fw-medium ${styles.cardRoles}`}>{role}</div> </div>
+                    </div>
+                  </a>
+                </Link>
               </div>
             )
         )}
