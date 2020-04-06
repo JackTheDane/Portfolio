@@ -13,9 +13,8 @@ const Contact = ({ }: ContactProps) => {
 
   // const sendEmail
 
-
   return (
-    <div className={`content-page`}>
+    <div className="content-page">
 
       <h1 className="transition-elem delay-0 text-primary">
         Kontakt mig
@@ -23,7 +22,7 @@ const Contact = ({ }: ContactProps) => {
 
       <div className="divider transition-elem delay-0"></div>
 
-      <div className={`my-5 transition-elem delay-1 ${styles['contact__form']}`}>
+      <div className={`my-5 transition-elem delay-1`}>
         <form method="POST" action="https://formspree.io/martin@mbpmedia.com">
           <div className="form-group columns">
             <div className="column col-6 col-xs-12">
@@ -34,8 +33,6 @@ const Contact = ({ }: ContactProps) => {
                 id="input-name"
                 name="name"
                 placeholder="Dit navn"
-              // value={this.state.name}
-              // onChange={this.handleChange}
               />
             </div>
 
@@ -48,8 +45,6 @@ const Contact = ({ }: ContactProps) => {
                 id="input-email"
                 name="email"
                 placeholder="Din email addresse"
-              // value={this.state.email}
-              // onChange={this.handleChange}
               />
             </div>
           </div>
@@ -62,13 +57,11 @@ const Contact = ({ }: ContactProps) => {
               name="message"
               rows={5}
               placeholder="Skriv en besked til mig her"
-            // value={this.state.message}
-            // onChange={this.handleChange}
             />
           </div>
 
           <div className="form-group">
-            <button type="submit" className={`btn btn-primary btn-icon-right my-2 mr-3 btn-lg}`}>Send <i className="icon icon-message"></i> </button>
+            <button type="submit" className="btn btn-primary btn-icon-right my-2 mr-3 btn-lg">Send <i className="icon icon-message" /></button>
             <small>
               Sendt via FormSpree.io
             </small>
@@ -80,7 +73,7 @@ const Contact = ({ }: ContactProps) => {
       <div className="divider transition-elem delay-2 my-5"></div>
 
       <div>
-        <div className={`transition-elem delay-3 ${styles['contact__subcontent']}`}>
+        <div className={`transition-elem delay-3 ${styles.subcontent}`}>
           <h3 className='text-primary'>
             Email
           </h3>
