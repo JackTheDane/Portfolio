@@ -21,7 +21,9 @@ export const Carousel = ({
     getSwiper: getGallerySwiper,
     containerClass: `swiper-container ${styles.carousel} ${className}`,
     spaceBetween: 10,
-    navigation: { // TODO: Render better nav buttons
+    renderPrevButton: () => <button className={`${styles.navigationButton} ${styles.navigationButtonLeft}`}> <i className="icon icon-arrow-left" /> </button>,
+    renderNextButton: () => <button className={`${styles.navigationButton} ${styles.navigationButtonRight}`}> <i className="icon icon-arrow-right" /> </button>,
+    navigation: {
       nextEl: `.${styles.navigationButton}.${styles.navigationButtonRight}`,
       prevEl: `.${styles.navigationButton}.${styles.navigationButtonLeft}`,
     }
@@ -30,27 +32,11 @@ export const Carousel = ({
     getSwiper: getThumbnailSwiper,
     spaceBetween: 10,
     centeredSlides: true,
-    slidesPerView: 5,
+    slidesPerView: 6,
     touchRatio: 0.75,
     slideToClickedSlide: true,
     slideActiveClass: styles.selected
   };
-
-
-  // const params: IExtendedSwiperOptions = {
-  //   loop: true,
-
-  //   pagination: {
-  //     el: '.swiper-pagination',
-  //     clickable: true,
-  //     bulletActiveClass: styles.slideIndexButtonActive,
-  //     renderBullet: (idx: number, clsName: string) => `
-  //         <button
-  //           class="${styles.slideIndexButton} ${clsName || ''}"}
-  //         </button>
-  //       `
-  //   }
-  // }
 
   useEffect(() => {
     if (

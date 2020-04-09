@@ -2,6 +2,7 @@
 
 .carousel {
   width: 100%;
+  background-color: $dark-color;
 
   .image {
     width: 100%;
@@ -15,8 +16,8 @@
   }
 
   .thumbnailWrapper {
+    background: radial-gradient(ellipse, $gray-color-dark, $dark-color);
     padding: 5px;
-    background-color: $primary-color;
   }
 
   .slidePreview {
@@ -25,7 +26,8 @@
     background-position: center center;
     background-size: cover;
     width: 100%;
-    height: 80px;
+    margin: auto;
+    padding-top: 50%;
     cursor: pointer;
 
     transition: opacity 0.2s;
@@ -44,6 +46,7 @@
 
   .navigationButton {
     background-color: transparent !important;
+    cursor: pointer;
 
     color: $bg-color-light;
     border: none;
@@ -96,6 +99,10 @@
       outline: none;
       outline-style: none;
       box-shadow: none;
+    }
+
+    &:global(.swiper-button-disabled) {
+      display: none;
     }
   }
 }

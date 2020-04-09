@@ -46,12 +46,12 @@ const ProjectPage = ({
             <Link href='/projects'>
               <a className="btn btn-link btn-lg pl-0 btn-icon-left transition-elem delay-0">
                 <i className="icon icon-back"></i>
-              Andre projekter
+              Other projects
             </a>
             </Link>
             {url
               && <a href={url} target='_blank' rel='noopener' className="btn btn-primary btn-icon-right btn-lg transition-elem delay-0">
-                Besøg side
+                Live website
               <i className="icon icon-link" />
               </a>
             }
@@ -67,7 +67,7 @@ const ProjectPage = ({
             skills &&
             <div className={`transition-elem delay-2 ${styles.subcontent}`}>
               <h5 className={`text-primary`}>
-                Færdigheder brugt
+                Skills
               </h5>
 
               {
