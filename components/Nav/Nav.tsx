@@ -7,7 +7,7 @@ import Link, { LinkProps } from 'next/link';
 
 import { IMenuItem } from '../../models/interfaces/IMenuItem';
 import { useWindowWidth } from '../../hooks/useWindowWidth';
-import { useRouter } from 'next/dist/client/router';
+import { useRouter } from 'next/router';
 
 interface NavLinkProps extends React.DetailedHTMLProps<React.AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement> {
   exact?: boolean;
@@ -34,7 +34,7 @@ const NavLink = ({
 
   let aTagClassName: string = className || '';
 
-  if (router && activeClassName && (
+  if (activeClassName && (
     !exact
       ? router.pathname.indexOf(linkAs || href) === 0
       : router.pathname.replace(linkAs || href, '') === ''

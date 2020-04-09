@@ -21,9 +21,9 @@ export const Carousel = ({
     getSwiper: getGallerySwiper,
     containerClass: `swiper-container ${styles.carousel} ${className}`,
     spaceBetween: 10,
-    navigation: {
-      nextEl: styles.navigationButtonRight,
-      prevEl: styles.navigationButtonLeft,
+    navigation: { // TODO: Render better nav buttons
+      nextEl: `.${styles.navigationButton}.${styles.navigationButtonRight}`,
+      prevEl: `.${styles.navigationButton}.${styles.navigationButtonLeft}`,
     }
   };
   const thumbnailSwiperParams: IExtendedSwiperOptions = {
@@ -89,7 +89,7 @@ export const Carousel = ({
 
 
   return (
-    <div className={`${styles.carousel} my-4`}>
+    <div className={`${styles.carousel} mb-4`}>
       <Swiper {...gallerySwiperParams} children={slides} />
       <div className={styles.thumbnailWrapper}>
         <Swiper {...thumbnailSwiperParams} children={slidePreview} />

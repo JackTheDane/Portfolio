@@ -31,21 +31,6 @@ const ProjectPage = ({
         </title>
       </Head>
       <div className={`${styles.project}`}>
-        <div className="px-5 my-4" style={{ display: 'flex', justifyContent: 'space-between' }}>
-          <Link href='/projects'>
-            <a className="btn btn-link btn-lg pl-0 btn-icon-left transition-elem delay-0">
-              <i className="icon icon-back"></i>
-              Andre projekter
-            </a>
-          </Link>
-          {url
-            && <a href={url} target='_blank' rel='noopener' className="btn btn-primary btn-icon-right btn-lg transition-elem delay-0">
-              Besøg side
-              <i className="icon icon-link" />
-            </a>
-          }
-        </div>
-
         <Carousel className={"transition-elem delay-0"} images={images} />
 
         <div className="px-5 py-1">
@@ -53,9 +38,23 @@ const ProjectPage = ({
           <div className="d-flex padx-xs mt-3" style={{ justifyContent: 'space-between', alignItems: 'flex-start' }}>
             <h2 className={`text-primary mb-2 transition-elem delay-1 ${styles.title}`}>
               {title}
-              <div className="text-gray fw-medium"> {role} </div>
+              <div className="text-gray ml-3 fw-medium"> {role} </div>
             </h2>
+          </div>
 
+          <div className="my-4" style={{ display: 'flex' }}>
+            <Link href='/projects'>
+              <a className="btn btn-link btn-lg pl-0 btn-icon-left transition-elem delay-0">
+                <i className="icon icon-back"></i>
+              Andre projekter
+            </a>
+            </Link>
+            {url
+              && <a href={url} target='_blank' rel='noopener' className="btn btn-primary btn-icon-right btn-lg transition-elem delay-0">
+                Besøg side
+              <i className="icon icon-link" />
+              </a>
+            }
           </div>
 
           <div className="divider transition-elem delay-1 my-3"></div>
