@@ -14,7 +14,6 @@ const Contact = ({ }: ContactProps) => {
 
   // const sendEmail
 
-
   return (
     <>
       <Head>
@@ -24,7 +23,7 @@ const Contact = ({ }: ContactProps) => {
       <div className="content-page">
 
         <h1 className="transition-elem delay-0 text-primary">
-          Kontakt mig
+          Get in touch with me
         </h1>
 
         <div className="divider transition-elem delay-0"></div>
@@ -32,17 +31,6 @@ const Contact = ({ }: ContactProps) => {
         <div className="my-5 transition-elem delay-1">
           <form method="POST" action="https://formspree.io/martin@mbpmedia.com">
             <div className="form-group columns">
-              <div className="column col-6 col-xs-12">
-                <label className="form-label" htmlFor="input-name">Navn</label>
-                <input
-                  className="form-input"
-                  required type="text"
-                  id="input-name"
-                  name="name"
-                  placeholder="Dit navn"
-                />
-              </div>
-
               <div className="column col-6 col-xs-12">
                 <label className="form-label" htmlFor="input-email">Email</label>
                 <input
@@ -56,21 +44,33 @@ const Contact = ({ }: ContactProps) => {
               </div>
             </div>
 
-            <div className="form-group">
-              <label className="form-label" htmlFor="input-besked">Besked</label>
-              <textarea
+            <div className="column col-6 col-xs-12">
+              <label className="form-label" htmlFor="input-name">Name</label>
+              <input
                 className="form-input"
-                required id="input-besked"
-                name="message"
-                rows={5}
-                placeholder="Skriv en besked til mig her"
+                type="text"
+                id="input-name"
+                name="name"
+                placeholder="Your name (Optional)"
               />
             </div>
 
             <div className="form-group">
-              <button type="submit" className={`btn btn-primary btn-icon-right my-2 mr-3 btn-lg}`}>Send <i className="icon icon-message"></i> </button>
+              <label className="form-label" htmlFor="input-besked">Message body</label>
+              <textarea
+                className="form-input"
+                required
+                id="input-msg"
+                name="message"
+                rows={5}
+                placeholder="Write your message here"
+              />
+            </div>
+
+            <div className="form-group">
+              <button type="submit" className={`btn btn-primary btn-icon-right my-2 mr-3 btn-lg}`}>Send <i className="icon icon-message"/></button>
               <small>
-                Sendt via FormSpree.io
+                Sent via FormSpree.io
               </small>
             </div>
           </form>
