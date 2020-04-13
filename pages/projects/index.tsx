@@ -6,7 +6,7 @@ import { GetStaticProps } from 'next';
 import fs from 'fs';
 import matter from 'gray-matter';
 import path from 'path';
-import { getSkillObjectsFromArray } from '../../utils/getSkillObjectsFromArray';
+import { getSkillObjectsFromArray } from '../../utils/skills/getSkillObjectsFromArray';
 
 export interface ProjectsProps {
   projects: IProject[];

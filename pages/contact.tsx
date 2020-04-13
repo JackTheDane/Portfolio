@@ -39,21 +39,23 @@ const Contact = ({ }: ContactProps) => {
                   type="email"
                   id="input-email"
                   name="email"
-                  placeholder="Din email addresse"
+                  placeholder="Your email address"
                 />
               </div>
+
+              <div className="column col-6 col-xs-12">
+                <label className="form-label" htmlFor="input-name">Name (Optional)</label>
+                <input
+                  className="form-input"
+                  type="text"
+                  id="input-name"
+                  name="name"
+                  // placeholder="Your name (Optional)"
+                />
+              </div>
+
             </div>
 
-            <div className="column col-6 col-xs-12">
-              <label className="form-label" htmlFor="input-name">Name</label>
-              <input
-                className="form-input"
-                type="text"
-                id="input-name"
-                name="name"
-                placeholder="Your name (Optional)"
-              />
-            </div>
 
             <div className="form-group">
               <label className="form-label" htmlFor="input-besked">Message body</label>
@@ -68,7 +70,7 @@ const Contact = ({ }: ContactProps) => {
             </div>
 
             <div className="form-group">
-              <button type="submit" className={`btn btn-primary btn-icon-right my-2 mr-3 btn-lg}`}>Send <i className="icon icon-message"/></button>
+              <button type="submit" className={`btn btn-primary btn-icon-right my-2 mr-3 btn-lg}`}>Send <i className="icon icon-message" /></button>
               <small>
                 Sent via FormSpree.io
               </small>

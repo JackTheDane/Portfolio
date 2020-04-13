@@ -6,7 +6,7 @@ import Head from 'next/head';
 import marked from 'marked';
 import { IProject } from '../../models/interfaces/IProject';
 import { GetStaticProps } from 'next';
-import { getSkillObjectsFromArray } from '../../utils/getSkillObjectsFromArray';
+import { getSkillObjectsFromArray } from '../../utils/skills/getSkillObjectsFromArray';
 import styles from './project.module.scss';
 import { Carousel } from '../../components/reusables/Carousel/Carousel';
 import Link from 'next/link';
