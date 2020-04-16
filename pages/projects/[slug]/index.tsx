@@ -4,11 +4,11 @@ import path from 'path';
 import matter from 'gray-matter';
 import Head from 'next/head';
 import marked from 'marked';
-import { IProject } from '../../models/interfaces/IProject';
+import { IProject } from '../../../models/interfaces/IProject';
 import { GetStaticProps } from 'next';
-import { getSkillObjectsFromArray } from '../../utils/skills/getSkillObjectsFromArray';
+import { getSkillObjectsFromArray } from '../../../utils/skills/getSkillObjectsFromArray';
 import styles from './project.module.scss';
-import { Carousel } from '../../components/reusables/Carousel/Carousel';
+import { Carousel } from '../../../components/reusables/Carousel/Carousel';
 import Link from 'next/link';
 
 interface ProjectPageProps extends Omit<IProject, 'slug'> {
@@ -31,30 +31,64 @@ const ProjectPage = ({
         </title>
       </Head>
       <div className={`${styles.project}`}>
-        <Carousel className={"transition-elem delay-0"} images={images} />
+
+        <div style={{ position: 'relative' }}>
+          <Carousel images={images} />
+          <Link href='/projects'>
+            <a className={styles.backButton}>
+              <i className="icon icon-back mr-2" />
+              <span>
+                Other projects
+              </span>
+            </a>
+          </Link>
+        </div>
+
 
         <div className="px-5 py-1">
 
-          <div className="d-flex padx-xs mt-3" style={{ justifyContent: 'space-between', alignItems: 'flex-start' }}>
-            <h2 className={`text-primary mb-2 transition-elem delay-1 ${styles.title}`}>
-              {title}
-              <div className="text-gray ml-3 fw-medium"> {role} </div>
-            </h2>
-          </div>
+          <div className="padx-xs mt-3">
 
-          <div className="my-4" style={{ display: 'flex' }}>
-            <Link href='/projects'>
-              <a className="btn btn-link btn-lg pl-0 btn-icon-left transition-elem delay-0">
-                <i className="icon icon-back"></i>
-              Other projects
-            </a>
-            </Link>
-            {url
-              && <a href={url} target='_blank' rel='noopener' className="btn btn-primary btn-icon-right btn-lg transition-elem delay-0">
-                Live website
-              <i className="icon icon-link" />
-              </a>
-            }
+            <div className="d-flex" style={{ alignItems: 'center' }}>
+              <h2 className={`text-primary mb-2 transition-elem delay-1 ${styles.title}`}>
+                {title}
+              </h2>
+
+              {url
+                && (
+                  <a
+                    href={url}
+                    title="View live site"
+                    target='_blank'
+                    rel='noopener'
+                    className={`btn btn-primary ml-3 ${styles.siteLinkButton}`}
+                  >
+                    <i className="icon icon-link" />
+                  </a>
+                )
+              }
+            </div>
+
+            <div className="d-flex" style={{ alignItems: 'center' }}>
+              <h3 className="text-gray fw-medium">{role}</h3>
+
+              <div className="mx-3">
+                {
+                  skills &&
+                  <div>
+                    {
+                      skills.map(skill => <div className="chip mr-2 mb-2" key={'skill_' + skill.name} style={{ fontSize: '.7rem' }}>
+                        {/* <img src={skill.img} className="avatar avatar-sm" /> */}
+                        {skill.name}
+                      </div>)
+                    }
+
+                  </div>
+                }
+              </div>
+
+            </div>
+
           </div>
 
           <div className="divider transition-elem delay-1 my-3"></div>
@@ -62,23 +96,6 @@ const ProjectPage = ({
           <div className="transition-elem delay-1 my-5 padx-xs">
             <article dangerouslySetInnerHTML={{ __html: body }} />
           </div>
-
-          {
-            skills &&
-            <div className={`transition-elem delay-2 ${styles.subcontent}`}>
-              <h5 className={`text-primary`}>
-                Skills
-              </h5>
-
-              {
-                skills.map(skill => <div className="chip mr-4 mt-4" key={'skill_' + skill.name}>
-                  <img src={skill.img} className="avatar" />
-                  {skill.name}
-                </div>)
-              }
-
-            </div>
-          }
         </div>
 
       </div>

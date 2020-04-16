@@ -3,54 +3,11 @@ import styles from './Nav.module.scss';
 // import LogoAndText from '../../images/mainLogo-white.png';
 // import Logo from '../../images/mainLogoOnly-white.png';
 
-import Link, { LinkProps } from 'next/link';
+import Link from 'next/link';
 
-import { IMenuItem } from '../../models/interfaces/IMenuItem';
-import { useWindowWidth } from '../../hooks/useWindowWidth';
-import { useRouter } from 'next/router';
-
-interface NavLinkProps extends React.DetailedHTMLProps<React.AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement> {
-  exact?: boolean;
-  activeClassName?: string;
-  as?: string;
-}
-
-
-const NavLink = ({
-  href,
-  exact,
-  as: linkAs,
-  activeClassName,
-  className,
-  ...aTagProps
-}: NavLinkProps): JSX.Element => {
-
-  const router = useRouter();
-
-  const linkProps: LinkProps = {
-    href,
-    as: linkAs
-  };
-
-  let aTagClassName: string = className || '';
-
-  if (activeClassName && (
-    !exact
-      ? router.pathname.indexOf(linkAs || href) === 0
-      : router.pathname.replace(linkAs || href, '') === ''
-  )) {
-    aTagClassName += ' ' + activeClassName;
-  }
-
-  return (
-    <Link {...linkProps} >
-      <a
-        {...aTagProps}
-        className={aTagClassName}
-      />
-    </Link>
-  )
-}
+import { IMenuItem } from '../../../../models/interfaces/IMenuItem';
+import { useWindowWidth } from '../../../../hooks/useWindowWidth';
+import { NavLink } from '../NavLink';
 
 
 const menuItems: IMenuItem[] = [

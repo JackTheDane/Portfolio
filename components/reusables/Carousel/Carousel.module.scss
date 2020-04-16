@@ -2,7 +2,7 @@
 
 .carousel {
   width: 100%;
-  background-color: $dark-color;
+  background: radial-gradient(ellipse, $primary-color, $primary-color-dark);
 
   .image {
     width: 100%;
@@ -16,12 +16,11 @@
   }
 
   .thumbnailWrapper {
-    background: radial-gradient(ellipse, $gray-color-dark, $dark-color);
     padding: 5px;
   }
 
   .slidePreview {
-    opacity: 0.65;
+    opacity: 0.6;
 
     background-position: center center;
     background-size: cover;
@@ -33,9 +32,16 @@
     transition: opacity 0.2s;
 
     &:hover {
-      opacity: 1;
+      opacity: 1 !important;
     }
   }
+
+  // :global(.swiper-slide-next),
+  // :global(.swiper-slide-prev) {
+  //   .slidePreview {
+  //   opacity: .7;
+  //   }
+  // }
 
   .selected {
     .slidePreview {

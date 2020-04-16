@@ -7,6 +7,7 @@ import fs from 'fs';
 import matter from 'gray-matter';
 import path from 'path';
 import { getSkillObjectsFromArray } from '../../utils/skills/getSkillObjectsFromArray';
+import Head from 'next/head';
 
 export interface ProjectsProps {
   projects: IProject[];
@@ -16,42 +17,50 @@ const Projects = ({
   projects
 }: ProjectsProps) => {
   return (
-    <div className={`content-page ${styles.projects}`}>
+    <>
+      <Head>
+        <title>
+          Picked Projects - Martin Bøje Petersen
+        </title>
+      </Head>
 
-      <h2 className={`transition-elem delay-0 text-primary ${styles.title}`}>
-        Udvalgte Projekter
+      <div className={`content-page ${styles.projects}`}>
+
+        <h2 className={`transition-elem delay-0 text-primary ${styles.title}`}>
+          Picked projects
       </h2>
 
-      <div className="divider transition-elem delay-0"></div>
+        <div className="divider transition-elem delay-0"></div>
 
-      <div className={`${styles.projectsWrapper} columns`}>
+        <div className={`${styles.projectsWrapper} columns`}>
 
-        {projects.map(
-          ({
-            slug,
-            images,
-            title,
-            role,
-            url
-          }): JSX.Element => (
-              <div key={slug} className={`column col-6 col-md-12 ${styles.column}`}>
-                <Link href={`/projects/[slug]`} as={'/projects/' + slug}>
-                  <a className={`card ${styles.projectCard}`} href={url}>
-                    <div className={styles.imageWrapper}>
-                      <div className={styles.image} style={{ backgroundImage: `url(${images[0]})` }} />
-                    </div>
+          {projects.map(
+            ({
+              slug,
+              images,
+              title,
+              role,
+              url
+            }): JSX.Element => (
+                <div key={slug} className={`column col-6 col-md-12 ${styles.column}`}>
+                  <Link href={`/projects/[slug]`} as={'/projects/' + slug}>
+                    <a className={`card ${styles.projectCard}`} href={url}>
+                      <div className={styles.imageWrapper}>
+                        <div className={styles.image} style={{ backgroundImage: `url(${images[0]})` }} />
+                      </div>
 
-                    <div className={`card-header ${styles.cardHeader}`}>
-                      <div className="card-title h4 text-primary"> {title} <div className={`text-gray fw-medium ${styles.cardRoles}`}>{role}</div> </div>
-                    </div>
-                  </a>
-                </Link>
-              </div>
-            )
-        )}
+                      <div className={`card-header ${styles.cardHeader}`}>
+                        <div className="card-title h4 text-primary"> {title} <div className={`text-gray fw-medium ${styles.cardRoles}`}>{role}</div> </div>
+                      </div>
+                    </a>
+                  </Link>
+                </div>
+              )
+          )}
 
+        </div>
       </div>
-    </div>
+    </>
   )
 }
 

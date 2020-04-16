@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from './Contact.module.scss';
+import styles from './index.module.scss';
 import Head from 'next/head';
 // import { useForm } from 'react-hook-form';
 
@@ -50,7 +50,7 @@ const Contact = ({ }: ContactProps) => {
                   type="text"
                   id="input-name"
                   name="name"
-                  // placeholder="Your name (Optional)"
+                // placeholder="Your name (Optional)"
                 />
               </div>
 

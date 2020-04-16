@@ -1,0 +1,85 @@
+@import 'styling/spectre/variables';
+
+.backButton {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 10;
+
+
+  &,
+  &:hover {
+    text-decoration: none;
+  }
+
+  &,
+  &:visited,
+  &:active {
+    color: white;
+  }
+
+  span {
+    display: inline-block;
+  }
+
+  span,
+  i {
+    font-size: 1rem;
+    transition: transform .3s;
+  }
+
+  i {
+    vertical-align: -10%;
+  }
+
+  &:hover {
+    i {
+      transform: translateX(-5px);
+    }
+
+    span {
+      transform: translateX(2px);
+    }
+  }
+}
+
+.siteLinkButton {
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+}
+
+.subcontent {
+  padding-left: 15px;
+  margin-bottom: 20px;
+  margin-top: 30px;
+}
+
+.title {
+  & > div {
+    font-size: .75em;
+  }
+}
+
+@media (max-width: 599px) {
+  .project {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+@media (min-width: 600px) {
+  .title {
+    & > div {
+      margin-left: 5px;
+      display: inline-block;
+    }
+  }
+
+  .subcontent {
+    border-left: 3px solid $secondary-color-dark;
+    padding-bottom: 10px;
+  }
+}

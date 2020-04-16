@@ -20,7 +20,7 @@ export const Carousel = ({
   const gallerySwiperParams: IExtendedSwiperOptions = {
     getSwiper: getGallerySwiper,
     containerClass: `swiper-container ${styles.carousel} ${className}`,
-    spaceBetween: 10,
+    spaceBetween: 0,
     renderPrevButton: () => <button className={`${styles.navigationButton} ${styles.navigationButtonLeft}`}> <i className="icon icon-arrow-left" /> </button>,
     renderNextButton: () => <button className={`${styles.navigationButton} ${styles.navigationButtonRight}`}> <i className="icon icon-arrow-right" /> </button>,
     navigation: {
@@ -75,7 +75,7 @@ export const Carousel = ({
 
 
   return (
-    <div className={`${styles.carousel} mb-4`}>
+    <div className={styles.carousel}>
       <Swiper {...gallerySwiperParams} children={slides} />
       <div className={styles.thumbnailWrapper}>
         <Swiper {...thumbnailSwiperParams} children={slidePreview} />
