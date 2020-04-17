@@ -1,19 +1,21 @@
 import '../styling/global.scss';
 import styles from './_app.module.scss';
 import { AppProps } from 'next/app';
-import Nav from '../components/Nav/Nav';
+import Nav from '../components/domains/Navigation/Nav';
 import 'swiper/css/swiper.min.css';
+import Head from 'next/head';
 
 const AppCustomized = ({ Component, pageProps }: AppProps) => {
   return (
     <div className={styles.app} style={{ backgroundImage: 'url(/images/bg-1920.jpg)' }}>
-      {/* <div className={styles['app__sidebar']}> */}
-
+      <Head>
+        <title>
+          Martin Bøje Petersen
+        </title>
+      </Head>
       <Nav />
 
-      {/* </div> */}
-
-      <div className={styles['app__content']}>
+      <div className={styles.content}>
         <Component {...pageProps} />
       </div>
     </div>

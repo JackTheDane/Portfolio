@@ -4,33 +4,21 @@
   height: 100%;
   width: 100%;
   display: flex;
-  overflow: hidden;
-  background-color: $primary-color;
+  background-color: $primary-color-dark;
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
+  overflow: hidden;
 
   background-blend-mode: multiply;
 
   position: relative;
 
-  &__sidebar {
-    // display: none;
-    position: fixed;
-    z-index: 1000;
-    height: 100%;
-    width: 100%;
-    max-height: 60px;
-
-    background-color: $primary-color;
-  }
-
-  &__content {
+  .content {
     margin-left: auto;
     margin-right: auto;
     background-color: $bg-color-light;
-    position: relative;
-    overflow: hidden;
+    overflow: auto;
 
     max-width: 900px;
 
@@ -59,14 +47,7 @@
 
 @media (min-width: 1200px) {
   .app {
-
-    &__sidebar {
-      flex: 0 1 560px;
-      overflow-x: hidden;
-      display: block;
-    }
-
-    &__content {
+    .content {
       max-width: 1200px;
     }
   }

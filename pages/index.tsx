@@ -3,16 +3,16 @@ import Link from 'next/link';
 
 const About = () => {
   return (
-    <div className={`content-page ${styles.about}`}>
-      <div className={styles["about__profile"]}>
+    <div className={`content-page content ${styles.about}`}>
+      <div className={styles.profile}>
 
         <div className="transition-elem delay-0">
-          <div className={styles['about__profileImageWrapper']}>
-            <img className={styles['about__profileImage']} src="/images/profile.jpg" alt="Martin Bøje Petersen" />
+          <div className={styles.profileImageWrapper}>
+            <img className={styles.profileImage} src="/images/profile.jpg" alt="Martin Bøje Petersen" />
           </div>
         </div>
 
-        <div className={`transition-elem delay-0 ${styles["about__profileTitleText"]}`}>
+        <div className={`transition-elem delay-0 ${styles.profileTitleText}`}>
           <h1 className="mb-2 text-primary">
             Martin Bøje Petersen
             </h1>
@@ -22,10 +22,10 @@ const About = () => {
         </div>
       </div>
 
-      <div className={styles["about__content"]}>
+      <div className={styles.content}>
 
-        <div className={`transition-elem delay-1 ${styles["about__subcontent"]}`}>
-          <h4 className={`${styles["about__subcontentTitle"]} text-primary`}>
+        <div className={`transition-elem delay-1 ${styles.subcontent}`}>
+          <h4 className={`${styles.subcontentTitle} text-primary`}>
             Front-end udvikler med kompetencer for backend & design
             </h4>
           <p className="mb-0">

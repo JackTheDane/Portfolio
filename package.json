@@ -23,16 +23,17 @@
     "@types/marked": "^0.7.3",
     "@types/node": "^13.9.5",
     "@types/react": "^16.9.27",
+    "@types/swiper": "^5.2.1",
     "typescript": "^3.8.3"
   },
   "dependencies": {
     "gray-matter": "^4.0.2",
-    "marked": "^0.8.2",
     "next": "^9.3.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-hook-form": "^5.2.0",
     "react-id-swiper": "^3.0.0",
+    "react-markdown": "^4.3.1",
     "sass": "^1.26.3",
     "swiper": "^5.3.6"
   }

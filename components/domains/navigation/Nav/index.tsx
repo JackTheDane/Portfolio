@@ -1,73 +1,30 @@
-import React, { Component, useState } from 'react';
-import styles from './Nav.module.scss';
+import React, { useState } from 'react';
+import styles from './index.module.scss';
 // import LogoAndText from '../../images/mainLogo-white.png';
 // import Logo from '../../images/mainLogoOnly-white.png';
 
-import Link, { LinkProps } from 'next/link';
+import Link from 'next/link';
 
-import { IMenuItem } from '../../models/interfaces/IMenuItem';
-import { useWindowWidth } from '../../hooks/useWindowWidth';
-import { useRouter } from 'next/dist/client/router';
-
-interface NavLinkProps extends React.DetailedHTMLProps<React.AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement> {
-  exact?: boolean;
-  activeClassName?: string;
-  as?: string;
-}
-
-
-const NavLink = ({
-  href,
-  exact,
-  as: linkAs,
-  activeClassName,
-  className,
-  ...aTagProps
-}: NavLinkProps): JSX.Element => {
-
-  const router = useRouter();
-
-  const linkProps: LinkProps = {
-    href,
-    as: linkAs
-  };
-
-  let aTagClassName: string = className || '';
-
-  if (router && activeClassName && (
-    !exact
-      ? router.pathname.indexOf(linkAs || href) === 0
-      : router.pathname.replace(linkAs || href, '') === ''
-  )) {
-    aTagClassName += ' ' + activeClassName;
-  }
-
-  return (
-    <Link {...linkProps} >
-      <a
-        {...aTagProps}
-        className={aTagClassName}
-      />
-    </Link>
-  )
-}
+import { IMenuItem } from '../../../../models/interfaces/IMenuItem';
+import { useWindowWidth } from '../../../../hooks/useWindowWidth';
+import { NavLink } from '../NavLink';
 
 
 const menuItems: IMenuItem[] = [
   {
-    title: 'Om mig',
+    title: 'About me',
     url: '',
     icon: 'people',
     isExact: true
   },
   {
-    title: 'Udvalgte Projekter',
+    title: 'Picked projects',
     url: 'projects',
     icon: 'bookmark',
     isExact: false
   },
   {
-    title: 'Kontakt',
+    title: 'Contact',
     url: 'contact',
     icon: 'message',
     isExact: true
@@ -87,28 +44,26 @@ const Nav = () => {
   let menuClass: string = '';
 
   if (isInMobileView && isMobileMenuOpen) {
-    navClass = styles['nav--shown'];
-    menuClass = styles['menu--shown'];
+    navClass = styles.navShown;
+    menuClass = styles.menuShown;
   }
 
   const closeMobileMenu = () => setIsMobileMenuOpen(false);
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
-
-
 
   return (
     <nav className={`${styles.nav} ${navClass}`}>
       {
         !isInMobileView ? (
           <Link href="/">
-            <a onClick={closeMobileMenu} className={styles['nav__logo']} >
+            <a onClick={closeMobileMenu} className={styles.logo} >
               <img src="/images/mainLogo-white.png" className="img-fit-contain" alt="MBP Media" />
             </a>
           </Link>
         ) : (
-            <div className={styles['nav__mobileMenu']}>
+            <div className={styles.mobileMenu}>
               <Link href="/">
-                <a className={styles['nav__logo--mobile']} >
+                <a className={styles.logoMobile} >
                   <img src="/images/mainLogoOnly-white.png" className="img-fit-contain" alt="MBP Media" />
                 </a>
               </Link>
@@ -121,31 +76,18 @@ const Nav = () => {
       }
 
       <ul
-        className={`${styles['menu']} ${menuClass}`}
+        className={`${styles.menu} ${menuClass}`}
       >
         {
           menuItems.map((item, i: number) => {
             return (
-              <span key={'navItem_' + i} className={styles['menu__item-wrapper']} >
-                <NavLink onClick={closeMobileMenu} exact={item.isExact} activeClassName={styles['menu__item--selected']} href={`/${item.url}`} className={styles['menu__item']}>
+              <span key={'navItem_' + i} className={styles.itemWrapper} >
+                <NavLink onClick={closeMobileMenu} exact={item.isExact} activeClassName={styles.selected} href={`/${item.url}`} className={styles.menuItem}>
                   <li>
-                    {item.icon && <i className={`icon icon-${item.icon} ${styles['menu__item-icon']}`} />}
+                    {item.icon && <i className={`icon icon-${item.icon} ${styles.itemIcon}`} />}
                     {item.title}
                   </li>
                 </NavLink>
-
-                {/* {item.subItems && (
-                  <ul className={styles['menu__subitem-list']}>
-                    {item.subItems.map((item, i: number) => (
-                      <NavLink key={'subItem_' + i} onClick={closeMobileMenu} className={styles['menu__subitem']} activeClassName={styles['menu__subitem--selected']} to={`/projekter/${item.url}`} >
-                        <li>
-                          {item.title}
-                        </li>
-                      </NavLink>
-                    ))}
-                  </ul>
-
-                )} */}
               </span>
             )
           })

@@ -1,0 +1,131 @@
+@import "styling/spectre/variables";
+
+.carousel {
+  width: 100%;
+  background-color: $primary-color-dark;
+
+  .image {
+    width: 100%;
+    padding-top: 56.25%;
+
+    transition: opacity 0.2s ease-in-out;
+
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .thumbnailWrapper {
+    padding: 5px;
+  }
+
+  .slidePreview {
+    opacity: 0.6;
+
+    background-position: center center;
+    background-size: cover;
+    width: 100%;
+    margin: auto;
+    padding-top: 50%;
+    cursor: pointer;
+
+    transform: scale(.92);
+
+    transition: all 0.2s;
+
+    &:hover {
+      opacity: 1 !important;
+    }
+  }
+
+  .selected {
+    .slidePreview {
+    transform: scale(1);
+      cursor: initial;
+      opacity: 1;
+    }
+  }
+
+  .navigationButton {
+    background-color: transparent !important;
+    cursor: pointer;
+
+    color: $bg-color-light;
+    border: none;
+
+    position: absolute;
+    top: 0;
+
+    height: 100%;
+    width: 56px;
+    font-size: 20px;
+    z-index: 5;
+
+    &::before {
+      content: "";
+      height: 100%;
+      width: 100%;
+
+      position: absolute;
+      top: 0;
+      bottom: 0;
+
+      opacity: 0.5;
+    }
+
+    &,
+    &::before {
+      transition: opacity 0.1s;
+    }
+
+    &.navigationButtonLeft {
+      &,
+      &::before {
+        left: 0;
+      }
+
+      &::before {
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), transparent);
+      }
+    }
+
+    &.navigationButtonRight {
+      &,
+      &::before {
+        right: 0;
+      }
+
+      &::before {
+        background-image: linear-gradient(to left, rgba(0, 0, 0, 0.5), transparent);
+      }
+    }
+
+    &:active,
+    &:focus {
+      outline: none;
+      outline-style: none;
+      box-shadow: none;
+    }
+
+    &:global(.swiper-button-disabled) {
+      pointer-events: none;
+      opacity: 0;
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .carousel {
+    .image {
+      padding-top: 40%;
+    }
+
+    &:hover {
+      .navigationButton {
+        &::before {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}

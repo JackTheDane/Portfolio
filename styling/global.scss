@@ -161,20 +161,19 @@ $translateAmount: 80px;
 }
 
 .content-page {
-  position: absolute;
   top: 0;
   left: 0;
   right: 0;
 
   height: 100%;
 
-  padding: 90px 25px 30px;
+  padding-top: 90px;
+  padding-bottom: 30px;
+}
 
-  // overflow-y: scroll;
-
-  // @media (min-width: 1200px) {
-  //   width: calc(100% + 17px);
-  // }
+.content {
+  padding-left: 25px;
+  padding-right: 25px;
 }
 
 @media (max-width: 599px) {
@@ -185,14 +184,16 @@ $translateAmount: 80px;
 }
 
 @media (min-width: 600px) {
-  .content-page {
-    padding: 90px 45px 30px;
+  .content {
+    padding-left: 45px;
+    padding-right: 45px;
   }
 }
 
 @media (min-width: 1200px) {
-  .content-page {
-    padding: 60px 100px;
+  .content {
+    padding-left: 60px;
+    padding-right: 60px;
   }
 
   .btn-icon-right {

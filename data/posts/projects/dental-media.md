@@ -2,7 +2,7 @@
 title: "Dental Media"
 role: "Front-end & Design"
 url: "http://dentalmedia.io/en/"
-skills: [ "wordpress", "php", "gulp", "sass", "javascript",  "html5", "css3" ]
+skills: [ "WordPress", "PHP", "Gulp", "Sass", "JavaScript", "CSS3" ]
 images: ['/images/projects/dentalmedia/forside.jpg','/images/projects/dentalmedia/header.jpg','/images/projects/dentalmedia/readmore.jpg','/images/projects/dentalmedia/steps.jpg']
 ---
 
