@@ -56,7 +56,7 @@ const ProjectPage = ({
         </div>
 
 
-        <div className="px-5 py-1">
+        <div className="px-5 py-1" style={{ display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
           <div className="padx-xs mt-3">
             <div className="d-flex" style={{ alignItems: 'center' }}>
               <h2 className={`text-primary mb-2 transition-elem delay-1 ${styles.title}`}>
@@ -97,38 +97,34 @@ const ProjectPage = ({
 
           <div className="divider transition-elem delay-1 my-3" />
 
-          <div className="transition-elem delay-1 my-5 padx-xs">
+          <div className="transition-elem delay-1 padx-xs">
             <MarkdownRenderer markdown={markdown} />
           </div>
 
           {
             paginationItems && (
-              <div>
-
-                <ul className="pagination">
-                  {paginationItems.prev && (
-                    <li className="page-item page-prev">
-                      <Link href="/projects/[slug]" as={`/projects/${paginationItems.prev.slug}`}>
-                        <a>
-                          <div className="page-item-subtitle">Previous</div>
-                          <div className="page-item-title h5">{paginationItems.prev.title}</div>
-                        </a>
-                      </Link>
-                    </li>
-                  )}
-                  {paginationItems.next && (
-                    <li className="page-item page-next">
-                      <Link href="/projects/[slug]" as={`/projects/${paginationItems.next.slug}`}>
-                        <a>
-                          <div className="page-item-subtitle">Next</div>
-                          <div className="page-item-title h5">{paginationItems.next.title}</div>
-                        </a>
-                      </Link>
-                    </li>
-                  )}
-                </ul>
-
-              </div>
+              <ul className="pagination" style={{ marginTop: 'auto' }}>
+                {paginationItems.prev && (
+                  <li className="page-item page-prev">
+                    <Link href="/projects/[slug]" as={`/projects/${paginationItems.prev.slug}`}>
+                      <a>
+                        <div className="page-item-subtitle">Previous</div>
+                        <div className="page-item-title h5">{paginationItems.prev.title}</div>
+                      </a>
+                    </Link>
+                  </li>
+                )}
+                {paginationItems.next && (
+                  <li className="page-item page-next">
+                    <Link href="/projects/[slug]" as={`/projects/${paginationItems.next.slug}`}>
+                      <a>
+                        <div className="page-item-subtitle">Next</div>
+                        <div className="page-item-title h5">{paginationItems.next.title}</div>
+                      </a>
+                    </Link>
+                  </li>
+                )}
+              </ul>
             )
           }
 

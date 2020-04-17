@@ -5,4 +5,5 @@ export interface IExtendedSwiperOptions extends SwiperOptions {
   renderPrevButton?: () => JSX.Element;
   renderNextButton?: () => JSX.Element;
   getSwiper: React.Dispatch<Swiper>;
+  shouldSwiperUpdate?: boolean;
 }

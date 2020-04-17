@@ -23,6 +23,7 @@ export const Carousel = ({
     spaceBetween: 0,
     slidesPerView: 1,
     preloadImages: false,
+    shouldSwiperUpdate: true,
     renderPrevButton: () => <button className={`${styles.navigationButton} ${styles.navigationButtonLeft}`}> <i className="icon icon-arrow-left" /> </button>,
     renderNextButton: () => <button className={`${styles.navigationButton} ${styles.navigationButtonRight}`}> <i className="icon icon-arrow-right" /> </button>,
     navigation: {
@@ -35,10 +36,12 @@ export const Carousel = ({
     spaceBetween: 5,
     centeredSlides: true,
     slidesPerView: 6,
+    shouldSwiperUpdate: true,
     touchRatio: 0.5,
     preloadImages: false,
     slideToClickedSlide: true,
-    slideActiveClass: styles.selected
+    slideActiveClass: styles.selected,
+
   };
 
   useEffect(() => {
