@@ -2,10 +2,10 @@
 
 .backButton {
   position: absolute;
-  top: 20px;
+  top: 15px;
   left: 20px;
   z-index: 10;
-
+  box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, .35);
 
   &,
   &:hover {
@@ -22,23 +22,21 @@
     display: inline-block;
   }
 
-  span,
+  // span,
   i {
-    font-size: 1rem;
-    transition: transform .3s;
+    font-size: .95rem;
   }
 
   i {
     vertical-align: -10%;
+    transition: transform .2s ease-out;
   }
 
   &:hover {
     i {
+      transition-duration: .3;
+      transition-timing-function: cubic-bezier(0.295, 0.555, 0.190, 2);
       transform: translateX(-5px);
-    }
-
-    span {
-      transform: translateX(2px);
     }
   }
 }

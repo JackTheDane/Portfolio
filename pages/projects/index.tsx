@@ -6,7 +6,6 @@ import { GetStaticProps } from 'next';
 import fs from 'fs';
 import matter from 'gray-matter';
 import path from 'path';
-import { getSkillObjectsFromArray } from '../../utils/skills/getSkillObjectsFromArray';
 import Head from 'next/head';
 
 export interface ProjectsProps {
@@ -26,38 +25,40 @@ const Projects = ({
 
       <div className={`content-page ${styles.projects}`}>
 
-        <h2 className={`transition-elem delay-0 text-primary ${styles.title}`}>
-          Picked projects
-      </h2>
+        <div className="content">
+          <h1 className={`text-primary ${styles.title}`}>
+            Picked projects
+          </h1>
+        </div>
 
-        <div className="divider transition-elem delay-0"></div>
+        <div className={`${styles.pageContent} content`}>
+          <div className={`${styles.projectsWrapper} columns`}>
 
-        <div className={`${styles.projectsWrapper} columns`}>
+            {projects.map(
+              ({
+                slug,
+                images,
+                title,
+                role,
+                url
+              }): JSX.Element => (
+                  <div key={slug} className={`column col-6 col-md-12 ${styles.column}`}>
+                    <Link href={`/projects/[slug]`} as={'/projects/' + slug}>
+                      <a className={`card ${styles.projectCard}`} href={url}>
+                        <div className={styles.imageWrapper}>
+                          <div className={styles.image} style={{ backgroundImage: `url(${images[0]})` }} />
+                        </div>
 
-          {projects.map(
-            ({
-              slug,
-              images,
-              title,
-              role,
-              url
-            }): JSX.Element => (
-                <div key={slug} className={`column col-6 col-md-12 ${styles.column}`}>
-                  <Link href={`/projects/[slug]`} as={'/projects/' + slug}>
-                    <a className={`card ${styles.projectCard}`} href={url}>
-                      <div className={styles.imageWrapper}>
-                        <div className={styles.image} style={{ backgroundImage: `url(${images[0]})` }} />
-                      </div>
+                        <div className={`card-header ${styles.cardHeader}`}>
+                          <div className="card-title h4 text-primary"> {title} <div className={`text-gray fw-medium ${styles.cardRoles}`}>{role}</div> </div>
+                        </div>
+                      </a>
+                    </Link>
+                  </div>
+                )
+            )}
 
-                      <div className={`card-header ${styles.cardHeader}`}>
-                        <div className="card-title h4 text-primary"> {title} <div className={`text-gray fw-medium ${styles.cardRoles}`}>{role}</div> </div>
-                      </div>
-                    </a>
-                  </Link>
-                </div>
-              )
-          )}
-
+          </div>
         </div>
       </div>
     </>
@@ -65,20 +66,21 @@ const Projects = ({
 }
 
 export const getStaticProps: GetStaticProps<ProjectsProps> = async () => {
+  const projectsFolder: string = 'data/posts/projects';
   // Get the content of the md file by checking for it using the file name + the .md extension
-  const postFileNames: string[] = fs.readdirSync('data/posts/projects');
+  const postFileNames: string[] = fs.readdirSync(projectsFolder);
 
   const projects: IProject[] = await Promise.all(postFileNames.map(
     (fn): Promise<IProject> => new Promise((res, rej) => {
 
-      fs.readFile(path.join('data/posts/projects', fn), (err, data) => {
+      fs.readFile(path.join(projectsFolder, fn), (err, data) => {
 
         if (err) {
           rej(err);
           return;
         }
 
-        const { data: { title, role, url, skills: skillNames, images } } = matter(data.toString());
+        const { data: { title, role, url, skills, images } } = matter(data.toString());
 
         res({
           title,
@@ -86,7 +88,7 @@ export const getStaticProps: GetStaticProps<ProjectsProps> = async () => {
           url,
           images,
           role,
-          skills: getSkillObjectsFromArray(skillNames)
+          skills
         });
       });
 

@@ -2,7 +2,7 @@
 title: "Hydr eSport"
 role: "Front-end"
 url: "http://www.hydr-esport.com/"
-skills: [ "wordpress", "php", "gulp", "sass", "javascript",  "html5", "css3" ]
+skills: [ "WordPress", "PHP", "Gulp", "Sass", "JavaScript", "CSS3" ]
 images: ['/images/projects/hydr/forside.jpg','/images/projects/hydr/medlemskab.jpg','/images/projects/hydr/side.jpg']
 ---
 

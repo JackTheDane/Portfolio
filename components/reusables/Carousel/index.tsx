@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import styles from './Carousel.module.scss';
+import styles from './index.module.scss';
 import Swiper from 'react-id-swiper';
 import { IExtendedSwiperOptions } from './IExtendedSwiperOptions';
 
@@ -19,8 +19,10 @@ export const Carousel = ({
 
   const gallerySwiperParams: IExtendedSwiperOptions = {
     getSwiper: getGallerySwiper,
-    containerClass: `swiper-container ${styles.carousel} ${className}`,
+    containerClass: `swiper-container ${styles.carousel} ${className || ''}`,
     spaceBetween: 0,
+    slidesPerView: 1,
+    preloadImages: false,
     renderPrevButton: () => <button className={`${styles.navigationButton} ${styles.navigationButtonLeft}`}> <i className="icon icon-arrow-left" /> </button>,
     renderNextButton: () => <button className={`${styles.navigationButton} ${styles.navigationButtonRight}`}> <i className="icon icon-arrow-right" /> </button>,
     navigation: {
@@ -30,10 +32,11 @@ export const Carousel = ({
   };
   const thumbnailSwiperParams: IExtendedSwiperOptions = {
     getSwiper: getThumbnailSwiper,
-    spaceBetween: 10,
+    spaceBetween: 5,
     centeredSlides: true,
     slidesPerView: 6,
-    touchRatio: 0.75,
+    touchRatio: 0.5,
+    preloadImages: false,
     slideToClickedSlide: true,
     slideActiveClass: styles.selected
   };
@@ -81,29 +84,5 @@ export const Carousel = ({
         <Swiper {...thumbnailSwiperParams} children={slidePreview} />
       </div>
     </div>
-
-
-
-    // <div>
-    //   <button onClick={() => { this.changeSlide(-1) }} className={`btn ${styles.navigationButton} ${styles.navigationButtonLeft}`}>
-    //     <i className="icon icon-arrow-left"></i>
-    //   </button>
-    //   <button onClick={() => { this.changeSlide(1) }} className={`btn ${styles.navigationButton} ${styles.navigationButtonRight}`}>
-    //     <i className="icon icon-arrow-right"></i>
-    //   </button>
-
-    //   <div className={styles.slideIndexButtonWrapper}>
-    //     {
-    //       images.map(
-    //         (image: string, idx: number) => <button
-    //           key={`btn-${idx}`}
-    //           className={`${styles.slideIndexButton} ${currentIndex == idx ? styles.slideIndexButtonActive : ''}`}
-    //           onClick={() => this.setCurrentIndex(idx)}>
-    //         </button>
-    //       )
-    //     }
-    //   </div>
-    // </div>
-
   );
 }

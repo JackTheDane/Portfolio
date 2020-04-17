@@ -20,7 +20,7 @@ const Contact = ({ }: ContactProps) => {
         <title>Contact - Martin Bøje Petersen</title>
       </Head>
 
-      <div className="content-page">
+      <div className="content-page content">
 
         <h1 className="transition-elem delay-0 text-primary">
           Get in touch with me

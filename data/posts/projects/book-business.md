@@ -2,7 +2,7 @@
 title: "Book Business"
 role: "Front-end & Design"
 url: "http://mbpmedia.com/bookbusiness/"
-skills: [ "bootstrap", "gulp", "sass", "javascript",  "html5", "css3" ]
+skills: [ "Bootstrap", "Gulp", "Sass", "JavaScript ES6+", "CSS3" ]
 images: ['/images/projects/bookbusiness/forside.jpg','/images/projects/bookbusiness/search.jpg']
 
 ---
@@ -10,3 +10,9 @@ images: ['/images/projects/bookbusiness/forside.jpg','/images/projects/bookbusin
 I efteråret 2017 blev en studiekammerat og jeg bedt om at udarbejde en prototype til en flybooking applikation i forbindelse med et skoleprojekt. Min hovedopgave i projektet var design og implementering af forsiden og søgebaren for prototypen.
 
 Prototypen er lavet gennem brug af CSS frameworket “Bootstrap” og almindelig JavaScript.
+
+```json
+  {
+    "abc": "kage"
+  }
+```

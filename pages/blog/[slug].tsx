@@ -3,10 +3,10 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import Head from 'next/head';
-import marked from 'marked';
+import { MarkdownRenderer } from '../../components/reusables/MarkdownRenderer';
 
 const Post = ({
-  htmlString,
+  markdown,
   data
 }) => {
   return (
@@ -17,7 +17,7 @@ const Post = ({
         </title>
       </Head>
       <div>
-        <article dangerouslySetInnerHTML={{ __html: htmlString }} />
+        <MarkdownRenderer markdown={markdown} />
       </div>
     </>
   )
@@ -54,12 +54,10 @@ export const getStaticProps = async ({ params: { slug } }) => {
 
   const { content, data } = matter(markdownWithMetadata);
 
-  const htmlString: string = marked(content);
-
   return {
     // Anything passed to the "props" object will be passed to the component as props.
     props: {
-      htmlString,
+      markdown: content,
       data
     }
   }

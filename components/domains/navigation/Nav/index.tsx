@@ -1,5 +1,5 @@
-import React, { Component, useState } from 'react';
-import styles from './Nav.module.scss';
+import React, { useState } from 'react';
+import styles from './index.module.scss';
 // import LogoAndText from '../../images/mainLogo-white.png';
 // import Logo from '../../images/mainLogoOnly-white.png';
 
@@ -12,19 +12,19 @@ import { NavLink } from '../NavLink';
 
 const menuItems: IMenuItem[] = [
   {
-    title: 'Om mig',
+    title: 'About me',
     url: '',
     icon: 'people',
     isExact: true
   },
   {
-    title: 'Udvalgte Projekter',
+    title: 'Picked projects',
     url: 'projects',
     icon: 'bookmark',
     isExact: false
   },
   {
-    title: 'Kontakt',
+    title: 'Contact',
     url: 'contact',
     icon: 'message',
     isExact: true

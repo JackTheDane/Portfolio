@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 const About = () => {
   return (
-    <div className={`content-page ${styles.about}`}>
+    <div className={`content-page content ${styles.about}`}>
       <div className={styles.profile}>
 
         <div className="transition-elem delay-0">

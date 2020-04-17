@@ -6,13 +6,23 @@ import Head from 'next/head';
 import marked from 'marked';
 import { IProject } from '../../../models/interfaces/IProject';
 import { GetStaticProps } from 'next';
-import { getSkillObjectsFromArray } from '../../../utils/skills/getSkillObjectsFromArray';
 import styles from './project.module.scss';
-import { Carousel } from '../../../components/reusables/Carousel/Carousel';
+import { Carousel } from '../../../components/reusables/Carousel';
 import Link from 'next/link';
+import { MarkdownRenderer } from '../../../components/reusables/MarkdownRenderer';
+
+interface ProjectPaginationItem {
+  title: string;
+  slug: string;
+  previewImage: string;
+}
 
 interface ProjectPageProps extends Omit<IProject, 'slug'> {
-  body: string;
+  markdown: string;
+  paginationItems: {
+    prev: ProjectPaginationItem;
+    next: ProjectPaginationItem;
+  }
 }
 
 const ProjectPage = ({
@@ -21,7 +31,8 @@ const ProjectPage = ({
   skills,
   title,
   url,
-  body
+  markdown,
+  paginationItems
 }: ProjectPageProps) => {
   return (
     <>
@@ -35,7 +46,7 @@ const ProjectPage = ({
         <div style={{ position: 'relative' }}>
           <Carousel images={images} />
           <Link href='/projects'>
-            <a className={styles.backButton}>
+            <a className={`${styles.backButton} btn btn-primary btn-lg`}>
               <i className="icon icon-back mr-2" />
               <span>
                 Other projects
@@ -46,9 +57,7 @@ const ProjectPage = ({
 
 
         <div className="px-5 py-1">
-
           <div className="padx-xs mt-3">
-
             <div className="d-flex" style={{ alignItems: 'center' }}>
               <h2 className={`text-primary mb-2 transition-elem delay-1 ${styles.title}`}>
                 {title}
@@ -58,10 +67,10 @@ const ProjectPage = ({
                 && (
                   <a
                     href={url}
-                    title="View live site"
                     target='_blank'
                     rel='noopener'
-                    className={`btn btn-primary ml-3 ${styles.siteLinkButton}`}
+                    data-tooltip="View live site"
+                    className={`btn btn-primary tooltip tooltip-right ml-3 ${styles.siteLinkButton}`}
                   >
                     <i className="icon icon-link" />
                   </a>
@@ -69,33 +78,60 @@ const ProjectPage = ({
               }
             </div>
 
-            <div className="d-flex" style={{ alignItems: 'center' }}>
-              <h3 className="text-gray fw-medium">{role}</h3>
+            <div className="d-flex" style={{ alignItems: 'center', flexWrap: 'wrap' }}>
+              <h3 className="text-gray fw-medium mr-3" style={{ flexShrink: 0, maxWidth: '100%' }}>{role}</h3>
 
-              <div className="mx-3">
+              <div style={{ flexShrink: 0, maxWidth: '100%' }}>
                 {
                   skills &&
                   <div>
-                    {
-                      skills.map(skill => <div className="chip mr-2 mb-2" key={'skill_' + skill.name} style={{ fontSize: '.7rem' }}>
-                        {/* <img src={skill.img} className="avatar avatar-sm" /> */}
-                        {skill.name}
-                      </div>)
-                    }
-
+                    {skills.map(skill => (
+                      <div className="chip mr-2 mb-2" key={skill} style={{ fontSize: '.7rem' }}>{skill}</div>
+                    ))}
                   </div>
                 }
               </div>
 
             </div>
-
           </div>
 
-          <div className="divider transition-elem delay-1 my-3"></div>
+          <div className="divider transition-elem delay-1 my-3" />
 
           <div className="transition-elem delay-1 my-5 padx-xs">
-            <article dangerouslySetInnerHTML={{ __html: body }} />
+            <MarkdownRenderer markdown={markdown} />
           </div>
+
+          {
+            paginationItems && (
+              <div>
+
+                <ul className="pagination">
+                  {paginationItems.prev && (
+                    <li className="page-item page-prev">
+                      <Link href="/projects/[slug]" as={`/projects/${paginationItems.prev.slug}`}>
+                        <a>
+                          <div className="page-item-subtitle">Previous</div>
+                          <div className="page-item-title h5">{paginationItems.prev.title}</div>
+                        </a>
+                      </Link>
+                    </li>
+                  )}
+                  {paginationItems.next && (
+                    <li className="page-item page-next">
+                      <Link href="/projects/[slug]" as={`/projects/${paginationItems.next.slug}`}>
+                        <a>
+                          <div className="page-item-subtitle">Next</div>
+                          <div className="page-item-title h5">{paginationItems.next.title}</div>
+                        </a>
+                      </Link>
+                    </li>
+                  )}
+                </ul>
+
+              </div>
+            )
+          }
+
         </div>
 
       </div>
@@ -129,6 +165,55 @@ export const getStaticPaths = async () => {
  */
 export const getStaticProps: GetStaticProps<ProjectPageProps> = async ({ params: { slug } }) => {
 
+  // Get all files
+  const files: string[] = fs.readdirSync('data/posts/projects');
+
+  let paginationItems: {
+    prev: ProjectPaginationItem;
+    next: ProjectPaginationItem;
+  };
+
+  for (let i = 0; i < files.length; i++) {
+    const file = files[i];
+
+    // Check if the item is the current project's MD file
+    if (file === `${slug}.md`) {
+
+      let prevFileIndex = i - 1;
+      let nextFileIndex = i + 1;
+
+      if (prevFileIndex < 0) {
+        prevFileIndex = files.length - 1;
+      } else if (nextFileIndex >= files.length) {
+        nextFileIndex = 0;
+      }
+
+      const prevFileName: string = files[prevFileIndex];
+      const nextFileName: string = files[nextFileIndex];
+
+
+      const prevInfo = matter(fs.readFileSync(path.join('data/posts/projects', prevFileName)).toString());
+      const nextInfo = matter(fs.readFileSync(path.join('data/posts/projects', nextFileName)).toString());
+
+      // If yes, get the previous and next projects
+      paginationItems = {
+        prev: {
+          previewImage: prevInfo.data.images[0],
+          slug: prevFileName.replace('.md', ''),
+          title: prevInfo.data.title
+        },
+        next: {
+          previewImage: nextInfo.data.images[0],
+          slug: nextFileName.replace('.md', ''),
+          title: nextInfo.data.title
+        }
+      }
+
+      break;
+    }
+
+  }
+
   // Get the content of the md file by checking for it using the file name + the .md extension
   const markdownWithMetadata = fs.readFileSync(path.join('data/posts/projects', `${slug}.md`)).toString();
 
@@ -137,20 +222,19 @@ export const getStaticProps: GetStaticProps<ProjectPageProps> = async ({ params:
     url,
     role,
     images,
-    skills: skillNames
+    skills
   } } = matter(markdownWithMetadata);
-
-  const body: string = marked(content);
 
   return {
     // Anything passed to the "props" object will be passed to the component as props.
     props: {
-      body,
+      markdown: content,
+      paginationItems,
       images,
       role,
       title,
       url,
-      skills: getSkillObjectsFromArray(skillNames)
+      skills
     }
   }
 }

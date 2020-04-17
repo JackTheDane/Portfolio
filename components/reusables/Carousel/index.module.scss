@@ -2,7 +2,7 @@
 
 .carousel {
   width: 100%;
-  background: radial-gradient(ellipse, $primary-color, $primary-color-dark);
+  background-color: $primary-color-dark;
 
   .image {
     width: 100%;
@@ -29,22 +29,18 @@
     padding-top: 50%;
     cursor: pointer;
 
-    transition: opacity 0.2s;
+    transform: scale(.92);
+
+    transition: all 0.2s;
 
     &:hover {
       opacity: 1 !important;
     }
   }
 
-  // :global(.swiper-slide-next),
-  // :global(.swiper-slide-prev) {
-  //   .slidePreview {
-  //   opacity: .7;
-  //   }
-  // }
-
   .selected {
     .slidePreview {
+    transform: scale(1);
       cursor: initial;
       opacity: 1;
     }
@@ -75,7 +71,11 @@
       bottom: 0;
 
       opacity: 0.5;
-      transition: opacity 0.2s;
+    }
+
+    &,
+    &::before {
+      transition: opacity 0.1s;
     }
 
     &.navigationButtonLeft {
@@ -108,7 +108,8 @@
     }
 
     &:global(.swiper-button-disabled) {
-      display: none;
+      pointer-events: none;
+      opacity: 0;
     }
   }
 }
@@ -116,12 +117,8 @@
 @media (min-width: 1200px) {
   .carousel {
     .image {
-      padding-top: 45%;
+      padding-top: 40%;
     }
-
-    // .navigationButton {
-    //   opacity: 0;
-    // }
 
     &:hover {
       .navigationButton {
