@@ -1,7 +1,7 @@
 import '../styling/global.scss';
 import styles from './_app.module.scss';
 import { AppProps } from 'next/app';
-import Nav from '../components/domains/Navigation/Nav';
+import Nav from '../components/domains/navigation/Nav';
 import 'swiper/css/swiper.min.css';
 import Head from 'next/head';
 
