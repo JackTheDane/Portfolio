@@ -6,7 +6,7 @@
 
   .image {
     width: 100%;
-    padding-top: 56.25%;
+    height: 300px;
 
     transition: opacity 0.2s ease-in-out;
 
@@ -73,8 +73,9 @@
       opacity: 0.5;
     }
 
-    &,
-    &::before {
+    &
+    // &::before
+    {
       transition: opacity 0.1s;
     }
 
@@ -117,7 +118,7 @@
 @media (min-width: 1200px) {
   .carousel {
     .image {
-      padding-top: 40%;
+      height: 560px;
     }
 
     &:hover {

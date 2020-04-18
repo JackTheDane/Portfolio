@@ -4,14 +4,7 @@
   height: 100%;
   width: 100%;
   display: flex;
-  background-color: $primary-color-dark;
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
   overflow: hidden;
-
-  background-blend-mode: multiply;
-
   position: relative;
 
   .content {

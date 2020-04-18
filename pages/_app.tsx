@@ -7,7 +7,8 @@ import Head from 'next/head';
 
 const AppCustomized = ({ Component, pageProps }: AppProps) => {
   return (
-    <div className={styles.app} style={{ backgroundImage: 'url(/images/bg-1920.jpg)' }}>
+    <div className={styles.app}>
+      <div id="_pageBackgroundImage" />
       <Head>
         <title>
           Martin Bøje Petersen
@@ -15,9 +16,9 @@ const AppCustomized = ({ Component, pageProps }: AppProps) => {
       </Head>
       <Nav />
 
-      <div className={styles.content}>
+      <main className={styles.content} id="_mainContent">
         <Component {...pageProps} />
-      </div>
+      </main>
     </div>
   )
 }

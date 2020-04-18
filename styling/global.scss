@@ -1,6 +1,7 @@
 @import './spectre/spectre.scss';
 // @import '~react-id-swiper/lib/styles/scss/swiper.scss';
 
+
 html, body, #__next {
   height: 100%;
 }
@@ -219,4 +220,21 @@ $translateAmount: 80px;
       }
     }
   }
+}
+
+#_pageBackgroundImage {
+  position: absolute;
+  top: -5%;
+  bottom: -5%;
+  left: -5%;
+  right: -5%;
+  height: 110%;
+  width: 110%;
+  background-image: url('/images/bg-1920.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: $primary-color-dark;
+  background-blend-mode: multiply;
+  filter: blur(10px);
 }

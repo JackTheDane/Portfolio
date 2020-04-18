@@ -24,6 +24,7 @@ export const Carousel = ({
     slidesPerView: 1,
     preloadImages: false,
     shouldSwiperUpdate: true,
+    shortSwipes: true,
     renderPrevButton: () => <button className={`${styles.navigationButton} ${styles.navigationButtonLeft}`}> <i className="icon icon-arrow-left" /> </button>,
     renderNextButton: () => <button className={`${styles.navigationButton} ${styles.navigationButtonRight}`}> <i className="icon icon-arrow-right" /> </button>,
     navigation: {
@@ -41,7 +42,6 @@ export const Carousel = ({
     preloadImages: false,
     slideToClickedSlide: true,
     slideActiveClass: styles.selected,
-
   };
 
   useEffect(() => {

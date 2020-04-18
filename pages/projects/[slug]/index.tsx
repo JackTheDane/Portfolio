@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
@@ -17,7 +17,7 @@ interface ProjectPaginationItem {
   previewImage: string;
 }
 
-interface ProjectPageProps extends Omit<IProject, 'slug'> {
+interface ProjectPageProps extends IProject {
   markdown: string;
   paginationItems: {
     prev: ProjectPaginationItem;
@@ -32,8 +32,18 @@ const ProjectPage = ({
   title,
   url,
   markdown,
-  paginationItems
+  paginationItems,
+  slug
 }: ProjectPageProps) => {
+
+  // If the slug changes -> Scroll to top of mainContent container
+  useEffect(() => {
+    if (document) {
+      const mainContent = document.getElementById('_mainContent');
+      if (mainContent) mainContent.scrollTo(0,0);
+    }
+  }, [slug]);
+
   return (
     <>
       <Head>
@@ -44,7 +54,7 @@ const ProjectPage = ({
       <div className={`${styles.project}`}>
 
         <div style={{ position: 'relative' }}>
-          <Carousel images={images} />
+          <Carousel key={slug} images={images} />
           <Link href='/projects'>
             <a className={`${styles.backButton} btn btn-primary btn-lg`}>
               <i className="icon icon-back mr-2" />
@@ -56,7 +66,7 @@ const ProjectPage = ({
         </div>
 
 
-        <div className="px-5 py-1" style={{ display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
+        <div className="px-5" style={{ display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
           <div className="padx-xs mt-3">
             <div className="d-flex" style={{ alignItems: 'center' }}>
               <h2 className={`text-primary mb-2 transition-elem delay-1 ${styles.title}`}>
@@ -230,7 +240,8 @@ export const getStaticProps: GetStaticProps<ProjectPageProps> = async ({ params:
       role,
       title,
       url,
-      skills
+      skills,
+      slug: slug as string
     }
   }
 }
