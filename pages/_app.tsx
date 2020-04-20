@@ -8,7 +8,7 @@ import Head from 'next/head';
 const AppCustomized = ({ Component, pageProps }: AppProps) => {
   return (
     <div className={styles.app}>
-      <div id="_pageBackgroundImage" />
+      <div id="_pageBackgroundImage" style={{ backgroundImage: `url('${require('../public/images/bg-1920.jpg')}')` }} />
       <Head>
         <title>
           Martin Bøje Petersen

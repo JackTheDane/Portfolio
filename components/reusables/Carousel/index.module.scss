@@ -6,7 +6,6 @@
 
   .image {
     width: 100%;
-    height: 300px;
 
     transition: opacity 0.2s ease-in-out;
 
@@ -117,9 +116,6 @@
 
 @media (min-width: 1200px) {
   .carousel {
-    .image {
-      height: 560px;
-    }
 
     &:hover {
       .navigationButton {

@@ -3,7 +3,7 @@ title: "Book Business"
 role: "Front-end & Design"
 url: "http://mbpmedia.com/bookbusiness/"
 skills: [ "Bootstrap", "Gulp", "Sass", "JavaScript ES6+", "CSS3" ]
-images: ['/images/projects/bookbusiness/forside.jpg','/images/projects/bookbusiness/search.jpg']
+images: ['projects/book-business/bb-forside.jpg','projects/book-business/bb-search.jpg']
 
 ---
 
