@@ -25,10 +25,8 @@ export const ProgressiveImageLoader = ({
 
   const image = useRef<HTMLImageElement>();
 
-  const relativePathToFile: string = `./${pathToFile}`;
-
-  const src = getDynamicLocalImage(relativePathToFile);
-  const overlaySrc = getDynamicLocalImage(relativePathToFile, DynamicLocalImageTypes.lqip);
+  const src = getDynamicLocalImage(pathToFile);
+  const overlaySrc = getDynamicLocalImage(pathToFile, DynamicLocalImageTypes.lqip);
 
   const overlayStyle: React.CSSProperties = {};
 

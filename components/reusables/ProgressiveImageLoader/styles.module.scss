@@ -3,16 +3,9 @@
   width: 100%;
   margin: 0;
   overflow: hidden;
-  // filter: blur(2px);
-
-  & {
-    transition: filter .5s ease;
-  }
 }
 
 .loaded {
-  filter: blur(0);
-
   .overlay {
     opacity: 0;
   }
@@ -32,7 +25,6 @@
 }
 
 .overlay {
-  filter: blur(3px);
-  transform: scale(1.05);
-  transition: opacity .5s ease;
+  filter: blur(2px);
+  transition: opacity .3s ease;
 }

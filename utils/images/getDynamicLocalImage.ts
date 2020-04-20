@@ -26,6 +26,8 @@ export const getDynamicLocalImage = (src: string, type: DynamicLocalImageTypes =
 
     // TODO: Add support for sizes and colorArray
 
+    // TODO: Add support for webp
+
     case DynamicLocalImageTypes.standard:
     default:
       if (!dynamicLocalImageLoaders[type]) dynamicLocalImageLoaders[type] = require.context('images', true);

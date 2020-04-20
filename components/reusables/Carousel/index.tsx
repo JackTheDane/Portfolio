@@ -38,7 +38,7 @@ export const Carousel = ({
     getSwiper: getThumbnailSwiper,
     spaceBetween: 5,
     centeredSlides: true,
-    slidesPerView: 6,
+    slidesPerView: 'auto',
     shouldSwiperUpdate: true,
     touchRatio: 0.5,
     preloadImages: false,
@@ -64,7 +64,7 @@ export const Carousel = ({
     (image, i: number) => {
 
       slidePreview.push(
-        <div>
+        <div className={styles.slidePreviewWrapper}>
           <div className={styles.slidePreview} key={`prev_${i}`} style={{ backgroundImage: `url('${getDynamicLocalImage(image, DynamicLocalImageTypes.small)}')` }} />
         </div>
       )
