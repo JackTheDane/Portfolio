@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import styles from './styles.module.scss';
+import { getDynamicLocalImage, DynamicLocalImageTypes } from '../../../utils/images/getDynamicLocalImage';
 
 export interface ProgressiveImageLoaderProps extends Omit<React.DetailedHTMLProps<React.ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement>, "src"> {
   /** Path to file relative to the "public/images" folder.
@@ -12,10 +13,6 @@ export interface ProgressiveImageLoaderProps extends Omit<React.DetailedHTMLProp
   imageHeight?: string;
 }
 
-const imagesFolderRequire = require.context('../../../public/images', true);
-const lqipImagesFolderRequire = require.context('../../../public/images?lqip', true);
-
-
 export const ProgressiveImageLoader = ({
   src: pathToFile,
   className,
@@ -23,18 +20,19 @@ export const ProgressiveImageLoader = ({
   ...rest
 }: ProgressiveImageLoaderProps) => {
 
-  const [highResImageLoaded, setHighResImageLoaded] = useState(false);
+  const [isImageLoaded, setIsImageLoaded] = useState(false);
+  const [isImageCached, setIsImageCached] = useState(false);
 
   const image = useRef<HTMLImageElement>();
 
   const relativePathToFile: string = `./${pathToFile}`;
 
-  const src = imagesFolderRequire(relativePathToFile);
-  const overlaySrc = lqipImagesFolderRequire(relativePathToFile);
+  const src = getDynamicLocalImage(relativePathToFile);
+  const overlaySrc = getDynamicLocalImage(relativePathToFile, DynamicLocalImageTypes.lqip);
 
   const overlayStyle: React.CSSProperties = {};
 
-  if (highResImageLoaded) {
+  if (isImageLoaded) {
     overlayStyle.opacity = 0;
   }
 
@@ -46,29 +44,32 @@ export const ProgressiveImageLoader = ({
     overlayClassNames += ' ' + className;
   }
 
-  const onLoadComplete = () => setHighResImageLoaded(true);
-
+  // Check if the image has already been fetched and cached - If yes, hide loader immediately
   useEffect(() => {
-    if (image && image.current && image.current.complete) onLoadComplete();
+    if (image && image.current && image.current.complete) setIsImageCached(true);
   }, [])
 
   const rootStyles: React.CSSProperties = { paddingTop: imageHeight || '56.25%' };
 
   return (
-    <figure className={`${styles.root} ${highResImageLoaded ? styles.loaded : ''}`} style={rootStyles}>
+    <figure className={`${styles.root} ${(isImageLoaded) ? styles.loaded : ''}`} style={rootStyles}>
       <img
         {...rest}
         className={imageClassNames}
-        onLoad={onLoadComplete}
+        onLoad={() => setIsImageLoaded(true)}
         src={src}
         ref={image}
       />
-      <img
-        {...rest}
-        className={overlayClassNames}
-        style={overlayStyle}
-        src={overlaySrc}
-      />
+      {
+        !isImageCached && (
+          <img
+            {...rest}
+            className={overlayClassNames}
+            style={overlayStyle}
+            src={overlaySrc}
+          />
+        )
+      }
     </figure>
   )
 }

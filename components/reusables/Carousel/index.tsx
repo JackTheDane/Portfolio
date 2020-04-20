@@ -3,6 +3,7 @@ import styles from './index.module.scss';
 import Swiper from 'react-id-swiper';
 import { IExtendedSwiperOptions } from './IExtendedSwiperOptions';
 import { ProgressiveImageLoader } from '../ProgressiveImageLoader';
+import { getDynamicLocalImage, DynamicLocalImageTypes } from '../../../utils/images/getDynamicLocalImage';
 
 export interface CarouselProps {
   images: string[];
@@ -64,7 +65,7 @@ export const Carousel = ({
 
       slidePreview.push(
         <div>
-          <div className={styles.slidePreview} key={`prev_${i}`} style={{ backgroundImage: `url(${image})` }} />
+          <div className={styles.slidePreview} key={`prev_${i}`} style={{ backgroundImage: `url('${getDynamicLocalImage(image, DynamicLocalImageTypes.small)}')` }} />
         </div>
       )
 
