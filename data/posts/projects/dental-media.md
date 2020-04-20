@@ -3,7 +3,7 @@ title: "Dental Media"
 role: "Front-end & Design"
 url: "http://dentalmedia.io/en/"
 skills: [ "WordPress", "PHP", "Gulp", "Sass", "JavaScript", "CSS3" ]
-images: ['/images/projects/dentalmedia/forside.jpg','/images/projects/dentalmedia/header.jpg','/images/projects/dentalmedia/readmore.jpg','/images/projects/dentalmedia/steps.jpg']
+images: ['projects/dental-media/dm-forside.jpg','projects/dental-media/dm-header.jpg','projects/dental-media/dm-readmore.jpg','projects/dental-media/dm-steps.jpg']
 ---
 
 Dental Media ApS er et marketingbureau og software udbyder, der hjælper tandlæger verden over med at få flere kunder i klinikken.

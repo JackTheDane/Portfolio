@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styles from './index.module.scss';
 import Swiper from 'react-id-swiper';
 import { IExtendedSwiperOptions } from './IExtendedSwiperOptions';
+import { ProgressiveImageLoader } from '../ProgressiveImageLoader';
 
 export interface CarouselProps {
   images: string[];
@@ -69,12 +70,14 @@ export const Carousel = ({
 
       return (
         <div
-          key={'CarImg_' + i}
-          style={{
-            backgroundImage: `url(${image})`
-          }}
           className={`swiper-slide ${styles.image}`}
-        />
+          key={'CarImg_' + i}
+        >
+          <ProgressiveImageLoader
+            imageHeight="50%"
+            src={image}
+          />
+        </div>
       );
     }
   );

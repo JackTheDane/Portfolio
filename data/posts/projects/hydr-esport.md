@@ -3,7 +3,7 @@ title: "Hydr eSport"
 role: "Front-end"
 url: "http://www.hydr-esport.com/"
 skills: [ "WordPress", "PHP", "Gulp", "Sass", "JavaScript", "CSS3" ]
-images: ['/images/projects/hydr/forside.jpg','/images/projects/hydr/medlemskab.jpg','/images/projects/hydr/side.jpg']
+images: ['projects/hydr-esport/hydr-forside.jpg','projects/hydr-esport/hydr-medlemskab.jpg','projects/hydr-esport/hydr-side.jpg']
 ---
 
 Hydr eSport er en virksomhed, der tilbyder træning inden for Esport af alle slags, i alle niveauer.
