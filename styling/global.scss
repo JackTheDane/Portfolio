@@ -55,6 +55,12 @@ img {
   @extend .mb-a;
 }
 
+.mx-a {
+  @extend .ml-a;
+  @extend .mr-a;
+}
+
+
 $transitionSpeed: 700ms;
 $transitionStagger: 80ms;
 // $transitionStagger: 0ms;
@@ -168,7 +174,7 @@ $translateAmount: 80px;
 
   height: 100%;
 
-  padding-top: 90px;
+  padding-top: 30px;
   padding-bottom: 30px;
 }
 
@@ -192,6 +198,11 @@ $translateAmount: 80px;
 }
 
 @media (min-width: 1200px) {
+
+  .content-page {
+    padding-top: 90px;
+  }
+
   .content {
     padding-left: 60px;
     padding-right: 60px;
@@ -230,7 +241,6 @@ $translateAmount: 80px;
   right: -5%;
   height: 110%;
   width: 110%;
-  background-image: url('/images/bg-1920.jpg');
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;

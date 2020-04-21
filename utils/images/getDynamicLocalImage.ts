@@ -5,9 +5,11 @@ const dynamicLocalImageLoaders: {
 export enum DynamicLocalImageTypes {
   standard,
   lqip,
+  xsmall,
   small,
   medium,
   large,
+  multipleSizes,
   colorArray
 }
 
@@ -24,9 +26,31 @@ export const getDynamicLocalImage = (src: string, type: DynamicLocalImageTypes =
       return dynamicLocalImageLoaders[type](src) as string;
     }
 
-    // TODO: Add support for sizes and colorArray
+    case DynamicLocalImageTypes.xsmall: {
+      if (!dynamicLocalImageLoaders[type]) dynamicLocalImageLoaders[type] = require.context('images?size=300', true);
+      return dynamicLocalImageLoaders[type](src) as string;
+    }
 
-    // TODO: Add support for webp
+    case DynamicLocalImageTypes.small: {
+      if (!dynamicLocalImageLoaders[type]) dynamicLocalImageLoaders[type] = require.context('images?size=600', true);
+      return dynamicLocalImageLoaders[type](src) as string;
+    }
+
+    case DynamicLocalImageTypes.medium: {
+      if (!dynamicLocalImageLoaders[type]) dynamicLocalImageLoaders[type] = require.context('images?size=900', true);
+      return dynamicLocalImageLoaders[type](src) as string;
+    }
+
+    case DynamicLocalImageTypes.large: {
+      if (!dynamicLocalImageLoaders[type]) dynamicLocalImageLoaders[type] = require.context('images?size=1200', true);
+      return dynamicLocalImageLoaders[type](src) as string;
+    }
+
+    //? TODO: Add support for colorArray?
+    case DynamicLocalImageTypes.multipleSizes: {
+      if (!dynamicLocalImageLoaders[type]) dynamicLocalImageLoaders[type] = require.context('images?resize&sizes[]=600&sizes[]=900&sizes[]=1200', true);
+      return dynamicLocalImageLoaders[type](src) as string;
+    }
 
     case DynamicLocalImageTypes.standard:
     default:

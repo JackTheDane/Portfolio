@@ -65,7 +65,7 @@ export const Carousel = ({
 
       slidePreview.push(
         <div className={styles.slidePreviewWrapper}>
-          <div className={styles.slidePreview} key={`prev_${i}`} style={{ backgroundImage: `url('${getDynamicLocalImage(image, DynamicLocalImageTypes.small)}')` }} />
+          <div className={styles.slidePreview} key={`prev_${i}`} style={{ backgroundImage: `url('${getDynamicLocalImage(image, DynamicLocalImageTypes.xsmall)}')` }} />
         </div>
       )
 

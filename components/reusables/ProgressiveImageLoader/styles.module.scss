@@ -28,6 +28,6 @@
 
 
 .overlay {
-  @include better-blur(8);
-  transition: opacity .3s ease;
+  @include better-blur(4);
+  transition: opacity .4s ease;
 }

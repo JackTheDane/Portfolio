@@ -4,11 +4,22 @@
   min-height: 100%;
   display: flex;
   flex-direction: column;
+
+  .showMoreButton {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    border: none;
+    height: 100px;
+    padding-top: 40px;
+    background: linear-gradient(transparent, $gray-color-light 75%);
+  }
 }
 
 .backButton {
   position: absolute;
-  top: 75px;
+  top: 15px;
   left: 20px;
   z-index: 10;
   box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, .35);
@@ -45,6 +56,12 @@
       transform: translateX(-5px);
     }
   }
+}
+
+.content {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
 }
 
 .siteLinkButton {
@@ -85,12 +102,5 @@
   .subcontent {
     border-left: 3px solid $secondary-color-dark;
     padding-bottom: 10px;
-  }
-}
-
-
-@media (min-width: 1200px) {
-  .backButton {
-    top: 15px;
   }
 }
