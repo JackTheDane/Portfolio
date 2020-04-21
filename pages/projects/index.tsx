@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './index.module.scss';
+import styles from './styles.module.scss';
 import Link from 'next/link';
 import { IProject } from '../../models/interfaces/IProject';
 import { GetStaticProps } from 'next';

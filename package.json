@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "A conversion of my Portfolio site using Static Site Generation for improved SEO and performance.",
   "main": "index.js",
+  "browser": {
+    "child_process": false
+  },
   "scripts": {
     "dev": "next",
     "build": "next build",

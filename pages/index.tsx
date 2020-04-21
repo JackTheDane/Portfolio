@@ -1,4 +1,4 @@
-import styles from './index.module.scss';
+import styles from './styles.module.scss';
 import Link from 'next/link';
 
 const About = () => {

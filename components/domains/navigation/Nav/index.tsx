@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from './index.module.scss';
+import styles from './styles.module.scss';
 // import LogoAndText from '../../images/mainLogo-white.png';
 // import Logo from '../../images/mainLogoOnly-white.png';
 

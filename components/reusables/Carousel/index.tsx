@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import styles from './index.module.scss';
+import styles from './styles.module.scss';
 import Swiper from 'react-id-swiper';
 import { IExtendedSwiperOptions } from './IExtendedSwiperOptions';
 import { ProgressiveImageLoader } from '../ProgressiveImageLoader';

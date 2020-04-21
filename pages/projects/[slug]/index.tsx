@@ -6,7 +6,7 @@ import Head from 'next/head';
 import marked from 'marked';
 import { IProject } from '../../../models/interfaces/IProject';
 import { GetStaticProps } from 'next';
-import styles from './project.module.scss';
+import styles from './styles.module.scss';
 import { Carousel } from '../../../components/reusables/Carousel';
 import Link from 'next/link';
 import { MarkdownRenderer } from '../../../components/reusables/MarkdownRenderer';
@@ -40,7 +40,7 @@ const ProjectPage = ({
   useEffect(() => {
     if (document) {
       const mainContent = document.getElementById('_mainContent');
-      if (mainContent) mainContent.scrollTo(0,0);
+      if (mainContent) mainContent.scrollTo(0, 0);
     }
   }, [slug]);
 

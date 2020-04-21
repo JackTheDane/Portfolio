@@ -20,7 +20,7 @@ export const getDynamicLocalImage = (src: string, type: DynamicLocalImageTypes =
 
   switch (type) {
     case DynamicLocalImageTypes.lqip: {
-      if (!dynamicLocalImageLoaders[type]) dynamicLocalImageLoaders[type] = require.context('images', true);
+      if (!dynamicLocalImageLoaders[type]) dynamicLocalImageLoaders[type] = require.context('images?lqip', true);
       return dynamicLocalImageLoaders[type](src) as string;
     }
 
