@@ -44,7 +44,7 @@ export const ProgressiveImageLoader = ({
 
   // Check if the image has already been fetched and cached - If yes, hide loader immediately
   useEffect(() => {
-    // if (image && image.current && image.current.complete) setIsImageCached(true);
+    if (image && image.current && image.current.complete) setIsImageCached(true);
   }, [])
 
   const rootStyles: React.CSSProperties = { paddingTop: imageHeight || '56.25%' };
