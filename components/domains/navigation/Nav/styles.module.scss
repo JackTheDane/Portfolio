@@ -28,6 +28,11 @@
   }
 
   .logo {
+    pointer-events: initial;
+    display: none;
+    cursor: pointer;
+    opacity: 1;
+    transition: opacity 0.3s;
     padding-top: 10px;
     max-width: 140px;
     max-height: 140px;
@@ -35,14 +40,6 @@
     &:hover {
       opacity: 0.6;
     }
-  }
-
-  .logo {
-    pointer-events: initial;
-    display: block;
-    cursor: pointer;
-    opacity: 1;
-    transition: opacity 0.3s;
   }
 
   .mobileMenu {
@@ -62,7 +59,7 @@
 }
 
 .mediaPlatforms {
-  display: flex;
+  display: none;
   animation: fadeInLeft 0.3s ease-out 0.5s both;
   max-width: 400px;
   padding: 0 20px;
@@ -214,9 +211,18 @@
     flex: 0 1 600px;
     background-color: transparent;
     max-height: 100%;
-  }
 
-  .menu {
-    display: flex;
+    .menu,
+    .mediaPlatforms {
+      display: flex;
+    }
+
+    .logo {
+      display: block;
+    }
+
+    .mobileMenu {
+      display: none;
+    }
   }
 }
