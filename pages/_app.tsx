@@ -8,7 +8,9 @@ import Head from 'next/head';
 const AppCustomized = ({ Component, pageProps }: AppProps) => {
   return (
     <div className={styles.app}>
-      <div id="_pageBackgroundImage" style={{ backgroundImage: `url('${require('../public/images/bg.jpg?size=800')}')` }} />
+      <div className="pageBackgroundWrapper">
+        <div id="_pageBackgroundImage" style={{ backgroundImage: `url('${require('../public/images/bg.jpg?size=800')}')` }} />
+      </div>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>
@@ -17,6 +19,7 @@ const AppCustomized = ({ Component, pageProps }: AppProps) => {
       </Head>
       <Nav />
 
+      <div className={styles.spacer} />
       <main className={styles.content} id="_mainContent">
         <Component {...pageProps} />
       </main>

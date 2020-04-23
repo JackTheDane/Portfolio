@@ -7,12 +7,14 @@ import Link from 'next/link';
 
 import { IMenuItem } from '../../../../models/interfaces/IMenuItem';
 import { NavLink } from '../NavLink';
-import { LinkedIn } from '../../icons/LinkedIn';
-import { Github } from '../../icons/Github';
-import { SiteRoutes } from '../../../../data/SiteRoutes';
+import { LinkedInIcon } from '../../icons/LinkedIn';
+import { GitHubIcon } from '../../icons/GitHub';
+import { SiteRoutes } from '../../../../data/routes/SiteRoutes';
 import { CloneIcon } from '../../icons/Clone';
 import { UserIcon } from '../../icons/User';
 import { PaperPlaneIcon } from '../../icons/PaperPlane';
+import { OutboundRoutes } from '../../../../data/routes/OutboundRoutes';
+import { PaperclipIcon } from '../../icons/Paperclip';
 
 
 const menuItems: IMenuItem[] = [
@@ -79,30 +81,30 @@ const Nav = () => {
         <a
           target='_blank'
           rel='noopener'
-          href="https://www.linkedin.com/in/martin-b%C3%B8je-petersen-74459173/"
+          href={OutboundRoutes.linkedIn}
           className={`btn btn-link ${styles.mediaPlatformsButton}`}
         >
-          <LinkedIn style={{ marginTop: -2 }} />
+          <LinkedInIcon style={{ marginTop: -2 }} className="mr-2" />
           LinkedIn
         </a>
 
         <a
           target='_blank'
           rel='noopener'
-          href="https://github.com/JackTheDane"
+          href={OutboundRoutes.gitHub}
           className={`btn btn-link ${styles.mediaPlatformsButton}`}
         >
-          <Github />
+          <GitHubIcon className="mr-2" />
           GitHub
         </a>
 
         <a
           target='_blank'
           rel='noopener'
-          href="/documents/martin-boeje-petersen_cv.pdf"
+          href={OutboundRoutes.CV}
           className={`btn btn-link ${styles.mediaPlatformsButton}`}
         >
-          <i className="icon icon-people mr-2" />
+          <PaperclipIcon className="mr-2" />
           CV
         </a>
       </div>

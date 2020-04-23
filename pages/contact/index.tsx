@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import styles from './styles.module.scss';
 import Head from 'next/head';
 import { PaperPlaneIcon } from '../../components/domains/icons/PaperPlane';
+import { OutboundRoutes } from '../../data/routes/OutboundRoutes';
+import { LinkedInIcon } from '../../components/domains/icons/LinkedIn';
+import { GitHubIcon } from '../../components/domains/icons/GitHub';
+import { EnvelopeIcon } from '../../components/domains/icons/Envelope';
 // import { useForm } from 'react-hook-form';
 
 
@@ -23,78 +27,97 @@ const Contact = ({ }: ContactProps) => {
 
       <div className="content-page content">
 
-        <h1 className=" text-primary">
-          Get in touch with me
+        <h1 className={`text-light ${styles.title}`}>
+          Get in touch with me ...
+          {/* Dear Martin...
+          <span /> */}
         </h1>
 
-        <div className="divider "></div>
+        {/* <div className="divider " /> */}
 
-        <div className="my-5 ">
-          <form method="POST" action="https://formspree.io/martin@mbpmedia.com">
-            <div className="form-group columns">
-              <div className="column col-6 col-xs-12">
-                <label className="form-label" htmlFor="input-email">Email</label>
+        <div className="columns">
+          <div className="my-5 column py-5 col-8">
+            <h3 className="text-light mb-5">... With a message</h3>
+            <form method="POST" action="https://formspree.io/martin@mbpmedia.com">
+              <div className="form-group">
+                {/* <label className="form-label text-light" htmlFor="input-email">Your email</label> */}
                 <input
-                  className="form-input"
+                  className="form-input text-light"
                   required
                   type="email"
                   id="input-email"
                   name="email"
-                  placeholder="Your email address"
+                  placeholder="Your@Email.com"
                 />
               </div>
 
-              <div className="column col-6 col-xs-12">
-                <label className="form-label" htmlFor="input-name">Name (Optional)</label>
-                <input
+
+              <div className="form-group my-3">
+                {/* <label className="form-label text-light" htmlFor="input-besked">Write you message below</label> */}
+                <textarea
                   className="form-input"
-                  type="text"
-                  id="input-name"
-                  name="name"
-                // placeholder="Your name (Optional)"
+                  required
+                  id="input-msg"
+                  name="message"
+                  rows={8}
+                  placeholder="Dear Martin..."
                 />
               </div>
 
-            </div>
+              <div className="form-group">
+                <button type="submit" className={`btn btn-block btn-primary btn-icon-right btn-lg}`}>
+                  Send
+                  <PaperPlaneIcon className="ml-3" />
+                </button>
+              </div>
+            </form>
 
-
-            <div className="form-group">
-              <label className="form-label" htmlFor="input-besked">Message body</label>
-              <textarea
-                className="form-input"
-                required
-                id="input-msg"
-                name="message"
-                rows={5}
-                placeholder="Write your message here"
-              />
-            </div>
-
-            <div className="form-group">
-              <button type="submit" className={`btn btn-primary btn-icon-right my-2 mr-3 btn-lg}`}>
-                Send
-                <PaperPlaneIcon className="ml-3" />
-              </button>
-              <small>
-                Sent via FormSpree.io
-              </small>
-            </div>
-          </form>
-
-        </div>
-
-        <div className="divider  my-5"></div>
-
-        <div>
-          <div className={` ${styles.subcontent}`}>
-            <h3 className='text-primary'>
-              Email
-            </h3>
-            <a href="mailto:martin@mbpmedia.com">
-              Martin@mbpmedia.com
-            </a>
           </div>
+
+          <div className="divider-vert col-1 my-5" />
+
+          <div className="column col-3 py-5 my-5">
+            <h3 className='text-light'>
+              ... Or
+            </h3>
+
+            <ul className="menu text-primary">
+              <li className="menu-item">
+                <a href={OutboundRoutes.emailAddress}>
+                  <span className="btn btn-action mr-3 btn-primary">
+                    <EnvelopeIcon />
+                  </span>
+                  Email
+                </a>
+              </li>
+
+              {/* <li className="divider" /> */}
+
+              <li className="menu-item">
+                <a href={OutboundRoutes.linkedIn}>
+                  <span className="btn btn-action mr-3 btn-primary">
+                    <LinkedInIcon />
+                  </span>
+                  LinkedIn
+                </a>
+              </li>
+
+              <li className="divider text-center" data-content="Also check out" />
+
+              <li className="menu-item">
+                <a href={OutboundRoutes.linkedIn}>
+                  <span className="btn btn-action mr-3 btn-primary">
+                    <GitHubIcon />
+                  </span>
+                  GitHub
+                </a>
+              </li>
+
+            </ul>
+          </div>
+
         </div>
+
       </div>
     </>
   )
