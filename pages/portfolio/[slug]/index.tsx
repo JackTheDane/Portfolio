@@ -10,7 +10,7 @@ import { Carousel } from '../../../components/reusables/Carousel';
 import Link from 'next/link';
 import { MarkdownRenderer } from '../../../components/reusables/MarkdownRenderer';
 import { useElementHeight } from '../../../hooks/useElementHeight';
-import { SiteRoutes } from '../../../data/SiteRoutes';
+import { SiteRoutes } from '../../../data/routes/SiteRoutes';
 import { NavLink } from '../../../components/domains/navigation/NavLink';
 import { ArrowLeftIcon } from '../../../components/domains/icons/ArrowLeft';
 import { LinkIcon } from '../../../components/domains/icons/Link';
@@ -62,102 +62,105 @@ const ProjectPage = ({
           {title} - Martin Bøje Petersen
         </title>
       </Head>
-      <div className={`${styles.project}`}>
+      <div className="py-5">
 
-        <div style={{ position: 'relative' }}>
-          <Carousel key={slug} images={images} />
+        <div className={`${styles.project} card bg-light`}>
 
-          <NavLink href={`/${SiteRoutes.portfolio}`} className={`${styles.backButton} btn btn-primary btn-lg ml-5 mt-4`}>
-            <ArrowLeftIcon className="mr-2" />
-            <span>
-              Other projects
-            </span>
-          </NavLink>
-        </div>
+          <div style={{ position: 'relative' }}>
+            <Carousel key={slug} images={images} />
+
+            <NavLink href={`/${SiteRoutes.portfolio}`} className={`${styles.backButton} btn btn-primary btn-lg ml-5 mt-4`}>
+              <ArrowLeftIcon className="mr-2" />
+              <span>
+                Other projects
+    </span>
+            </NavLink>
+          </div>
 
 
-        <div className="px-5 padx-xs d-flex" style={{ flexDirection: 'column', flexGrow: 1 }}>
-          <div className="mt-3">
-            <div className="d-flex" style={{ alignItems: 'center' }}>
-              <h2 className={`text-primary mb-2 ${styles.title}`}>
-                {title}
-              </h2>
+          <div className="px-5 padx-xs d-flex" style={{ flexDirection: 'column', flexGrow: 1 }}>
+            <div className="mt-3">
+              <div className="d-flex" style={{ alignItems: 'center' }}>
+                <h2 className={`text-primary mb-2 ${styles.title}`}>
+                  {title}
+                </h2>
 
-              {url
-                && (
-                  <a
-                    href={url}
-                    target='_blank'
-                    rel='noopener'
-                    data-tooltip="View live site"
-                    className={`btn btn-primary tooltip tooltip-right ml-3 ${styles.siteLinkButton}`}
-                  >
-                    <LinkIcon />
-                  </a>
+                {url
+                  && (
+                    <a
+                      href={url}
+                      target='_blank'
+                      rel='noopener'
+                      data-tooltip="View live site"
+                      className={`btn btn-primary tooltip tooltip-right ml-3 ${styles.siteLinkButton}`}
+                    >
+                      <LinkIcon />
+                    </a>
+                  )
+                }
+              </div>
+
+              <div className="d-flex" style={{ alignItems: 'center', flexWrap: 'wrap' }}>
+                <h3 className="text-gray fw-medium mr-3" style={{ flexShrink: 0, maxWidth: '100%' }}>{role}</h3>
+
+                <div style={{ flexShrink: 0, maxWidth: '100%' }}>
+                  {
+                    skills &&
+                    <div>
+                      {skills.map(skill => (
+                        <div className="chip mr-2 mb-2" key={skill} style={{ fontSize: '.7rem' }}>{skill}</div>
+                      ))}
+                    </div>
+                  }
+                </div>
+
+              </div>
+            </div>
+
+            <div className="divider my-3" />
+
+            <div style={{ position: 'relative' }}>
+              <div className={`${styles.content}`} ref={contentElement} style={{ maxHeight: !showMoreContent ? 500 : 'none' }}>
+                <MarkdownRenderer markdown={markdown} />
+              </div>
+              {
+                isContentTooTall && !showMoreContent && (
+                  <button className={`btn btn-link d-block ${styles.showMoreButton}`} onClick={() => setShowMoreContent(true)}>Show more</button>
                 )
               }
             </div>
 
-            <div className="d-flex" style={{ alignItems: 'center', flexWrap: 'wrap' }}>
-              <h3 className="text-gray fw-medium mr-3" style={{ flexShrink: 0, maxWidth: '100%' }}>{role}</h3>
 
-              <div style={{ flexShrink: 0, maxWidth: '100%' }}>
-                {
-                  skills &&
-                  <div>
-                    {skills.map(skill => (
-                      <div className="chip mr-2 mb-2" key={skill} style={{ fontSize: '.7rem' }}>{skill}</div>
-                    ))}
-                  </div>
-                }
-              </div>
-
-            </div>
-          </div>
-
-          <div className="divider my-3" />
-
-          <div style={{ position: 'relative' }}>
-            <div className={`${styles.content}`} ref={contentElement} style={{ maxHeight: !showMoreContent ? 500 : 'none' }}>
-              <MarkdownRenderer markdown={markdown} />
-            </div>
             {
-              isContentTooTall && !showMoreContent && (
-                <button className={`btn btn-link d-block ${styles.showMoreButton}`} onClick={() => setShowMoreContent(true)}>Show more</button>
+              paginationItems && (
+                <ul className="pagination" style={{ marginTop: 'auto' }}>
+                  {paginationItems.prev && (
+                    <li className="page-item page-prev">
+                      <Link href={`/${SiteRoutes.portfolio}/[slug]`} as={`/${SiteRoutes.portfolio}/${paginationItems.prev.slug}`}>
+                        <a>
+                          <div className="page-item-subtitle">Previous</div>
+                          <div className="page-item-title h5">{paginationItems.prev.title}</div>
+                        </a>
+                      </Link>
+                    </li>
+                  )}
+                  {paginationItems.next && (
+                    <li className="page-item page-next">
+                      <Link href={`/${SiteRoutes.portfolio}/[slug]`} as={`/${SiteRoutes.portfolio}/${paginationItems.next.slug}`}>
+                        <a>
+                          <div className="page-item-subtitle">Next</div>
+                          <div className="page-item-title h5">{paginationItems.next.title}</div>
+                        </a>
+                      </Link>
+                    </li>
+                  )}
+                </ul>
               )
             }
+
           </div>
 
-
-          {
-            paginationItems && (
-              <ul className="pagination" style={{ marginTop: 'auto' }}>
-                {paginationItems.prev && (
-                  <li className="page-item page-prev">
-                    <Link href={`/${SiteRoutes.portfolio}/[slug]`} as={`/${SiteRoutes.portfolio}/${paginationItems.prev.slug}`}>
-                      <a>
-                        <div className="page-item-subtitle">Previous</div>
-                        <div className="page-item-title h5">{paginationItems.prev.title}</div>
-                      </a>
-                    </Link>
-                  </li>
-                )}
-                {paginationItems.next && (
-                  <li className="page-item page-next">
-                    <Link href={`/${SiteRoutes.portfolio}/[slug]`} as={`/${SiteRoutes.portfolio}/${paginationItems.next.slug}`}>
-                      <a>
-                        <div className="page-item-subtitle">Next</div>
-                        <div className="page-item-title h5">{paginationItems.next.title}</div>
-                      </a>
-                    </Link>
-                  </li>
-                )}
-              </ul>
-            )
-          }
-
         </div>
-
       </div>
     </>
   )

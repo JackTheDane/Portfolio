@@ -24,6 +24,12 @@ img {
   max-width: 100%;
 }
 
+.bg {
+  &-light {
+    background-color: $bg-color-light;
+  }
+}
+
 .fw {
   &-light {
     font-weight: 300;
@@ -143,18 +149,30 @@ img {
   }
 }
 
-#_pageBackgroundImage {
-  position: absolute;
-  top: -5%;
-  bottom: -5%;
-  left: -5%;
-  right: -5%;
-  height: 110%;
-  width: 110%;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-color: $primary-color-dark;
-  background-blend-mode: multiply;
-  filter: blur(10px);
+.pageBackgroundWrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+
+  #_pageBackgroundImage {
+      position: absolute;
+      top: -5%;
+      bottom: -5%;
+      left: -5%;
+      right: -5%;
+      height: 110%;
+      width: 110%;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-color: $primary-color-dark;
+      background-blend-mode: multiply;
+      filter: blur(10px);
+  }
 }
+

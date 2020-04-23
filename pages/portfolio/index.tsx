@@ -8,7 +8,8 @@ import matter from 'gray-matter';
 import path from 'path';
 import Head from 'next/head';
 import { ProgressiveImageLoader } from '../../components/reusables/ProgressiveImageLoader';
-import { SiteRoutes } from '../../data/SiteRoutes';
+import { SiteRoutes } from '../../data/routes/SiteRoutes';
+import { NavLink } from '../../components/domains/navigation/NavLink';
 
 export interface ProjectsProps {
   projects: IProject[];
@@ -29,8 +30,8 @@ const Projects = ({
       <div className={`content-page ${styles.projects}`}>
 
         <div className="content">
-          <h1 className={`text-primary ${styles.title}`}>
-            Picked projects
+          <h1 className={`text-light ${styles.title}`}>
+            Portfolio
           </h1>
         </div>
 
@@ -45,17 +46,20 @@ const Projects = ({
                 role
               }): JSX.Element => (
                   <div key={slug} className={`column col-6 col-md-12 ${styles.column}`}>
-                    <Link href={`/${SiteRoutes.portfolio}/[slug]`} as={`/${SiteRoutes.portfolio}/${slug}`}>
-                      <a className={`card ${styles.projectCard}`}>
-                        <div className={styles.imageWrapper}>
-                          <ProgressiveImageLoader src={images[0]} imageHeight="50%" />
-                        </div>
+                    <NavLink
+                      className={`card ${styles.projectCard}`}
+                      href={`/${SiteRoutes.portfolio}/[slug]`}
+                      as={`/${SiteRoutes.portfolio}/${slug}`}
+                      style={{ overflow: 'hidden' }}
+                    >
+                      <div className={styles.imageWrapper}>
+                        <ProgressiveImageLoader src={images[0]} imageHeight="50%" />
+                      </div>
 
-                        <div className={`card-header ${styles.cardHeader}`}>
-                          <div className="card-title h4 text-primary"> {title} <div className={`text-gray fw-medium ${styles.cardRoles}`}>{role}</div> </div>
-                        </div>
-                      </a>
-                    </Link>
+                      <div className={`card-header ${styles.cardHeader}`}>
+                        <div className="card-title h4 text-primary"> {title} <div className={`text-gray fw-medium ${styles.cardRoles}`}>{role}</div> </div>
+                      </div>
+                    </NavLink>
                   </div>
                 )
             )}
@@ -110,7 +114,6 @@ export const getStaticProps: GetStaticProps<ProjectsProps> = async () => {
   ))
 
   return {
-    // Anything passed to the "props" object will be passed to the component as props.
     props: {
       projects
     }
