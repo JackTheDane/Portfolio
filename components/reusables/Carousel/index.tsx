@@ -4,6 +4,8 @@ import Swiper from 'react-id-swiper';
 import { IExtendedSwiperOptions } from './IExtendedSwiperOptions';
 import { ProgressiveImageLoader } from '../ProgressiveImageLoader';
 import { getDynamicLocalImage, DynamicLocalImageTypes } from '../../../utils/images/getDynamicLocalImage';
+import { ChevronLeftIcon } from '../../domains/icons/ChevronLeft';
+import { ChevronRightIcon } from '../../domains/icons/ChevronRight';
 
 export interface CarouselProps {
   images: string[];
@@ -14,7 +16,6 @@ export const Carousel = ({
   images,
   className
 }: CarouselProps) => {
-
 
   const [gallerySwiper, getGallerySwiper] = useState(null);
   const [thumbnailSwiper, getThumbnailSwiper] = useState(null);
@@ -27,8 +28,8 @@ export const Carousel = ({
     preloadImages: false,
     shouldSwiperUpdate: true,
     shortSwipes: true,
-    renderPrevButton: () => <button className={`${styles.navigationButton} ${styles.navigationButtonLeft}`}> <i className="icon icon-arrow-left" /> </button>,
-    renderNextButton: () => <button className={`${styles.navigationButton} ${styles.navigationButtonRight}`}> <i className="icon icon-arrow-right" /> </button>,
+    renderPrevButton: () => <button className={`${styles.navigationButton} ${styles.navigationButtonLeft}`}> <ChevronLeftIcon /> </button>,
+    renderNextButton: () => <button className={`${styles.navigationButton} ${styles.navigationButtonRight}`}> <ChevronRightIcon /> </button>,
     navigation: {
       nextEl: `.${styles.navigationButton}.${styles.navigationButtonRight}`,
       prevEl: `.${styles.navigationButton}.${styles.navigationButtonLeft}`,
@@ -75,8 +76,8 @@ export const Carousel = ({
           key={'CarImg_' + i}
         >
           <ProgressiveImageLoader
-            imageHeight="50%"
             src={image}
+            className={styles.imageLoader}
           />
         </div>
       );

@@ -1,0 +1,19 @@
+.root {
+  display: inline-block;
+
+  &,
+  svg {
+    max-height: 1em;
+    width: 1em;
+    color: inherit;
+
+    &,
+    & > * {
+      font-size: inherit;
+    }
+  }
+
+  svg {
+    fill: currentColor;
+  }
+}

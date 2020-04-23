@@ -1,7 +1,7 @@
 export interface IMenuItem {
   title: string;
   url: string;
-  icon?: string;
+  icon?: JSX.Element;
   subItems?: IMenuItem[];
   isExact?: boolean;
 }

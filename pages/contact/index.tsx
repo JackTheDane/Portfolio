@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styles from './styles.module.scss';
 import Head from 'next/head';
+import { PaperPlaneIcon } from '../../components/domains/icons/PaperPlane';
 // import { useForm } from 'react-hook-form';
 
 
@@ -22,13 +23,13 @@ const Contact = ({ }: ContactProps) => {
 
       <div className="content-page content">
 
-        <h1 className="transition-elem delay-0 text-primary">
+        <h1 className=" text-primary">
           Get in touch with me
         </h1>
 
-        <div className="divider transition-elem delay-0"></div>
+        <div className="divider "></div>
 
-        <div className="my-5 transition-elem delay-1">
+        <div className="my-5 ">
           <form method="POST" action="https://formspree.io/martin@mbpmedia.com">
             <div className="form-group columns">
               <div className="column col-6 col-xs-12">
@@ -70,7 +71,10 @@ const Contact = ({ }: ContactProps) => {
             </div>
 
             <div className="form-group">
-              <button type="submit" className={`btn btn-primary btn-icon-right my-2 mr-3 btn-lg}`}>Send <i className="icon icon-message" /></button>
+              <button type="submit" className={`btn btn-primary btn-icon-right my-2 mr-3 btn-lg}`}>
+                Send
+                <PaperPlaneIcon className="ml-3" />
+              </button>
               <small>
                 Sent via FormSpree.io
               </small>
@@ -79,10 +83,10 @@ const Contact = ({ }: ContactProps) => {
 
         </div>
 
-        <div className="divider transition-elem delay-2 my-5"></div>
+        <div className="divider  my-5"></div>
 
         <div>
-          <div className={`transition-elem delay-3 ${styles.subcontent}`}>
+          <div className={` ${styles.subcontent}`}>
             <h3 className='text-primary'>
               Email
             </h3>

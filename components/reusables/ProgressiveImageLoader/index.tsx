@@ -11,12 +11,17 @@ export interface ProgressiveImageLoaderProps extends Omit<React.DetailedHTMLProp
    * @example "200px" or "56.25%"
    */
   imageHeight?: string;
+  classNames?: {
+    overlayImg?: string;
+    img?: string;
+  }
 }
 
 export const ProgressiveImageLoader = ({
   src: pathToFile,
   className,
   imageHeight,
+  classNames,
   ...rest
 }: ProgressiveImageLoaderProps) => {
 
@@ -38,9 +43,10 @@ export const ProgressiveImageLoader = ({
   let imageClassNames: string = styles.image;
   let overlayClassNames: string = styles.overlay;
 
-  if (className) {
-    imageClassNames += ' ' + className;
-    overlayClassNames += ' ' + className;
+  if (classNames) {
+
+    if (classNames.img) imageClassNames += ' ' + classNames.img;
+    if (classNames.overlayImg) overlayClassNames += ' ' + classNames.overlayImg;
   }
 
   // Check if the image has already been fetched and cached - If yes, hide loader immediately
@@ -52,7 +58,7 @@ export const ProgressiveImageLoader = ({
   const rootStyles: React.CSSProperties = { paddingTop: imageHeight || '56.25%' };
 
   return (
-    <figure className={`${styles.root} ${(isImageLoaded) ? styles.loaded : ''}`} style={rootStyles}>
+    <figure className={`${styles.root} ${className || ''} ${isImageLoaded ? styles.loaded : ''}`} style={rootStyles}>
       <img
         {...rest}
         className={imageClassNames}

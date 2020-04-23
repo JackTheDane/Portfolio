@@ -14,6 +14,10 @@
     background-repeat: no-repeat;
   }
 
+  .imageLoader {
+    padding-top: 60% !important;
+  }
+
   .thumbnailWrapper {
     padding: 5px;
   }
@@ -63,10 +67,10 @@
     position: absolute;
     top: 0;
     display: none;
+    font-size: 1.2rem;
 
     height: 100%;
     width: 56px;
-    font-size: 20px;
     z-index: 5;
 
     &::before {
@@ -130,6 +134,10 @@
 
 @media (min-width: 1200px) {
   .carousel {
+
+    .imageLoader {
+      padding-top: 50% !important;
+    }
 
     &:hover {
       .navigationButton {

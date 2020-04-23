@@ -8,6 +8,7 @@ import matter from 'gray-matter';
 import path from 'path';
 import Head from 'next/head';
 import { ProgressiveImageLoader } from '../../components/reusables/ProgressiveImageLoader';
+import { SiteRoutes } from '../../data/SiteRoutes';
 
 export interface ProjectsProps {
   projects: IProject[];
@@ -44,7 +45,7 @@ const Projects = ({
                 role
               }): JSX.Element => (
                   <div key={slug} className={`column col-6 col-md-12 ${styles.column}`}>
-                    <Link href={`/projects/[slug]`} as={'/projects/' + slug}>
+                    <Link href={`/${SiteRoutes.portfolio}/[slug]`} as={`/${SiteRoutes.portfolio}/${slug}`}>
                       <a className={`card ${styles.projectCard}`}>
                         <div className={styles.imageWrapper}>
                           <ProgressiveImageLoader src={images[0]} imageHeight="50%" />

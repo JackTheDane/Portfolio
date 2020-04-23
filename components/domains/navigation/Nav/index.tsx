@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './styles.module.scss';
 // import LogoAndText from '../../images/mainLogo-white.png';
 // import Logo from '../../images/mainLogoOnly-white.png';
@@ -6,29 +6,32 @@ import styles from './styles.module.scss';
 import Link from 'next/link';
 
 import { IMenuItem } from '../../../../models/interfaces/IMenuItem';
-import { useWindowWidth } from '../../../../hooks/useWindowWidth';
 import { NavLink } from '../NavLink';
 import { LinkedIn } from '../../icons/LinkedIn';
 import { Github } from '../../icons/Github';
+import { SiteRoutes } from '../../../../data/SiteRoutes';
+import { CloneIcon } from '../../icons/Clone';
+import { UserIcon } from '../../icons/User';
+import { PaperPlaneIcon } from '../../icons/PaperPlane';
 
 
 const menuItems: IMenuItem[] = [
   {
-    title: 'About me',
-    url: '',
-    icon: 'people',
+    title: 'Who am I?',
+    url: SiteRoutes.aboutMe,
+    icon: <UserIcon />,
     isExact: true
   },
   {
-    title: 'Projects',
-    url: 'projects',
-    icon: 'bookmark',
+    title: 'Portfolio',
+    url: SiteRoutes.portfolio,
+    icon: <CloneIcon />,
     isExact: false
   },
   {
-    title: 'Contact',
-    url: 'contact',
-    icon: 'message',
+    title: 'Get in touch!',
+    url: SiteRoutes.contact,
+    icon: <PaperPlaneIcon />,
     isExact: true
   }
 ]
@@ -38,12 +41,8 @@ export interface NavProps {
 
 const Nav = () => {
 
-  const windowWidth = useWindowWidth();
-
-  let navClass: string = '';
-
   return (
-    <nav className={`${styles.nav} ${navClass}`}>
+    <nav className={`${styles.nav}`}>
 
       <Link href="/">
         <a className={styles.logo} >
@@ -59,7 +58,13 @@ const Nav = () => {
               <span key={'navItem_' + i} className={styles.itemWrapper} >
                 <NavLink exact={item.isExact} activeClassName={styles.selected} href={`/${item.url}`} className={styles.menuItem}>
                   <li>
-                    {item.icon && <i className={`icon icon-${item.icon} ${styles.itemIcon}`} />}
+                    {item.icon && (
+                      <span className="mr-3 mt-2">
+                        {item.icon}
+                      </span>
+                    )}
+
+                    {/* {item.icon && <i className={`icon icon-${item.icon} ${styles.itemIcon}`} />} */}
                     {item.title}
                   </li>
                 </NavLink>
@@ -102,12 +107,15 @@ const Nav = () => {
         </a>
       </div>
       <div className={`${styles.mobileMenu} btn-group btn-group-block`}>
+        {/* <NavLink className={`btn btn-primary btn-action btn-lg p-5 ${styles.mobileMenuItem}`} href="/">
+          <img src="/images/mainLogoOnly-white.png" className="img-fit-contain" alt="MBP Media" />
+        </NavLink> */}
         {
           menuItems.map((item, i: number) => {
             return (
               <NavLink exact={item.isExact} key={'ni_' + i} activeClassName="active" href={`/${item.url}`} className={`btn btn-primary btn-lg ${styles.mobileMenuItem}`}>
-                <i className={`icon icon-${item.icon}`} />
-                {item.title}
+                <i style={{ fontSize: '1.2em', marginBottom: 2 }} className={`icon icon-${item.icon}`} />
+                <span style={{ fontSize: '.9em' }}>{item.title}</span>
               </NavLink>
             )
           })

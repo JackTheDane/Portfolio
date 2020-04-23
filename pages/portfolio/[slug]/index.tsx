@@ -10,6 +10,10 @@ import { Carousel } from '../../../components/reusables/Carousel';
 import Link from 'next/link';
 import { MarkdownRenderer } from '../../../components/reusables/MarkdownRenderer';
 import { useElementHeight } from '../../../hooks/useElementHeight';
+import { SiteRoutes } from '../../../data/SiteRoutes';
+import { NavLink } from '../../../components/domains/navigation/NavLink';
+import { ArrowLeftIcon } from '../../../components/domains/icons/ArrowLeft';
+import { LinkIcon } from '../../../components/domains/icons/Link';
 
 interface ProjectPaginationItem {
   title: string;
@@ -62,19 +66,18 @@ const ProjectPage = ({
 
         <div style={{ position: 'relative' }}>
           <Carousel key={slug} images={images} />
-          <Link href='/projects'>
-            <a className={`${styles.backButton} btn btn-primary btn-lg`}>
-              <i className="icon icon-back mr-2" />
-              <span>
-                Other projects
-              </span>
-            </a>
-          </Link>
+
+          <NavLink href={`/${SiteRoutes.portfolio}`} className={`${styles.backButton} btn btn-primary btn-lg ml-5 mt-4`}>
+            <ArrowLeftIcon className="mr-2" />
+            <span>
+              Other projects
+            </span>
+          </NavLink>
         </div>
 
 
-        <div className="px-5 d-flex" style={{ flexDirection: 'column', flexGrow: 1 }}>
-          <div className="padx-xs mt-3">
+        <div className="px-5 padx-xs d-flex" style={{ flexDirection: 'column', flexGrow: 1 }}>
+          <div className="mt-3">
             <div className="d-flex" style={{ alignItems: 'center' }}>
               <h2 className={`text-primary mb-2 ${styles.title}`}>
                 {title}
@@ -89,7 +92,7 @@ const ProjectPage = ({
                     data-tooltip="View live site"
                     className={`btn btn-primary tooltip tooltip-right ml-3 ${styles.siteLinkButton}`}
                   >
-                    <i className="icon icon-link" />
+                    <LinkIcon />
                   </a>
                 )
               }
@@ -115,7 +118,7 @@ const ProjectPage = ({
           <div className="divider my-3" />
 
           <div style={{ position: 'relative' }}>
-            <div className={`padx-xs ${styles.content}`} ref={contentElement} style={{ maxHeight: !showMoreContent ? 500 : 'none' }}>
+            <div className={`${styles.content}`} ref={contentElement} style={{ maxHeight: !showMoreContent ? 500 : 'none' }}>
               <MarkdownRenderer markdown={markdown} />
             </div>
             {
@@ -131,7 +134,7 @@ const ProjectPage = ({
               <ul className="pagination" style={{ marginTop: 'auto' }}>
                 {paginationItems.prev && (
                   <li className="page-item page-prev">
-                    <Link href="/projects/[slug]" as={`/projects/${paginationItems.prev.slug}`}>
+                    <Link href={`/${SiteRoutes.portfolio}/[slug]`} as={`/${SiteRoutes.portfolio}/${paginationItems.prev.slug}`}>
                       <a>
                         <div className="page-item-subtitle">Previous</div>
                         <div className="page-item-title h5">{paginationItems.prev.title}</div>
@@ -141,7 +144,7 @@ const ProjectPage = ({
                 )}
                 {paginationItems.next && (
                   <li className="page-item page-next">
-                    <Link href="/projects/[slug]" as={`/projects/${paginationItems.next.slug}`}>
+                    <Link href={`/${SiteRoutes.portfolio}/[slug]`} as={`/${SiteRoutes.portfolio}/${paginationItems.next.slug}`}>
                       <a>
                         <div className="page-item-subtitle">Next</div>
                         <div className="page-item-title h5">{paginationItems.next.title}</div>
