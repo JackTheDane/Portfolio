@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from './index.module.scss';
+import styles from './styles.module.scss';
 import Head from 'next/head';
 // import { useForm } from 'react-hook-form';
 

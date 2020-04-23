@@ -1,5 +1,6 @@
-import styles from './index.module.scss';
+import styles from './styles.module.scss';
 import Link from 'next/link';
+import { ProgressiveImageLoader } from '../components/reusables/ProgressiveImageLoader';
 
 const About = () => {
   return (
@@ -8,17 +9,17 @@ const About = () => {
 
         <div className="transition-elem delay-0">
           <div className={styles.profileImageWrapper}>
-            <img className={styles.profileImage} src="/images/profile.jpg" alt="Martin Bøje Petersen" />
+            <ProgressiveImageLoader imageHeight="100%" className={styles.profileImage} src="profile.jpg" alt="Martin Bøje Petersen" />
           </div>
         </div>
 
         <div className={`transition-elem delay-0 ${styles.profileTitleText}`}>
           <h1 className="mb-2 text-primary">
             Martin Bøje Petersen
-            </h1>
+          </h1>
           <h4 className="text-gray fw-medium">
             Webudvikler & IT Konsulent
-            </h4>
+          </h4>
         </div>
       </div>
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './index.module.scss';
+import styles from './styles.module.scss';
 import Link from 'next/link';
 import { IProject } from '../../models/interfaces/IProject';
 import { GetStaticProps } from 'next';
@@ -41,15 +41,13 @@ const Projects = ({
                 slug,
                 images,
                 title,
-                role,
-                url
+                role
               }): JSX.Element => (
                   <div key={slug} className={`column col-6 col-md-12 ${styles.column}`}>
                     <Link href={`/projects/[slug]`} as={'/projects/' + slug}>
                       <a className={`card ${styles.projectCard}`}>
                         <div className={styles.imageWrapper}>
                           <ProgressiveImageLoader src={images[0]} imageHeight="50%" />
-                          {/* <div className={styles.image} style={{ backgroundImage: `url(${lqipRequire(`./${images[0]}`)})` }} /> */}
                         </div>
 
                         <div className={`card-header ${styles.cardHeader}`}>

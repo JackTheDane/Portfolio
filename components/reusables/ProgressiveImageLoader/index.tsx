@@ -25,10 +25,9 @@ export const ProgressiveImageLoader = ({
 
   const image = useRef<HTMLImageElement>();
 
-  const relativePathToFile: string = `./${pathToFile}`;
-
-  const src = getDynamicLocalImage(relativePathToFile);
-  const overlaySrc = getDynamicLocalImage(relativePathToFile, DynamicLocalImageTypes.lqip);
+  const src: string = getDynamicLocalImage(pathToFile);
+  const srcSet: { src: string; srcSet: string } = getDynamicLocalImage(pathToFile, DynamicLocalImageTypes.multipleSizes);
+  const overlaySrc: string = getDynamicLocalImage(pathToFile, DynamicLocalImageTypes.lqip);
 
   const overlayStyle: React.CSSProperties = {};
 
@@ -47,6 +46,7 @@ export const ProgressiveImageLoader = ({
   // Check if the image has already been fetched and cached - If yes, hide loader immediately
   useEffect(() => {
     if (image && image.current && image.current.complete) setIsImageCached(true);
+    console.log(srcSet.srcSet);
   }, [])
 
   const rootStyles: React.CSSProperties = { paddingTop: imageHeight || '56.25%' };
@@ -57,6 +57,12 @@ export const ProgressiveImageLoader = ({
         {...rest}
         className={imageClassNames}
         onLoad={() => setIsImageLoaded(true)}
+        srcSet={srcSet.srcSet}
+        sizes="
+          (max-width: 600px) 600px,
+          (max-width: 900px) 900px,
+          1200px
+        "
         src={src}
         ref={image}
       />

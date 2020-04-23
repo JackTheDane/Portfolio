@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import styles from './index.module.scss';
+import styles from './styles.module.scss';
 import Swiper from 'react-id-swiper';
 import { IExtendedSwiperOptions } from './IExtendedSwiperOptions';
 import { ProgressiveImageLoader } from '../ProgressiveImageLoader';
@@ -38,7 +38,7 @@ export const Carousel = ({
     getSwiper: getThumbnailSwiper,
     spaceBetween: 5,
     centeredSlides: true,
-    slidesPerView: 6,
+    slidesPerView: 'auto',
     shouldSwiperUpdate: true,
     touchRatio: 0.5,
     preloadImages: false,
@@ -64,8 +64,8 @@ export const Carousel = ({
     (image, i: number) => {
 
       slidePreview.push(
-        <div>
-          <div className={styles.slidePreview} key={`prev_${i}`} style={{ backgroundImage: `url('${getDynamicLocalImage(image, DynamicLocalImageTypes.small)}')` }} />
+        <div className={styles.slidePreviewWrapper}>
+          <div className={styles.slidePreview} key={`prev_${i}`} style={{ backgroundImage: `url('${getDynamicLocalImage(image, DynamicLocalImageTypes.xsmall)}')` }} />
         </div>
       )
 

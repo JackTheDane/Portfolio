@@ -1,15 +1,15 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import Head from 'next/head';
-import marked from 'marked';
 import { IProject } from '../../../models/interfaces/IProject';
 import { GetStaticProps } from 'next';
-import styles from './project.module.scss';
+import styles from './styles.module.scss';
 import { Carousel } from '../../../components/reusables/Carousel';
 import Link from 'next/link';
 import { MarkdownRenderer } from '../../../components/reusables/MarkdownRenderer';
+import { useElementHeight } from '../../../hooks/useElementHeight';
 
 interface ProjectPaginationItem {
   title: string;
@@ -36,11 +36,18 @@ const ProjectPage = ({
   slug
 }: ProjectPageProps) => {
 
+  const [showMoreContent, setShowMoreContent] = useState(false);
+  const contentElement = useRef<HTMLDivElement>(null);
+  const contentElementHeight: number = useElementHeight(contentElement);
+
+  const isContentTooTall: boolean = contentElementHeight > 499;
+
   // If the slug changes -> Scroll to top of mainContent container
   useEffect(() => {
     if (document) {
       const mainContent = document.getElementById('_mainContent');
-      if (mainContent) mainContent.scrollTo(0,0);
+      setShowMoreContent(false);
+      if (mainContent) mainContent.scrollTo(0, 0);
     }
   }, [slug]);
 
@@ -66,10 +73,10 @@ const ProjectPage = ({
         </div>
 
 
-        <div className="px-5" style={{ display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
+        <div className="px-5 d-flex" style={{ flexDirection: 'column', flexGrow: 1 }}>
           <div className="padx-xs mt-3">
             <div className="d-flex" style={{ alignItems: 'center' }}>
-              <h2 className={`text-primary mb-2 transition-elem delay-1 ${styles.title}`}>
+              <h2 className={`text-primary mb-2 ${styles.title}`}>
                 {title}
               </h2>
 
@@ -105,11 +112,19 @@ const ProjectPage = ({
             </div>
           </div>
 
-          <div className="divider transition-elem delay-1 my-3" />
+          <div className="divider my-3" />
 
-          <div className="transition-elem delay-1 padx-xs">
-            <MarkdownRenderer markdown={markdown} />
+          <div style={{ position: 'relative' }}>
+            <div className={`padx-xs ${styles.content}`} ref={contentElement} style={{ maxHeight: !showMoreContent ? 500 : 'none' }}>
+              <MarkdownRenderer markdown={markdown} />
+            </div>
+            {
+              isContentTooTall && !showMoreContent && (
+                <button className={`btn btn-link d-block ${styles.showMoreButton}`} onClick={() => setShowMoreContent(true)}>Show more</button>
+              )
+            }
           </div>
+
 
           {
             paginationItems && (

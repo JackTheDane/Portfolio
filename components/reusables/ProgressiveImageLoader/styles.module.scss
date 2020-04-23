@@ -1,18 +1,13 @@
+@import '../../../styling/utils';
+
 .root {
   position: relative;
   width: 100%;
   margin: 0;
   overflow: hidden;
-  // filter: blur(2px);
-
-  & {
-    transition: filter .5s ease;
-  }
 }
 
 .loaded {
-  filter: blur(0);
-
   .overlay {
     opacity: 0;
   }
@@ -31,8 +26,8 @@
   height: 100%;
 }
 
+
 .overlay {
-  filter: blur(3px);
-  transform: scale(1.05);
-  transition: opacity .5s ease;
+  @include better-blur(4);
+  transition: opacity .4s ease;
 }

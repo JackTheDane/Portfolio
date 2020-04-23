@@ -1,6 +1,65 @@
 @import "styling/spectre/variables";
 
+.nav {
+  z-index: 100;
+  width: 100%;
+  bottom:0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  overflow-y: auto;
+
+  position: fixed;
+  z-index: 1000;
+  transition: max-height 0.15s ease;
+
+  & > * {
+    pointer-events: initial;
+  }
+
+  .mobileMenuItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 65px;
+    justify-content: center;
+  }
+
+  .logo {
+    pointer-events: initial;
+    display: none;
+    cursor: pointer;
+    opacity: 1;
+    transition: opacity 0.3s;
+    padding-top: 10px;
+    max-width: 140px;
+    max-height: 140px;
+
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+
+  .mobileMenu {
+    flex-grow: 0;
+    flex-shrink: 0;
+    width: 100%;
+    max-width: 900px;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    pointer-events: initial;
+
+    & :global(.btn) {
+      border-radius: 0;
+    }
+  }
+}
+
 .mediaPlatforms {
+  display: none;
   animation: fadeInLeft 0.3s ease-out 0.5s both;
   max-width: 400px;
   padding: 0 20px;
@@ -14,7 +73,6 @@
 
   justify-content: space-around;
 
-  display: none;
 }
 
 .mediaPlatformsButton {
@@ -48,102 +106,24 @@
   }
 }
 
-.nav {
-  z-index: 100;
-  width: 100%;
-  height: 100%;
-  max-height: 60px;
-  top:0;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  overflow-y: auto;
-
-  position: fixed;
-  z-index: 1000;
-
-  background-color: $primary-color;
-  transition: max-height 0.15s ease;
-
-  &.navShown {
-    max-height: 100%;
-    transition: max-height 0.4s ease-in-out;
-
-    .mediaPlatforms {
-      display: flex;
-    }
-  }
-
-  & > * {
-    pointer-events: initial;
-  }
-
-  .logo {
-    padding-top: 10px;
-    max-width: 140px;
-    max-height: 140px;
-
-    &:hover {
-      opacity: 0.6;
-    }
-  }
-  .logoMobile {
-    height: 100%;
-    padding: 10px 0;
-
-    & > img {
-      max-height: 100%;
-    }
-  }
-
-  .logo,
-  .logoMobile {
-    pointer-events: initial;
-    display: block;
-    cursor: pointer;
-    opacity: 1;
-    transition: opacity 0.3s;
-  }
-
-  .mobileMenu {
-    flex-grow: 0;
-    flex-shrink: 0;
-    height: 60px;
-    width: 100%;
-    max-width: 900px;
-    padding: 0 20px;
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
-    pointer-events: initial;
-  }
-}
-
 .menu {
+  display: none;
   color: $bg-color-light;
   list-style: none;
   margin: 10px 0 30px 0;
+  margin: auto 0;
   width: 100%;
   max-width: 400px;
-  padding: 0 20px;
+  padding: 0 20px 40px;
   pointer-events: initial;
   flex-direction: column;
 
-  display: none;
-
-  &.menuShown {
-    display: flex;
-  }
-
   .menuItem {
     display: inline-block;
+    font-size: 1.35rem;
+    width: auto;
 
-    font-size: 1.2rem;
     margin-top: 15px;
-    width: 100%;
-
     cursor: pointer;
     user-select: none;
     text-decoration: none !important;
@@ -186,6 +166,15 @@
   .itemWrapper {
     animation: fadeInLeft 0.3s ease-out 0.1s both;
 
+    &:first-child {
+      .menuItem {
+        &,
+        li {
+          margin-top: 0;
+        }
+      }
+    }
+
     &:nth-child(2) {
       animation-delay: 0.2s;
     }
@@ -215,38 +204,25 @@
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1100px) {
   .nav {
     padding: 20px 0px 0px;
     position: relative;
     flex: 0 1 600px;
     background-color: transparent;
     max-height: 100%;
-  }
 
-  .mediaPlatforms {
-    display: flex;
-  }
-
-  .menu {
-    display: flex;
-    margin: auto 0;
-    padding-bottom: 40px;
-
-    .menuItem {
-      font-size: 1.35rem;
-      width: auto;
+    .menu,
+    .mediaPlatforms {
+      display: flex;
     }
-  }
 
-  .itemWrapper {
-    &:first-child {
-      .menuItem {
-        &,
-        li {
-          margin-top: 0;
-        }
-      }
+    .logo {
+      display: block;
+    }
+
+    .mobileMenu {
+      display: none;
     }
   }
 }
