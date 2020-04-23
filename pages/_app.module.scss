@@ -6,6 +6,7 @@
   display: flex;
   overflow-y: auto;
   position: relative;
+  padding-bottom: 65px;
 
   .spacer {
     display: none;
@@ -38,14 +39,10 @@
   }
 }
 
-@media (max-width: 899px) {
-  .app {
-    background-image: none !important;
-  }
-}
-
 @media (min-width: 1100px) {
   .app {
+    padding-bottom: 0;
+
     .spacer {
       display: block;
       flex: 0 0 30vw;

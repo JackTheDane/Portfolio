@@ -36,7 +36,7 @@ const Contact = ({ }: ContactProps) => {
         {/* <div className="divider " /> */}
 
         <div className="columns">
-          <div className="my-5 column py-5 col-8">
+          <div className="my-5 column py-5 col-8 col-md-12">
             <h3 className="text-light mb-5">... With a message</h3>
             <form method="POST" action="https://formspree.io/martin@mbpmedia.com">
               <div className="form-group">
@@ -74,9 +74,10 @@ const Contact = ({ }: ContactProps) => {
 
           </div>
 
-          <div className="divider-vert col-1 my-5" />
+          <div className="divider col-12 show-md my-5" />
+          <div className="divider-vert col-1 hide-md my-5" />
 
-          <div className="column col-3 py-5 my-5">
+          <div className="column col-3 col-md-12 py-5 my-5">
             <h3 className='text-light'>
               ... Or
             </h3>
