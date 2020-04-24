@@ -1,8 +1,9 @@
-@import './spectre/spectre.scss';
+@import "./spectre/spectre.scss";
 // @import '~react-id-swiper/lib/styles/scss/swiper.scss';
 
-
-html, body, #__next {
+html,
+body,
+#__next {
   height: 100%;
 }
 
@@ -11,13 +12,14 @@ html, body, #__next {
 }
 
 * {
-  font-size: .9rem;
+  font-size: 0.9rem;
 }
 
-a:active, a:focus {
+a:active,
+a:focus {
   outline: none;
-  outline-style:none;
-  box-shadow:none;
+  outline-style: none;
+  box-shadow: none;
 }
 
 img {
@@ -70,7 +72,6 @@ img {
   @extend .mr-a;
 }
 
-
 .btn-icon-right {
   i {
     margin-left: 5px;
@@ -95,8 +96,8 @@ img {
 }
 
 .content {
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 @media (max-width: 599px) {
@@ -114,7 +115,6 @@ img {
 }
 
 @media (min-width: 1200px) {
-
   .content-page {
     padding-top: 90px;
   }
@@ -126,7 +126,7 @@ img {
 
   .btn-icon-right {
     .icon {
-      transition: margin-left .3s;
+      transition: margin-left 0.3s;
     }
 
     &:hover {
@@ -138,7 +138,7 @@ img {
 
   .btn-icon-left {
     .icon {
-      transition: margin-right .3s;
+      transition: margin-right 0.3s;
     }
 
     &:hover {
@@ -160,19 +160,19 @@ img {
   width: 100%;
 
   #_pageBackgroundImage {
-      position: absolute;
-      top: -5%;
-      bottom: -5%;
-      left: -5%;
-      right: -5%;
-      height: 110%;
-      width: 110%;
-      background-position: center center;
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-color: $primary-color-dark;
-      background-blend-mode: multiply;
-      filter: blur(10px);
+    position: absolute;
+    top: -5%;
+    bottom: -5%;
+    left: -5%;
+    right: -5%;
+    height: 110%;
+    width: 110%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: multiply;
+    background-color: $primary-color-dark;
+
+    filter: blur(10px);
   }
 }
-

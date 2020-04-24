@@ -1,0 +1,28 @@
+@import "styling/spectre/variables";
+
+.root {
+  background: radial-gradient(ellipse, $primary-color-light, $primary-color-dark);
+  & > * {
+    z-index: 5;
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: block;
+    background: linear-gradient(rgba(0, 0, 0, 0.25), transparent);
+    width: 100%;
+    height: 35px;
+    z-index: 0;
+  }
+
+  &::after {
+    top: auto;
+    bottom: 0;
+    transform: scaleY(-1);
+  }
+}
