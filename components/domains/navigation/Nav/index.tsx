@@ -116,7 +116,9 @@ const Nav = () => {
           menuItems.map((item, i: number) => {
             return (
               <NavLink exact={item.isExact} key={'ni_' + i} activeClassName="active" href={`/${item.url}`} className={`btn btn-primary btn-lg ${styles.mobileMenuItem}`}>
-                <i style={{ fontSize: '1.2em', marginBottom: 2 }} className={`icon icon-${item.icon}`} />
+                {item.icon}
+
+                {/* <i style={{ fontSize: '1.2em', marginBottom: 2 }} className={`icon icon-${item.icon}`} /> */}
                 <span style={{ fontSize: '.9em' }}>{item.title}</span>
               </NavLink>
             )

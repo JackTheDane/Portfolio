@@ -6,6 +6,7 @@ import { OutboundRoutes } from '../../data/routes/OutboundRoutes';
 import { LinkedInIcon } from '../../components/domains/icons/LinkedIn';
 import { GitHubIcon } from '../../components/domains/icons/GitHub';
 import { EnvelopeIcon } from '../../components/domains/icons/Envelope';
+import { GradiantBackground } from '../../components/reusables/GradiantBackground';
 // import { useForm } from 'react-hook-form';
 
 
@@ -25,99 +26,101 @@ const Contact = ({ }: ContactProps) => {
         <title>Contact - Martin Bøje Petersen</title>
       </Head>
 
-      <div className="content-page content">
+      <div className="content-page">
 
-        <h1 className={`text-light ${styles.title}`}>
+        <h1 className={`text-primary content ${styles.title}`}>
           Get in touch with me ...
-          {/* Dear Martin...
-          <span /> */}
+          {/* <span /> */}
         </h1>
 
         {/* <div className="divider " /> */}
 
-        <div className="columns">
-          <div className="my-5 column py-5 col-8 col-md-12">
-            <h3 className="text-light mb-5">... With a message</h3>
-            <form method="POST" action="https://formspree.io/martin@mbpmedia.com">
-              <div className="form-group">
-                {/* <label className="form-label text-light" htmlFor="input-email">Your email</label> */}
-                <input
-                  className="form-input text-light"
-                  required
-                  type="email"
-                  id="input-email"
-                  name="email"
-                  placeholder="Your@Email.com"
-                />
-              </div>
+        <GradiantBackground className="content">
+          <div className="columns">
+            <div className="my-5 column py-5 col-8 col-md-12">
+              <h3 className="text-light mb-5">... With a message</h3>
+              <form method="POST" action="https://formspree.io/martin@mbpmedia.com">
+                <div className="form-group">
+                  {/* <label className="form-label text-primary" htmlFor="input-email">Your email</label> */}
+                  <input
+                    className="form-input"
+                    required
+                    type="email"
+                    id="input-email"
+                    name="email"
+                    placeholder="Your@Email.com"
+                  />
+                </div>
 
 
-              <div className="form-group my-3">
-                {/* <label className="form-label text-light" htmlFor="input-besked">Write you message below</label> */}
-                <textarea
-                  className="form-input"
-                  required
-                  id="input-msg"
-                  name="message"
-                  rows={8}
-                  placeholder="Dear Martin..."
-                />
-              </div>
+                <div className="form-group my-3">
+                  {/* <label className="form-label text-primary" htmlFor="input-besked">Write you message below</label> */}
+                  <textarea
+                    className="form-input"
+                    required
+                    id="input-msg"
+                    name="message"
+                    rows={8}
+                    placeholder="Dear Martin..."
+                  />
+                </div>
 
-              <div className="form-group">
-                <button type="submit" className={`btn btn-block btn-primary btn-icon-right btn-lg}`}>
-                  Send
+                <div className="form-group">
+                  <button type="submit" className={`btn btn-block btn-primary btn-icon-right btn-lg}`}>
+                    Send
                   <PaperPlaneIcon className="ml-3" />
-                </button>
-              </div>
-            </form>
+                  </button>
+                </div>
+              </form>
 
-          </div>
+            </div>
 
-          <div className="divider col-12 show-md my-5" />
-          <div className="divider-vert col-1 hide-md my-5" />
+            {/* <div className="divider col-12 show-md my-5" />
+            <div className="divider-vert col-1 hide-md my-5" /> */}
+            <div className="col-1 col-md-12" />
 
-          <div className="column col-3 col-md-12 py-5 my-5">
-            <h3 className='text-light'>
-              ... Or
+            <div className="column col-3 col-md-12 py-5 my-5">
+              <h3 className='text-light'>
+                ... Or
             </h3>
 
-            <ul className="menu text-primary">
-              <li className="menu-item">
-                <a href={OutboundRoutes.emailAddress}>
-                  <span className="btn btn-action mr-3 btn-primary">
-                    <EnvelopeIcon />
-                  </span>
+              <ul className="menu text-primary">
+                <li className="menu-item">
+                  <a href={OutboundRoutes.emailAddress}>
+                    <span className="btn btn-action mr-3 btn-primary">
+                      <EnvelopeIcon />
+                    </span>
                   Email
                 </a>
-              </li>
+                </li>
 
-              {/* <li className="divider" /> */}
+                {/* <li className="divider" /> */}
 
-              <li className="menu-item">
-                <a href={OutboundRoutes.linkedIn}>
-                  <span className="btn btn-action mr-3 btn-primary">
-                    <LinkedInIcon />
-                  </span>
+                <li className="menu-item">
+                  <a href={OutboundRoutes.linkedIn}>
+                    <span className="btn btn-action mr-3 btn-primary">
+                      <LinkedInIcon />
+                    </span>
                   LinkedIn
                 </a>
-              </li>
+                </li>
 
-              <li className="divider text-center" data-content="Also check out" />
+                <li className="divider text-center" data-content="Also check out" />
 
-              <li className="menu-item">
-                <a href={OutboundRoutes.linkedIn}>
-                  <span className="btn btn-action mr-3 btn-primary">
-                    <GitHubIcon />
-                  </span>
+                <li className="menu-item">
+                  <a href={OutboundRoutes.linkedIn}>
+                    <span className="btn btn-action mr-3 btn-primary">
+                      <GitHubIcon />
+                    </span>
                   GitHub
                 </a>
-              </li>
+                </li>
 
-            </ul>
+              </ul>
+            </div>
+
           </div>
-
-        </div>
+        </GradiantBackground>
 
       </div>
     </>

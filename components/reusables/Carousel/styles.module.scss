@@ -39,7 +39,7 @@
     cursor: pointer;
     visibility: hidden;
 
-    transform: scale(.92);
+    transform: scale(0.92);
 
     transition: all 0.2s;
     transition-property: transform opacity;
@@ -51,7 +51,7 @@
 
   .selected {
     .slidePreview {
-    transform: scale(1);
+      transform: scale(1);
       cursor: initial;
       opacity: 1;
     }
@@ -83,7 +83,7 @@
       bottom: 0;
 
       opacity: 0.5;
-      transition: opacity .2s;
+      transition: opacity 0.2s;
     }
 
     &.navigationButtonLeft {
@@ -125,15 +125,16 @@
     .slidePreview {
       visibility: visible;
     }
-    .navigationButton {
-      display: block;
-    }
   }
 }
 
-
 @media (min-width: 1200px) {
   .carousel {
+    :global(.swiper-container-initialized) {
+      .navigationButton {
+        display: block;
+      }
+    }
 
     .imageLoader {
       padding-top: 50% !important;

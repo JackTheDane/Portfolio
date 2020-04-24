@@ -11,18 +11,16 @@
 
 .title {
   & > span {
-    animation: fadeInAndOut 1.2s ease infinite alternate both;
-    height: .8em;
+    animation: fadeInAndOut 1s ease-in-out infinite alternate both;
+    height: 0.8em;
     font-size: inherit;
     width: 3px;
-    margin-left: .15em;
+    margin-left: 0.15em;
     margin-bottom: -0.03em;
-    background-color: white;
+    background-color: currentColor;
     display: inline-block;
-
   }
 }
-
 
 @keyframes fadeInAndOut {
   0% {

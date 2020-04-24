@@ -1,4 +1,4 @@
-@import 'styling/spectre/variables';
+@import "styling/spectre/variables";
 
 .app {
   min-height: 100%;
@@ -15,7 +15,7 @@
   .content {
     margin-left: auto;
     margin-right: auto;
-    // background-color: $bg-color-light;
+    background-color: $bg-color-light;
     // overflow: auto;
 
     max-width: 900px;
@@ -26,7 +26,7 @@
     // height: calc(100% - 65px);
     position: relative;
 
-    animation: fadeIn .3s both;
+    animation: fadeIn 0.3s both;
   }
 }
 

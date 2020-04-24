@@ -10,6 +10,7 @@ import Head from 'next/head';
 import { ProgressiveImageLoader } from '../../components/reusables/ProgressiveImageLoader';
 import { SiteRoutes } from '../../data/routes/SiteRoutes';
 import { NavLink } from '../../components/domains/navigation/NavLink';
+import { GradiantBackground } from '../../components/reusables/GradiantBackground';
 
 export interface ProjectsProps {
   projects: IProject[];
@@ -30,12 +31,12 @@ const Projects = ({
       <div className={`content-page ${styles.projects}`}>
 
         <div className="content">
-          <h1 className={`text-light ${styles.title}`}>
+          <h1 className={`text-primary ${styles.title}`}>
             Portfolio
           </h1>
         </div>
 
-        <div className={`${styles.pageContent} content`}>
+        <GradiantBackground className={`${styles.pageContent} content`}>
           <div className={`${styles.projectsWrapper} columns`}>
 
             {projects.map(
@@ -65,7 +66,7 @@ const Projects = ({
             )}
 
           </div>
-        </div>
+        </GradiantBackground>
       </div>
     </>
   )
