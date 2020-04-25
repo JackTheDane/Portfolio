@@ -26,19 +26,19 @@ const Contact = ({ }: ContactProps) => {
         <title>Contact - Martin Bøje Petersen</title>
       </Head>
 
-      <div className="content-page">
+      <div className="content-page bg-primary">
 
-        <h1 className={`text-primary content ${styles.title}`}>
+        <h1 className={`text-light content ${styles.title}`}>
           Get in touch with me ...
           {/* <span /> */}
         </h1>
 
         {/* <div className="divider " /> */}
 
-        <GradiantBackground className="content">
+        <GradiantBackground className="content py-5" type="light">
           <div className="columns">
-            <div className="my-5 column py-5 col-8 col-md-12">
-              <h3 className="text-light mb-5">... With a message</h3>
+            <div className="mb-5 column py-5 col-8 col-md-12">
+              <h3 className="text-primary mb-5">... With a message</h3>
               <form method="POST" action="https://formspree.io/martin@mbpmedia.com">
                 <div className="form-group">
                   {/* <label className="form-label text-primary" htmlFor="input-email">Your email</label> */}
@@ -66,7 +66,7 @@ const Contact = ({ }: ContactProps) => {
                 </div>
 
                 <div className="form-group">
-                  <button type="submit" className={`btn btn-block btn-primary btn-icon-right btn-lg}`}>
+                  <button type="submit" className={`btn btn-block btn-success btn-icon-right btn-lg}`}>
                     Send
                   <PaperPlaneIcon className="ml-3" />
                   </button>
@@ -79,44 +79,30 @@ const Contact = ({ }: ContactProps) => {
             <div className="divider-vert col-1 hide-md my-5" /> */}
             <div className="col-1 col-md-12" />
 
-            <div className="column col-3 col-md-12 py-5 my-5">
-              <h3 className='text-light'>
+            <div className="column col-3 col-md-12 py-5 mb-5">
+              <h3 className='text-primary'>
                 ... Or
-            </h3>
+              </h3>
 
-              <ul className="menu text-primary">
-                <li className="menu-item">
-                  <a href={OutboundRoutes.emailAddress}>
-                    <span className="btn btn-action mr-3 btn-primary">
-                      <EnvelopeIcon />
-                    </span>
+              <div>
+
+                <a href={OutboundRoutes.emailAddress} className="btn mb-2 btn-block btn-lg text-left btn-primary">
+                  <EnvelopeIcon className="mr-3" />
                   Email
                 </a>
-                </li>
-
-                {/* <li className="divider" /> */}
-
-                <li className="menu-item">
-                  <a href={OutboundRoutes.linkedIn}>
-                    <span className="btn btn-action mr-3 btn-primary">
-                      <LinkedInIcon />
-                    </span>
+                <a href={OutboundRoutes.linkedIn} className="btn btn-block btn-lg text-left btn-primary">
+                  <LinkedInIcon className="mr-3" />
                   LinkedIn
                 </a>
-                </li>
 
-                <li className="divider text-center" data-content="Also check out" />
+                <div className="divider text-center my-5" data-content="Also check out" />
 
-                <li className="menu-item">
-                  <a href={OutboundRoutes.linkedIn}>
-                    <span className="btn btn-action mr-3 btn-primary">
-                      <GitHubIcon />
-                    </span>
-                  GitHub
+                <a href={OutboundRoutes.gitHub} className="btn btn-block btn-lg text-left btn-primary">
+                  <GitHubIcon className="mr-3" />
+                    GitHub
                 </a>
-                </li>
 
-              </ul>
+              </div>
             </div>
 
           </div>

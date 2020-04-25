@@ -1,3 +1,9 @@
+// Overrides
+$primary-color: #175397;
+$warning-color: #da7439;
+$error-color: $warning-color;
+$secondary-color: lighten($primary-color, 10%);
+
 // Core variables
 $version: "0.5.3";
 
@@ -28,6 +34,8 @@ $bg-color-light: $light-color !default;
 // Control colors
 $success-color: #32b643 !default;
 $warning-color: #ffb700 !default;
+$warning-color-dark: darken($warning-color, 3%) !default;
+$warning-color-light: lighten($warning-color, 3%) !default;
 $error-color: #e85600 !default;
 
 // Other colors
