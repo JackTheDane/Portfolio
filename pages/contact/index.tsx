@@ -97,44 +97,39 @@ const Contact = ({ }: ContactProps) => {
               </button>
             </div>
           </form>
-
         </div>
 
-        {/* <div className="divider " /> */}
-
         <div className="columns">
-          {
-            secondaryButtons.map(
-              ({
-                icon,
-                link,
-                name,
-                secondaryText,
-                color
-              }) => (
-                  <div className="my-5 column col-sm-12 col-md-6 col-4 text-center">
-                    <a
-                      href={link}
-                      className="text-light d-flex"
-                      style={{ alignItems: 'center', flexDirection: 'column' }}
-                      target='_blank'
-                      rel='noopener'
-                      draggable={false}
-                    >
-                      <button className="btn btn-action btn-primary btn-lg mb-3" style={{ backgroundColor: color }}>
-                        {icon}
-                      </button>
-                      <h4 className="mb-2">
-                        {name}
-                      </h4>
-                    </a>
-                    <h6 className="text-gray">
-                      {secondaryText}
-                    </h6>
-                  </div>
-                )
-            )
-          }
+          {secondaryButtons.map(
+            ({
+              icon,
+              link,
+              name,
+              secondaryText,
+              color
+            }) => (
+                <div className="my-5 column col-sm-12 col-md-6 col-4 text-center">
+                  <a
+                    href={link}
+                    className="text-light d-flex"
+                    style={{ alignItems: 'center', flexDirection: 'column' }}
+                    target='_blank'
+                    rel='noopener'
+                    draggable={false}
+                  >
+                    <button className="btn btn-action btn-primary btn-lg mb-3" style={{ backgroundColor: color }}>
+                      {icon}
+                    </button>
+                    <h4 className="mb-2">
+                      {name}
+                    </h4>
+                  </a>
+                  <h6 className="text-gray">
+                    {secondaryText}
+                  </h6>
+                </div>
+              )
+          )}
         </div>
       </div>
     </>
