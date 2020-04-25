@@ -48,11 +48,7 @@ const ProjectPage = ({
 
   // If the slug changes -> Scroll to top of mainContent container
   useEffect(() => {
-    if (document) {
-      const mainContent = document.getElementById('_mainContent');
-      setShowMoreContent(false);
-      if (mainContent) mainContent.scrollTo(0, 0);
-    }
+    setShowMoreContent(false);
   }, [slug]);
 
   return (
