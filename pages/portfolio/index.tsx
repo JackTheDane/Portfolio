@@ -52,7 +52,7 @@ const Projects = ({
 
         <div className="divider"></div>
 
-        <GradiantBackground className={`${styles.pageContent}`} type="primary">
+        <div className={`${styles.pageContent}`}>
           <div className={`${styles.projectsWrapper} columns`}>
 
             {projects.map(
@@ -82,7 +82,7 @@ const Projects = ({
             )}
 
           </div>
-        </GradiantBackground>
+        </div>
       </div>
     </>
   )
