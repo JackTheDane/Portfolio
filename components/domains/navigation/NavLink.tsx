@@ -35,7 +35,7 @@ export const NavLink = ({
   }
 
   return (
-    <Link {...linkProps} >
+    <Link {...linkProps} scroll >
       <a
         {...aTagProps}
         className={aTagClassName}

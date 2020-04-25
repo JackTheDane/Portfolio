@@ -4,7 +4,7 @@ import Head from 'next/head';
 import { PaperPlaneIcon } from '../../components/domains/icons/PaperPlane';
 import { OutboundRoutes } from '../../data/routes/OutboundRoutes';
 import { LinkedInIcon } from '../../components/domains/icons/LinkedIn';
-import { GitHubIcon } from '../../components/domains/icons/GitHub';
+import { GitHubIcon } from '../../components/domains/icons/Github';
 import { EnvelopeIcon } from '../../components/domains/icons/Envelope';
 import { GradiantBackground } from '../../components/reusables/GradiantBackground';
 // import { useForm } from 'react-hook-form';
