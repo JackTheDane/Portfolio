@@ -36,7 +36,7 @@ const Projects = ({
           </h1>
         </div>
 
-        <GradiantBackground className={`${styles.pageContent} content`}>
+        <GradiantBackground className={`${styles.pageContent} content`} type="primary">
           <div className={`${styles.projectsWrapper} columns`}>
 
             {projects.map(

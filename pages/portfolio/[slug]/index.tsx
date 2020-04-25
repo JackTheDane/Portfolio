@@ -134,22 +134,18 @@ const ProjectPage = ({
               <ul className="pagination" style={{ marginTop: 'auto' }}>
                 {paginationItems.prev && (
                   <li className="page-item page-prev">
-                    <Link href={`/${SiteRoutes.portfolio}/[slug]`} as={`/${SiteRoutes.portfolio}/${paginationItems.prev.slug}`}>
-                      <a>
-                        <div className="page-item-subtitle">Previous</div>
-                        <div className="page-item-title h5">{paginationItems.prev.title}</div>
-                      </a>
-                    </Link>
+                    <NavLink href={`/${SiteRoutes.portfolio}/[slug]`} as={`/${SiteRoutes.portfolio}/${paginationItems.prev.slug}`}>
+                      <div className="page-item-subtitle">Previous</div>
+                      <div className="page-item-title h5">{paginationItems.prev.title}</div>
+                    </NavLink>
                   </li>
                 )}
                 {paginationItems.next && (
                   <li className="page-item page-next">
-                    <Link href={`/${SiteRoutes.portfolio}/[slug]`} as={`/${SiteRoutes.portfolio}/${paginationItems.next.slug}`}>
-                      <a>
-                        <div className="page-item-subtitle">Next</div>
-                        <div className="page-item-title h5">{paginationItems.next.title}</div>
-                      </a>
-                    </Link>
+                    <NavLink href={`/${SiteRoutes.portfolio}/[slug]`} as={`/${SiteRoutes.portfolio}/${paginationItems.next.slug}`}>
+                      <div className="page-item-subtitle">Next</div>
+                      <div className="page-item-title h5">{paginationItems.next.title}</div>
+                    </NavLink>
                   </li>
                 )}
               </ul>

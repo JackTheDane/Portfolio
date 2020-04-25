@@ -1,10 +1,32 @@
 @import "styling/spectre/variables";
+// @import "styling/spectre/utilities";
 
 .root {
-  background: radial-gradient(ellipse, $primary-color-light, $primary-color-dark);
+  &.primary {
+    background: radial-gradient(ellipse, $primary-color-light, $primary-color-dark);
+  }
+
+  &.secondary {
+    background: radial-gradient(ellipse, $secondary-color-light, $secondary-color-dark);
+  }
+
+  &.highlight {
+    background: radial-gradient(ellipse, $warning-color-light, $warning-color-dark);
+  }
+
+  &.dark {
+    background: radial-gradient(ellipse, $primary-color, darken($primary-color-dark, 6%));
+  }
+
+  &.light {
+    background: $light-color;
+  }
+
   & > * {
     z-index: 5;
   }
+
+  position: relative;
 
   &::before,
   &::after {
