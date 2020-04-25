@@ -6,6 +6,7 @@ import { OutboundRoutes } from '../../data/routes/OutboundRoutes';
 import { LinkedInIcon } from '../../components/domains/icons/LinkedIn';
 import { GitHubIcon } from '../../components/domains/icons/Github';
 import { EnvelopeIcon } from '../../components/domains/icons/Envelope';
+import { BrandColors } from '../../data/BrandColors';
 // import { GradiantBackground } from '../../components/reusables/GradiantBackground';
 
 const secondaryButtons: {
@@ -26,14 +27,14 @@ const secondaryButtons: {
       secondaryText: '/martin-bøje-petersen-74459173',
       icon: <LinkedInIcon />,
       link: OutboundRoutes.linkedIn,
-      color: '#0077B5'
+      color: BrandColors.LinkedIn
     },
     {
       name: 'GitHub',
       secondaryText: '/JackTheDane',
       icon: <GitHubIcon />,
       link: OutboundRoutes.gitHub,
-      color: '#6e5494'
+      color: BrandColors.GitHub
     }
   ]
 
@@ -53,7 +54,7 @@ const Contact = ({ }: ContactProps) => {
         <title>Contact - Martin Bøje Petersen</title>
       </Head>
 
-      <div className={styles.root}>
+      <div className={`${styles.root} content`}>
 
         <div className="content-page-header">
           <h1 className={`text-light ${styles.title}`}>
@@ -99,7 +100,7 @@ const Contact = ({ }: ContactProps) => {
           </form>
         </div>
 
-        <div className="columns">
+        <div className={`columns mt-5 ${styles.secondaryContact}`}>
           {secondaryButtons.map(
             ({
               icon,
@@ -108,7 +109,7 @@ const Contact = ({ }: ContactProps) => {
               secondaryText,
               color
             }) => (
-                <div className="my-5 column col-sm-12 col-md-6 col-4 text-center">
+                <div className="mb-5 column col-sm-12 col-md-6 col-4 text-center">
                   <a
                     href={link}
                     className="text-light d-flex"
@@ -117,7 +118,7 @@ const Contact = ({ }: ContactProps) => {
                     rel='noopener'
                     draggable={false}
                   >
-                    <button className="btn btn-action btn-primary btn-lg mb-3" style={{ backgroundColor: color }}>
+                    <button className="btn btn-action btn-primary btn-lg mb-2" style={{ backgroundColor: color }}>
                       {icon}
                     </button>
                     <h4 className="mb-2">

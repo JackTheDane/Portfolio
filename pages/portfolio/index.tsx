@@ -11,6 +11,9 @@ import { ProgressiveImageLoader } from '../../components/reusables/ProgressiveIm
 import { SiteRoutes } from '../../data/routes/SiteRoutes';
 import { NavLink } from '../../components/domains/navigation/NavLink';
 import { GradiantBackground } from '../../components/reusables/GradiantBackground';
+import { OutboundRoutes } from '../../data/routes/OutboundRoutes';
+import { GitHubIcon } from '../../components/domains/icons/Github';
+import { BrandColors } from '../../data/BrandColors';
 
 export interface ProjectsProps {
   projects: IProject[];
@@ -28,15 +31,28 @@ const Projects = ({
         </title>
       </Head>
 
-      <div className={`content-page bg-light ${styles.projects}`}>
+      <div className={` ${styles.projects}`}>
 
-        <div className="content">
-          <h1 className={`text-primary ${styles.title}`}>
+        <div className="content-page-header d-flex pb-3" style={{ justifyContent: 'space-between', alignItems: 'flex-end' }}>
+          <h1 className={`text-light`} style={{ marginBottom: 0 }}>
             Portfolio
           </h1>
+
+          <div className="text-right pl-2 d-flex" style={{ alignItems: 'flex-end' }}>
+            <span className="text-light mr-4" style={{ marginBottom: '-.1em' }}>
+              Want to see more?
+            </span>
+            <a href={OutboundRoutes.gitHub} className="btn btn-primary" style={{ backgroundColor: BrandColors.GitHub, border: 'none' }}>
+              Visit my GitHub
+              <GitHubIcon className="ml-2" />
+            </a>
+
+          </div>
         </div>
 
-        <GradiantBackground className={`${styles.pageContent} content`} type="primary">
+        <div className="divider"></div>
+
+        <GradiantBackground className={`${styles.pageContent}`} type="primary">
           <div className={`${styles.projectsWrapper} columns`}>
 
             {projects.map(

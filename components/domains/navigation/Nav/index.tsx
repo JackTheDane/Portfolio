@@ -114,7 +114,7 @@ const Nav = () => {
             return (
               <NavLink exact={item.isExact} key={'ni_' + i} activeClassName="active" href={`/${item.url}`} className={`btn btn-primary btn-lg ${styles.mobileMenuItem}`}>
                 {item.icon}
-                <span style={{ fontSize: '.9em' }}>{item.title}</span>
+                <span className="mt-1 fw-light" style={{ fontSize: '.9em' }}>{item.title}</span>
               </NavLink>
             )
           })
