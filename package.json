@@ -40,7 +40,6 @@
     "next-optimized-images": "^2.5.8",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-hook-form": "^5.2.0",
     "react-id-swiper": "^3.0.0",
     "react-markdown": "^4.3.1",
     "responsive-loader": "^1.2.0",

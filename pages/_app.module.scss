@@ -15,15 +15,12 @@
   .content {
     margin-left: auto;
     margin-right: auto;
-    background-color: $bg-color-light;
-    // overflow: auto;
+    // background-color: $bg-color-light;
 
     max-width: 900px;
-    // padding-bottom: 65px;
 
     width: 100%;
     min-height: 100%;
-    // height: calc(100% - 65px);
     position: relative;
 
     animation: fadeIn 0.3s both;
@@ -48,7 +45,6 @@
       flex: 0 0 30vw;
     }
     .content {
-      // height: 100%;
       max-width: 1100px;
     }
   }

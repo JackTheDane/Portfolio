@@ -1,5 +1,10 @@
 @import "styling/spectre/variables";
 
+.root {
+  max-width: 1000px;
+  margin: auto;
+}
+
 .subcontent {
   display: inline-flex;
   flex-direction: column;
@@ -12,12 +17,12 @@
 .title {
   & > span {
     animation: fadeInAndOut 1s ease-in-out infinite alternate both;
-    height: 0.8em;
+    height: 1em;
     font-size: inherit;
     width: 3px;
-    margin-left: 0.15em;
-    margin-bottom: -0.03em;
-    background-color: currentColor;
+    margin-left: 0.225em;
+    margin-bottom: -0.06em;
+    background-color: $highlight-color;
     display: inline-block;
   }
 }

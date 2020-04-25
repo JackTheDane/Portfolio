@@ -28,7 +28,7 @@ const Projects = ({
         </title>
       </Head>
 
-      <div className={`content-page ${styles.projects}`}>
+      <div className={`content-page bg-light ${styles.projects}`}>
 
         <div className="content">
           <h1 className={`text-primary ${styles.title}`}>
