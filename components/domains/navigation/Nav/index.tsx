@@ -109,16 +109,11 @@ const Nav = () => {
         </a>
       </div>
       <div className={`${styles.mobileMenu} btn-group btn-group-block`}>
-        {/* <NavLink className={`btn btn-primary btn-action btn-lg p-5 ${styles.mobileMenuItem}`} href="/">
-          <img src="/images/mainLogoOnly-white.png" className="img-fit-contain" alt="MBP Media" />
-        </NavLink> */}
         {
           menuItems.map((item, i: number) => {
             return (
               <NavLink exact={item.isExact} key={'ni_' + i} activeClassName="active" href={`/${item.url}`} className={`btn btn-primary btn-lg ${styles.mobileMenuItem}`}>
                 {item.icon}
-
-                {/* <i style={{ fontSize: '1.2em', marginBottom: 2 }} className={`icon icon-${item.icon}`} /> */}
                 <span style={{ fontSize: '.9em' }}>{item.title}</span>
               </NavLink>
             )
