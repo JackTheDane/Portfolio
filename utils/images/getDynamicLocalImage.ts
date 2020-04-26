@@ -5,6 +5,7 @@ const dynamicLocalImageLoaders: {
 export enum DynamicLocalImageTypes {
   standard,
   lqip,
+  xxsmall,
   xsmall,
   small,
   medium,
@@ -23,6 +24,11 @@ export const getDynamicLocalImage = (src: string, type: DynamicLocalImageTypes =
   switch (type) {
     case DynamicLocalImageTypes.lqip: {
       if (!dynamicLocalImageLoaders[type]) dynamicLocalImageLoaders[type] = require.context('images?lqip', true);
+      return dynamicLocalImageLoaders[type](src) as string;
+    }
+
+    case DynamicLocalImageTypes.xxsmall: {
+      if (!dynamicLocalImageLoaders[type]) dynamicLocalImageLoaders[type] = require.context('images?size=150', true);
       return dynamicLocalImageLoaders[type](src) as string;
     }
 
