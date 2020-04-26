@@ -10,7 +10,6 @@ import Head from 'next/head';
 import { ProgressiveImageLoader } from '../../components/reusables/ProgressiveImageLoader';
 import { SiteRoutes } from '../../data/routes/SiteRoutes';
 import { NavLink } from '../../components/domains/navigation/NavLink';
-import { GradiantBackground } from '../../components/reusables/GradiantBackground';
 import { OutboundRoutes } from '../../data/routes/OutboundRoutes';
 import { GitHubIcon } from '../../components/domains/icons/Github';
 import { BrandColors } from '../../data/BrandColors';
@@ -31,7 +30,7 @@ const Projects = ({
         </title>
       </Head>
 
-      <div className={` ${styles.projects}`}>
+      <div className={` ${styles.projects} content`}>
 
         <div className="content-page-header d-flex pb-3" style={{ justifyContent: 'space-between', alignItems: 'flex-end' }}>
           <h1 className={`text-light`} style={{ marginBottom: 0 }}>
@@ -39,18 +38,22 @@ const Projects = ({
           </h1>
 
           <div className="text-right pl-2 d-flex" style={{ alignItems: 'flex-end' }}>
-            <span className="text-light mr-4" style={{ marginBottom: '-.1em' }}>
+            <span className="text-light mr-4 hide-sm" style={{ marginBottom: '-.1em' }}>
               Want to see more?
             </span>
-            <a href={OutboundRoutes.gitHub} className="btn btn-primary" style={{ backgroundColor: BrandColors.GitHub, border: 'none' }}>
+            <a href={OutboundRoutes.gitHub} className="btn btn-primary hide-sm" style={{ backgroundColor: BrandColors.GitHub, border: 'none' }}>
               Visit my GitHub
               <GitHubIcon className="ml-2" />
+            </a>
+
+            <a href={OutboundRoutes.gitHub} className="btn btn-lg btn-primary btn-action show-sm" style={{ backgroundColor: BrandColors.GitHub, border: 'none' }}>
+              <GitHubIcon />
             </a>
 
           </div>
         </div>
 
-        <div className="divider"></div>
+        <div className="divider" />
 
         <div className={`${styles.pageContent}`}>
           <div className={`${styles.projectsWrapper} columns`}>

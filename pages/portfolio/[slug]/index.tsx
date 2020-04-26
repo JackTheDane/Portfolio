@@ -63,11 +63,11 @@ const ProjectPage = ({
         <div style={{ position: 'relative' }}>
           <Carousel key={slug} images={images} />
 
-          <NavLink href={`/${SiteRoutes.portfolio}`} className={`${styles.backButton} btn btn-primary btn-lg ml-5 mt-4`}>
+          <NavLink href={`/${SiteRoutes.portfolio}`} className={`${styles.backButton} text-light btn btn-primary btn-lg ml-5 mt-4`}>
             <ArrowLeftIcon className="mr-2" />
             <span>
               Other projects
-    </span>
+            </span>
           </NavLink>
         </div>
 
