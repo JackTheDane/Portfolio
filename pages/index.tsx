@@ -44,11 +44,21 @@ const FrontPage = ({
       )
   );
 
-  // portfolioPreviews.push(
-  //   <div className={`${styles.projectColumn} card bg-primary`}>
-
-  //   </div>
-  // )
+  portfolioPreviews.push(
+    <NavLink
+      href={`/${SiteRoutes.portfolio}`}
+      className={`${styles.projectColumn} d-flex text-center text-light card bg-primary`}
+      style={{ alignItems: 'center', justifyContent: 'center', height: 260, textDecoration: 'none' }}
+    >
+      <EyeIcon style={{ fontSize: '1.5em' }} />
+      <div className="my-3">
+        <div>
+          Want more?
+        </div>
+        <span> Click to view all projects</span>
+      </div>
+    </NavLink>
+  )
 
 
   return (
