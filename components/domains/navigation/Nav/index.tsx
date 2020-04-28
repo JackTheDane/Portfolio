@@ -10,25 +10,25 @@ import { NavLink } from '../NavLink';
 import { LinkedInIcon } from 'icons/LinkedIn';
 import { GitHubIcon } from 'icons/Github';
 import { CloneIcon } from 'icons/Clone';
-import { UserIcon } from 'icons/User';
 import { PaperPlaneIcon } from 'icons/PaperPlane';
 import { PaperclipIcon } from 'icons/Paperclip';
 import { SiteRoutes } from 'data/routes/SiteRoutes';
 import { OutboundRoutes } from 'data/routes/OutboundRoutes';
+import { ListIcon } from 'icons/List';
 
 
 const menuItems: IMenuItem[] = [
-  {
-    title: 'Who am I?',
-    url: SiteRoutes.aboutMe,
-    icon: <UserIcon />,
-    isExact: true
-  },
   {
     title: 'Portfolio',
     url: SiteRoutes.portfolio,
     icon: <CloneIcon />,
     isExact: false
+  },
+  {
+    title: 'Skills & Experience',
+    url: SiteRoutes.aboutMe,
+    icon: <ListIcon />,
+    isExact: true
   },
   {
     title: 'Get in touch!',
