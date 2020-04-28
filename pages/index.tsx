@@ -33,7 +33,7 @@ const FrontPage = ({
             style={{ overflow: 'hidden' }}
           >
             <div className={styles.imageWrapper}>
-              <ProgressiveImageLoader src={images[0]} imageHeight="250px" />
+              <ProgressiveImageLoader src={images[0]} imageHeight="260px" />
             </div>
 
             {/* <div className={`card-header ${styles.cardHeader}`}>
@@ -52,7 +52,7 @@ const FrontPage = ({
 
 
   return (
-    <div className={`content-page content ${styles.about}`}>
+    <div className={`content-page ${styles.about}`}>
       <div className={styles.profile}>
 
         <div className="transition-elem delay-0">
@@ -88,23 +88,29 @@ const FrontPage = ({
             </p>
         </div> */}
 
-        <div className="d-flex" style={{ justifyContent: 'space-between' }}>
-          <h2 className="text-light" style={{ marginBottom: 0 }}>
-            Portfolio
-          </h2>
-          <NavLink className="btn btn-primary btn-lg" href={`/${SiteRoutes.portfolio}`}>
-            View all work
+
+        <div className="content mb-5">
+          <div className="d-flex" style={{ justifyContent: 'space-between', alignItems: 'flex-end' }}>
+            <h3 className="text-light" style={{ marginBottom: 0 }}>
+              My work
+          </h3>
+            <NavLink className="btn btn-primary btn-lg" href={`/${SiteRoutes.portfolio}`}>
+              View all work
             <EyeIcon className="ml-3" />
-          </NavLink>
+            </NavLink>
+          </div>
+          {/* <div className="divider my-5" /> */}
         </div>
 
-        <div className="divider my-5" />
 
-        <BaseCarousel
-          slidesPerView="auto"
-          spaceBetween={15}
-          children={portfolioPreviews}
-        />
+        <div className={`${styles.projectCarousel} content`}>
+          <BaseCarousel
+            slidesPerView="auto"
+            spaceBetween={15}
+            children={portfolioPreviews}
+          />
+        </div>
+
 
       </div>
     </div>

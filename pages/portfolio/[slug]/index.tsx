@@ -71,10 +71,10 @@ const ProjectPage = ({
         </div>
 
 
-        <div className="px-5 padx-xs d-flex" style={{ flexDirection: 'column', flexGrow: 1 }}>
+        <div className="content d-flex" style={{ flexDirection: 'column', flexGrow: 1 }}>
           <div className="mt-3">
-            <div className="d-flex" style={{ alignItems: 'center' }}>
-              <h2 className={`text-primary mb-2 ${styles.title}`}>
+            <div className="d-flex mb-2" style={{ alignItems: 'center' }}>
+              <h2 className={`text-primary mb-0 ${styles.title}`}>
                 {title}
               </h2>
 

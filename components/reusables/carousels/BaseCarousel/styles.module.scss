@@ -80,11 +80,6 @@
       opacity: 0;
     }
   }
-  :global(.swiper-container-initialized) {
-    .navigationButton {
-      display: block;
-    }
-  }
 }
 
 @media (min-width: 1200px) {
