@@ -1,0 +1,51 @@
+@import "styling/spectre/variables";
+
+.carousel {
+  width: 100%;
+  background-color: $primary-color-dark;
+
+  .thumbnailWrapper {
+    padding: 5px;
+  }
+
+  .slidePreviewWrapper {
+    height: 70px;
+    width: 140px;
+  }
+
+  .slidePreview {
+    opacity: 0.6;
+
+    background-position: center center;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    margin: auto;
+    cursor: pointer;
+    visibility: hidden;
+
+    transform: scale(0.92);
+
+    transition: all 0.2s;
+    transition-property: transform opacity;
+
+    &:hover {
+      opacity: 1 !important;
+    }
+  }
+
+  .selected {
+    .slidePreview {
+      transform: scale(1);
+      cursor: initial;
+      opacity: 1;
+    }
+  }
+
+  :global(.swiper-container-initialized) {
+    .slidePreview {
+      visibility: visible;
+    }
+  }
+}

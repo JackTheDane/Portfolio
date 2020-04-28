@@ -3,17 +3,16 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import Head from 'next/head';
-import { IProject } from '../../../models/interfaces/IProject';
+import { IProject } from 'models/interfaces/IProject';
 import { GetStaticProps } from 'next';
 import styles from './styles.module.scss';
-import { Carousel } from '../../../components/reusables/Carousel';
-import Link from 'next/link';
-import { MarkdownRenderer } from '../../../components/reusables/MarkdownRenderer';
-import { useElementHeight } from '../../../hooks/useElementHeight';
-import { SiteRoutes } from '../../../data/routes/SiteRoutes';
-import { NavLink } from '../../../components/domains/navigation/NavLink';
-import { ArrowLeftIcon } from '../../../components/domains/icons/ArrowLeft';
-import { LinkIcon } from '../../../components/domains/icons/Link';
+import { MarkdownRenderer } from 'components/reusables/MarkdownRenderer';
+import { useElementHeight } from 'hooks/useElementHeight';
+import { SiteRoutes } from 'data/routes/SiteRoutes';
+import { NavLink } from 'components/domains/navigation/NavLink';
+import { ArrowLeftIcon } from 'icons/ArrowLeft';
+import { LinkIcon } from 'icons/Link';
+import { CarouselWithPreview } from 'components/reusables/carousels/CarouselWithPreview';
 
 interface ProjectPaginationItem {
   title: string;
@@ -61,7 +60,7 @@ const ProjectPage = ({
       <div className={`${styles.project} bg-light`}>
 
         <div style={{ position: 'relative' }}>
-          <Carousel key={slug} images={images} />
+          <CarouselWithPreview key={slug} images={images} />
 
           <NavLink href={`/${SiteRoutes.portfolio}`} className={`${styles.backButton} text-light btn btn-primary btn-lg ml-5 mt-4`}>
             <ArrowLeftIcon className="mr-2" />
