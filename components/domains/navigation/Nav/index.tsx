@@ -5,16 +5,16 @@ import styles from './styles.module.scss';
 
 import Link from 'next/link';
 
-import { IMenuItem } from '../../../../models/interfaces/IMenuItem';
+import { IMenuItem } from 'models/interfaces/IMenuItem';
 import { NavLink } from '../NavLink';
-import { LinkedInIcon } from '../../icons/LinkedIn';
-import { GitHubIcon } from '../../icons/Github';
-import { SiteRoutes } from '../../../../data/routes/SiteRoutes';
-import { CloneIcon } from '../../icons/Clone';
-import { UserIcon } from '../../icons/User';
-import { PaperPlaneIcon } from '../../icons/PaperPlane';
-import { OutboundRoutes } from '../../../../data/routes/OutboundRoutes';
-import { PaperclipIcon } from '../../icons/Paperclip';
+import { LinkedInIcon } from 'icons/LinkedIn';
+import { GitHubIcon } from 'icons/Github';
+import { CloneIcon } from 'icons/Clone';
+import { UserIcon } from 'icons/User';
+import { PaperPlaneIcon } from 'icons/PaperPlane';
+import { PaperclipIcon } from 'icons/Paperclip';
+import { SiteRoutes } from 'data/routes/SiteRoutes';
+import { OutboundRoutes } from 'data/routes/OutboundRoutes';
 
 
 const menuItems: IMenuItem[] = [

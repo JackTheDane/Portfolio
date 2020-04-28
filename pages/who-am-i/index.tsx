@@ -1,6 +1,6 @@
 import styles from './styles.module.scss';
 import Link from 'next/link';
-import { ProgressiveImageLoader } from '../../components/reusables/ProgressiveImageLoader';
+import { ProgressiveImageLoader } from 'components/reusables/ProgressiveImageLoader';
 
 const About = () => {
   return (

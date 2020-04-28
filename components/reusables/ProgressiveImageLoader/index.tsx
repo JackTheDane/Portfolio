@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import styles from './styles.module.scss';
-import { getDynamicLocalImage, DynamicLocalImageTypes } from '../../../utils/images/getDynamicLocalImage';
+import { getDynamicLocalImage, DynamicLocalImageTypes } from 'utils/images/getDynamicLocalImage';
 
 export interface ProgressiveImageLoaderProps extends Omit<React.DetailedHTMLProps<React.ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement>, "src"> {
   /** Path to file relative to the "public/images" folder.

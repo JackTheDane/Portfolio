@@ -1,8 +1,7 @@
 @import "styling/spectre/variables";
 
-.carousel {
+.root {
   width: 100%;
-  background-color: $primary-color-dark;
 
   .image {
     width: 100%;
@@ -16,45 +15,6 @@
 
   .imageLoader {
     padding-top: 60% !important;
-  }
-
-  .thumbnailWrapper {
-    padding: 5px;
-  }
-
-  .slidePreviewWrapper {
-    height: 70px;
-    width: 140px;
-  }
-
-  .slidePreview {
-    opacity: 0.6;
-
-    background-position: center center;
-    background-size: cover;
-    width: 100%;
-    height: 100%;
-    margin: auto;
-    margin: auto;
-    cursor: pointer;
-    visibility: hidden;
-
-    transform: scale(0.92);
-
-    transition: all 0.2s;
-    transition-property: transform opacity;
-
-    &:hover {
-      opacity: 1 !important;
-    }
-  }
-
-  .selected {
-    .slidePreview {
-      transform: scale(1);
-      cursor: initial;
-      opacity: 1;
-    }
   }
 
   .navigationButton {
@@ -82,8 +42,8 @@
       top: 0;
       bottom: 0;
 
-      opacity: 0.5;
-      transition: opacity 0.2s;
+      // opacity: 0.5;
+      // transition: opacity 0.2s;
     }
 
     &.navigationButtonLeft {
@@ -120,16 +80,15 @@
       opacity: 0;
     }
   }
-
   :global(.swiper-container-initialized) {
-    .slidePreview {
-      visibility: visible;
+    .navigationButton {
+      display: block;
     }
   }
 }
 
 @media (min-width: 1200px) {
-  .carousel {
+  .root {
     :global(.swiper-container-initialized) {
       .navigationButton {
         display: block;
@@ -140,12 +99,12 @@
       padding-top: 50% !important;
     }
 
-    &:hover {
-      .navigationButton {
-        &::before {
-          opacity: 1;
-        }
-      }
-    }
+    // &:hover {
+    //   .navigationButton {
+    //     &::before {
+    //       opacity: 1;
+    //     }
+    //   }
+    // }
   }
 }

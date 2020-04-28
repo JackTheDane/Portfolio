@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import styles from './styles.module.scss';
 import Head from 'next/head';
-import { PaperPlaneIcon } from '../../components/domains/icons/PaperPlane';
-import { OutboundRoutes } from '../../data/routes/OutboundRoutes';
-import { LinkedInIcon } from '../../components/domains/icons/LinkedIn';
-import { GitHubIcon } from '../../components/domains/icons/Github';
-import { EnvelopeIcon } from '../../components/domains/icons/Envelope';
-import { BrandColors } from '../../data/BrandColors';
+import { PaperPlaneIcon } from 'icons/PaperPlane';
+import { OutboundRoutes } from 'data/routes/OutboundRoutes';
+import { LinkedInIcon } from 'icons/LinkedIn';
+import { GitHubIcon } from 'icons/Github';
+import { EnvelopeIcon } from 'icons/Envelope';
+import { BrandColors } from 'data/BrandColors';
 // import { GradiantBackground } from '../../components/reusables/GradiantBackground';
 
 const secondaryButtons: {

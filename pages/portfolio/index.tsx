@@ -1,18 +1,17 @@
 import React from 'react';
-import styles from './styles.module.scss';
-import Link from 'next/link';
-import { IProject } from '../../models/interfaces/IProject';
-import { GetStaticProps } from 'next';
 import fs from 'fs';
 import matter from 'gray-matter';
 import path from 'path';
 import Head from 'next/head';
-import { ProgressiveImageLoader } from '../../components/reusables/ProgressiveImageLoader';
-import { SiteRoutes } from '../../data/routes/SiteRoutes';
-import { NavLink } from '../../components/domains/navigation/NavLink';
-import { OutboundRoutes } from '../../data/routes/OutboundRoutes';
-import { GitHubIcon } from '../../components/domains/icons/Github';
-import { BrandColors } from '../../data/BrandColors';
+import styles from './styles.module.scss';
+import { IProject } from 'models/interfaces/IProject';
+import { GetStaticProps } from 'next';
+import { ProgressiveImageLoader } from 'components/reusables/ProgressiveImageLoader';
+import { SiteRoutes } from 'data/routes/SiteRoutes';
+import { NavLink } from 'components/domains/navigation/NavLink';
+import { OutboundRoutes } from 'data/routes/OutboundRoutes';
+import { GitHubIcon } from 'icons/Github';
+import { BrandColors } from 'data/BrandColors';
 
 export interface ProjectsProps {
   projects: IProject[];
