@@ -25,7 +25,7 @@ const menuItems: IMenuItem[] = [
     isExact: false
   },
   {
-    title: 'Skills & Experience',
+    title: 'Experience',
     url: SiteRoutes.aboutMe,
     icon: <ListIcon />,
     isExact: true

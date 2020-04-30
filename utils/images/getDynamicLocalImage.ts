@@ -3,21 +3,27 @@ const dynamicLocalImageLoaders: {
 } = {};
 
 export enum DynamicLocalImageTypes {
-  standard,
-  lqip,
-  xxsmall,
-  xsmall,
-  small,
-  medium,
-  large,
-  multipleSizes,
-  colorArray
+  lqip = 'lqip',
+  multipleSizes = 'multipleSizes',
+  standard = 'standard',
+  colorArray = 'colorArray'
+}
+
+export enum DynamicLocalImageSizes {
+  /** Equivalent of 200px */
+  xsmall = 'xsmall',
+  /** Equivalent of 600px */
+  small = 'small',
+  /** Equivalent of 900px */
+  medium = 'medium',
+  /** Equivalent of 1200px */
+  large = 'large',
 }
 
 /** Use to retrieve an image from the "public/images" folder based on a dynamic path
  * @param src relative path the file from "public/images" folder
 */
-export const getDynamicLocalImage = (src: string, type: DynamicLocalImageTypes = DynamicLocalImageTypes.standard): any => {
+export const getDynamicLocalImage = (src: string, type: DynamicLocalImageTypes | DynamicLocalImageSizes = DynamicLocalImageTypes.standard): any => {
 
   if (src.indexOf('./') !== 0) src = `./${src}`;
 
@@ -27,27 +33,22 @@ export const getDynamicLocalImage = (src: string, type: DynamicLocalImageTypes =
       return dynamicLocalImageLoaders[type](src) as string;
     }
 
-    case DynamicLocalImageTypes.xxsmall: {
-      if (!dynamicLocalImageLoaders[type]) dynamicLocalImageLoaders[type] = require.context('images?size=150', true);
+    case DynamicLocalImageSizes.xsmall: {
+      if (!dynamicLocalImageLoaders[type]) dynamicLocalImageLoaders[type] = require.context('images?size=200', true);
       return dynamicLocalImageLoaders[type](src) as string;
     }
 
-    case DynamicLocalImageTypes.xsmall: {
-      if (!dynamicLocalImageLoaders[type]) dynamicLocalImageLoaders[type] = require.context('images?size=300', true);
-      return dynamicLocalImageLoaders[type](src) as string;
-    }
-
-    case DynamicLocalImageTypes.small: {
+    case DynamicLocalImageSizes.small: {
       if (!dynamicLocalImageLoaders[type]) dynamicLocalImageLoaders[type] = require.context('images?size=600', true);
       return dynamicLocalImageLoaders[type](src) as string;
     }
 
-    case DynamicLocalImageTypes.medium: {
+    case DynamicLocalImageSizes.medium: {
       if (!dynamicLocalImageLoaders[type]) dynamicLocalImageLoaders[type] = require.context('images?size=900', true);
       return dynamicLocalImageLoaders[type](src) as string;
     }
 
-    case DynamicLocalImageTypes.large: {
+    case DynamicLocalImageSizes.large: {
       if (!dynamicLocalImageLoaders[type]) dynamicLocalImageLoaders[type] = require.context('images?size=1200', true);
       return dynamicLocalImageLoaders[type](src) as string;
     }
