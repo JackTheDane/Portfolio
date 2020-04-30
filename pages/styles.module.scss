@@ -8,6 +8,20 @@
 
   .projectColumn {
     width: calc((100% - 100px) / 2);
+
+    :global(.card) {
+      background-color: transparent;
+      text-decoration: none;
+    }
+  }
+
+  .projectColumn,
+  .cardHeader {
+    transition: opacity .3s;
+  }
+
+  .cardHeader {
+    background-color: #fff;
   }
 
   height: 100%;
@@ -121,6 +135,28 @@
 
     .content {
       margin-top: 30px;
+    }
+
+
+    .projectCarousel {
+
+      .cardHeader {
+        opacity: 0;
+      }
+
+      &:hover {
+        .projectColumn {
+          opacity: 0.65;
+
+          &:hover {
+            opacity: 1;
+
+            .cardHeader {
+              opacity: 1;
+            }
+          }
+        }
+      }
     }
   }
 }

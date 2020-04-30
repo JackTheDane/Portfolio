@@ -2,10 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styles from './styles.module.scss';
 import Swiper from 'react-id-swiper';
 import { IExtendedSwiperOptions } from '../IExtendedSwiperOptions';
-import { ProgressiveImageLoader } from '../../ProgressiveImageLoader';
-import { getDynamicLocalImage, DynamicLocalImageTypes } from '../../../../utils/images/getDynamicLocalImage';
-import { ChevronLeftIcon } from 'icons/ChevronLeft';
-import { ChevronRightIcon } from 'icons/ChevronRight';
+import { getDynamicLocalImage, DynamicLocalImageSizes } from '../../../../utils/images/getDynamicLocalImage';
 import { BaseCarousel } from '../BaseCarousel';
 
 export interface CarouselWithPreviewProps {
@@ -49,7 +46,7 @@ export const CarouselWithPreview = ({
     (image, i: number) => {
       return (
         <div className={styles.slidePreviewWrapper}>
-          <div className={styles.slidePreview} key={`prev_${i}`} style={{ backgroundImage: `url('${getDynamicLocalImage(image, DynamicLocalImageTypes.xxsmall)}')` }} />
+          <div className={styles.slidePreview} key={`prev_${i}`} style={{ backgroundImage: `url('${getDynamicLocalImage(image, DynamicLocalImageSizes.xsmall)}')` }} />
         </div>
       );
     }

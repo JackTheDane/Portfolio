@@ -9,6 +9,7 @@ import { NavLink } from 'components/domains/navigation/NavLink';
 import { SiteRoutes } from 'data/routes/SiteRoutes';
 import { EyeIcon } from 'icons/Eye';
 import { BaseCarousel } from 'components/reusables/carousels/BaseCarousel';
+import { DynamicLocalImageSizes } from 'utils/images/getDynamicLocalImage';
 
 interface FrontPageProps {
   projects: IProject[];
@@ -33,7 +34,7 @@ const FrontPage = ({
             style={{ overflow: 'hidden' }}
           >
             <div className={styles.imageWrapper}>
-              <ProgressiveImageLoader src={images[0]} imageHeight="260px" />
+              <ProgressiveImageLoader staticImageSize={DynamicLocalImageSizes.small} src={images[0]} imageHeight="260px" />
             </div>
 
             {/* <div className={`card-header ${styles.cardHeader}`}>
@@ -52,18 +53,15 @@ const FrontPage = ({
     >
       <EyeIcon style={{ fontSize: '1.5em' }} />
       <div className="my-3">
-        <div>
-          Want more?
-        </div>
-        <span> Click to view all projects</span>
+        Click for more projects
       </div>
     </NavLink>
   )
 
 
   return (
-    <div className={`content-page ${styles.about}`}>
-      <div className={styles.profile}>
+    <div className={`content-page ${styles.about} d-flex`}>
+      {/* <div className={styles.profile}>
 
         <div className="transition-elem delay-0">
           <div className={styles.profileImageWrapper}>
@@ -79,9 +77,35 @@ const FrontPage = ({
             Webudvikler & IT Konsulent
           </h4>
         </div>
+      </div> */}
+
+
+      <div className="text-light content" style={{ fontSize: '1.4rem' }}>
+        {/* <h3 className="fw-medium mb-0 " style={{ fontSize: '1em' }}>
+          I build
+        </h3> */}
+        <h1 className="text-light mb-3 mt-2" style={{ fontSize: '2em' }}>
+          {/* <div className="fw-light" style={{ fontSize: '1em' }}>I build</div> */}
+          Fast <span className="fw-light text-primary" style={{ fontSize: 'inherit' }}>&</span>
+          <div style={{ fontSize: 'inherit' }}> Intuitive </div>
+          <div className="" style={{ fontSize: '1em' }}>Experiences</div>
+        </h1>
+        {/* <h3 className="fw-medium " style={{ fontSize: '1em' }}>
+          Experiences
+        </h3> */}
+
+        <div className="divider" />
+
+        <h3 className="fw-light">
+          Martin Bøje Petersen
+        </h3>
+        <h4>
+          Frontend Developer, Gentofte, Denmark
+        </h4>
+
       </div>
 
-      <div className={styles.content}>
+      <div className={`${styles.content} py-5`} style={{ marginTop: 'auto', marginBottom: 'auto' }}>
 
 
 

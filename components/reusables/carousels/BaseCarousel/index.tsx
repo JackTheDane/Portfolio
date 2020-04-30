@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import styles from './styles.module.scss';
 import Swiper from 'react-id-swiper';
 import { IExtendedSwiperOptions } from '../IExtendedSwiperOptions';
 import { ProgressiveImageLoader } from '../../ProgressiveImageLoader';
-import { getDynamicLocalImage, DynamicLocalImageTypes } from '../../../../utils/images/getDynamicLocalImage';
+import { DynamicLocalImageSizes } from '../../../../utils/images/getDynamicLocalImage';
 import { ChevronLeftIcon } from 'icons/ChevronLeft';
 import { ChevronRightIcon } from 'icons/ChevronRight';
 
@@ -11,6 +11,7 @@ export interface CarouselProps extends Partial<IExtendedSwiperOptions> {
   images?: string[];
   children?: any;
   className?: string;
+  staticImageSize?: DynamicLocalImageSizes;
 }
 
 export const BaseCarousel = ({

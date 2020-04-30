@@ -12,6 +12,7 @@ import { NavLink } from 'components/domains/navigation/NavLink';
 import { OutboundRoutes } from 'data/routes/OutboundRoutes';
 import { GitHubIcon } from 'icons/Github';
 import { BrandColors } from 'data/BrandColors';
+import { DynamicLocalImageSizes } from 'utils/images/getDynamicLocalImage';
 
 export interface ProjectsProps {
   projects: IProject[];
@@ -72,7 +73,7 @@ const Projects = ({
                       style={{ overflow: 'hidden' }}
                     >
                       <div className={styles.imageWrapper}>
-                        <ProgressiveImageLoader src={images[0]} imageHeight="50%" />
+                        <ProgressiveImageLoader src={images[0]} imageHeight="50%" staticImageSize={DynamicLocalImageSizes.small} />
                       </div>
 
                       <div className={`card-header ${styles.cardHeader}`}>
