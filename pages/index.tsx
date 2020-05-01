@@ -10,6 +10,7 @@ import { SiteRoutes } from 'data/routes/SiteRoutes';
 import { EyeIcon } from 'icons/Eye';
 import { BaseCarousel } from 'components/reusables/carousels/BaseCarousel';
 import { DynamicLocalImageSizes } from 'utils/images/getDynamicLocalImage';
+import { GradiantBackground } from 'components/reusables/GradiantBackground';
 
 interface FrontPageProps {
   projects: IProject[];
@@ -60,50 +61,46 @@ const FrontPage = ({
 
 
   return (
-    <div className={`content-page ${styles.about} d-flex`}>
-      {/* <div className={styles.profile}>
+    <div className={`${styles.about} content-page content d-flex`}>
+      <div className={styles.profile}>
+
+        <div className="pr-5">
+
+          <h1 className="text-light mb-3" style={{ marginTop: 'auto', width: '100%' }}>
+            Hi, I'm Martin!
+          </h1>
+
+          <div className="divider-primary my-5"
+            style={{ borderTopWidth: 2, width: '110%' }}
+          />
+
+          <div className="text-light my-5" style={{ width: '100%' }}>
+
+            <div className={`${styles.secondaryText}`}>
+              <p>
+                I am a <b>Frontend developer</b> who also enjoys Design & Backend development.
+            </p>
+              <p>
+                I build <b>Fast & User-friendly</b> experiences with a focus on solid, maintainable and performant pratices and software design.
+            </p>
+            </div>
+          </div>
+
+
+
+
+        </div>
+
+
 
         <div className="transition-elem delay-0">
           <div className={styles.profileImageWrapper}>
             <ProgressiveImageLoader imageHeight="100%" className={styles.profileImage} src="profile.jpg" alt="Martin Bøje Petersen" />
           </div>
         </div>
-
-        <div className={`transition-elem delay-0 ${styles.profileTitleText}`}>
-          <h1 className="mb-2 text-primary">
-            Martin Bøje Petersen
-          </h1>
-          <h4 className="text-gray fw-medium">
-            Webudvikler & IT Konsulent
-          </h4>
-        </div>
-      </div> */}
-
-
-      <div className="text-light content" style={{ fontSize: '1.4rem' }}>
-        {/* <h3 className="fw-medium mb-0 " style={{ fontSize: '1em' }}>
-          I build
-        </h3> */}
-        <h1 className="text-light mb-3 mt-2" style={{ fontSize: '2em' }}>
-          {/* <div className="fw-light" style={{ fontSize: '1em' }}>I build</div> */}
-          Fast <span className="fw-light text-primary" style={{ fontSize: 'inherit' }}>&</span>
-          <div style={{ fontSize: 'inherit' }}> Intuitive </div>
-          <div className="" style={{ fontSize: '1em' }}>Experiences</div>
-        </h1>
-        {/* <h3 className="fw-medium " style={{ fontSize: '1em' }}>
-          Experiences
-        </h3> */}
-
-        <div className="divider" />
-
-        <h3 className="fw-light">
-          Martin Bøje Petersen
-        </h3>
-        <h4>
-          Frontend Developer, Gentofte, Denmark
-        </h4>
-
       </div>
+
+
 
       <div className={`${styles.content} py-5`} style={{ marginTop: 'auto', marginBottom: 'auto' }}>
 
@@ -123,21 +120,21 @@ const FrontPage = ({
         </div> */}
 
 
-        <div className="content mb-5">
+        <div className="mb-5">
           <div className="d-flex" style={{ justifyContent: 'space-between', alignItems: 'flex-end' }}>
             <h3 className="text-light" style={{ marginBottom: 0 }}>
               My work
           </h3>
-            <NavLink className="btn btn-primary btn-lg" href={`/${SiteRoutes.portfolio}`}>
+            <NavLink className="px-0 text-light" href={`/${SiteRoutes.portfolio}`}>
+              <EyeIcon className="mr-3 text-light" />
               View all work
-            <EyeIcon className="ml-3" />
             </NavLink>
           </div>
-          {/* <div className="divider my-5" /> */}
+          <div className="divider-primary my-5" />
         </div>
 
 
-        <div className={`${styles.projectCarousel} content`}>
+        <div className={`${styles.projectCarousel}`}>
           <BaseCarousel
             slidesPerView="auto"
             spaceBetween={15}

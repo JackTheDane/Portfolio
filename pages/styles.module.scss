@@ -5,6 +5,7 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
+  height: 100%;
 
   .projectColumn {
     width: calc((100% - 100px) / 2);
@@ -17,14 +18,12 @@
 
   .projectColumn,
   .cardHeader {
-    transition: opacity .3s;
+    transition: opacity 0.3s;
   }
 
   .cardHeader {
     background-color: #fff;
   }
-
-  height: 100%;
 
   .profile {
     display: flex;
@@ -35,6 +34,7 @@
     justify-content: center;
     width: 100%;
     text-align: center;
+    flex-direction: row;
   }
 
   .content {
@@ -53,15 +53,11 @@
   }
 
   .profileImageWrapper {
-    width: 180px;
-    height: 180px;
+    width: 160px;
+    border: 1px solid $primary-color-dark;
     overflow: hidden;
     border-radius: 50%;
     margin-bottom: 20px;
-
-    -webkit-box-shadow: 0px 8px 30px 5px rgba(0, 0, 0, 0.15);
-    -moz-box-shadow: 0px 8px 30px 5px rgba(0, 0, 0, 0.15);
-    box-shadow: 0px 8px 30px 5px rgba(0, 0, 0, 0.15);
   }
 
   .profileTitleText {
@@ -71,6 +67,37 @@
 
     h4 {
       font-size: 1.1rem;
+    }
+  }
+
+  .secondaryText {
+    // border: 2px solid $primary-color;
+
+    border-radius: 10px;
+    font-weight: 300;
+    font-size: 1.2rem;
+    line-height: 1.6;
+
+    & > *:last-child {
+      margin-bottom: 0;
+    }
+
+    p {
+      margin-bottom: 0.8rem;
+    }
+
+    b {
+      // color: $highlight-color;
+      // background-color: $primary-color;
+      border-bottom: 1px solid $highlight-color;
+      // padding: 0 6px 4px;
+      padding-bottom: 3px;
+      margin: 0 3px;
+      // border-radius: 5px;
+
+      font-weight: 600;
+      // position: relative;
+      // top: -1px;
     }
   }
 }
@@ -106,10 +133,10 @@
       text-align: left;
     }
 
-    .profileImageWrapper {
-      width: 260px;
-      height: 260px;
-    }
+    // .profileImageWrapper {
+    //   width: 260px;
+    //   height: 260px;
+    // }
 
     .profileTitleText {
       margin-left: 20px;
@@ -137,9 +164,7 @@
       margin-top: 30px;
     }
 
-
     .projectCarousel {
-
       .cardHeader {
         opacity: 0;
       }

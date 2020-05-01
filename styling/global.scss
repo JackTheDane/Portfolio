@@ -1,6 +1,10 @@
 @import "./spectre/spectre.scss";
 // @import '~react-id-swiper/lib/styles/scss/swiper.scss';
 
+body {
+  font-size: 0.9rem;
+}
+
 html,
 body,
 #__next {
@@ -12,7 +16,7 @@ body,
 }
 
 * {
-  font-size: 0.9rem;
+  font-size: inherit;
 }
 
 a:active,
@@ -149,6 +153,11 @@ img {
       }
     }
   }
+}
+
+.divider-primary {
+  @extend .divider;
+  border-top-color: $primary-color;
 }
 
 .pageBackgroundWrapper {

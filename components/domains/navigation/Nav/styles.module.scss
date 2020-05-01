@@ -3,7 +3,7 @@
 .nav {
   z-index: 100;
   width: 100%;
-  bottom:0;
+  bottom: 0;
 
   display: flex;
   flex-direction: column;
@@ -72,7 +72,6 @@
   margin-top: auto;
 
   justify-content: space-around;
-
 }
 
 .mediaPlatformsButton {
@@ -128,6 +127,11 @@
     user-select: none;
     text-decoration: none !important;
 
+    i {
+      transition: color 0.3s;
+      color: rgba($color: $bg-color-light, $alpha: 0.6);
+    }
+
     &,
     & > li {
       transition: all 0.3s;
@@ -136,7 +140,8 @@
     & > li {
       padding: 6px 25px 6px 2px;
       margin-right: 35px;
-      border-bottom: 1px solid rgba($color: $bg-color-light, $alpha: 0.2);
+      // border-bottom: 1px solid rgba($color: $bg-color-light, $alpha: 0.2);
+      // border-bottom: 2px solid transparent;
       font-size: inherit;
       color: rgba($color: $bg-color-light, $alpha: 0.6);
 
@@ -145,7 +150,8 @@
     }
 
     &:hover {
-      & > li {
+      & > li,
+      i {
         color: $bg-color-light;
       }
     }
@@ -155,10 +161,17 @@
     opacity: 1 !important;
     margin-right: 0;
 
+    i {
+      &,
+      &:hover {
+        color: $highlight-color !important;
+      }
+    }
+
     & > li {
-      padding-right: 60px;
-      margin-right: 0;
-      border-bottom-color: $bg-color-light;
+      // padding-right: 60px;
+      // margin-right: 0;
+      border-bottom-color: $highlight-color;
       color: $bg-color-light !important;
     }
   }
