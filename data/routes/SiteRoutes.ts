@@ -1,6 +1,6 @@
 export enum SiteRoutes {
   frontpage = '',
-  aboutMe = 'who-am-i',
+  aboutMe = 'experience',
   portfolio = "portfolio",
   contact = "contact"
 }

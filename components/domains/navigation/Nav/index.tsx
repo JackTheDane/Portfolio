@@ -21,19 +21,19 @@ const menuItems: IMenuItem[] = [
   {
     title: 'Portfolio',
     url: SiteRoutes.portfolio,
-    icon: <CloneIcon />,
+    icon: <CloneIcon className="d-flex" style={{ fontSize: '.8em' }} />,
     isExact: false
   },
   {
     title: 'Experience',
     url: SiteRoutes.aboutMe,
-    icon: <ListIcon />,
+    icon: <ListIcon className="d-flex" style={{ fontSize: '.8em' }} />,
     isExact: true
   },
   {
     title: 'Get in touch!',
     url: SiteRoutes.contact,
-    icon: <PaperPlaneIcon />,
+    icon: <PaperPlaneIcon className="d-flex" style={{ fontSize: '.8em' }} />,
     isExact: true
   }
 ]
@@ -61,7 +61,7 @@ const Nav = () => {
                 <NavLink exact={item.isExact} activeClassName={styles.selected} href={`/${item.url}`} className={styles.menuItem}>
                   <li>
                     {item.icon && (
-                      <span className="mr-3 mt-2">
+                      <span className="mr-3 d-flex">
                         {item.icon}
                       </span>
                     )}

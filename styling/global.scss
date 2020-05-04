@@ -36,6 +36,12 @@ img {
   }
 }
 
+.text {
+  &-highlight {
+    color: $highlight-color;
+  }
+}
+
 .fw {
   &-light {
     font-weight: 300;
@@ -155,9 +161,23 @@ img {
   }
 }
 
+.bg-highlight {
+  background-color: $highlight-color;
+}
+
 .divider-primary {
   @extend .divider;
-  border-top-color: $primary-color;
+  border-top-color: $primary-color-dark;
+}
+
+.divider-dark {
+  @extend .divider;
+  border-top-color: $dark-color;
+}
+
+.divider-highlight {
+  @extend .divider;
+  border-top-color: $highlight-color;
 }
 
 .pageBackgroundWrapper {

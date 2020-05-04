@@ -49,7 +49,6 @@ const Projects = ({
             <a href={OutboundRoutes.gitHub} className="btn btn-lg btn-primary btn-action show-sm" style={{ backgroundColor: BrandColors.GitHub, border: 'none' }}>
               <GitHubIcon />
             </a>
-
           </div>
         </div>
 

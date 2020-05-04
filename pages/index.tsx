@@ -11,6 +11,8 @@ import { EyeIcon } from 'icons/Eye';
 import { BaseCarousel } from 'components/reusables/carousels/BaseCarousel';
 import { DynamicLocalImageSizes } from 'utils/images/getDynamicLocalImage';
 import { GradiantBackground } from 'components/reusables/GradiantBackground';
+import { UserIcon } from 'icons/User';
+import { MapMarkerIcon } from 'icons/MapMarker';
 
 interface FrontPageProps {
   projects: IProject[];
@@ -64,45 +66,43 @@ const FrontPage = ({
     <div className={`${styles.about} content-page content d-flex`}>
       <div className={styles.profile}>
 
-        <div className="pr-5">
+        {/* <div className=""> */}
 
-          <h1 className="text-light mb-3" style={{ marginTop: 'auto', width: '100%' }}>
+
+        <div className="text-light d-flex mb-3" style={{ alignItems: 'center', flexDirection: 'column' }}>
+          <h1 className="mb-3 d-inline-flex bg-primary px-3 py-2 card">
             Hi, I'm Martin!
           </h1>
+          {/* <div className="divider mt-3 mb-2" style={{ borderTopColor: 'rgba(255,255,255,.2)' }} /> */}
+          <div className="d-flex" style={{ fontSize: '.85rem' }}>
+            <span className="py-1 text-light d-flex" style={{ alignItems: 'center', backgroundColor: 'transparent' }}>
+              <UserIcon className="mr-2 d-flex" />
+              Frontend Developer
+            </span>
 
-          <div className="divider-primary my-5"
-            style={{ borderTopWidth: 2, width: '110%' }}
-          />
-
-          <div className="text-light my-5" style={{ width: '100%' }}>
-
-            <div className={`${styles.secondaryText}`}>
-              <p>
-                I am a <b>Frontend developer</b> who also enjoys Design & Backend development.
-            </p>
-              <p>
-                I build <b>Fast & User-friendly</b> experiences with a focus on solid, maintainable and performant pratices and software design.
-            </p>
-            </div>
-          </div>
-
-
-
-
-        </div>
-
-
-
-        <div className="transition-elem delay-0">
-          <div className={styles.profileImageWrapper}>
-            <ProgressiveImageLoader imageHeight="100%" className={styles.profileImage} src="profile.jpg" alt="Martin Bøje Petersen" />
+            <span className="py-1 text-light d-flex ml-5" style={{ alignItems: 'center', backgroundColor: 'transparent' }}>
+              <MapMarkerIcon className="mr-2 d-flex" />
+              Gentofte, Denmark
+            </span>
           </div>
         </div>
+
+
+
+        <div className={`${styles.secondaryText} text-light mb-5 pb-5 pt-4`}>
+          <p>
+            I build <b>Fast & User-friendly experiences</b> with a focus <b>UX, maintainability and performance</b>
+          </p>
+          <p>
+            I have background as a Multimedia Designer and a Fullstack Web Developer and have been a part of the web development world since 2015.
+          </p>
+        </div>
+
       </div>
 
 
 
-      <div className={`${styles.content} py-5`} style={{ marginTop: 'auto', marginBottom: 'auto' }}>
+      <div className={`${styles.content} pb-5 my-a`}>
 
 
 
@@ -120,17 +120,16 @@ const FrontPage = ({
         </div> */}
 
 
-        <div className="mb-5">
+        <div className={`${styles.workSection} mb-4`}>
           <div className="d-flex" style={{ justifyContent: 'space-between', alignItems: 'flex-end' }}>
-            <h3 className="text-light" style={{ marginBottom: 0 }}>
+            <h4 className="text-light pr-1 pb-2" style={{ marginBottom: 0 }}>
               My work
-          </h3>
-            <NavLink className="px-0 text-light" href={`/${SiteRoutes.portfolio}`}>
-              <EyeIcon className="mr-3 text-light" />
+            </h4>
+            <NavLink className="ml-a btn btn-link text-light" href={`/${SiteRoutes.portfolio}`}>
+              <EyeIcon className="mr-3 text-light" style={{ verticalAlign: '-10%' }} />
               View all work
             </NavLink>
           </div>
-          <div className="divider-primary my-5" />
         </div>
 
 
