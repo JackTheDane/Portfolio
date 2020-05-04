@@ -57,11 +57,9 @@ const Contact = ({ }: ContactProps) => {
       <div className={`${styles.root} content`}>
 
         <div className="content-page-header">
-          <h1 className={`text-light ${styles.title}`}>
+          <h1 className={`text-light text-center ${styles.title}`}>
             Get in touch with me
-            {/* <span /> */}
           </h1>
-          <div className="divider" />
         </div>
 
         <div className="mb-5 py-5">
@@ -109,7 +107,7 @@ const Contact = ({ }: ContactProps) => {
               secondaryText,
               color
             }) => (
-                <div className="mb-5 column col-sm-12 col-md-6 col-4 text-center">
+                <div key={link} className="mb-5 column col-sm-12 col-md-6 col-4 text-center">
                   <a
                     href={link}
                     className="text-light d-flex"

@@ -27,14 +27,13 @@
 
   .profile {
     display: flex;
-    min-height: 220px;
-    align-items: center;
+    // align-items: center;
     flex-direction: column;
     flex-shrink: 0;
     justify-content: center;
     width: 100%;
-    text-align: center;
-    flex-direction: row;
+    // text-align: center;
+    flex-direction: column;
   }
 
   .content {
@@ -53,7 +52,7 @@
   }
 
   .profileImageWrapper {
-    width: 160px;
+    width: 200px;
     border: 1px solid $primary-color-dark;
     overflow: hidden;
     border-radius: 50%;
@@ -71,11 +70,13 @@
   }
 
   .secondaryText {
-    // border: 2px solid $primary-color;
-
+    // border: 1px solid $highlight-color;
+    // border-bottom: 1px solid $highlight-color;
     border-radius: 10px;
+    background-color: transparent;
+
     font-weight: 300;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     line-height: 1.6;
 
     & > *:last-child {
@@ -89,6 +90,7 @@
     b {
       // color: $highlight-color;
       // background-color: $primary-color;
+      white-space: nowrap;
       border-bottom: 1px solid $highlight-color;
       // padding: 0 6px 4px;
       padding-bottom: 3px;
@@ -98,6 +100,13 @@
       font-weight: 600;
       // position: relative;
       // top: -1px;
+    }
+  }
+
+  .workSection {
+    h4 {
+      padding-bottom: 3px;
+      border-bottom: 2px solid $highlight-color;
     }
   }
 }
@@ -129,7 +138,7 @@
 @media (min-width: 1100px) {
   .about {
     .profile {
-      flex-direction: row;
+      // flex-direction: row;
       text-align: left;
     }
 

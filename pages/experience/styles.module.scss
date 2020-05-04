@@ -1,0 +1,39 @@
+@import "styling/spectre/variables";
+
+.experience {
+  :global(.tile) {
+    align-items: stretch;
+
+    :global(.tile-icon) {
+      display: flex;
+      flex-direction: column;
+      height: auto;
+
+      &::after {
+        content: "";
+        width: 2px;
+        margin: 10px auto;
+        height: auto;
+        flex-grow: 1;
+        display: block;
+        background-color: $secondary-color;
+      }
+    }
+
+    :global(.tile-content) {
+      padding-bottom: 30px;
+    }
+
+    &:last-child {
+      :global(.tile-content) {
+        padding-bottom: 0;
+      }
+
+      :global(.tile-icon) {
+        &::after {
+          display: none;
+        }
+      }
+    }
+  }
+}
