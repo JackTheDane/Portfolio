@@ -82,6 +82,32 @@ img {
   @extend .mr-a;
 }
 
+.align {
+  &-center {
+    align-items: center;
+  }
+
+  &-end {
+    align-items: flex-end;
+  }
+}
+
+.justify {
+  &-center {
+    justify-content: center;
+  }
+
+  &-space-between {
+    justify-content: space-between;
+  }
+}
+
+.flex {
+  &-col {
+    flex-direction: column;
+  }
+}
+
 .btn-icon-right {
   i {
     margin-left: 5px;

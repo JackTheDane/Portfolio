@@ -7,7 +7,6 @@ import { LinkedInIcon } from 'icons/LinkedIn';
 import { GitHubIcon } from 'icons/Github';
 import { EnvelopeIcon } from 'icons/Envelope';
 import { BrandColors } from 'data/BrandColors';
-// import { GradiantBackground } from '../../components/reusables/GradiantBackground';
 
 const secondaryButtons: {
   name: string;
@@ -24,7 +23,7 @@ const secondaryButtons: {
     },
     {
       name: 'LinkedIn',
-      secondaryText: '/martin-bøje-petersen-74459173',
+      secondaryText: '/martin-boeje',
       icon: <LinkedInIcon />,
       link: OutboundRoutes.linkedIn,
       color: BrandColors.LinkedIn
