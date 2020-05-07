@@ -10,9 +10,8 @@ import { SiteRoutes } from 'data/routes/SiteRoutes';
 import { EyeIcon } from 'icons/Eye';
 import { BaseCarousel } from 'components/reusables/carousels/BaseCarousel';
 import { DynamicLocalImageSizes } from 'utils/images/getDynamicLocalImage';
-import { GradiantBackground } from 'components/reusables/GradiantBackground';
-import { UserIcon } from 'icons/User';
 import { MapMarkerIcon } from 'icons/MapMarker';
+import { BriefcaseIcon } from 'icons/Briefcase';
 
 interface FrontPageProps {
   projects: IProject[];
@@ -31,18 +30,13 @@ const FrontPage = ({
     }): JSX.Element => (
         <div key={slug} className={`${styles.projectColumn}`}>
           <NavLink
-            className={`card ${styles.projectCard}`}
+            className={`card`}
             href={`/${SiteRoutes.portfolio}/[slug]`}
             as={`/${SiteRoutes.portfolio}/${slug}`}
-            style={{ overflow: 'hidden' }}
           >
             <div className={styles.imageWrapper}>
               <ProgressiveImageLoader staticImageSize={DynamicLocalImageSizes.small} src={images[0]} imageHeight="260px" />
             </div>
-
-            {/* <div className={`card-header ${styles.cardHeader}`}>
-              <div className="card-title h4 text-primary"> {title} <div className={`text-gray fw-medium ${styles.cardRoles}`}>{role}</div> </div>
-            </div> */}
           </NavLink>
         </div>
       )
@@ -51,10 +45,9 @@ const FrontPage = ({
   portfolioPreviews.push(
     <NavLink
       href={`/${SiteRoutes.portfolio}`}
-      className={`${styles.projectColumn} d-flex text-center text-light card bg-primary`}
-      style={{ alignItems: 'center', justifyContent: 'center', height: 260, textDecoration: 'none' }}
+      className={`${styles.projectColumn} ${styles.viewMoreSlide} d-flex text-center text-light card bg-primary`}
     >
-      <EyeIcon style={{ fontSize: '1.5em' }} />
+      <EyeIcon />
       <div className="my-3">
         Click for more projects
       </div>
@@ -63,31 +56,26 @@ const FrontPage = ({
 
 
   return (
-    <div className={`${styles.about} content-page content d-flex`}>
-      <div className={styles.profile}>
-
-        {/* <div className=""> */}
+    <div className={`${styles.about} content-page d-flex`}>
+      <div className={`${styles.profile} content`}>
 
 
-        <div className="text-light d-flex mb-3" style={{ alignItems: 'center', flexDirection: 'column' }}>
+        <div className="text-light d-flex mb-3 align-center flex-col" >
           <h1 className="mb-3 d-inline-flex bg-primary px-3 py-2 card">
             Hi, I'm Martin!
           </h1>
-          {/* <div className="divider mt-3 mb-2" style={{ borderTopColor: 'rgba(255,255,255,.2)' }} /> */}
           <div className="d-flex" style={{ fontSize: '.85rem' }}>
-            <span className="py-1 text-light d-flex" style={{ alignItems: 'center', backgroundColor: 'transparent' }}>
-              <UserIcon className="mr-2 d-flex" />
+            <span className="py-1 text-light d-flex align-center">
+              <BriefcaseIcon className="mr-2 d-flex" />
               Frontend Developer
             </span>
 
-            <span className="py-1 text-light d-flex ml-5" style={{ alignItems: 'center', backgroundColor: 'transparent' }}>
+            <span className="py-1 text-light d-flex ml-5 align-center">
               <MapMarkerIcon className="mr-2 d-flex" />
               Gentofte, Denmark
             </span>
           </div>
         </div>
-
-
 
         <div className={`${styles.secondaryText} text-light mb-5 pb-5 pt-4`}>
           <p>
@@ -97,51 +85,31 @@ const FrontPage = ({
             I have background as a Multimedia Designer and a Fullstack Web Developer and have been a part of the web development world since 2015.
           </p>
         </div>
-
       </div>
-
-
 
       <div className={`${styles.content} pb-5 my-a`}>
 
-
-
-        {/* <div className={`transition-elem delay-1 ${styles.subcontent}`}>
-          <h4 className={`${styles.subcontentTitle} text-primary`}>
-            Front-end udvikler med kompetencer for backend & design
-            </h4>
-          <p className="mb-0">
-            Mit navn er Martin Bøje Petersen, og jeg har siden 2015 været en del af Web-branchen, bl.a. som studerende, deltidsansat og selvstændig. <br />
-            <br />
-              Jeg ser det som mit job at skabe det bedste produkt for både brugerne og de andre udviklere på mit hold. Derfor stræber jeg altid for at samarbejde med mit team og kunden for at opnå en harmoni mellem at skabe god brugeroplevelse og skrive let-forståelig kode. <br />
-            <br />
-              Se nogle af mine projekter <Link href="/projects"><a>her</a></Link>.
-            </p>
-        </div> */}
-
-
-        <div className={`${styles.workSection} mb-4`}>
-          <div className="d-flex" style={{ justifyContent: 'space-between', alignItems: 'flex-end' }}>
+        <div className={`${styles.workSection} content mb-4`}>
+          <div className="d-flex justify-center align-end justify-space-between">
             <h4 className="text-light pr-1 pb-2" style={{ marginBottom: 0 }}>
               My work
             </h4>
-            <NavLink className="ml-a btn btn-link text-light" href={`/${SiteRoutes.portfolio}`}>
-              <EyeIcon className="mr-3 text-light" style={{ verticalAlign: '-10%' }} />
+            <NavLink className={`ml-a btn btn-link text-light ${styles.viewMoreButton}`} href={`/${SiteRoutes.portfolio}`}>
+              <EyeIcon className="mr-3 text-light" />
               View all work
             </NavLink>
           </div>
         </div>
 
 
-        <div className={`${styles.projectCarousel}`}>
+        <div className={`${styles.projectCarousel} content`}>
           <BaseCarousel
             slidesPerView="auto"
             spaceBetween={15}
             children={portfolioPreviews}
+            centerInsufficientSlides={true}
           />
         </div>
-
-
       </div>
     </div>
   )

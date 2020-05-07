@@ -21,22 +21,48 @@ const menuItems: IMenuItem[] = [
   {
     title: 'Portfolio',
     url: SiteRoutes.portfolio,
-    icon: <CloneIcon className="d-flex" style={{ fontSize: '.8em' }} />,
+    icon: <CloneIcon className="d-flex" />,
     isExact: false
   },
   {
     title: 'Experience',
     url: SiteRoutes.aboutMe,
-    icon: <ListIcon className="d-flex" style={{ fontSize: '.8em' }} />,
+    icon: <ListIcon className="d-flex" />,
     isExact: true
   },
   {
     title: 'Get in touch!',
     url: SiteRoutes.contact,
-    icon: <PaperPlaneIcon className="d-flex" style={{ fontSize: '.8em' }} />,
+    icon: <PaperPlaneIcon className="d-flex" />,
     isExact: true
   }
-]
+];
+
+const secondaryMenuItems: {
+  icon: JSX.Element;
+  name: string;
+  hoverText: string;
+  href: OutboundRoutes;
+}[] = [
+    {
+      icon: <LinkedInIcon />,
+      name: 'LinkedIn',
+      href: OutboundRoutes.linkedIn,
+      hoverText: "Visit my LinkedIn"
+    },
+    {
+      icon: <GitHubIcon />,
+      name: 'GitHub',
+      hoverText: "Visit my GitHub",
+      href: OutboundRoutes.gitHub
+    },
+    {
+      icon: <PaperclipIcon />,
+      name: 'CV',
+      hoverText: "Download my CV",
+      href: OutboundRoutes.CV
+    }
+  ]
 
 export interface NavProps {
 }
@@ -61,12 +87,10 @@ const Nav = () => {
                 <NavLink exact={item.isExact} activeClassName={styles.selected} href={`/${item.url}`} className={styles.menuItem}>
                   <li>
                     {item.icon && (
-                      <span className="mr-3 d-flex">
+                      <span className="mr-3 d-flex" style={{ fontSize: '.8em' }}>
                         {item.icon}
                       </span>
                     )}
-
-                    {/* {item.icon && <i className={`icon icon-${item.icon} ${styles.itemIcon}`} />} */}
                     {item.title}
                   </li>
                 </NavLink>
@@ -77,36 +101,19 @@ const Nav = () => {
       </ul>
 
       <div className={styles.mediaPlatforms}>
+        {secondaryMenuItems.map(({ name, icon, href, hoverText }) => (
+          <a
+            target='_blank'
+            rel='noopener'
+            href={href}
+            className={`btn btn-link tooltip ${styles.mediaPlatformsButton}`}
+            data-tooltip={hoverText}
+          >
+            {icon}
+            <span className="ml-2">{name}</span>
+          </a>
+        ))}
 
-        <a
-          target='_blank'
-          rel='noopener'
-          href={OutboundRoutes.linkedIn}
-          className={`btn btn-link ${styles.mediaPlatformsButton}`}
-        >
-          <LinkedInIcon style={{ marginTop: -2 }} className="mr-2" />
-          LinkedIn
-        </a>
-
-        <a
-          target='_blank'
-          rel='noopener'
-          href={OutboundRoutes.gitHub}
-          className={`btn btn-link ${styles.mediaPlatformsButton}`}
-        >
-          <GitHubIcon className="mr-2" />
-          GitHub
-        </a>
-
-        <a
-          target='_blank'
-          rel='noopener'
-          href={OutboundRoutes.CV}
-          className={`btn btn-link ${styles.mediaPlatformsButton}`}
-        >
-          <PaperclipIcon className="mr-2" />
-          CV
-        </a>
       </div>
       <div className={`${styles.mobileMenu} btn-group btn-group-block`}>
         {
