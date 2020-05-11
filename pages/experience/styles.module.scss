@@ -1,39 +1,48 @@
 @import "styling/spectre/variables";
 
 .experience {
-  :global(.tile) {
-    align-items: stretch;
+  .skillIcon {
+    width: 100px;
+    // height: 100px;
+    // flex: 0 0;
+    display: flex;
+    justify-content: center;
 
-    :global(.tile-icon) {
-      display: flex;
-      flex-direction: column;
-      height: auto;
-
-      &::after {
-        content: "";
-        width: 2px;
-        margin: 10px auto;
-        height: auto;
-        flex-grow: 1;
-        display: block;
-        background-color: $secondary-color;
-      }
+    img {
+      // width: 60px;
+      height: 60px;
+      object-fit: contain;
     }
+  }
 
-    :global(.tile-content) {
-      padding-bottom: 30px;
+  .secondarySkills {
+    max-width: 600px;
+    flex-wrap: wrap;
+
+    :global(.chip) {
+      white-space: nowrap;
+      border: 1px solid rgba($color: #fff, $alpha: 0.2);
+      background: transparent;
     }
+  }
 
-    &:last-child {
-      :global(.tile-content) {
-        padding-bottom: 0;
-      }
+  .roundIcon {
+    height: 60px;
+    width: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.25rem;
+    // border-radius: 30px;
+  }
 
-      :global(.tile-icon) {
-        &::after {
-          display: none;
-        }
-      }
-    }
+  .uxDesignIcon {
+    background: #7f27a8; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top right, #1d2671, #7f27a8); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+      to top right,
+      #1d2671,
+      #7f27a8
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   }
 }

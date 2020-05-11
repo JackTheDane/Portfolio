@@ -11,7 +11,7 @@ import { EyeIcon } from 'icons/Eye';
 import { BaseCarousel } from 'components/reusables/carousels/BaseCarousel';
 import { DynamicLocalImageSizes } from 'utils/images/getDynamicLocalImage';
 import { MapMarkerIcon } from 'icons/MapMarker';
-import { BriefcaseIcon } from 'icons/Briefcase';
+import { CodeIcon } from 'icons/Code';
 
 interface FrontPageProps {
   projects: IProject[];
@@ -66,7 +66,7 @@ const FrontPage = ({
           </h1>
           <div className="d-flex" style={{ fontSize: '.85rem' }}>
             <span className="py-1 text-light d-flex align-center">
-              <BriefcaseIcon className="mr-2 d-flex" />
+              <CodeIcon className="mr-2 d-flex" />
               Frontend Developer
             </span>
 

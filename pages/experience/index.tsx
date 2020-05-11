@@ -1,198 +1,128 @@
 import styles from './styles.module.scss';
-import Link from 'next/link';
-import { ProgressiveImageLoader } from 'components/reusables/ProgressiveImageLoader';
-import { LinkedInIcon } from 'icons/LinkedIn';
-import { OutboundRoutes } from 'data/routes/OutboundRoutes';
 import { BrandColors } from 'data/BrandColors';
-import { UserIcon } from 'icons/User';
-import { DynamicLocalImageSizes, getDynamicLocalImage } from 'utils/images/getDynamicLocalImage';
+import { UXIcon } from 'icons/UX';
+import { BriefcaseIcon } from 'icons/Briefcase';
+import { IExperienceItem } from 'models/interfaces/IExperienceItem';
+import { ExperienceTimeline } from 'components/domains/experience/ExperienceTimeline';
+import { EducationIcon } from 'icons/Education';
 
-const coreSkills: string[] = [
-  "JavaScript ES6+",
-  "ReactJS",
-  "TypeScript",
-  "CSS3",
-  "UX",
-];
+const coreSkills: {
+  name: string;
+  iconElement: JSX.Element;
+}[] = [
+    {
+      name: "React",
+      iconElement: <img src={require('images/tech/react.png?size=60')} alt="React logo" />
+    },
+    {
+      name: "TypeScript",
+      iconElement: <img className="s-rounded" src={require('images/tech/ts.png?size=60')} alt="TypeScript logo" />
+    },
+    {
+      name: "JavaScript",
+      iconElement: <img className="s-rounded" src={require('images/tech/js.png?size=60')} alt="JavaScript logo" />
+    },
+    {
+      name: "CSS3",
+      iconElement: <img src={require('images/tech/css.png?size=60')} alt="CSS3 logo" />
+    },
+    {
+      name: "UX Design",
+      iconElement: <div className={`${styles.roundIcon} s-circle ${styles.uxDesignIcon}`} style={{ backgroundColor: BrandColors.GitHub }}><UXIcon className="d-flex" /></div>
+    }
+  ];
 
 const secondarySkills: string[] = [
-  "NodeJS",
+  "Next.js",
+  "Node.js",
+  "SCSS/Sass",
+  "Responsive design",
+  "Adobe XD",
   "WordPress",
   "PHP",
   "MySQL",
-  "SCSS",
-  "Angular 2+",
-  "Responsive web design"
+  "HTML5"
 ];
 
-const workExperience: {
-  company: string;
-  description: string;
-  workTitle: string;
-  startYear: number | string;
-  endYear: number | string;
-}[] = [
-    {
-      company: "Dental Media",
-      workTitle: "Frontend- & WordPress dev",
-      description: "Test",
-      startYear: 2016,
-      endYear: 2018
-    }
-  ]
+const workExperience: IExperienceItem[] = [
+  {
+    company: "PeopleNet A/S",
+    workTitle: "Frontend- & WordPress dev",
+    description: "Test",
+    startYear: 2016,
+    endYear: 'Now'
+  },
+  {
+    company: "Dental Media",
+    workTitle: "Frontend- & WordPress dev",
+    description: "Test",
+    startYear: 2016,
+    endYear: 2018
+  }
+]
 
 const Experience = () => {
   return (
-    <div className={`content-page content ${styles.experience}`}>
+    <div className={`content-page text-center content ${styles.experience}`}>
 
       <div className="mb-5">
-        <div className="mb-5">
-          <h3 className="text-light">
-            Core skills
-          </h3>
+        <div className="mb-3">
+          <h2 className="text-light">
+            Skills
+          </h2>
 
-          <div className="d-flex">
-            {coreSkills.map((skillName): JSX.Element => {
+          <div className="d-flex justify-center text-light" style={{ flexWrap: 'wrap' }}>
+            {coreSkills.map(({ name, iconElement }): JSX.Element => {
               return (
-                <div className="chip mr-2">{skillName}</div>
+                <div>
+                  <figure className="d-flex flex-col align-center">
+                    <div className={styles.skillIcon}>
+                      {iconElement}
+                    </div>
+                    <caption className="mt-3 fw-medium">{name}</caption>
+                  </figure>
+                </div>
               )
             })}
           </div>
         </div>
 
-
-
-        <h4 className="text-light">
-          Secondary skills
-        </h4>
-
-        <div className="d-flex">
+        <div className={`d-flex justify-center mx-a ${styles.secondarySkills}`}>
           {secondarySkills.map((skillName): JSX.Element => {
             return (
-              <div className="chip mr-2">{skillName}</div>
+              <div className="chip mb-3 mr-3 text-light p-3">{skillName}</div>
             )
           })}
         </div>
       </div>
 
+      <div className="py-5 columns text-light text-left">
+        <div className="my-5 column col-md-12">
 
+          <h2 className="mb-3">
+            Experience
+          </h2>
 
-      <div className="divider my-5" />
+          <div className="divider-primary mb-5 mr-5" />
 
-      {/* <h2 className="text-light text-center">
-        Experience
-      </h2> */}
-
-      <div className="columns text-light">
-        <div className="column col-md-12 py-3 text-right">
-          <h4>
-            Work
-          </h4>
-          <div className="divider-primary" />
-
-          {workExperience.map(({
-            company,
-            workTitle,
-            description,
-            endYear,
-            startYear
-          }): JSX.Element => (
-              <div>
-                <div>{company} </div>
-                <div>{workTitle}</div>
-                <small>{startYear} - {endYear}</small>
-                <div>{description}</div>
-              </div>
-            ))}
-
-
+          <ExperienceTimeline items={workExperience} />
         </div>
-        <div className="divider-vert column" style={{ flexGrow: 0 }} />
-        {/* <div className="column" style={{ flexGrow: 0 }} /> */}
-        <div className="column col-md-12 py-3">
-          <h4>
+
+        {/* <div className="divider-vert column" style={{ flex: '0 0' }} /> */}
+
+
+        <div className="my-5 column col-md-12">
+
+          <h2 className="mb-3">
             Education
-          </h4>
-          <div className="divider-primary" />
+          </h2>
 
-          {workExperience.map(({
-            company,
-            workTitle,
-            description,
-            endYear,
-            startYear
-          }): JSX.Element => (
-              <div>
-                <div>{company} </div>
-                <div>{workTitle}</div>
-                <small>{startYear} - {endYear}</small>
-                <div>{description}</div>
-              </div>
-            ))}
+          <div className="divider-primary mb-5 mr-3" />
 
+          <ExperienceTimeline items={workExperience} />
         </div>
       </div>
 
-
-
-
-
-
-      {/* <div className="d-flex text-light" style={{ justifyContent: 'space-between', alignItems: 'flex-end' }}>
-        <h1 className="mb-0">Skills & Experience</h1>
-
-        <a href={OutboundRoutes.linkedIn} className="d-flex text-light" style={{ alignItems: 'inherit', textDecoration: 'none' }}>
-          <span className="hide-sm" style={{ marginBottom: '-.1em' }}>
-            Want to learn more?
-          </span>
-          <button className="btn btn-primary ml-3" style={{ backgroundColor: BrandColors.LinkedIn, border: 'none' }}>
-            <LinkedInIcon />
-            <span className="hide-sm ml-2">
-              Visit my LinkedIn
-            </span>
-          </button>
-        </a>
-      </div>
-
-      <div className="divider my-5" />
-
-      <div className="text-light">
-        <h3>
-          Job experience
-        </h3>
-
-        <div className="tile">
-          <div className="tile-icon">
-            <div className="avatar avatar-lg">
-              <img src={getDynamicLocalImage('profile.jpg', DynamicLocalImageSizes.xsmall)} />
-            </div>
-          </div>
-          <div className="tile-content">
-            <p className="tile-title">
-              <b>Current job:</b> PeopleNet A/S
-            </p>
-            <p className="tile-subtitle">
-              This is my current job.
-            </p>
-          </div>
-        </div>
-
-        <div className="tile">
-          <div className="tile-icon">
-            <div className="avatar avatar-lg">
-              <img src={getDynamicLocalImage('profile.jpg', DynamicLocalImageSizes.xsmall)} />
-            </div>
-          </div>
-          <div className="tile-content">
-            <p className="tile-title">
-              <b>Current job:</b> PeopleNet A/S
-            </p>
-            <p className="tile-subtitle">
-              This is my current job.
-            </p>
-          </div>
-        </div>
-      </div> */}
 
     </div>
   )
