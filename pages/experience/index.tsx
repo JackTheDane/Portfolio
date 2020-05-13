@@ -5,6 +5,7 @@ import { BriefcaseIcon } from 'icons/Briefcase';
 import { IExperienceItem } from 'models/interfaces/IExperienceItem';
 import { ExperienceTimeline } from 'components/domains/experience/ExperienceTimeline';
 import { EducationIcon } from 'icons/Education';
+const KEALogo: string = require('images/brands/kea.png?size=60');
 
 const coreSkills: {
   name: string;
@@ -44,22 +45,50 @@ const secondarySkills: string[] = [
   "HTML5"
 ];
 
-const workExperience: IExperienceItem[] = [
+const experience: IExperienceItem[] = [
   {
     company: "PeopleNet A/S",
-    workTitle: "Frontend- & WordPress dev",
-    description: "Test",
-    startYear: 2016,
-    endYear: 'Now'
+    workTitle: "Frontend Developer & IT Consultant",
+    startYear: 2018,
+    endYear: 'Now',
+    logoSrc: require('images/brands/peopleNet.png?size=60'),
+    description: "PeopleNet is a Consultant Agency specializing in Microsoft solutions. My primary responsibility here have involved developing and maintaining intranet solutions for major Danish companies using React, TypeScript & SCSS Modules to interact with the Microsoft SharePoint REST API.",
   },
   {
-    company: "Dental Media",
-    workTitle: "Frontend- & WordPress dev",
-    description: "Test",
-    startYear: 2016,
-    endYear: 2018
+    company: "MBP Media (Personal company)",
+    workTitle: "IT & Design Consultant",
+    startYear: 2017,
+    endYear: 2018,
+    description: "A one-person IT consultancy company that I used to do some client work on the side. This work included developing and maintaining WordPress sites for companies such as Hydr Esport, as well some graphic design work using Adobe InDesign.",
+  },
+  {
+    company: "Dental Media ApS",
+    workTitle: "Frontend- & WordPress Developer",
+    startYear: 2017,
+    endYear: 2018,
+    logoSrc: require('images/brands/dentalMedia.jpg?size=60'),
+    description: "Dental Media is a small Digital Marketing Agency with dentists as its primary target audience. My responsibilities at Dental Media included Custom-developed WordPress sites, Graphic Design, Frontend Development using jQuery & SCSS",
   }
-]
+];
+
+const education: IExperienceItem[] = [
+  {
+    company: "Copenhagen School of Business and Technology (KEA)",
+    workTitle: "Web Developer (BA)",
+    description: "A 1½ year top-up for Multimedia Designer with a heavier focus on improving development skills. The education included: React, Angular 2+, Advanced JavaScript, Advanced PHP, MySQL, MongoDB, Web Security Practices, Design Patterns and more.",
+    startYear: 2018,
+    endYear: 2019,
+    logoSrc: KEALogo
+  },
+  {
+    company: "Copenhagen School of Business and Technology (KEA)",
+    workTitle: "Multimedia Designer",
+    description: "2 year education concerning the visual design and development of interactive web-based solutions. Technologies used include: HTML5, CSS3, JavaScript ES5+, jQuery, WordPress, PHP, UI Design Courses, Adobe Suite and more.",
+    startYear: 2015,
+    endYear: 2017,
+    logoSrc: KEALogo
+  }
+];
 
 const Experience = () => {
   return (
@@ -71,15 +100,15 @@ const Experience = () => {
             Skills
           </h2>
 
-          <div className="d-flex justify-center text-light" style={{ flexWrap: 'wrap' }}>
+          <div className={`d-flex justify-center text-light ${styles.coreSkills}`}>
             {coreSkills.map(({ name, iconElement }): JSX.Element => {
               return (
-                <div>
+                <div key={name}>
                   <figure className="d-flex flex-col align-center">
                     <div className={styles.skillIcon}>
                       {iconElement}
                     </div>
-                    <caption className="mt-3 fw-medium">{name}</caption>
+                    <figcaption className="mt-3 fw-medium">{name}</figcaption>
                   </figure>
                 </div>
               )
@@ -88,38 +117,36 @@ const Experience = () => {
         </div>
 
         <div className={`d-flex justify-center mx-a ${styles.secondarySkills}`}>
-          {secondarySkills.map((skillName): JSX.Element => {
-            return (
-              <div className="chip mb-3 mr-3 text-light p-3">{skillName}</div>
-            )
-          })}
+          {secondarySkills.map(
+            (skillName): JSX.Element => <div key={skillName} className="chip mb-3 mr-3 text-light p-3">{skillName}</div>
+          )}
         </div>
       </div>
 
-      <div className="py-5 columns text-light text-left">
-        <div className="my-5 column col-md-12">
+      <div className="py-5 columns text-light text-left justify-center">
+        <div className="my-5 column col-10 col-sm-12">
 
-          <h2 className="mb-3">
+          <h2 className="mb-5 pb-3">
             Experience
           </h2>
 
-          <div className="divider-primary mb-5 mr-5" />
+          {/* <div className="divider-primary mb-5 mr-5" /> */}
 
-          <ExperienceTimeline items={workExperience} />
+          <ExperienceTimeline items={experience} />
         </div>
 
         {/* <div className="divider-vert column" style={{ flex: '0 0' }} /> */}
 
 
-        <div className="my-5 column col-md-12">
+        <div className="my-5 column col-10 col-sm-12">
 
-          <h2 className="mb-3">
+          <h2 className="mb-5 pb-3">
             Education
           </h2>
 
-          <div className="divider-primary mb-5 mr-3" />
+          {/* <div className="divider-primary mb-5 mr-3" /> */}
 
-          <ExperienceTimeline items={workExperience} />
+          <ExperienceTimeline items={education} fallbackIcon={<EducationIcon style={{ fontSize: '1.5rem', transform: 'translateY(-5%)' }} />} />
         </div>
       </div>
 

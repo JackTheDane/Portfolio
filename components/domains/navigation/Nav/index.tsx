@@ -83,7 +83,7 @@ const Nav = () => {
         {
           menuItems.map((item, i: number) => {
             return (
-              <span key={'navItem_' + i} className={styles.itemWrapper} >
+              <span key={'nav_' + i} className={styles.itemWrapper} >
                 <NavLink exact={item.isExact} activeClassName={styles.selected} href={`/${item.url}`} className={styles.menuItem}>
                   <li>
                     {item.icon && (
@@ -105,6 +105,7 @@ const Nav = () => {
           <a
             target='_blank'
             rel='noopener'
+            key={name}
             href={href}
             className={`btn btn-link tooltip ${styles.mediaPlatformsButton}`}
             data-tooltip={hoverText}

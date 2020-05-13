@@ -32,7 +32,7 @@ const Projects = ({
 
       <div className={` ${styles.projects} content`}>
 
-        <div className="content-page-header d-flex pb-3" style={{ justifyContent: 'space-between', alignItems: 'flex-end' }}>
+        <div className="content-page-header d-flex mb-2" style={{ justifyContent: 'space-between', alignItems: 'flex-end' }}>
           <h1 className={`text-light`} style={{ marginBottom: 0 }}>
             Portfolio
           </h1>
@@ -52,7 +52,7 @@ const Projects = ({
           </div>
         </div>
 
-        <div className="divider" />
+        {/* <div className="divider" /> */}
 
         <div className={`${styles.pageContent}`}>
           <div className={`${styles.projectsWrapper} columns`}>
