@@ -1,8 +1,23 @@
 @import "styling/spectre/variables";
 
 .experience {
+
+  .coreSkills {
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+    & > * {
+      min-width: 80px;
+      display: flex;
+      justify-content: center;
+    }
+
+    figure {
+      min-width: 100%;
+    }
+  }
+
   .skillIcon {
-    width: 100px;
     // height: 100px;
     // flex: 0 0;
     display: flex;
@@ -44,5 +59,21 @@
       #1d2671,
       #7f27a8
     ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  .experience {
+    .skillIcon {
+      img {
+        height: 45px;
+      }
+    }
+
+    .roundIcon {
+      height: 45px;
+      width: 45px;
+      font-size: 1rem;
+    }
   }
 }

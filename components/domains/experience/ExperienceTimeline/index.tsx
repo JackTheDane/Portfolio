@@ -1,17 +1,23 @@
 import React from 'react';
 import { IExperienceItem } from 'models/interfaces/IExperienceItem';
 import styles from "./styles.module.scss";
+import { BriefcaseIcon } from 'icons/Briefcase';
 
 
 export interface ExperienceTimelineProps {
   items: IExperienceItem[];
+  /** This icon will be used if no icon was passed
+   * @default BriefcaseIcon
+   */
+  fallbackIcon?: JSX.Element;
 }
 
 export const ExperienceTimeline = ({
-  items
+  items,
+  fallbackIcon
 }: ExperienceTimelineProps) => {
   return (
-    <div>
+    <div className="text-light">
       {
         items.map(({
           company,
@@ -21,7 +27,7 @@ export const ExperienceTimeline = ({
           startYear,
           logoSrc
         }): JSX.Element => (
-            <div className={`${styles.item}`}>
+            <div key={`${company}-${workTitle}`} className={`${styles.item}`}>
 
               <div className="d-flex">
                 <div className={`pr-3 ${styles.leftContent}`}>
@@ -29,17 +35,22 @@ export const ExperienceTimeline = ({
                     {
                       logoSrc
                         ? <img src={logoSrc} />
-                        : <div className="bg-primary text-light" style={{ width: '100%', height: '100%' }}></div>
+                        : (
+                          <div
+                            className={styles.fallbackIcon}
+                            children={fallbackIcon || <BriefcaseIcon style={{ transform: 'translateY(-10%)' }} />}
+                          />
+                        )
                     }
 
                   </div>
                 </div>
 
-                <div>
+                <div className="pb-5">
                   <div><b>{company}</b></div>
                   <div>{workTitle}</div>
-                  <small>{startYear} - {endYear}</small>
-                  <div>{description}</div>
+                  <small><b>{startYear}</b> - <b>{endYear}</b></small>
+                  <p className="mt-3">{description}</p>
                 </div>
               </div>
 
