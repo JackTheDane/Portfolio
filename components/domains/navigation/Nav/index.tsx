@@ -70,65 +70,73 @@ export interface NavProps {
 const Nav = () => {
 
   return (
-    <nav className={`${styles.nav}`}>
+    <>
+      <div className={`content ${styles.mobileTopNavBar}`}>
+        <NavLink href="/" >
+          <img src={require('images/mainLogoOnly-white.png?size=60')} style={{ height: '100%' }} />
+        </NavLink>
+      </div>
 
-      <Link href="/">
-        <a className={styles.logo} >
-          <img src="/images/mainLogo-white.png" className="img-fit-contain" alt="MBP Media" />
-        </a>
-      </Link>
-      <ul
-        className={`${styles.menu}`}
-      >
-        {
-          menuItems.map((item, i: number) => {
-            return (
-              <span key={'nav_' + i} className={styles.itemWrapper} >
-                <NavLink exact={item.isExact} activeClassName={styles.selected} href={`/${item.url}`} className={styles.menuItem}>
-                  <li>
-                    {item.icon && (
-                      <span className="mr-3 d-flex" style={{ fontSize: '.8em' }}>
-                        {item.icon}
-                      </span>
-                    )}
-                    {item.title}
-                  </li>
-                </NavLink>
-              </span>
-            )
-          })
-        }
-      </ul>
+      <nav className={`${styles.nav}`}>
 
-      <div className={styles.mediaPlatforms}>
-        {secondaryMenuItems.map(({ name, icon, href, hoverText }) => (
-          <a
-            target='_blank'
-            rel='noopener'
-            key={name}
-            href={href}
-            className={`btn btn-link tooltip ${styles.mediaPlatformsButton}`}
-            data-tooltip={hoverText}
-          >
-            {icon}
-            <span className="ml-2">{name}</span>
+        <Link href="/">
+          <a className={styles.logo} >
+            <img src="/images/mainLogo-white.png" className="img-fit-contain" alt="MBP Media" />
           </a>
-        ))}
+        </Link>
+        <ul
+          className={`${styles.menu}`}
+        >
+          {
+            menuItems.map((item, i: number) => {
+              return (
+                <span key={'nav_' + i} className={styles.itemWrapper} >
+                  <NavLink exact={item.isExact} activeClassName={styles.selected} href={`/${item.url}`} className={styles.menuItem}>
+                    <li>
+                      {item.icon && (
+                        <span className="mr-3 d-flex" style={{ fontSize: '.8em' }}>
+                          {item.icon}
+                        </span>
+                      )}
+                      {item.title}
+                    </li>
+                  </NavLink>
+                </span>
+              )
+            })
+          }
+        </ul>
 
-      </div>
-      <div className={`${styles.mobileMenu} btn-group btn-group-block`}>
-        {
-          menuItems.map((item, i: number) => {
-            return (
-              <NavLink exact={item.isExact} key={'ni_' + i} activeClassName="active" href={`/${item.url}`} className={`btn btn-primary btn-lg ${styles.mobileMenuItem}`}>
-                {item.icon}
-                <span className="mt-1 fw-light" style={{ fontSize: '.9em' }}>{item.title}</span>
-              </NavLink>
-            )
-          })
-        }
-      </div>
-    </nav>
+        <div className={styles.mediaPlatforms}>
+          {secondaryMenuItems.map(({ name, icon, href, hoverText }) => (
+            <a
+              target='_blank'
+              rel='noopener'
+              key={name}
+              href={href}
+              className={`btn btn-link tooltip ${styles.mediaPlatformsButton}`}
+              data-tooltip={hoverText}
+            >
+              {icon}
+              <span className="ml-2">{name}</span>
+            </a>
+          ))}
+
+        </div>
+        <div className={`${styles.mobileMenu} btn-group btn-group-block`}>
+          {
+            menuItems.map((item, i: number) => {
+              return (
+                <NavLink exact={item.isExact} key={'ni_' + i} activeClassName="active" href={`/${item.url}`} className={`btn btn-primary btn-lg ${styles.mobileMenuItem}`}>
+                  {item.icon}
+                  <span className="mt-1 fw-light" style={{ fontSize: '.9em' }}>{item.title}</span>
+                </NavLink>
+              )
+            })
+          }
+        </div>
+      </nav>
+    </>
   )
 }
 
