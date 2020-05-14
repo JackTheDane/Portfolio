@@ -97,7 +97,7 @@ const Contact = ({ }: ContactProps) => {
           </form>
         </div>
 
-        <div className={`columns mt-5 ${styles.secondaryContact}`}>
+        <div className={`columns justify-center mt-5 ${styles.secondaryContact}`}>
           {secondaryButtons.map(
             ({
               icon,

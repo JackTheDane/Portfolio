@@ -128,7 +128,7 @@ img {
 
   &,
   &-header {
-    padding-top: 30px;
+    padding-top: 0;
   }
 
   &,
@@ -149,7 +149,15 @@ img {
   }
 }
 
-@media (min-width: 1200px) {
+@media (max-width: 899px) {
+  h1 {
+    font-size: 1.6rem;
+  }
+}
+
+
+
+@media (min-width: 1100px) {
   .content-page {
     &,
     &-header {

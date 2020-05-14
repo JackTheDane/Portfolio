@@ -58,6 +58,19 @@
   }
 }
 
+.mobileTopNavBar {
+  position: absolute;
+  top: 0;
+  height: 60px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  // background: $primary-color-dark;
+  padding-top: 15px;
+  padding-bottom: 10px;
+  z-index: 1;
+}
+
 .mediaPlatforms {
   display: none;
   animation: fadeInLeft 0.3s ease-out 0.5s both;
@@ -234,5 +247,9 @@
     .mobileMenu {
       display: none;
     }
+  }
+
+  .mobileTopNavBar {
+    display: none;
   }
 }
