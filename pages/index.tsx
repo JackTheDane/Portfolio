@@ -108,6 +108,9 @@ const FrontPage = ({
             spaceBetween={15}
             children={portfolioPreviews}
             centerInsufficientSlides={true}
+            classNames={{
+              nextNavButton: styles.nextSlideButton
+            }}
           />
         </div>
       </div>

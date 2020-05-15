@@ -3,7 +3,8 @@ $primary-color: #175397;
 $warning-color: #da7439;
 $error-color: $warning-color;
 $secondary-color: lighten($primary-color, 10%);
-$highlight-color: #ecaf3d !default;
+$highlight-color: #ecaf3d;
+$success-color: #22ad34;
 
 // Core variables
 $version: "0.5.3";

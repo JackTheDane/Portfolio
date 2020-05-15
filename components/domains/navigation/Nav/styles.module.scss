@@ -153,8 +153,6 @@
       transform-origin: 0% 50%;
     }
 
-    // border-bottom: 2px solid transparent;
-
     &,
     & > li {
       transition: all 0.3s;
@@ -162,8 +160,6 @@
 
     & > li {
       padding: 0 2px 5px;
-      // border-bottom: 1px solid rgba($color: $bg-color-light, $alpha: 0.2);
-      // border-bottom: 2px solid transparent;
       font-size: inherit;
       color: rgba($color: $bg-color-light, $alpha: 0.6);
 
