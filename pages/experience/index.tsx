@@ -124,27 +124,20 @@ const Experience = () => {
       </div>
 
       <div className="py-5 columns text-light text-left justify-center">
-        <div className="my-5 column col-10 col-sm-12">
+        <div className="my-5 column col-10 col-md-12">
 
           <h2 className="mb-5 pb-3">
             Experience
           </h2>
 
-          {/* <div className="divider-primary mb-5 mr-5" /> */}
-
           <ExperienceTimeline items={experience} />
         </div>
 
-        {/* <div className="divider-vert column" style={{ flex: '0 0' }} /> */}
-
-
-        <div className="my-5 column col-10 col-sm-12">
+        <div className="my-5 column col-10 col-md-12">
 
           <h2 className="mb-5 pb-3">
             Education
           </h2>
-
-          {/* <div className="divider-primary mb-5 mr-3" /> */}
 
           <ExperienceTimeline items={education} fallbackIcon={<EducationIcon style={{ fontSize: '1.5rem', transform: 'translateY(-5%)' }} />} />
         </div>
