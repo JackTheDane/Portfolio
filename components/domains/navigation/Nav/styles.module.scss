@@ -47,7 +47,7 @@
     flex-grow: 0;
     flex-shrink: 0;
     width: 100%;
-    max-width: 900px;
+    // max-width: 900px;
     align-items: center;
     display: flex;
     justify-content: space-between;
@@ -62,7 +62,7 @@
 .mobileTopNavBar {
   position: fixed;
   top: 0;
-  height: 65px;
+  height: 60px;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -74,7 +74,7 @@
     opacity: .97; // Slight opacity to allow some of the background to show through navbar
 
     &::before {
-      @include better-blur(20);
+      @include better-blur(25);
     }
   }
 
