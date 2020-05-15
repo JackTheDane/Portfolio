@@ -4,13 +4,14 @@ import { AppProps } from 'next/app';
 import Nav from '../components/domains/navigation/Nav';
 import 'swiper/css/swiper.min.css';
 import Head from 'next/head';
+// const bgImage = require('images/bg.jpg?size=800');
 
 const AppCustomized = ({ Component, pageProps }: AppProps) => {
   return (
     <div className={styles.app}>
-      <div className="pageBackgroundWrapper">
-        <div id="_pageBackgroundImage" style={{ backgroundImage: `url('${require('../public/images/bg.jpg?size=800')}')` }} />
-      </div>
+      {/* <div className="pageBackgroundWrapper"> */}
+      <div className="pageBackground" />
+      {/* </div> */}
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>

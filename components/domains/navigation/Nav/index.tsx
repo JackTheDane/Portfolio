@@ -15,6 +15,7 @@ import { PaperclipIcon } from 'icons/Paperclip';
 import { SiteRoutes } from 'data/routes/SiteRoutes';
 import { OutboundRoutes } from 'data/routes/OutboundRoutes';
 import { ListIcon } from 'icons/List';
+// const bgImage = require('images/bg.jpg?size=800');
 
 
 const menuItems: IMenuItem[] = [
@@ -71,7 +72,8 @@ const Nav = () => {
 
   return (
     <>
-      <div className={`content ${styles.mobileTopNavBar}`}>
+      <div className={`content ${styles.mobileTopNavBar}`} >
+        <div className="pageBackground" style={{ position: 'absolute' }} />
         <NavLink href="/" >
           <img src={require('images/mainLogoOnly-white.png?size=60')} style={{ height: '100%' }} />
         </NavLink>
