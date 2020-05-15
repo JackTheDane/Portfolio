@@ -55,7 +55,7 @@ export const CarouselWithPreview = ({
 
   return (
     <div className={styles.carousel}>
-      <BaseCarousel images={images} className={className} getSwiper={getGallerySwiper} />
+      <BaseCarousel images={images} classNames={{ container: className }} getSwiper={getGallerySwiper} />
       <div className={styles.thumbnailWrapper}>
         <Swiper {...thumbnailSwiperParams} children={slidePreview} />
       </div>

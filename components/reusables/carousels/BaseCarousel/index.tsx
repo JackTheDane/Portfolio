@@ -10,29 +10,43 @@ import { ChevronRightIcon } from 'icons/ChevronRight';
 export interface CarouselProps extends Partial<IExtendedSwiperOptions> {
   images?: string[];
   children?: any;
-  className?: string;
+  classNames?: {
+    container?: string;
+    prevNavButton?: string;
+    nextNavButton?: string;
+  }
   staticImageSize?: DynamicLocalImageSizes;
 }
 
 export const BaseCarousel = ({
   images,
-  className,
+  classNames,
   children,
   ...rest
 }: CarouselProps) => {
 
+  let containerClass: string = `swiper-container ${styles.root}`;
+  let prevNavClasses: string[] = [styles.navigationButton, styles.navigationButtonLeft];
+  let nextNavClasses: string[] = [styles.navigationButton, styles.navigationButtonRight];
+
+  if (classNames) {
+    if (classNames.container) containerClass += ` ${classNames.container}`;
+    if (classNames.prevNavButton) prevNavClasses.push(classNames.prevNavButton);
+    if (classNames.nextNavButton) nextNavClasses.push(classNames.nextNavButton);
+  }
+
   const gallerySwiperParams: IExtendedSwiperOptions = {
-    containerClass: `swiper-container ${styles.root} ${className || ''}`,
+    containerClass,
     spaceBetween: 0,
     slidesPerView: 1,
     preloadImages: false,
     shouldSwiperUpdate: true,
     shortSwipes: true,
-    renderPrevButton: () => <button className={`${styles.navigationButton} ${styles.navigationButtonLeft}`}> <ChevronLeftIcon /> </button>,
-    renderNextButton: () => <button className={`${styles.navigationButton} ${styles.navigationButtonRight}`}> <ChevronRightIcon /> </button>,
+    renderPrevButton: () => <button className={prevNavClasses.join(' ')}><ChevronLeftIcon /></button>,
+    renderNextButton: () => <button className={nextNavClasses.join(' ')}><ChevronRightIcon /></button>,
     navigation: {
-      nextEl: `.${styles.navigationButton}.${styles.navigationButtonRight}`,
-      prevEl: `.${styles.navigationButton}.${styles.navigationButtonLeft}`,
+      prevEl: `.${prevNavClasses.join('.')}`,
+      nextEl: `.${nextNavClasses.join('.')}`,
     },
     ...rest
   };
