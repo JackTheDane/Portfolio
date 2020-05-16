@@ -24,6 +24,12 @@ const AppCustomized = ({ Component, pageProps }: AppProps) => {
       <main className={styles.content} id="_mainContent">
         <Component {...pageProps} />
       </main>
+
+      <style jsx global>{`
+        .pageBackground::before {
+          background-image: url('${ require('images/bg.jpg?inline')}')
+        }
+      `}</style>
     </div>
   )
 }

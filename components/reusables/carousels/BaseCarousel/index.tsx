@@ -40,6 +40,7 @@ export const BaseCarousel = ({
     spaceBetween: 0,
     slidesPerView: 1,
     preloadImages: false,
+    mousewheel: true,
     shouldSwiperUpdate: true,
     shortSwipes: true,
     renderPrevButton: () => <button className={prevNavClasses.join(' ')}><ChevronLeftIcon /></button>,
