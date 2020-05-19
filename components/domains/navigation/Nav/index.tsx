@@ -72,13 +72,6 @@ const Nav = () => {
 
   return (
     <>
-      <div className={`content ${styles.mobileTopNavBar}`} >
-        <div className="pageBackground" style={{ position: 'absolute' }} />
-        <NavLink href="/" >
-          <img src={require('images/mainLogoOnly-white.png?size=60')} style={{ height: '100%' }} />
-        </NavLink>
-      </div>
-
       <nav className={`${styles.nav}`}>
 
         <Link href="/">
@@ -129,9 +122,9 @@ const Nav = () => {
           {
             menuItems.map((item, i: number) => {
               return (
-                <NavLink exact={item.isExact} key={'ni_' + i} activeClassName="active" href={`/${item.url}`} className={`btn btn-primary btn-lg ${styles.mobileMenuItem}`}>
+                <NavLink exact={item.isExact} key={'ni_' + i} activeClassName="active" href={`/${item.url}`} className={`btn fw-light btn-primary ${styles.mobileMenuItem}`}>
                   {item.icon}
-                  <span className="mt-1 fw-light" style={{ fontSize: '.9em' }}>{item.title}</span>
+                  <div>{item.title}</div>
                 </NavLink>
               )
             })

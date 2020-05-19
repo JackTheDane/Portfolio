@@ -1,5 +1,4 @@
 @import "styling/spectre/variables";
-@import "styling/utils";
 
 .nav {
   z-index: 100;
@@ -21,11 +20,21 @@
   }
 
   .mobileMenuItem {
+    height: 50px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 65px;
-    justify-content: center;
+    justify-content: space-around;
+
+    i {
+      font-size: 15px;
+      margin-bottom: 3px;
+    }
+
+    div {
+      font-size: .9em;
+      line-height: 1;
+    }
   }
 
   .logo {
@@ -59,29 +68,7 @@
   }
 }
 
-.mobileTopNavBar {
-  position: fixed;
-  top: 0;
-  height: 60px;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  z-index: 100;
 
-  :global(.pageBackground) {
-    opacity: .97; // Slight opacity to allow some of the background to show through navbar
-
-    &::before {
-      @include better-blur(25);
-    }
-  }
-
-  a {
-    z-index: 1;
-  }
-}
 
 .mediaPlatforms {
   display: none;
@@ -235,8 +222,6 @@
 @media (min-width: 1100px) {
   .nav {
     padding: 20px 0px 0px;
-    // position: relative;
-    // flex: 0 1 600px;
     max-width: 600px;
     width: 30vw;
     top: 0;
@@ -255,9 +240,5 @@
     .mobileMenu {
       display: none;
     }
-  }
-
-  .mobileTopNavBar {
-    display: none;
   }
 }
