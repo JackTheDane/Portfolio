@@ -6,13 +6,14 @@ import 'swiper/css/swiper.min.css';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { NavLink } from 'components/domains/navigation/NavLink';
+import { SiteRoutes } from 'data/routes/SiteRoutes';
 // const bgImage = require('images/bg.jpg?size=800');
 
 const AppCustomized = ({ Component, pageProps }: AppProps) => {
 
   const { pathname } = useRouter();
 
-  const isFrontPage: boolean = pathname === '/';
+  const isFrontPage: boolean = pathname === `/${SiteRoutes.frontpage}`;
 
   return (
     <>

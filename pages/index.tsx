@@ -79,9 +79,9 @@ const FrontPage = ({
 
         <div className={`${styles.secondaryText} text-light mb-5 pb-5 pt-4`}>
           <p>
-            I build <b>Fast & User-friendly experiences</b> with a focus <b>UX, maintainability and performance</b>
+            I build <b>Fast & User-friendly experiences</b> <span className="hide-md">with a focus <b>UX, maintainability and performance</b></span>
           </p>
-          <p>
+          <p className="hide-lg">
             I have background as a Multimedia Designer and a Fullstack Web Developer and have been a part of the web development world since 2015.
           </p>
         </div>
