@@ -47,10 +47,10 @@ export const ExperienceTimeline = ({
                 </div>
 
                 <div className="pb-5">
-                  <div><b>{company}</b></div>
-                  <div>{workTitle}</div>
-                  <small><b>{startYear}</b> - <b>{endYear}</b></small>
-                  <p className="mt-3">{description}</p>
+                  <div><b>{workTitle}</b></div>
+                  <div style={{ lineHeight: 1, fontSize: '.8rem' }}>{company}</div>
+                  <small className="mt-1" style={{ lineHeight: 1, opacity: .6 }}><b>{startYear}</b> - <b>{endYear}</b></small>
+                  <p className="mt-2">{description}</p>
                 </div>
               </div>
 
