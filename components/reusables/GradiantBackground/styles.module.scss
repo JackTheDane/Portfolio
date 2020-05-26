@@ -2,6 +2,7 @@
 // @import "styling/spectre/utilities";
 
 .root {
+
   &.primary {
     background: radial-gradient(ellipse, $primary-color-light, $primary-color-dark);
   }

@@ -31,7 +31,7 @@ export const ExperienceTimeline = ({
 
               <div className="d-flex">
                 <div className={`pr-3 ${styles.leftContent}`}>
-                  <div className={`s-circle`} style={{ width: 60, height: 60, overflow: 'hidden' }}>
+                  <div className={`s-circle`} style={{ width: 50, height: 50, overflow: 'hidden' }}>
                     {
                       logoSrc
                         ? <img src={logoSrc} />
@@ -49,8 +49,8 @@ export const ExperienceTimeline = ({
                 <div className="pb-5">
                   <div><b>{workTitle}</b></div>
                   <div style={{ lineHeight: 1, fontSize: '.8rem' }}>{company}</div>
-                  <small className="mt-1" style={{ lineHeight: 1, opacity: .6 }}><b>{startYear}</b> - <b>{endYear}</b></small>
-                  <p className="mt-2">{description}</p>
+                  <small className={`${styles.time} mt-1`}>{startYear} - {endYear}</small>
+                  <p className="mt-1">{description}</p>
                 </div>
               </div>
 

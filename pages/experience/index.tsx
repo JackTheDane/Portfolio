@@ -50,7 +50,7 @@ const experience: IExperienceItem[] = [
     company: "PeopleNet A/S",
     workTitle: "Frontend Developer & IT Consultant",
     startYear: 2018,
-    endYear: 'Now',
+    endYear: <span className="text-light" style={{ fontWeight: 600 }}>Now</span>,
     logoSrc: require('images/brands/peopleNet.png?size=60'),
     description: "PeopleNet is a Consultant Agency specializing in Microsoft solutions. My primary responsibility here have involved developing and maintaining intranet solutions for major Danish companies using React, TypeScript & SCSS Modules to interact with the Microsoft SharePoint REST API.",
   },

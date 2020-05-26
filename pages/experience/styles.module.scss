@@ -24,7 +24,7 @@
     justify-content: center;
 
     img {
-      height: 60px;
+      height: 50px;
       object-fit: contain;
     }
   }
@@ -41,8 +41,8 @@
   }
 
   .roundIcon {
-    height: 60px;
-    width: 60px;
+    height: 50px;
+    width: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -65,13 +65,13 @@
   .experience {
     .skillIcon {
       img {
-        height: 45px;
+        height: 40px;
       }
     }
 
     .roundIcon {
-      height: 45px;
-      width: 45px;
+      height: 40px;
+      width: 40px;
       font-size: 1rem;
     }
   }

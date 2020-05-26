@@ -32,12 +32,12 @@ const Projects = ({
 
       <div className={` ${styles.projects} content`}>
 
-        <div className="content-page-header d-flex mb-2" style={{ justifyContent: 'space-between', alignItems: 'flex-end' }}>
+        <div className="mt-5 d-flex mb-2" style={{ justifyContent: 'space-between', alignItems: 'flex-end' }}>
           <h1 className={`text-light`} style={{ marginBottom: 0 }}>
             Portfolio
           </h1>
 
-          <div className="text-right pl-2 d-flex" style={{ alignItems: 'flex-end' }}>
+          <div className="text-right ml-a pl-2 d-flex" style={{ alignItems: 'flex-end' }}>
             <span className="text-light mr-4 hide-sm" style={{ marginBottom: '-.1em' }}>
               Want to see more?
             </span>

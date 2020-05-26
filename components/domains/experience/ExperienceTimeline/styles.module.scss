@@ -14,6 +14,11 @@
   //   }
   // }
 
+  .time {
+    line-height: 1;
+    color: rgba($color: $light-color, $alpha: .8);
+  }
+
   p {
     line-height: 1.4;
     font-size: .8rem;
@@ -44,7 +49,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.15rem;
+    font-size: 1.05rem;
 
     i {
       display: flex;
