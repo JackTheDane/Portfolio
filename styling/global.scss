@@ -2,10 +2,6 @@
 @import 'utils';
 // @import '~react-id-swiper/lib/styles/scss/swiper.scss';
 
-body {
-  font-size: 0.9rem;
-}
-
 body,
 .pageBackground,
 .pageBackground::before {
@@ -20,10 +16,6 @@ body,
 
 .btn .icon {
   vertical-align: -10%;
-}
-
-* {
-  font-size: inherit;
 }
 
 a:active,
@@ -159,6 +151,10 @@ img {
 @media (max-width: 899px) {
   h1 {
     font-size: 1.6rem;
+  }
+
+  html {
+    font-size: 16px;
   }
 }
 

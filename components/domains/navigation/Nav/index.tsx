@@ -6,7 +6,7 @@ import styles from './styles.module.scss';
 import Link from 'next/link';
 
 import { IMenuItem } from 'models/interfaces/IMenuItem';
-import { NavLink } from '../NavLink';
+import { NavLink } from 'components/reusables/NavLink';
 import { LinkedInIcon } from 'icons/LinkedIn';
 import { GitHubIcon } from 'icons/Github';
 import { CloneIcon } from 'icons/Clone';

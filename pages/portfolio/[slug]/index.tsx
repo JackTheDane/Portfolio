@@ -9,7 +9,7 @@ import styles from './styles.module.scss';
 import { MarkdownRenderer } from 'components/reusables/MarkdownRenderer';
 import { useElementHeight } from 'hooks/useElementHeight';
 import { SiteRoutes } from 'data/routes/SiteRoutes';
-import { NavLink } from 'components/domains/navigation/NavLink';
+import { NavLink } from 'components/reusables/NavLink';
 import { ArrowLeftIcon } from 'icons/ArrowLeft';
 import { LinkIcon } from 'icons/Link';
 import { CarouselWithPreview } from 'components/reusables/carousels/CarouselWithPreview';

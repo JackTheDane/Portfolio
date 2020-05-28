@@ -1,4 +1,5 @@
 @import "styling/spectre/variables";
+@import "styling/spectre/animations";
 
 .project {
   min-height: 100%;
@@ -6,6 +7,8 @@
   flex-direction: column;
   overflow-x: hidden;
   padding-bottom: 15px;
+
+  animation: fade-in .15s ease-out both;
 
   .showMoreButton {
     position: absolute;

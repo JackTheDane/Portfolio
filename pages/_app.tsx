@@ -5,7 +5,7 @@ import Nav from '../components/domains/navigation/Nav';
 import 'swiper/css/swiper.min.css';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import { NavLink } from 'components/domains/navigation/NavLink';
+import { NavLink } from 'components/reusables/NavLink';
 import { SiteRoutes } from 'data/routes/SiteRoutes';
 // const bgImage = require('images/bg.jpg?size=800');
 

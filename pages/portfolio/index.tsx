@@ -8,7 +8,7 @@ import { IProject } from 'models/interfaces/IProject';
 import { GetStaticProps } from 'next';
 import { ProgressiveImageLoader } from 'components/reusables/ProgressiveImageLoader';
 import { SiteRoutes } from 'data/routes/SiteRoutes';
-import { NavLink } from 'components/domains/navigation/NavLink';
+import { NavLink } from 'components/reusables/NavLink';
 import { OutboundRoutes } from 'data/routes/OutboundRoutes';
 import { GitHubIcon } from 'icons/Github';
 import { BrandColors } from 'data/BrandColors';

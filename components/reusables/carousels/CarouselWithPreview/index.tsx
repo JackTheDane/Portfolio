@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useLayoutEffect } from 'react';
 import styles from './styles.module.scss';
 import Swiper from 'react-id-swiper';
 import { IExtendedSwiperOptions } from '../IExtendedSwiperOptions';
-import { getDynamicLocalImage, DynamicLocalImageSizes } from '../../../../utils/images/getDynamicLocalImage';
+import { getDynamicLocalImage, DynamicLocalImageSizes } from 'utils/images/getDynamicLocalImage';
 import { BaseCarousel } from '../BaseCarousel';
 
 export interface CarouselWithPreviewProps {

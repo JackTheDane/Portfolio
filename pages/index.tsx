@@ -5,7 +5,7 @@ import { ProgressiveImageLoader } from 'components/reusables/ProgressiveImageLoa
 import { GetStaticProps } from 'next';
 import { IProject } from 'models/interfaces/IProject';
 import path from 'path';
-import { NavLink } from 'components/domains/navigation/NavLink';
+import { NavLink } from 'components/reusables/NavLink';
 import { SiteRoutes } from 'data/routes/SiteRoutes';
 import { EyeIcon } from 'icons/Eye';
 import { BaseCarousel } from 'components/reusables/carousels/BaseCarousel';
