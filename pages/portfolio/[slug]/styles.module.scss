@@ -6,9 +6,8 @@
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
-  padding-bottom: 15px;
 
-  animation: fade-in .15s ease-out both;
+  animation: fade-in 0.15s ease-out both;
 
   .showMoreButton {
     position: absolute;
@@ -25,6 +24,9 @@
 .backButton {
   z-index: 10;
   box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.35);
+  position: absolute;
+  left: $unit-5;
+  top: 0;
 
   &,
   &:hover {
@@ -42,9 +44,10 @@
   }
 
   i {
-    font-size: 0.95rem;
+    font-size: 0.95em;
     transition: transform 0.2s ease-out;
   }
+
 
   &:hover {
     i {
@@ -93,21 +96,22 @@
       display: inline-block;
     }
   }
-
-  .subcontent {
-    border-left: 3px solid $secondary-color-dark;
-    padding-bottom: 10px;
-  }
 }
 
-@media (min-width: 1100px) {
-  // .project {
-  //   margin: 30px 0;
-  // }
+@media (max-width: 899px) {
+  .project {
+    .backButton {
+      position: relative;
+      box-shadow: none;
+      left: 0;
 
-  .backButton {
-    position: absolute;
-    left: 0;
-    top: 0;
+      &,
+      &:hover,
+      &:active,
+      &:focus {
+        background-color: transparent;
+        border: none;
+      }
+    }
   }
 }

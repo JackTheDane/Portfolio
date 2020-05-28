@@ -27,7 +27,7 @@
     position: absolute;
     top: 0;
     display: none;
-    font-size: 1.2rem;
+    font-size: 0.8rem;
 
     height: 100%;
     width: 56px;
@@ -41,9 +41,6 @@
       position: absolute;
       top: 0;
       bottom: 0;
-
-      // opacity: 0.5;
-      // transition: opacity 0.2s;
     }
 
     &.navigationButtonLeft {
@@ -93,6 +90,10 @@
 
     .imageLoader {
       padding-top: 50% !important;
+    }
+
+    .navigationButton {
+      font-size: 1rem;
     }
 
     // &:hover {

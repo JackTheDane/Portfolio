@@ -57,21 +57,21 @@ const ProjectPage = ({
           {title} - Martin Bøje Petersen
         </title>
       </Head>
-      <div className={`${styles.project} bg-light`}>
+      <div className={`${styles.project}`}>
 
         <div style={{ position: 'relative' }}>
-          <CarouselWithPreview key={slug} images={images} />
-
-          <NavLink href={`/${SiteRoutes.portfolio}`} className={`${styles.backButton} text-light btn btn-primary btn-lg ml-5 mt-4`}>
+          <NavLink href={`/${SiteRoutes.portfolio}`} className={`${styles.backButton} text-light btn btn-primary btn-lg my-3`}>
             <ArrowLeftIcon className="mr-2" />
             <span>
               Other projects
             </span>
           </NavLink>
+
+          <CarouselWithPreview key={slug} images={images} />
         </div>
 
 
-        <div className="content d-flex" style={{ flexDirection: 'column', flexGrow: 1 }}>
+        <div className="content d-flex bg-light" style={{ flexDirection: 'column', flexGrow: 1 }}>
           <div className="mt-3">
             <div className="d-flex mb-2" style={{ alignItems: 'center' }}>
               <h2 className={`text-primary mb-0 ${styles.title}`}>
