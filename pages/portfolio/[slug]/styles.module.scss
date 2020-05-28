@@ -109,7 +109,7 @@
       &:hover,
       &:active,
       &:focus {
-        background-color: transparent;
+        background-color: transparent !important;
         border: none;
       }
     }
