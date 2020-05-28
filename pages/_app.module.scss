@@ -9,7 +9,6 @@
   overflow-y: auto;
   position: relative;
   padding-bottom: 3rem;
-  padding-top: 60px;
 
   &.frontPage {
     padding-top: 0;
@@ -48,6 +47,16 @@
   padding-top: 15px;
   padding-bottom: 15px;
   z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-50%);
+  transition: all .1s ease;
+
+  &.shown {
+    pointer-events: initial;
+    transform: translateY(0);
+    opacity: 1;
+  }
 
   :global(.pageBackground) {
     opacity: 0.97; // Slight opacity to allow some of the background to show through navbar
