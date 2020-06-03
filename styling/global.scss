@@ -137,14 +137,14 @@ img {
 }
 
 .content {
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: $unit-4;
+  padding-right: $unit-4;
 }
 
 @media (max-width: 599px) {
   .padx-xs {
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: $unit-4;
+    padding-right: $unit-4;
   }
 }
 
@@ -159,13 +159,12 @@ img {
 }
 
 
-
 @media (min-width: 1100px) {
 
   .content-page {
     &,
     &-header {
-      padding-top: 45px;
+      padding-top: $unit-8;
     }
   }
 
@@ -195,6 +194,15 @@ img {
       .icon {
         margin-right: 10px;
       }
+    }
+  }
+}
+
+@media (min-width: 1600px) {
+  .content-page {
+    &,
+    &-header {
+      padding-top: $unit-16;
     }
   }
 }

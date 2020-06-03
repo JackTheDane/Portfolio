@@ -35,7 +35,7 @@ const FrontPage = ({
             as={`/${SiteRoutes.portfolio}/${slug}`}
           >
             <div className={styles.imageWrapper}>
-              <ProgressiveImageLoader staticImageSize={DynamicLocalImageSizes.small} src={images[0]} imageHeight="260px" />
+              <ProgressiveImageLoader staticImageSize={DynamicLocalImageSizes.small} className={styles.projectImage} src={images[0]} imageHeight="0" />
             </div>
           </NavLink>
         </div>
@@ -45,7 +45,7 @@ const FrontPage = ({
   portfolioPreviews.push(
     <NavLink
       href={`/${SiteRoutes.portfolio}`}
-      className={`${styles.projectColumn} ${styles.viewMoreSlide} d-flex text-center text-light card bg-primary`}
+      className={`${styles.projectColumn} ${styles.viewMoreSlide} ${styles.projectImage} d-flex text-center text-light card bg-primary`}
     >
       <EyeIcon />
       <div className="my-3">
@@ -64,30 +64,51 @@ const FrontPage = ({
           <h1 className="mb-3 d-inline-flex bg-primary px-3 py-2 card">
             Hi, I'm Martin!
           </h1>
-          <div className="d-flex" style={{ fontSize: '.85rem' }}>
-            <span className="py-1 text-light d-flex align-center">
-              <CodeIcon className="mr-2 d-flex" />
+
+          <div className="d-flex justify-center hide-md" style={{ fontSize: '.85rem', flexWrap: 'wrap' }}>
+            <span className="py-1 text-light d-flex mr-5 align-center">
+              <CodeIcon className="mr-2 d-flex" style={{ fontSize: '1.1em' }} />
               Frontend Developer
             </span>
 
-            <span className="py-1 text-light d-flex ml-5 align-center">
-              <MapMarkerIcon className="mr-2 d-flex" />
+            <span className="py-1 text-light d-flex align-center">
+              <MapMarkerIcon className="mr-2 d-flex" style={{ fontSize: '.75em' }} />
               Gentofte, Denmark
             </span>
           </div>
         </div>
 
-        <div className={`${styles.secondaryText} text-light mb-5 pb-5 pt-4`}>
-          <p>
-            I build <b>Fast & User-friendly experiences</b> <span className="hide-md">with a focus <b>UX, maintainability and performance</b></span>
-          </p>
-          <p className="hide-lg">
-            I have background as a Multimedia Designer and a Fullstack Web Developer and have been a part of the web development world since 2015.
-          </p>
+        <div className={`${styles.secondaryText} text-light pb-5 pt-4`}>
+          <div className="hide-lg">
+            <p>
+              I build <b>Fast & User-friendly experiences</b> with a focus <b>UX, maintainability and performance</b>
+            </p>
+            <p>
+              I have background as a Multimedia Designer and a Fullstack Web Developer and have been a part of the web development world since 2015.
+            </p>
+          </div>
+          <div className="show-lg fw-medium text-left" style={{ fontSize: '1.5rem' }}>
+            <p>
+              <div>
+                I build
+              </div>
+              <div className="mt-1 mb-0">
+                <span className="mx-0 fw-bold" style={{ lineHeight: 1, fontSize: '1.5em' }}>
+                  <div>
+                    Fast &
+                  </div>
+                  Focused
+                </span>
+              </div>
+              <div>
+                User experiences
+              </div>
+            </p>
+          </div>
         </div>
       </div>
 
-      <div className={`${styles.content} pb-5 my-a`}>
+      <div className={`${styles.content}`}>
 
         <div className={`${styles.workSection} content mb-4`}>
           <div className="d-flex justify-center align-end justify-space-between">

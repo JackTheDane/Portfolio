@@ -25,8 +25,6 @@
   }
 
   .projectsWrapper {
-    // margin-left: -10px;
-    // margin-right: -10px;
 
     .projectCard {
       // border: none;
@@ -64,21 +62,32 @@
     position: relative;
     width: 100%;
     overflow: hidden;
+    max-height: 30vh;
   }
 }
 
-@media (max-width: 899px) {
-  .projects {
-    .pageContent {
-      background: transparent !important;
-    }
-  }
 
+@media (max-width: 599px) {
+
+}
+
+@media (max-width: 899px) {
   .cardFooter {
     padding: 0.8rem 0 0 0 !important;
   }
   .cardHeader {
     padding-top: 0.4rem;
+  }
+
+  .projects {
+    .pageContent {
+      margin-left: -$unit-4;
+      margin-right: -$unit-4;
+
+      .projectCard {
+        border-radius: 0;
+      }
+    }
   }
 }
 

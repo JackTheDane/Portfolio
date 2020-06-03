@@ -30,10 +30,10 @@ const Projects = ({
         </title>
       </Head>
 
-      <div className={` ${styles.projects} content`}>
+      <div className={`${styles.projects} content content-page`}>
 
-        <div className="mt-5 d-flex mb-2" style={{ justifyContent: 'space-between', alignItems: 'flex-end' }}>
-          <h1 className={`text-light`} style={{ marginBottom: 0 }}>
+        <div className="d-flex mb-2" style={{ justifyContent: 'space-between', alignItems: 'flex-end' }}>
+          <h1 className={`text-light mb-0`}>
             Portfolio
           </h1>
 
