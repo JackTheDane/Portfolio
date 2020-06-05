@@ -7,6 +7,7 @@ import { LinkedInIcon } from 'icons/LinkedIn';
 import { GitHubIcon } from 'icons/Github';
 import { EnvelopeIcon } from 'icons/Envelope';
 import { BrandColors } from 'data/BrandColors';
+import { PageHeader } from 'components/domains/content/PageHeader';
 
 const secondaryButtons: {
   name: string;
@@ -53,13 +54,9 @@ const Contact = ({ }: ContactProps) => {
         <title>Contact - Martin Bøje Petersen</title>
       </Head>
 
-      <div className={`${styles.root} content`}>
+      <PageHeader pageTitle="Get in touch!" />
 
-        <div className="content-page-header">
-          <h1 className={`text-light text-center ${styles.title}`}>
-            Get in touch with me
-          </h1>
-        </div>
+      <div className={`${styles.root} content`}>
 
         <div className="mb-5 py-5">
           <form method="POST" action="https://formspree.io/martin@mbpmedia.com">

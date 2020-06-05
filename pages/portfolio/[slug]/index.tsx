@@ -13,6 +13,7 @@ import { NavLink } from 'components/reusables/NavLink';
 import { ArrowLeftIcon } from 'icons/ArrowLeft';
 import { LinkIcon } from 'icons/Link';
 import { CarouselWithPreview } from 'components/reusables/carousels/CarouselWithPreview';
+import { PageHeader } from 'components/domains/content/PageHeader';
 
 interface ProjectPaginationItem {
   title: string;
@@ -57,7 +58,10 @@ const ProjectPage = ({
           {title} - Martin Bøje Petersen
         </title>
       </Head>
+
       <div className={`${styles.project}`}>
+
+        <PageHeader pageTitle={title} className="pt-0 mb-0" mobileOnly />
 
         <div style={{ position: 'relative' }}>
           <NavLink href={`/${SiteRoutes.portfolio}`} className={`${styles.backButton} text-light btn btn-primary btn-lg my-3`}>

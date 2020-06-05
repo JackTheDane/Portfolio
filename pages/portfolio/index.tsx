@@ -13,6 +13,7 @@ import { OutboundRoutes } from 'data/routes/OutboundRoutes';
 import { GitHubIcon } from 'icons/Github';
 import { BrandColors } from 'data/BrandColors';
 import { DynamicLocalImageSizes } from 'utils/images/getDynamicLocalImage';
+import { PageHeader } from 'components/domains/content/PageHeader';
 
 export interface ProjectsProps {
   projects: IProject[];
@@ -30,9 +31,25 @@ const Projects = ({
         </title>
       </Head>
 
-      <div className={`${styles.projects} content content-page`}>
+      <PageHeader pageTitle="Portfolio">
+        <div className="text-right ml-a pl-2 d-flex text-light mt-a" style={{ alignItems: 'flex-end' }}>
+          <span className="text-light mr-4 hide-sm" style={{ marginBottom: '-.1em' }}>
+            Want to see more?
+            </span>
+          <a href={OutboundRoutes.gitHub} className="btn btn-primary hide-sm" style={{ backgroundColor: BrandColors.GitHub, border: 'none' }}>
+            <GitHubIcon className="mr-2" />
+              Visit my GitHub
+            </a>
 
-        <div className="d-flex mb-2" style={{ justifyContent: 'space-between', alignItems: 'flex-end' }}>
+          <a href={OutboundRoutes.gitHub} className="btn btn-lg btn-primary btn-action show-sm" style={{ backgroundColor: BrandColors.GitHub, border: 'none' }}>
+            <GitHubIcon />
+          </a>
+        </div>
+      </PageHeader>
+      <div className={`${styles.projects} content-page-footer`}>
+
+
+        {/* <div className="d-flex mb-2" style={{ justifyContent: 'space-between', alignItems: 'flex-end' }}>
           <h1 className={`text-light mb-0`}>
             Portfolio
           </h1>
@@ -50,11 +67,11 @@ const Projects = ({
               <GitHubIcon />
             </a>
           </div>
-        </div>
+        </div> */}
 
         {/* <div className="divider" /> */}
 
-        <div className={`${styles.pageContent}`}>
+        <div className={`${styles.pageContent} content`}>
           <div className={`${styles.projectsWrapper} columns`}>
 
             {projects.map(
@@ -64,7 +81,7 @@ const Projects = ({
                 title,
                 role
               }): JSX.Element => (
-                  <div key={slug} className={`column col-6 col-md-12 ${styles.column}`}>
+                  <div key={slug} className={`column col-6 col-sm-12 ${styles.column}`}>
                     <NavLink
                       className={`card ${styles.projectCard}`}
                       href={`/${SiteRoutes.portfolio}/[slug]`}

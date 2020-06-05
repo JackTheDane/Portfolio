@@ -26,18 +26,6 @@ const AppCustomized = ({ Component, pageProps }: AppProps) => {
       <div className={`${styles.app} ${isFrontPage ? styles.frontPage : '' }`}>
         <div className="pageBackground" />
 
-        {
-          !isFrontPage && (
-            <div className={`content ${styles.mobileTopNavBar}`} >
-              <div className="pageBackground" style={{ position: 'absolute' }} />
-              <NavLink href="/" >
-                <img src={require('images/mainLogoOnly-white.png?size=60')} style={{ height: '100%' }} />
-              </NavLink>
-            </div>
-          )
-        }
-
-
         <Nav />
 
         <div className={styles.spacer} />

@@ -19,13 +19,15 @@
   flex-direction: column;
 
   .pageContent {
-    padding-top: 0.4rem;
+    // padding-top: 0.4rem;
     padding-bottom: 0.4rem;
     position: relative;
+
+    margin-left: -$unit-4;
+    margin-right: -$unit-4;
   }
 
   .projectsWrapper {
-
     .projectCard {
       // border: none;
       background-color: transparent;
@@ -33,11 +35,11 @@
       .cardHeader {
         background-color: #fff;
         line-height: 1.2;
-        padding-top: .6rem;
+        padding-top: 0.6rem;
       }
 
       .cardRoles {
-        font-size: .9em;
+        font-size: 0.9em;
       }
     }
   }
@@ -66,11 +68,6 @@
   }
 }
 
-
-@media (max-width: 599px) {
-
-}
-
 @media (max-width: 899px) {
   .cardFooter {
     padding: 0.8rem 0 0 0 !important;
@@ -81,9 +78,6 @@
 
   .projects {
     .pageContent {
-      margin-left: -$unit-4;
-      margin-right: -$unit-4;
-
       .projectCard {
         border-radius: 0;
       }
@@ -92,25 +86,32 @@
 }
 
 @media (min-width: 1100px) {
-  .cardRoles {
-    display: inline-block;
-    margin-left: 5px;
-  }
-
-  .projectsWrapper {
-    &:hover {
-      .projectCard {
-        opacity: 0.75;
-
-        &:hover {
-          opacity: 1;
-        }
-      }
+  .projects {
+    .cardRoles {
+      display: inline-block;
+      margin-left: 5px;
     }
 
-    .projectCard {
+    .pageContent {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    .projectsWrapper {
       &:hover {
-        transform: scale(1.025);
+        .projectCard {
+          opacity: 0.75;
+
+          &:hover {
+            opacity: 1;
+          }
+        }
+      }
+
+      .projectCard {
+        &:hover {
+          transform: scale(1.025);
+        }
       }
     }
   }

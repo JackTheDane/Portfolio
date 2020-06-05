@@ -5,6 +5,7 @@ import { BriefcaseIcon } from 'icons/Briefcase';
 import { IExperienceItem } from 'models/interfaces/IExperienceItem';
 import { ExperienceTimeline } from 'components/domains/experience/ExperienceTimeline';
 import { EducationIcon } from 'icons/Education';
+import { PageHeader } from 'components/domains/content/PageHeader';
 const KEALogo: string = require('images/brands/kea.png?size=60');
 
 const coreSkills: {
@@ -92,13 +93,14 @@ const education: IExperienceItem[] = [
 
 const Experience = () => {
   return (
-    <div className={`content-page text-center content ${styles.experience}`}>
+    <>
+      <PageHeader pageTitle="Experience" mobileOnly />
+      <div className={`content-page-footer text-center content ${styles.experience}`}>
 
-      <div className="mb-5">
         <div className="mb-3">
           <h2 className="text-light">
             Skills
-          </h2>
+            </h2>
 
           <div className={`d-flex justify-center text-light ${styles.coreSkills}`}>
             {coreSkills.map(({ name, iconElement }): JSX.Element => {
@@ -121,30 +123,30 @@ const Experience = () => {
             (skillName): JSX.Element => <div key={skillName} className="chip mb-3 mr-3 text-light p-3">{skillName}</div>
           )}
         </div>
-      </div>
 
-      <div className="py-5 columns text-light text-left justify-center">
-        <div className="my-5 column col-10 col-md-12">
+        <div className="py-5 mt-2 columns text-light text-left justify-center">
+          <div className="my-5 column col-10 col-md-12">
 
-          <h2 className="mb-5 pb-3">
-            Experience
+            <h2 className="mb-5 pb-3">
+              Work Experience
+            </h2>
+
+            <ExperienceTimeline items={experience} />
+          </div>
+
+          <div className="my-5 column col-10 col-md-12">
+
+            <h2 className="mb-5 pb-3">
+              Education
           </h2>
 
-          <ExperienceTimeline items={experience} />
+            <ExperienceTimeline items={education} fallbackIcon={<EducationIcon style={{ fontSize: '1.5rem', transform: 'translateY(-5%)' }} />} />
+          </div>
         </div>
 
-        <div className="my-5 column col-10 col-md-12">
-
-          <h2 className="mb-5 pb-3">
-            Education
-          </h2>
-
-          <ExperienceTimeline items={education} fallbackIcon={<EducationIcon style={{ fontSize: '1.5rem', transform: 'translateY(-5%)' }} />} />
-        </div>
       </div>
+    </>
 
-
-    </div>
   )
 }
 
