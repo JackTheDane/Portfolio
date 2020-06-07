@@ -23,15 +23,15 @@ const AppCustomized = ({ Component, pageProps }: AppProps) => {
           Martin Bøje Petersen
         </title>
       </Head>
-      <div className={`${styles.app} ${isFrontPage ? styles.frontPage : '' }`}>
+      <div className={`${styles.app} ${isFrontPage ? styles.frontPage : ''}`}>
         <div className="pageBackground" />
 
         <Nav />
 
         <div className={styles.spacer} />
-        <main className={styles.content} id="_mainContent">
+        <div className={styles.content} id="_mainContent">
           <Component {...pageProps} />
-        </main>
+        </div>
 
         <style jsx global>{`
         .pageBackground::before {

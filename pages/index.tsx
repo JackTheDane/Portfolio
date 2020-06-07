@@ -26,7 +26,7 @@ const FrontPage = ({
       slug,
       images,
       title,
-      role
+      skills
     }): JSX.Element => (
         <div key={slug} className={`${styles.projectColumn}`}>
           <NavLink
@@ -37,6 +37,12 @@ const FrontPage = ({
             <div className={styles.imageWrapper}>
               <ProgressiveImageLoader staticImageSize={DynamicLocalImageSizes.small} className={styles.projectImage} src={images[0]} imageHeight="0" />
             </div>
+            <h5 className="card-footer text-light pl-0 py-3">
+              {title}
+              <small className="d-block text-gray mt-1">
+                {skills.slice(0, 3).join(', ')}
+              </small>
+            </h5>
           </NavLink>
         </div>
       )
@@ -56,7 +62,7 @@ const FrontPage = ({
 
 
   return (
-    <div className={`${styles.about} content-page d-flex`}>
+    <main className={`${styles.about} content-page d-flex`}>
       <div className={`${styles.profile} content`}>
 
 
@@ -88,22 +94,16 @@ const FrontPage = ({
             </p>
           </div>
           <div className="show-lg fw-medium text-left" style={{ fontSize: '1.5rem' }}>
-            <p>
-              <div>
-                I build
-              </div>
-              <div className="mt-1 mb-0">
-                <span className="mx-0 fw-bold" style={{ lineHeight: 1, fontSize: '1.5em' }}>
-                  <div>
-                    Fast &
+            I build
+            <div className="mt-1 mb-0">
+              <span className="mx-0 fw-bold" style={{ lineHeight: 1, fontSize: '1.5em' }}>
+                <div>
+                  Fast &
                   </div>
                   Focused
                 </span>
-              </div>
-              <div>
-                User experiences
-              </div>
-            </p>
+            </div>
+            User experiences
           </div>
         </div>
       </div>
@@ -130,12 +130,13 @@ const FrontPage = ({
             children={portfolioPreviews}
             centerInsufficientSlides={true}
             classNames={{
-              nextNavButton: styles.nextSlideButton
+              nextNavButton: styles.nextSlideButton,
+              prevNavButton: styles.prevSlideButton
             }}
           />
         </div>
       </div>
-    </div>
+    </main>
   )
 }
 

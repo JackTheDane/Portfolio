@@ -46,30 +46,8 @@ const Projects = ({
           </a>
         </div>
       </PageHeader>
-      <div className={`${styles.projects} content-page-footer`}>
 
-
-        {/* <div className="d-flex mb-2" style={{ justifyContent: 'space-between', alignItems: 'flex-end' }}>
-          <h1 className={`text-light mb-0`}>
-            Portfolio
-          </h1>
-
-          <div className="text-right ml-a pl-2 d-flex" style={{ alignItems: 'flex-end' }}>
-            <span className="text-light mr-4 hide-sm" style={{ marginBottom: '-.1em' }}>
-              Want to see more?
-            </span>
-            <a href={OutboundRoutes.gitHub} className="btn btn-primary hide-sm" style={{ backgroundColor: BrandColors.GitHub, border: 'none' }}>
-              <GitHubIcon className="mr-2" />
-              Visit my GitHub
-            </a>
-
-            <a href={OutboundRoutes.gitHub} className="btn btn-lg btn-primary btn-action show-sm" style={{ backgroundColor: BrandColors.GitHub, border: 'none' }}>
-              <GitHubIcon />
-            </a>
-          </div>
-        </div> */}
-
-        {/* <div className="divider" /> */}
+      <main className={`${styles.projects} content-page-footer`}>
 
         <div className={`${styles.pageContent} content`}>
           <div className={`${styles.projectsWrapper} columns`}>
@@ -79,6 +57,7 @@ const Projects = ({
                 slug,
                 images,
                 title,
+                skills,
                 role
               }): JSX.Element => (
                   <div key={slug} className={`column col-6 col-sm-12 ${styles.column}`}>
@@ -92,9 +71,13 @@ const Projects = ({
                         <ProgressiveImageLoader src={images[0]} imageHeight="50%" staticImageSize={DynamicLocalImageSizes.small} />
                       </div>
 
-                      <div className={`card-header ${styles.cardHeader}`}>
-                        <div className="card-title h4 text-primary"> {title} <div className={`text-gray fw-medium ${styles.cardRoles}`}>{role}</div> </div>
-                      </div>
+                      <h5 className={`card-header card-title text-light pl-0 py-3 ${styles.cardHeader}`}>
+                        {title}
+                        <small className="d-block text-gray mt-1">
+                          {skills.slice(0, 3).join(', ')}
+                        </small>
+                        {/* <div className="card-title h4 text-light"> {title} <div className={`text-gray fw-medium ${styles.cardRoles}`}>{role}</div> </div> */}
+                      </h5>
                     </NavLink>
                   </div>
                 )
@@ -102,7 +85,7 @@ const Projects = ({
 
           </div>
         </div>
-      </div>
+      </main>
     </>
   )
 }

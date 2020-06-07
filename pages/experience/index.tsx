@@ -95,7 +95,7 @@ const Experience = () => {
   return (
     <>
       <PageHeader pageTitle="Experience" mobileOnly />
-      <div className={`content-page-footer text-center content ${styles.experience}`}>
+      <main className={`content-page-footer text-center content ${styles.experience}`}>
 
         <div className="mb-3">
           <h2 className="text-light">
@@ -144,7 +144,7 @@ const Experience = () => {
           </div>
         </div>
 
-      </div>
+      </main>
     </>
 
   )

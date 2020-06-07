@@ -1,6 +1,5 @@
 @import "styling/spectre/variables";
 @import "styling/utils";
-@import "styling/spectre/animations";
 
 .app {
   min-height: 100%;
@@ -29,12 +28,6 @@
     width: 100%;
     min-height: 100%;
     position: relative;
-
-    // animation: fade-in 0.3s both;
-
-    & > * {
-      animation: fade-in .25s ease both;
-    }
   }
 }
 

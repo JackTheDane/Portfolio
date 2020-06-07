@@ -21,7 +21,7 @@ export const PageHeader = ({
         <div className="d-flex justify-space-between" style={{ height: '100%', width: '100%' }}>
 
           <NavLink href="/" className={`d-flex align-center text-light ${styles.link}`}>
-            <div className={`${styles.icon} pr-2 py-1`} >
+            <div key="logo" className={`${styles.icon} pr-2 py-1`} >
               <img src={require('images/mainLogoOnly-white.png?size=60')} style={{ height: '100%' }} />
             </div>
 

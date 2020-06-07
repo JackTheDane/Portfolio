@@ -56,7 +56,7 @@ const Contact = ({ }: ContactProps) => {
 
       <PageHeader pageTitle="Get in touch!" />
 
-      <div className={`${styles.root} content`}>
+      <main className={`${styles.root} content`}>
 
         <div className="mb-5 py-5">
           <form method="POST" action="https://formspree.io/martin@mbpmedia.com">
@@ -126,7 +126,7 @@ const Contact = ({ }: ContactProps) => {
               )
           )}
         </div>
-      </div>
+      </main>
     </>
   )
 }

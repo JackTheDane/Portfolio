@@ -59,9 +59,10 @@ const ProjectPage = ({
         </title>
       </Head>
 
+      <PageHeader pageTitle={title} className="pt-0 mb-0" mobileOnly />
+
       <div className={`${styles.project}`}>
 
-        <PageHeader pageTitle={title} className="pt-0 mb-0" mobileOnly />
 
         <div style={{ position: 'relative' }}>
           <NavLink href={`/${SiteRoutes.portfolio}`} className={`${styles.backButton} text-light btn btn-primary btn-lg my-3`}>
@@ -98,7 +99,7 @@ const ProjectPage = ({
             </div>
 
             <div className="d-flex" style={{ alignItems: 'center', flexWrap: 'wrap' }}>
-              <h3 className="text-gray fw-medium mr-3" style={{ flexShrink: 0, maxWidth: '100%' }}>{role}</h3>
+              {/* <h3 className="text-gray fw-medium mr-3" style={{ flexShrink: 0, maxWidth: '100%' }}>{role}</h3> */}
 
               <div style={{ flexShrink: 0, maxWidth: '100%' }}>
                 {

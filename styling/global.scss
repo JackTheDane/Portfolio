@@ -1,5 +1,7 @@
 @import "./spectre/spectre.scss";
-@import 'utils';
+@import "utils";
+@import "styling/spectre/animations";
+
 // @import '~react-id-swiper/lib/styles/scss/swiper.scss';
 
 body,
@@ -158,9 +160,7 @@ img {
   }
 }
 
-
 @media (min-width: 1100px) {
-
   .content-page {
     &,
     &-header {
@@ -241,9 +241,8 @@ img {
   height: 100%;
   overflow: hidden;
 
-
   &::before {
-    content: '';
+    content: "";
     display: block;
     position: absolute;
     height: 100vh;
@@ -253,4 +252,9 @@ img {
     background-size: cover;
     background-blend-mode: multiply;
   }
+}
+
+// Page transitions
+main {
+  animation: fade-in 0.25s ease both;
 }
