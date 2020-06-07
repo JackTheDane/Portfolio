@@ -71,7 +71,7 @@ const Projects = ({
                         <ProgressiveImageLoader src={images[0]} imageHeight="50%" staticImageSize={DynamicLocalImageSizes.small} />
                       </div>
 
-                      <h5 className={`card-header card-title text-light pl-0 py-3 ${styles.cardHeader}`}>
+                      <h5 className={`card-header card-title text-light py-3 ${styles.cardHeader}`}>
                         {title}
                         <small className="d-block text-gray mt-1">
                           {skills.slice(0, 3).join(', ')}
