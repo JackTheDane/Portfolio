@@ -25,11 +25,6 @@ const Projects = ({
 
   return (
     <>
-      <Head>
-        <title>
-          Picked Projects - Martin Bøje Petersen
-        </title>
-      </Head>
 
       <PageHeader pageTitle="Portfolio">
         <div className="text-right ml-a pl-2 d-flex text-light mt-a" style={{ alignItems: 'flex-end' }}>

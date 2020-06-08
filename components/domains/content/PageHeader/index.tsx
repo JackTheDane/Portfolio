@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './styles.module.scss';
 import { NavLink } from 'components/reusables/NavLink';
+import Head from 'next/head';
 
 export interface PageHeaderProps extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   pageTitle?: string;
@@ -14,6 +15,16 @@ export const PageHeader = ({
   children
 }: PageHeaderProps) => {
   return (
+    <>
+
+    {
+      pageTitle && (
+        <Head>
+            <title>{pageTitle} - Martin Bøje Petersen</title>
+        </Head>
+      )
+    }
+
     <div className={`${styles.wrapper} ${className || ''} content-page-header`}>
 
       <div className={`content ${styles.root} ${mobileOnly ? styles.mobileOnly : ''}`} >
@@ -35,5 +46,6 @@ export const PageHeader = ({
       </div>
     </div>
 
+    </>
   )
 }

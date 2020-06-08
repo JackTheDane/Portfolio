@@ -50,9 +50,6 @@ const Contact = ({ }: ContactProps) => {
 
   return (
     <>
-      <Head>
-        <title>Contact - Martin Bøje Petersen</title>
-      </Head>
 
       <PageHeader pageTitle="Get in touch!" />
 

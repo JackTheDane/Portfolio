@@ -6,6 +6,7 @@ import { IExperienceItem } from 'models/interfaces/IExperienceItem';
 import { ExperienceTimeline } from 'components/domains/experience/ExperienceTimeline';
 import { EducationIcon } from 'icons/Education';
 import { PageHeader } from 'components/domains/content/PageHeader';
+import Head from 'next/head';
 const KEALogo: string = require('images/brands/kea.png?size=60');
 
 const coreSkills: {
@@ -100,7 +101,7 @@ const Experience = () => {
         <div className="mb-3">
           <h2 className="text-light">
             Skills
-            </h2>
+          </h2>
 
           <div className={`d-flex justify-center text-light ${styles.coreSkills}`}>
             {coreSkills.map(({ name, iconElement }): JSX.Element => {
