@@ -67,7 +67,7 @@ const Projects = ({
                       as={`/${SiteRoutes.portfolio}/${slug}`}
                       style={{ overflow: 'hidden' }}
                     >
-                      <div className={styles.imageWrapper}>
+                      <div className={`${styles.imageWrapper} s-rounded`}>
                         <ProgressiveImageLoader src={images[0]} imageHeight="50%" staticImageSize={DynamicLocalImageSizes.small} />
                       </div>
 

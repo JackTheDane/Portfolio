@@ -181,7 +181,8 @@
   }
 
   .itemWrapper {
-    animation: fade-in-left 0.3s ease-out 0.1s both;
+    opacity: 0;
+    animation: fade-in-left 0.3s ease-out 0.1s forwards;
 
     &:first-child {
       .menuItem {

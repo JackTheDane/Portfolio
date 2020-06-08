@@ -59,7 +59,7 @@ const ProjectPage = ({
         </title>
       </Head>
 
-      <div style={{ minHeight: '100%' }}>
+      <div className="d-flex flex-col" style={{ minHeight: '100%' }}>
 
         <PageHeader pageTitle={title} className="pt-0 mb-0" mobileOnly />
 
