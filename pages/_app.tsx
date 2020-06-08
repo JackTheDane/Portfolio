@@ -7,7 +7,7 @@ import Head from 'next/head';
 import Router, { useRouter } from 'next/router';
 import { NavLink } from 'components/reusables/NavLink';
 import { SiteRoutes } from 'data/routes/SiteRoutes';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 // const bgImage = require('images/bg.jpg?size=800');
 
 const AppCustomized = ({ Component, pageProps }: AppProps) => {
@@ -25,9 +25,19 @@ const AppCustomized = ({ Component, pageProps }: AppProps) => {
 
 
   // Router.
-  Router.events.on('routeChangeStart', onRouteChangeStarted);
-  Router.events.on('routeChangeComplete', onRouteChangeCompleted);
-  Router.events.on('routeChangeError', onRouteChangeCompleted);
+
+
+  useEffect(
+    () => {
+      Router.events.on('routeChangeStart', onRouteChangeStarted);
+      Router.events.on('routeChangeComplete', onRouteChangeCompleted);
+      Router.events.on('routeChangeError', onRouteChangeCompleted);
+    return () => {
+      Router.events.off('routeChangeStart', onRouteChangeStarted);
+      Router.events.off('routeChangeComplete', onRouteChangeCompleted);
+      Router.events.off('routeChangeError', onRouteChangeCompleted);
+    }
+  }, []);
 
   const isFrontPage: boolean = pathname === `/${SiteRoutes.frontpage}`;
 
