@@ -74,6 +74,35 @@ const Nav = () => {
     <>
       <nav className={`${styles.nav}`}>
 
+  <style jsx>{`
+
+    @keyframes fade-in-left {
+      0% {
+        opacity: 0;
+        transform: translateX(-10px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateX(0px);
+      }
+    }
+
+
+    .itemWrapper {
+      opacity: 0;
+      animation: fade-in-left 0.3s ease-out 0.1s forwards;
+    }
+
+    .itemWrapper:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .itemWrapper:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+  `}</style>
+
         <Link href="/">
           <a className={styles.logo} >
             <img src="/images/mainLogo-white.png" className="img-fit-contain" alt="MBP Media" />
@@ -85,7 +114,7 @@ const Nav = () => {
           {
             menuItems.map((item, i: number) => {
               return (
-                <span key={'nav_' + i} className={styles.itemWrapper} >
+                <span key={'nav_' + i} className={`itemWrapper ${styles.itemWrapper}`} >
                   <NavLink exact={item.isExact} activeClassName={styles.selected} href={`/${item.url}`} className={styles.menuItem}>
                     <li>
                       {item.icon && (

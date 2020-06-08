@@ -181,8 +181,8 @@
   }
 
   .itemWrapper {
-    opacity: 0;
-    animation: fade-in-left 0.3s ease-out 0.1s forwards;
+    // opacity: 0;
+    // animation: fade-in-left 0.3s ease-out 0.1s forwards;
 
     &:first-child {
       .menuItem {
@@ -193,13 +193,13 @@
       }
     }
 
-    &:nth-child(2) {
-      animation-delay: 0.2s;
-    }
+    // &:nth-child(2) {
+    //   animation-delay: 0.2s;
+    // }
 
-    &:nth-child(3) {
-      animation-delay: 0.4s;
-    }
+    // &:nth-child(3) {
+    //   animation-delay: 0.4s;
+    // }
   }
 }
 
