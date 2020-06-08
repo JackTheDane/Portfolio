@@ -26,11 +26,14 @@ const AppCustomized = ({ Component, pageProps }: AppProps) => {
 
   // Router.
   Router.events.on('routeChangeStart', onRouteChangeStarted);
-  Router.events.on('routeChangeComplete', onRouteChangeStarted);
-  Router.events.on('routeChangeError', onRouteChangeStarted);
-
+  Router.events.on('routeChangeComplete', onRouteChangeCompleted);
+  Router.events.on('routeChangeError', onRouteChangeCompleted);
 
   const isFrontPage: boolean = pathname === `/${SiteRoutes.frontpage}`;
+
+  let contentClasses: string = styles.content;
+
+  if (isRedirecting) contentClasses += ` ${styles.redirecting}`;
 
   return (
     <>
@@ -47,7 +50,7 @@ const AppCustomized = ({ Component, pageProps }: AppProps) => {
         <Nav />
 
         <div className={styles.spacer} />
-        <div className={styles.content} id="_mainContent">
+        <div className={contentClasses} id="_mainContent">
           <Component {...pageProps} />
         </div>
 
