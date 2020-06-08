@@ -10,6 +10,12 @@
   padding-bottom: 3rem;
   // padding-top: 50px;
 
+  .redirecting {
+    main {
+      opacity: .5;
+    }
+  }
+
   &.frontPage {
     padding-top: 0;
   }
