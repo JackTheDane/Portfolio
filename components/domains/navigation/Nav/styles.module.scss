@@ -141,6 +141,8 @@
     user-select: none;
     text-decoration: none !important;
     position: relative;
+    color: rgba($color: $bg-color-light, $alpha: 0.6);
+    transition: color 0.3s;
 
     &::after {
       content: "";
@@ -154,15 +156,10 @@
       transform-origin: 0% 50%;
     }
 
-    &,
-    & > li {
-      transition: all 0.3s;
-    }
-
     & > li {
       padding: 0 2px 5px;
       font-size: inherit;
-      color: rgba($color: $bg-color-light, $alpha: 0.6);
+      color: inherit;
 
       display: flex;
       align-items: center;
@@ -170,12 +167,11 @@
 
     &:hover,
     &.selected {
+
+      color: $bg-color-light;
+
       &::after {
         transform: scaleX(1);
-      }
-
-      & > li {
-        color: $bg-color-light;
       }
     }
   }
