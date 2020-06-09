@@ -62,7 +62,7 @@ const FrontPage = ({
 
 
   return (
-    <main className={`${styles.about} content-page d-flex`}>
+    <main className={`${styles.about} content-page-header d-flex`}>
       <div className={`${styles.profile} content`}>
 
 
@@ -84,7 +84,7 @@ const FrontPage = ({
           </div>
         </div>
 
-        <div className={`${styles.secondaryText} text-light pb-5 pt-4`}>
+        <div className={`${styles.secondaryText} text-light py-3`}>
           <div className="hide-lg">
             <p>
               I build <b>Fast & User-friendly experiences</b> with a focus <b>UX, maintainability and performance</b>

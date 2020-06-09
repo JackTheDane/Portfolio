@@ -9,6 +9,40 @@
 
   animation: fade-in 0.15s ease-out both;
 
+  :global(.pagination) {
+    :global(.page-item) {
+      a {
+
+        .previewImage {
+          transition: opacity 0.1s;
+          opacity: 1;
+        }
+
+        &:hover {
+          .previewImage {
+            opacity: 0.85;
+          }
+        }
+      }
+    }
+
+    :global(.page-item-title) {
+      line-height: 1;
+    }
+  }
+
+  .previewImage {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100px;
+    padding-top: 50%;
+    height: 0;
+    max-width: 45vw;
+
+    margin-bottom: $unit-1;
+  }
+
   .showMoreButton {
     position: absolute;
     bottom: 0;
@@ -47,7 +81,6 @@
     font-size: 0.95em;
     transition: transform 0.2s ease-out;
   }
-
 
   &:hover {
     i {

@@ -14,6 +14,7 @@ import { ArrowLeftIcon } from 'icons/ArrowLeft';
 import { LinkIcon } from 'icons/Link';
 import { CarouselWithPreview } from 'components/reusables/carousels/CarouselWithPreview';
 import { PageHeader } from 'components/domains/content/PageHeader';
+import { getDynamicLocalImage, DynamicLocalImageSizes } from 'utils/images/getDynamicLocalImage';
 
 interface ProjectPaginationItem {
   title: string;
@@ -126,10 +127,11 @@ const ProjectPage = ({
 
           {
             paginationItems && (
-              <ul className="pagination" style={{ marginTop: 'auto' }}>
+              <ul className="pagination pt-3" style={{ marginTop: 'auto' }}>
                 {paginationItems.prev && (
                   <li className="page-item page-prev">
                     <NavLink href={`/${SiteRoutes.portfolio}/[slug]`} as={`/${SiteRoutes.portfolio}/${paginationItems.prev.slug}`}>
+                      <div className={`s-rounded ${styles.previewImage}`} style={{ backgroundImage: `url('${getDynamicLocalImage(paginationItems.prev.previewImage, DynamicLocalImageSizes.xsmall)}')` }}  />
                       <div className="page-item-subtitle">Previous</div>
                       <div className="page-item-title h5">{paginationItems.prev.title}</div>
                     </NavLink>
@@ -137,7 +139,8 @@ const ProjectPage = ({
                 )}
                 {paginationItems.next && (
                   <li className="page-item page-next">
-                    <NavLink href={`/${SiteRoutes.portfolio}/[slug]`} as={`/${SiteRoutes.portfolio}/${paginationItems.next.slug}`}>
+                    <NavLink className="d-flex flex-col" href={`/${SiteRoutes.portfolio}/[slug]`} as={`/${SiteRoutes.portfolio}/${paginationItems.next.slug}`}>
+                      <div className={`s-rounded ml-a ${styles.previewImage}`} style={{ backgroundImage: `url('${getDynamicLocalImage(paginationItems.next.previewImage, DynamicLocalImageSizes.xsmall)}')` }}  />
                       <div className="page-item-subtitle">Next</div>
                       <div className="page-item-title h5">{paginationItems.next.title}</div>
                     </NavLink>
@@ -148,7 +151,6 @@ const ProjectPage = ({
           }
 
         </div>
-
       </main>
     </div>
   )
