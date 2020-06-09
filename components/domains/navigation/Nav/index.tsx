@@ -89,16 +89,16 @@ const Nav = () => {
     }
 
 
-    .itemWrapper {
+    .itemWrapper li {
       opacity: 0;
       animation: fade-in-left 0.3s ease-out 0.1s forwards;
     }
 
-    .itemWrapper:nth-child(2) {
+    .itemWrapper:nth-child(2) li {
       animation-delay: 0.2s;
     }
 
-    .itemWrapper:nth-child(3) {
+    .itemWrapper:nth-child(3) li {
       animation-delay: 0.4s;
     }
   `}</style>
