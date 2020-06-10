@@ -60,7 +60,7 @@
   margin-bottom: $unit-1;
 }
 
-@media (max-width: 1099px) {
+@media (max-width: $size-lg - 1) {
   .wrapper {
     padding-top: 0 !important;
   }

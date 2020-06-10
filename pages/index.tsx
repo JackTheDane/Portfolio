@@ -55,12 +55,12 @@ const FrontPage = ({
       <div className={`${styles.profile} content`}>
 
 
-        <div className="text-light d-flex mb-3 align-center flex-col" >
-          <h1 className="mb-3 d-inline-flex bg-primary px-3 py-2 card">
+        <div className={`text-light d-flex mb-3 flex-col ${styles.introHeader}`} >
+          <h1 className="mb-0 d-inline-flex bg-primary px-3 py-2 card">
             Hi, I'm Martin!
           </h1>
 
-          <div className="d-flex justify-center hide-md" style={{ fontSize: '.85rem', flexWrap: 'wrap' }}>
+          <div className="d-flex justify-center hide-lg mt-3" style={{ fontSize: '.85rem', flexWrap: 'wrap' }}>
             <span className="py-1 text-light d-flex mr-5 align-center">
               <CodeIcon className="mr-2 d-flex" style={{ fontSize: '1.1em' }} />
               Frontend Developer

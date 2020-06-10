@@ -3,6 +3,7 @@
 .projectCard {
   opacity: 1;
   transition: all 0.2s;
+  transition-property: opacity, transform;
 
   user-select: none;
 
@@ -67,7 +68,7 @@
   }
 }
 
-@media (max-width: 899px) {
+@media (max-width: $size-md - 1) {
   .cardFooter {
     padding: 0.8rem 0 0 0 !important;
   }
@@ -85,13 +86,13 @@
   }
 }
 
-@media (min-width: 900px) {
+@media (min-width: $size-md) {
   .cardHeader {
     padding-left: 0 !important;
   }
 }
 
-@media (min-width: 1100px) {
+@media (min-width: $size-lg) {
   .projects {
     .cardRoles {
       display: inline-block;

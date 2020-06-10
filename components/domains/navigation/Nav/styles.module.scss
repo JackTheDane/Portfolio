@@ -210,10 +210,10 @@
   color: $bg-color-light !important;
 }
 
-@media (min-width: 1100px) {
+@media (min-width: $size-lg) {
   .nav {
     padding: 20px 0px 0px;
-    max-width: 600px;
+    max-width: $size-sm;
     width: 30vw;
     top: 0;
     background-color: transparent;

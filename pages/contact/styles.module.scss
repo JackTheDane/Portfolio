@@ -1,7 +1,6 @@
 @import "styling/spectre/variables";
 
 .root {
-  // max-width: 900px;
   margin: auto;
 }
 
@@ -14,30 +13,7 @@
   margin-bottom: 30px;
 }
 
-.title {
-  & > span {
-    animation: fadeInAndOut 1s ease-in-out infinite alternate both;
-    height: 1em;
-    font-size: inherit;
-    width: 3px;
-    margin-left: 0.225em;
-    margin-bottom: -0.06em;
-    background-color: $highlight-color;
-    display: inline-block;
-  }
-}
-
-@keyframes fadeInAndOut {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-@media (max-width: 799px) {
+@media (max-width: $size-md - 1) {
   .secondaryContact {
     margin-top: 0 !important;
   }
