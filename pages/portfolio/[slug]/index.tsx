@@ -15,6 +15,8 @@ import { LinkIcon } from 'icons/Link';
 import { CarouselWithPreview } from 'components/reusables/carousels/CarouselWithPreview';
 import { PageHeader } from 'components/domains/content/PageHeader';
 import { getDynamicLocalImage, DynamicLocalImageSizes } from 'utils/images/getDynamicLocalImage';
+import { ExpandIcon } from 'icons/Expand';
+import { CompressIcon } from 'icons/Compress';
 
 interface ProjectPaginationItem {
   title: string;
@@ -52,6 +54,7 @@ const ProjectPage = ({
     setShowMoreContent(false);
   }, [slug]);
 
+
   return (
     <div className="d-flex flex-col" style={{ minHeight: '100%' }}>
 
@@ -59,14 +62,15 @@ const ProjectPage = ({
 
       <main className={`${styles.project}`}>
 
-
         <div style={{ position: 'relative' }}>
-          <NavLink href={`/${SiteRoutes.portfolio}`} className={`${styles.backButton} text-light btn btn-primary btn-lg my-3`}>
-            <ArrowLeftIcon className="mr-2" />
-            <span>
-              Other projects
-            </span>
-          </NavLink>
+          <div className={styles.sliderActions}>
+            <NavLink href={`/${SiteRoutes.portfolio}`} className={`${styles.backButton} text-light btn btn-primary btn-lg my-3`}>
+              <ArrowLeftIcon className="mr-2" />
+              <span>
+                Other projects
+              </span>
+            </NavLink>
+          </div>
 
           <CarouselWithPreview key={slug} images={images} />
         </div>
@@ -131,7 +135,7 @@ const ProjectPage = ({
                 {paginationItems.prev && (
                   <li className="page-item page-prev">
                     <NavLink href={`/${SiteRoutes.portfolio}/[slug]`} as={`/${SiteRoutes.portfolio}/${paginationItems.prev.slug}`}>
-                      <div className={`s-rounded ${styles.previewImage}`} style={{ backgroundImage: `url('${getDynamicLocalImage(paginationItems.prev.previewImage, DynamicLocalImageSizes.xsmall)}')` }}  />
+                      <div className={`s-rounded ${styles.previewImage}`} style={{ backgroundImage: `url('${getDynamicLocalImage(paginationItems.prev.previewImage, DynamicLocalImageSizes.xsmall)}')` }} />
                       <div className="page-item-subtitle">Previous</div>
                       <div className="page-item-title h5">{paginationItems.prev.title}</div>
                     </NavLink>
@@ -140,7 +144,7 @@ const ProjectPage = ({
                 {paginationItems.next && (
                   <li className="page-item page-next">
                     <NavLink className="d-flex flex-col" href={`/${SiteRoutes.portfolio}/[slug]`} as={`/${SiteRoutes.portfolio}/${paginationItems.next.slug}`}>
-                      <div className={`s-rounded ml-a ${styles.previewImage}`} style={{ backgroundImage: `url('${getDynamicLocalImage(paginationItems.next.previewImage, DynamicLocalImageSizes.xsmall)}')` }}  />
+                      <div className={`s-rounded ml-a ${styles.previewImage}`} style={{ backgroundImage: `url('${getDynamicLocalImage(paginationItems.next.previewImage, DynamicLocalImageSizes.xsmall)}')` }} />
                       <div className="page-item-subtitle">Next</div>
                       <div className="page-item-title h5">{paginationItems.next.title}</div>
                     </NavLink>

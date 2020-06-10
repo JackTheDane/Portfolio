@@ -12,38 +12,27 @@ import { BaseCarousel } from 'components/reusables/carousels/BaseCarousel';
 import { DynamicLocalImageSizes } from 'utils/images/getDynamicLocalImage';
 import { MapMarkerIcon } from 'icons/MapMarker';
 import { CodeIcon } from 'icons/Code';
+import { ProjectCardClasses, ProjectCard } from 'components/domains/portfolio/ProjectCard';
 
 interface FrontPageProps {
   projects: IProject[];
 }
+
+
+const projectClasses: ProjectCardClasses = {
+  imageWrapper: styles.imageWrapper,
+  image: styles.projectImage
+};
+
 
 const FrontPage = ({
   projects
 }: FrontPageProps) => {
 
   const portfolioPreviews: JSX.Element[] = projects.map(
-    ({
-      slug,
-      images,
-      title,
-      skills
-    }): JSX.Element => (
-        <div key={slug} className={`${styles.projectColumn}`}>
-          <NavLink
-            className={`card`}
-            href={`/${SiteRoutes.portfolio}/[slug]`}
-            as={`/${SiteRoutes.portfolio}/${slug}`}
-          >
-            <div className={styles.imageWrapper}>
-              <ProgressiveImageLoader staticImageSize={DynamicLocalImageSizes.small} className={styles.projectImage} src={images[0]} imageHeight="0" />
-            </div>
-            <h5 className="card-footer text-light pl-0 py-3">
-              {title}
-              <small className="d-block text-gray mt-1">
-                {skills.slice(0, 3).join(', ')}
-              </small>
-            </h5>
-          </NavLink>
+    (project): JSX.Element => (
+        <div key={project.slug} className={`${styles.projectColumn}`}>
+          <ProjectCard imageHeight="0px" project={project} classes={projectClasses} />
         </div>
       )
   );

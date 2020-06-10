@@ -14,10 +14,17 @@ import { GitHubIcon } from 'icons/Github';
 import { BrandColors } from 'data/BrandColors';
 import { DynamicLocalImageSizes } from 'utils/images/getDynamicLocalImage';
 import { PageHeader } from 'components/domains/content/PageHeader';
+import { ProjectCard, ProjectCardClasses } from 'components/domains/portfolio/ProjectCard';
 
 export interface ProjectsProps {
   projects: IProject[];
 }
+
+const projectClasses: ProjectCardClasses = {
+  root: styles.projectCard,
+  imageWrapper: styles.imageWrapper,
+  cardHeader: styles.cardHeader
+};
 
 const Projects = ({
   projects
@@ -42,40 +49,17 @@ const Projects = ({
         </div>
       </PageHeader>
 
-      <main className={`${styles.projects} content-page-footer`}>
+      <main className={`${styles.projects}`}>
 
         <div className={`${styles.pageContent} content`}>
           <div className={`${styles.projectsWrapper} columns`}>
 
             {projects.map(
-              ({
-                slug,
-                images,
-                title,
-                skills,
-                role
-              }): JSX.Element => (
-                  <div key={slug} className={`column col-6 col-sm-12 ${styles.column}`}>
-                    <NavLink
-                      className={`card ${styles.projectCard}`}
-                      href={`/${SiteRoutes.portfolio}/[slug]`}
-                      as={`/${SiteRoutes.portfolio}/${slug}`}
-                      style={{ overflow: 'hidden' }}
-                    >
-                      <div className={`${styles.imageWrapper} s-rounded`}>
-                        <ProgressiveImageLoader src={images[0]} imageHeight="50%" staticImageSize={DynamicLocalImageSizes.small} />
-                      </div>
-
-                      <h5 className={`card-header card-title text-light py-3 ${styles.cardHeader}`}>
-                        {title}
-                        <small className="d-block text-gray mt-1">
-                          {skills.slice(0, 3).join(', ')}
-                        </small>
-                        {/* <div className="card-title h4 text-light"> {title} <div className={`text-gray fw-medium ${styles.cardRoles}`}>{role}</div> </div> */}
-                      </h5>
-                    </NavLink>
-                  </div>
-                )
+              (project): JSX.Element => (
+                <div key={project.slug} className={`column col-6 col-sm-12 ${styles.column}`}>
+                  <ProjectCard project={project} classes={projectClasses} />
+                </div>
+              )
             )}
 
           </div>

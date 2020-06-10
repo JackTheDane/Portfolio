@@ -96,7 +96,7 @@ const Experience = () => {
   return (
     <>
       <PageHeader pageTitle="Experience" mobileOnly />
-      <main className={`content-page-footer text-center content ${styles.experience}`}>
+      <main className={`text-center content ${styles.experience}`}>
 
         <div className="mb-3">
           <h2 className="text-light">

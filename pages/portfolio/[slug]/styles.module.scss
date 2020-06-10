@@ -56,11 +56,7 @@
 }
 
 .backButton {
-  z-index: 10;
   box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.35);
-  position: absolute;
-  left: $unit-5;
-  top: 0;
 
   &,
   &:hover {
@@ -103,16 +99,35 @@
   }
 }
 
-.subcontent {
-  padding-left: 15px;
-  margin-bottom: 20px;
-  margin-top: 30px;
+.expandButton {
+  flex-direction: row-reverse;
+
+  &,
+  &:hover,
+  &:active,
+  &:focus {
+    color: #fff !important;
+  }
+
+  span {
+    text-decoration: inherit;
+  }
 }
 
 .title {
   & > div {
     font-size: 0.75em;
   }
+}
+
+.sliderActions {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  left: $unit-5;
+  z-index: 10;
 }
 
 @media (max-width: 599px) {
@@ -133,10 +148,19 @@
 
 @media (max-width: 1099px) {
   .project {
-    .backButton {
+
+    .sliderActions {
       position: relative;
-      box-shadow: none;
+      justify-content: space-between;
       left: 0;
+    }
+
+    .expandButton {
+      text-align: right;
+    }
+
+    .backButton {
+      box-shadow: none;
 
       &,
       &:hover,

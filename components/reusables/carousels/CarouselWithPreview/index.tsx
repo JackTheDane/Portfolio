@@ -3,7 +3,7 @@ import styles from './styles.module.scss';
 import Swiper from 'react-id-swiper';
 import { IExtendedSwiperOptions } from '../IExtendedSwiperOptions';
 import { getDynamicLocalImage, DynamicLocalImageSizes } from 'utils/images/getDynamicLocalImage';
-import { BaseCarousel } from '../BaseCarousel';
+import { BaseCarousel, CarouselProps } from '../BaseCarousel';
 
 export interface CarouselWithPreviewProps {
   images: string[];
@@ -12,7 +12,7 @@ export interface CarouselWithPreviewProps {
 
 export const CarouselWithPreview = ({
   images,
-  className
+  className,
 }: CarouselWithPreviewProps) => {
 
   const [gallerySwiper, getGallerySwiper] = useState(null);
@@ -52,10 +52,14 @@ export const CarouselWithPreview = ({
     }
   );
 
+  let mainCarouselClasses: string = '';
+
+  if (className) mainCarouselClasses += ` ${className}`;
+
 
   return (
     <div className={styles.carousel}>
-      <BaseCarousel images={images} classNames={{ container: className }} getSwiper={getGallerySwiper} />
+      <BaseCarousel shouldSwiperUpdate images={images} classNames={{ container: mainCarouselClasses }} getSwiper={getGallerySwiper} />
       <div className={styles.thumbnailWrapper}>
         <Swiper {...thumbnailSwiperParams} children={slidePreview} />
       </div>

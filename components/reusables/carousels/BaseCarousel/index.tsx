@@ -14,6 +14,7 @@ export interface CarouselProps extends Partial<IExtendedSwiperOptions> {
     container?: string;
     prevNavButton?: string;
     nextNavButton?: string;
+    slide?: string;
   }
   staticImageSize?: DynamicLocalImageSizes;
 }
@@ -28,11 +29,13 @@ export const BaseCarousel = ({
   let containerClass: string = `swiper-container ${styles.root}`;
   let prevNavClasses: string[] = [styles.navigationButton, styles.navigationButtonLeft];
   let nextNavClasses: string[] = [styles.navigationButton, styles.navigationButtonRight];
+  let slideClass: string = styles.image;
 
   if (classNames) {
     if (classNames.container) containerClass += ` ${classNames.container}`;
     if (classNames.prevNavButton) prevNavClasses.push(classNames.prevNavButton);
     if (classNames.nextNavButton) nextNavClasses.push(classNames.nextNavButton);
+    if (classNames.slide) slideClass += ` ${classNames.slide}`;
   }
 
   const gallerySwiperParams: IExtendedSwiperOptions = {
@@ -51,11 +54,12 @@ export const BaseCarousel = ({
     ...rest
   };
 
+
   const slides: JSX.Element[] | any = children || images.map(
     (image, i: number) => {
       return (
         <div
-          className={`swiper-slide ${styles.image}`}
+          className={`swiper-slide ${slideClass}`}
           key={'CarImg_' + i}
         >
           <ProgressiveImageLoader
