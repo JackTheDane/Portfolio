@@ -32,12 +32,12 @@ const AppCustomized = ({ Component, pageProps }: AppProps) => {
       Router.events.on('routeChangeStart', onRouteChangeStarted);
       Router.events.on('routeChangeComplete', onRouteChangeCompleted);
       Router.events.on('routeChangeError', onRouteChangeCompleted);
-    return () => {
-      Router.events.off('routeChangeStart', onRouteChangeStarted);
-      Router.events.off('routeChangeComplete', onRouteChangeCompleted);
-      Router.events.off('routeChangeError', onRouteChangeCompleted);
-    }
-  }, []);
+      return () => {
+        Router.events.off('routeChangeStart', onRouteChangeStarted);
+        Router.events.off('routeChangeComplete', onRouteChangeCompleted);
+        Router.events.off('routeChangeError', onRouteChangeCompleted);
+      }
+    }, []);
 
   const isFrontPage: boolean = pathname === `/${SiteRoutes.frontpage}`;
 
@@ -49,7 +49,18 @@ const AppCustomized = ({ Component, pageProps }: AppProps) => {
     <>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta content="#175397" name="theme-color" />
+
+        <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="manifest" href="/site.webmanifest" />
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#175397" />
+        <meta name="theme-color" content="#175397" />
+        <meta name="msapplication-TileColor" content="#175397" />
+        <meta name="msapplication-navbutton-color" content="#175397" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+
         <title>
           Martin Bøje Petersen
         </title>
