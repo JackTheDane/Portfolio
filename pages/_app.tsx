@@ -77,7 +77,7 @@ const AppCustomized = ({ Component, pageProps }: AppProps) => {
 
         <style jsx global>{`
         main {
-          visibility: hidden;
+          display: none;
         }
 
         .pageBackground::before {
