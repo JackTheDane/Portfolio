@@ -84,6 +84,7 @@ const AppCustomized = ({ Component, pageProps }: AppProps) => {
           background-image: url('${ require('images/bg.jpg?inline')}')
         }
       `}</style>
+        <script></script>
       </div>
     </>
 
