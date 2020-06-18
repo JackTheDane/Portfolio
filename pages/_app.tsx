@@ -1,4 +1,4 @@
-import 'styling/global.scss';
+import '../styling/global.scss';
 import styles from './_app.module.scss';
 import { AppProps } from 'next/app';
 import Nav from '../components/domains/navigation/Nav';

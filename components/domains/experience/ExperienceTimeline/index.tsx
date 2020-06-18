@@ -50,7 +50,7 @@ export const ExperienceTimeline = ({
                     <div  style={{ lineHeight: 1 }}><b>{workTitle}</b></div>
                     <div className="my-1" style={{ lineHeight: 1, fontSize: '.8rem' }}>{company}</div>
                     <div>
-                      <small className={`label label-secondary ${styles.time}`}>{startYear} &#8594; {endYear}</small>
+                      <small className={`label label-secondary ${styles.time}`}>{startYear}<span className="mx-1">&#8594;</span>{endYear}</small>
                     </div>
                   <p className="mt-2">{description}</p>
                 </div>
