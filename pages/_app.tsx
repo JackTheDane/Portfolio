@@ -1,11 +1,10 @@
-import '../styling/global.scss';
+import 'styling/global.scss';
 import styles from './_app.module.scss';
 import { AppProps } from 'next/app';
 import Nav from '../components/domains/navigation/Nav';
 import 'swiper/css/swiper.min.css';
 import Head from 'next/head';
 import Router, { useRouter } from 'next/router';
-import { NavLink } from 'components/reusables/NavLink';
 import { SiteRoutes } from 'data/routes/SiteRoutes';
 import { useState, useEffect } from 'react';
 // const bgImage = require('images/bg.jpg?size=800');

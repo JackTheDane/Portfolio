@@ -50,17 +50,22 @@ const Projects = ({
       </PageHeader>
 
       <main className={`${styles.projects}`}>
+        <div className="content">
+          <div className={`${styles.pageContent}`}>
+            <div style={{ width: '100%', overflow: 'hidden' }}>
 
-        <div className={`${styles.pageContent} content`}>
-          <div className={`${styles.projectsWrapper} columns`}>
+              <div className={`${styles.projectsWrapper} columns`}>
 
-            {projects.map(
-              (project): JSX.Element => (
-                <div key={project.slug} className={`column col-6 col-sm-12 ${styles.column}`}>
-                  <ProjectCard project={project} classes={projectClasses} />
-                </div>
-              )
-            )}
+                {projects.map(
+                  (project): JSX.Element => (
+                    <div key={project.slug} className={`column col-6 col-sm-12 ${styles.column}`}>
+                      <ProjectCard project={project} classes={projectClasses} />
+                    </div>
+                  )
+                )}
+
+              </div>
+            </div>
 
           </div>
         </div>

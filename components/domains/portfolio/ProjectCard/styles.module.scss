@@ -1,6 +1,7 @@
 @import "styling/spectre/variables";
 
 .imageWrapper {
+  &,
   img,
   figure {
     max-height: 30vh;

@@ -85,7 +85,7 @@ const FrontPage = ({
               I have background as a Multimedia Designer and a Fullstack Web Developer and have been a part of the web development world since 2015.
             </p>
           </div>
-          <div className="show-lg fw-medium text-left pb-3" style={{ fontSize: 'min(5vh, 2.5rem)', lineHeight: 1 }}>
+          <div className="show-lg fw-medium text-left pb-3" style={{ fontSize: 'min(3.5vh, 2.5rem)', lineHeight: 1 }}>
             I build
             <div className="mt-2 mb-3">
               <span className="mx-0 fw-bold" style={{ lineHeight: 1, fontSize: '1.4em' }}>
