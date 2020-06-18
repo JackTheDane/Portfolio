@@ -4,6 +4,7 @@ import { SiteRoutes } from 'data/routes/SiteRoutes'
 import { ProgressiveImageLoader } from 'components/reusables/ProgressiveImageLoader'
 import { DynamicLocalImageSizes } from 'utils/images/getDynamicLocalImage'
 import { IProject } from 'models/interfaces/IProject'
+import styles from './styles.module.scss';
 
 export interface ProjectCardProps {
   classes?: ProjectCardClasses;
@@ -30,9 +31,9 @@ export const ProjectCard = ({
 }: ProjectCardProps) => {
 
   let rootClass: string = 'card';
-  let imageClass: string = '';
-  let imageWrapperClass: string = 's-rounded';
-  let cardHeaderClass: string = 'card-header card-title text-light py-3';
+  let imageClass: string = 's-rounded';
+  let imageWrapperClass: string = styles.imageWrapper;
+  let cardHeaderClass: string = `${styles.cardHeader} card-header card-title text-light py-3`;
 
   if (classes) {
     if (classes.root) rootClass += ` ${classes.root}`;

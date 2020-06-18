@@ -1,7 +1,6 @@
 import fs from 'fs';
 import matter from 'gray-matter';
 import styles from './styles.module.scss';
-import { ProgressiveImageLoader } from 'components/reusables/ProgressiveImageLoader';
 import { GetStaticProps } from 'next';
 import { IProject } from 'models/interfaces/IProject';
 import path from 'path';
@@ -9,7 +8,6 @@ import { NavLink } from 'components/reusables/NavLink';
 import { SiteRoutes } from 'data/routes/SiteRoutes';
 import { EyeIcon } from 'icons/Eye';
 import { BaseCarousel } from 'components/reusables/carousels/BaseCarousel';
-import { DynamicLocalImageSizes } from 'utils/images/getDynamicLocalImage';
 import { MapMarkerIcon } from 'icons/MapMarker';
 import { CodeIcon } from 'icons/Code';
 import { ProjectCardClasses, ProjectCard } from 'components/domains/portfolio/ProjectCard';
@@ -104,10 +102,10 @@ const FrontPage = ({
             <h4 className="text-light pr-1 pb-2" style={{ marginBottom: 0 }}>
               My work
             </h4>
-            <NavLink className={`ml-a btn btn-link text-light ${styles.viewMoreButton}`} href={`/${SiteRoutes.portfolio}`}>
+            {/* <NavLink className={`ml-a btn btn-link text-light ${styles.viewMoreButton}`} href={`/${SiteRoutes.portfolio}`}>
               <EyeIcon className="mr-3 text-light" />
               View all work
-            </NavLink>
+            </NavLink> */}
           </div>
         </div>
 

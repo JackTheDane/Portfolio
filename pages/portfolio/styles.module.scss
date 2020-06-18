@@ -64,7 +64,6 @@
     position: relative;
     width: 100%;
     overflow: hidden;
-    max-height: 30vh;
   }
 }
 
@@ -83,12 +82,6 @@
         border-radius: 0;
       }
     }
-  }
-}
-
-@media (min-width: $size-md) {
-  .cardHeader {
-    padding-left: 0 !important;
   }
 }
 

@@ -12,6 +12,7 @@
   }
 
   .projectColumn {
+    visibility: hidden;
     width: calc((100% - 100px) / 2);
 
     :global(.card) {
@@ -21,6 +22,10 @@
   }
 
   :global(.swiper-container-initialized) {
+    .projectColumn {
+      visibility: visible;
+    }
+
     .nextSlideButton {
       display: block;
     }
@@ -40,6 +45,7 @@
   .viewMoreSlide {
     align-items: center;
     justify-content: center;
+    max-height: 30vh;
 
     i {
       font-size: 1.5em;
@@ -178,9 +184,7 @@
       height: 260px;
     }
 
-    .profile {
-      text-align: left;
-    }
+
     .profileTitleText {
       margin-left: 20px;
 
@@ -195,12 +199,6 @@
 
     .subcontentTitle {
       font-size: 1.2rem;
-    }
-
-    .subcontent {
-      border-left: 3px solid $secondary-color-dark;
-      padding-left: 15px;
-      padding-bottom: 10px;
     }
 
     .content {

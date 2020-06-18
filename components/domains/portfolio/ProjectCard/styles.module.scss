@@ -1,0 +1,14 @@
+@import "styling/spectre/variables";
+
+.imageWrapper {
+  img,
+  figure {
+    max-height: 30vh;
+  }
+}
+
+@media (min-width: $size-md) {
+  .cardHeader {
+    padding-left: 0 !important;
+  }
+}
