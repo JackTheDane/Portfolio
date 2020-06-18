@@ -18,72 +18,72 @@
     padding-top: 60% !important;
   }
 
-  .navigationButton {
-    background-color: transparent !important;
-    cursor: pointer;
-
-    color: $bg-color-light;
-    border: none;
-
-    position: absolute;
-    top: 0;
-    display: none;
-    font-size: 0.8rem;
-
-    height: 100%;
-    width: 56px;
-    z-index: 5;
-
-    &::before {
-      content: "";
-      height: 100%;
-      width: 100%;
-      z-index: -1;
-
-      position: absolute;
-      top: 0;
-      bottom: 0;
-    }
-
-    &.navigationButtonLeft {
-      &,
-      &::before {
-        left: 0;
-      }
-
-      &::before {
-        background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), transparent);
-      }
-    }
-
-    &.navigationButtonRight {
-      &,
-      &::before {
-        right: 0;
-      }
-
-      &::before {
-        background-image: linear-gradient(to left, rgba(0, 0, 0, 0.5), transparent);
-      }
-    }
-
-    &:active,
-    &:focus {
-      outline: none;
-      outline-style: none;
-      box-shadow: none;
-    }
-
-    &:global(.swiper-button-disabled) {
-      pointer-events: none;
-      opacity: 0;
-    }
-  }
-
   :global(.swiper-container-initialized) {
     .navigationButton {
       display: block;
     }
+  }
+}
+
+.navigationButton {
+  background-color: transparent !important;
+  cursor: pointer;
+
+  color: $bg-color-light;
+  border: none;
+
+  position: absolute;
+  top: 0;
+  display: none;
+  font-size: 0.8rem;
+  height: 100%;
+
+  width: 56px;
+  z-index: 5;
+
+  &::before {
+    content: "";
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+  }
+
+  &.navigationButtonLeft {
+    &,
+    &::before {
+      left: 0;
+    }
+
+    &::before {
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), transparent);
+    }
+  }
+
+  &.navigationButtonRight {
+    &,
+    &::before {
+      right: 0;
+    }
+
+    &::before {
+      background-image: linear-gradient(to left, rgba(0, 0, 0, 0.5), transparent);
+    }
+  }
+
+  &:active,
+  &:focus {
+    outline: none;
+    outline-style: none;
+    box-shadow: none;
+  }
+
+  &:global(.swiper-button-disabled) {
+    pointer-events: none;
+    opacity: 0;
   }
 }
 
