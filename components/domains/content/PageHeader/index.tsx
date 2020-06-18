@@ -6,19 +6,21 @@ import Head from 'next/head';
 export interface PageHeaderProps extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   pageTitle?: string;
   mobileOnly?: boolean;
+  hideTabTitle?: boolean;
 }
 
 export const PageHeader = ({
   pageTitle,
   mobileOnly,
   className,
+  hideTabTitle,
   children
 }: PageHeaderProps) => {
   return (
     <>
 
     {
-      pageTitle && (
+      pageTitle && !hideTabTitle && (
         <Head>
             <title>{pageTitle} - Martin Bøje Petersen</title>
         </Head>

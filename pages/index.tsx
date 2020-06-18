@@ -11,6 +11,7 @@ import { BaseCarousel } from 'components/reusables/carousels/BaseCarousel';
 import { MapMarkerIcon } from 'icons/MapMarker';
 import { CodeIcon } from 'icons/Code';
 import { ProjectCardClasses, ProjectCard } from 'components/domains/portfolio/ProjectCard';
+import { PageHeader } from 'components/domains/content/PageHeader';
 
 interface FrontPageProps {
   projects: IProject[];
@@ -49,11 +50,15 @@ const FrontPage = ({
 
 
   return (
-    <main className={`${styles.about} content-page-header d-flex`}>
+
+    <>
+    <PageHeader hideTabTitle mobileOnly pageTitle="Hi, I'm Martin!" />
+
+    <main className={`${styles.about} d-flex`}>
       <div className={`${styles.profile} content`}>
 
 
-        <div className={`text-light d-flex mb-3 flex-col ${styles.introHeader}`} >
+        <div className={`text-light hide-lg d-flex flex-col ${styles.introHeader}`} >
           <h1 className="mb-0 d-inline-flex bg-primary px-3 py-2 card">
             Hi, I'm Martin!
           </h1>
@@ -72,7 +77,7 @@ const FrontPage = ({
         </div>
 
         <div className={`${styles.secondaryText} text-light py-3`}>
-          <div className="hide-lg">
+          <div className="hide-lg mt-3">
             <p>
               I build <b>Fast & User-friendly experiences</b> with a focus <b>UX, maintainability and performance</b>
             </p>
@@ -80,17 +85,17 @@ const FrontPage = ({
               I have background as a Multimedia Designer and a Fullstack Web Developer and have been a part of the web development world since 2015.
             </p>
           </div>
-          <div className="show-lg fw-medium text-left" style={{ fontSize: '1.5rem' }}>
+          <div className="show-lg fw-medium text-left pb-3" style={{ fontSize: '1.3rem', lineHeight: 1 }}>
             I build
-            <div className="mt-1 mb-0">
-              <span className="mx-0 fw-bold" style={{ lineHeight: 1, fontSize: '1.5em' }}>
+            <div className="mt-2 mb-3">
+              <span className="mx-0 fw-bold" style={{ lineHeight: 1, fontSize: '1.4em' }}>
                 <div>
                   Fast &
                   </div>
                   Focused
                 </span>
             </div>
-            User experiences
+            User Experiences
           </div>
         </div>
       </div>
@@ -102,10 +107,10 @@ const FrontPage = ({
             <h4 className="text-light pr-1 pb-2" style={{ marginBottom: 0 }}>
               My work
             </h4>
-            {/* <NavLink className={`ml-a btn btn-link text-light ${styles.viewMoreButton}`} href={`/${SiteRoutes.portfolio}`}>
+            <NavLink className={`ml-a btn btn-link text-light ${styles.viewMoreButton}`} href={`/${SiteRoutes.portfolio}`}>
               <EyeIcon className="mr-3 text-light" />
               View all work
-            </NavLink> */}
+            </NavLink>
           </div>
         </div>
 
@@ -124,6 +129,7 @@ const FrontPage = ({
         </div>
       </div>
     </main>
+    </>
   )
 }
 

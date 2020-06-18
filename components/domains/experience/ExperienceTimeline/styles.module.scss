@@ -1,6 +1,16 @@
 @import "styling/spectre/variables";
 
 .item {
+  .rightContent {
+    padding-bottom: $unit-5;
+  }
+
+  &:last-child {
+    .rightContent {
+      padding-bottom: 0;
+    }
+  }
+
 
   .time {
     line-height: 1;
