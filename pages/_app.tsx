@@ -76,6 +76,10 @@ const AppCustomized = ({ Component, pageProps }: AppProps) => {
         </div>
 
         <style jsx global>{`
+        main {
+          visibility: hidden;
+        }
+
         .pageBackground::before {
           background-image: url('${ require('images/bg.jpg?inline')}')
         }

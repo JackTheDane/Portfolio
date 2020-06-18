@@ -255,6 +255,8 @@ img {
 }
 
 // Page transitions
-main {
+
+body main {
   animation: fade-in 0.25s ease both;
+  visibility: visible;
 }
