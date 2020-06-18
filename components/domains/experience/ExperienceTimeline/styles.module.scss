@@ -14,7 +14,14 @@
 
   .time {
     line-height: 1;
-    color: rgba($color: $light-color, $alpha: .8);
+    padding-top: 0.15rem;
+    padding-bottom: 0.2rem;
+    font-weight: 600;
+
+    &:global(.label) {
+      color: #fff;
+    }
+    // color: rgba($color: $light-color, $alpha: .8);
   }
 
   p {
