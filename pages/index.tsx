@@ -107,7 +107,7 @@ const FrontPage = ({
             <h4 className="text-light pr-1 pb-2" style={{ marginBottom: 0 }}>
               My work
             </h4>
-            <NavLink className={`ml-a btn btn-link text-light ${styles.viewMoreButton}`} href={`/${SiteRoutes.portfolio}`}>
+            <NavLink className={`ml-a btn btn-link hide-md text-light ${styles.viewMoreButton}`} href={`/${SiteRoutes.portfolio}`}>
               <EyeIcon className="mr-3 text-light" />
               View all work
             </NavLink>
