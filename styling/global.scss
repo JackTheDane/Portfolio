@@ -258,5 +258,6 @@ img {
 
 body main {
   animation: fade-in 0.25s ease both;
-  display: initial;
+  display: block;
+  width: 100%;
 }

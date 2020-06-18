@@ -1,7 +1,7 @@
 @import "styling/spectre/variables";
 
 .root {
-  margin: auto;
+  margin-bottom: auto;
 }
 
 .subcontent {
@@ -11,6 +11,12 @@
   align-items: center;
   width: 100%;
   margin-bottom: 30px;
+}
+
+.secondaryContact {
+  h6 {
+    word-wrap: break-word;
+  }
 }
 
 @media (max-width: $size-md - 1) {
