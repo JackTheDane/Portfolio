@@ -63,7 +63,6 @@
   .imageWrapper {
     position: relative;
     width: 100%;
-    overflow: hidden;
   }
 }
 
@@ -80,6 +79,10 @@
       .projectCard,
       .imageWrapper {
         border-radius: 0;
+      }
+
+      .imageWrapper {
+        overflow: hidden;
       }
     }
   }
