@@ -32,8 +32,6 @@
   .projectsWrapper {
     .projectCard {
       background-color: transparent;
-      max-width: 450px;
-      margin: auto;
 
       .cardHeader {
         line-height: 1.2;
@@ -86,6 +84,11 @@
       .projectCard,
       .imageWrapper {
         border-radius: 0;
+      }
+
+      .projectCard {
+        max-width: 450px;
+        margin: auto;
       }
     }
   }
