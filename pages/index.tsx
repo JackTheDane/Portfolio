@@ -90,12 +90,12 @@ const FrontPage = ({
             <div className="mt-2 mb-3">
               <span className="mx-0 fw-bold" style={{ lineHeight: 1, fontSize: '1.4em' }}>
                 <div>
-                  Fast &
+                  Fast<span className="text-secondary ml-2 fw-medium" style={{ fontSize: '.75em' }}>&</span>
                   </div>
                   Focused
                 </span>
             </div>
-            User Experiences
+            User experiences
           </div>
         </div>
       </div>
