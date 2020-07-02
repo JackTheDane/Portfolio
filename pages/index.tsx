@@ -90,7 +90,7 @@ const FrontPage = ({
             <div className="mt-2 mb-3">
               <span className="mx-0 fw-bold" style={{ lineHeight: 1, fontSize: '1.4em' }}>
                 <div>
-                  Fast<span className="text-secondary ml-2 fw-medium" style={{ fontSize: '.75em' }}>&</span>
+                  Fast<span className="text-secondary ml-2" style={{ fontSize: '.75em', fontWeight: 600 }}>&</span>
                   </div>
                   Focused
                 </span>
