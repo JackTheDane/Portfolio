@@ -3,7 +3,6 @@ import { IExperienceItem } from 'models/interfaces/IExperienceItem';
 import styles from "./styles.module.scss";
 import { BriefcaseIcon } from 'icons/Briefcase';
 
-
 export interface ExperienceTimelineProps {
   items: IExperienceItem[];
   /** This icon will be used if no icon was passed
@@ -50,7 +49,7 @@ export const ExperienceTimeline = ({
                     <div  style={{ lineHeight: 1 }}><b>{workTitle}</b></div>
                     <div className="my-1" style={{ lineHeight: 1, fontSize: '.8rem' }}>{company}</div>
                     <div>
-                      <small className={`label label-secondary ${styles.time}`}>{startYear}<span className="mx-1">&#8594;</span>{endYear}</small>
+                      <small className={`label label-secondary ${styles.time}`}>{startYear}<b className="mx-1">-</b>{endYear}</small>
                     </div>
                   <p className="mt-2">{description}</p>
                 </div>
