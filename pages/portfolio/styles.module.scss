@@ -1,4 +1,5 @@
 @import "styling/spectre/variables";
+@import "styling/spectre/animations";
 
 .projectCard {
   opacity: 1;
@@ -31,6 +32,8 @@
   .projectsWrapper {
     .projectCard {
       background-color: transparent;
+      max-width: 450px;
+      margin: auto;
 
       .cardHeader {
         line-height: 1.2;
@@ -46,6 +49,7 @@
 
   .column {
     padding: 0.4rem;
+    animation: fade-in .35s ease-in both;
   }
 
   .image {
@@ -63,6 +67,7 @@
   .imageWrapper {
     position: relative;
     width: 100%;
+    overflow: hidden;
   }
 }
 
@@ -76,13 +81,12 @@
 
   .projects {
     .pageContent {
+
+      overflow: hidden;
+
       .projectCard,
       .imageWrapper {
         border-radius: 0;
-      }
-
-      .imageWrapper {
-        overflow: hidden;
       }
     }
   }

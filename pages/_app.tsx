@@ -79,6 +79,10 @@ const AppCustomized = ({ Component, pageProps }: AppProps) => {
           display: none;
         }
 
+        nav {
+          visibility: hidden;
+        }
+
         .pageBackground::before {
           background-image: url('${ require('images/bg.jpg?inline')}')
         }

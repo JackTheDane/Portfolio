@@ -30,6 +30,23 @@ const Projects = ({
   projects
 }: ProjectsProps) => {
 
+  const renderProjectCards = (): JSX.Element[] => {
+
+    let delay: number = 0;
+
+    return projects.map(
+      (project, i: number): JSX.Element => {
+        if (i) delay += 0.15;
+
+        return (
+          <div key={project.slug} className={`column col-6 col-sm-12 ${styles.column}`} style={{ animationDelay: `${delay}s` }}>
+            <ProjectCard project={project} classes={projectClasses} />
+          </div>
+        )
+      }
+    );
+  }
+
   return (
     <>
 
@@ -52,17 +69,11 @@ const Projects = ({
       <main className={`${styles.projects}`}>
         <div className="content">
           <div className={`${styles.pageContent}`}>
-            <div style={{ width: '100%', overflow: 'hidden' }}>
+            <div style={{ width: '100%' }}>
 
               <div className={`${styles.projectsWrapper} columns`}>
 
-                {projects.map(
-                  (project): JSX.Element => (
-                    <div key={project.slug} className={`column col-6 col-sm-12 ${styles.column}`}>
-                      <ProjectCard project={project} classes={projectClasses} />
-                    </div>
-                  )
-                )}
+                {renderProjectCards()}
 
               </div>
             </div>
