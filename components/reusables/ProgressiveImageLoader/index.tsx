@@ -52,13 +52,13 @@ export const ProgressiveImageLoader = ({
 
   // Check if the image has already been fetched and cached - If yes, hide loader immediately
   useEffect(() => {
-    if (image && image.current && image.current.complete) setIsImageCached(true);
+    // if (image && image.current && image.current.complete) setIsImageCached(true);
   }, [])
 
   const imgProps: React.DetailedHTMLProps<React.ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement> = {
     ...rest,
     className: imageClassNames,
-    onLoad: () => setIsImageLoaded(true),
+    // onLoad: () => setIsImageLoaded(true),
     ref: image
   };
 
@@ -79,7 +79,7 @@ export const ProgressiveImageLoader = ({
   const rootStyles: React.CSSProperties = { paddingTop: imageHeight || '56.25%' };
 
   return (
-    <figure className={`${styles.root} ${!isImageCached && !isImageLoaded ? 'loading' : ''} ${className || ''} ${isImageLoaded ? styles.loaded : ''}`} style={rootStyles}>
+    <figure className={`${styles.root} ${!isImageCached && !isImageLoaded ? 'loading loading-lg' : ''} ${className || ''} ${isImageLoaded ? styles.loaded : ''}`} style={rootStyles}>
       <img
         {...imgProps}
       />
