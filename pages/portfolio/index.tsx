@@ -48,9 +48,9 @@ const Projects = ({
           </a>
         </div>
       </PageHeader>
-      {/* <div className="mb-2 hide-lg" style={{ padding: '0 20px' }}>
+      <div className="mb-2 hide-lg" style={{ padding: '0 20px' }}>
         <div className="divider-dark" />
-      </div> */}
+      </div>
 
       <main className={`${styles.projects}`}>
         <div className="content">

@@ -96,54 +96,59 @@ const Experience = () => {
   return (
     <>
       <PageHeader pageTitle="Experience" mobileOnly />
-      <main className={`text-center content ${styles.experience}`}>
+      <main className={`text-center justify-center content columns ${styles.experience}`}>
 
-        <div className="mb-3">
-          <h2 className="text-light">
-            Skills
-          </h2>
+        <div className="column col-10 col-md-12">
 
-          <div className={`d-flex justify-center text-light ${styles.coreSkills}`}>
-            {coreSkills.map(({ name, iconElement }): JSX.Element => {
-              return (
-                <div key={name}>
-                  <figure className="d-flex flex-col align-center">
-                    <div className={styles.skillIcon}>
-                      {iconElement}
-                    </div>
-                    <figcaption className="mt-3 fw-medium">{name}</figcaption>
-                  </figure>
-                </div>
-              )
-            })}
-          </div>
-        </div>
-
-        <div className={`d-flex justify-center mx-a ${styles.secondarySkills}`}>
-          {secondarySkills.map(
-            (skillName): JSX.Element => <div key={skillName} className="chip mb-3 mr-3 text-light p-3">{skillName}</div>
-          )}
-        </div>
-
-        <div className="py-5 mt-2 columns text-light text-left justify-center">
-          <div className="my-5 column col-10 col-md-12">
-
-            <h2 className="mb-5 pb-3">
-              Work Experience
+          <div className="mb-3">
+            <h2 className="text-light">
+              Skills
             </h2>
 
-            <ExperienceTimeline items={experience} />
+            <div className={`d-flex justify-center text-light ${styles.coreSkills}`}>
+              {coreSkills.map(({ name, iconElement }): JSX.Element => {
+                return (
+                  <div key={name}>
+                    <figure className="d-flex flex-col align-center">
+                      <div className={styles.skillIcon}>
+                        {iconElement}
+                      </div>
+                      <figcaption className="mt-3 fw-medium">{name}</figcaption>
+                    </figure>
+                  </div>
+                )
+              })}
+            </div>
           </div>
 
-          <div className="my-5 column col-10 col-md-12">
-
-            <h2 className="mb-5 pb-3">
-              Education
-          </h2>
-
-            <ExperienceTimeline items={education} fallbackIcon={<EducationIcon style={{ fontSize: '1.5rem', transform: 'translateY(-5%)' }} />} />
+          <div className={`d-flex justify-center mx-a ${styles.secondarySkills}`}>
+            {secondarySkills.map(
+              (skillName): JSX.Element => <div key={skillName} className="chip mb-3 mr-3 text-light p-3">{skillName}</div>
+            )}
           </div>
+
+          <div className="py-5 mt-2 text-light text-left">
+            <div className="my-5">
+
+              <h2 className="mb-5 pb-3">
+                Work Experience
+              </h2>
+
+              <ExperienceTimeline items={experience} />
+            </div>
+
+            <div className="my-5">
+
+              <h2 className="mb-5 pb-3">
+                Education
+              </h2>
+
+              <ExperienceTimeline items={education} fallbackIcon={<EducationIcon style={{ fontSize: '1.5rem', transform: 'translateY(-5%)' }} />} />
+            </div>
+          </div>
+
         </div>
+
 
       </main>
     </>

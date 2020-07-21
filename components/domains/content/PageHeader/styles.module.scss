@@ -45,6 +45,8 @@
     opacity: 0.97; // Slight opacity to allow some of the background to show through navbar
     position: absolute;
     display: none;
+    left: 50%;
+    transform: translateX(-50%);
 
     &::before {
       @include better-blur(25);
@@ -100,6 +102,12 @@
         display: inline-block;
         padding-right: $unit-2;
       }
+    }
+  }
+
+  @media (min-width: 901px) {
+    .root {
+      padding-left: 0;
     }
   }
 }
