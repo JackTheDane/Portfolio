@@ -55,6 +55,12 @@ const Contact = ({ }: ContactProps) => {
 
       <main className={`${styles.root} content`}>
 
+        <div className="divider-dark" />
+
+        <h5 className="text-light mt-5 mb-0" >
+          Send me an email, and I'll get back to you as soon as I can!
+        </h5>
+
         <div className="mb-5 py-5">
           <form method="POST" action="https://formspree.io/martin@mbpmedia.com">
             <div className="form-group">
@@ -64,7 +70,7 @@ const Contact = ({ }: ContactProps) => {
                 type="email"
                 id="input-email"
                 name="email"
-                placeholder="Your@Email.com"
+                placeholder="Your@email.com"
                 onChange={e => setEmailInput(e.target.value)}
               />
             </div>
