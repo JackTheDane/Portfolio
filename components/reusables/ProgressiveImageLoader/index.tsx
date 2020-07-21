@@ -79,7 +79,7 @@ export const ProgressiveImageLoader = ({
   const rootStyles: React.CSSProperties = { paddingTop: imageHeight || '56.25%' };
 
   return (
-    <figure className={`${styles.root} ${className || ''} ${isImageLoaded ? styles.loaded : ''}`} style={rootStyles}>
+    <figure className={`${styles.root} ${!isImageCached && !isImageLoaded ? 'loading' : ''} ${className || ''} ${isImageLoaded ? styles.loaded : ''}`} style={rootStyles}>
       <img
         {...imgProps}
       />

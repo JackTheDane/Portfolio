@@ -57,7 +57,7 @@ const Contact = ({ }: ContactProps) => {
         <div className="divider-dark hide-lg" />
 
         <h5 className="text-light mt-5 mb-0" >
-          Send me an email and let's talk!
+          Send me an email & let's talk!
         </h5>
 
         <div className="mb-5 py-5">
