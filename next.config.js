@@ -1,11 +1,15 @@
 const withOptimizedImages = require('next-optimized-images');
 const withPlugins = require('next-compose-plugins');
 const path = require('path')
+const withPurgeCss = require('next-purgecss');
 
 module.exports = withPlugins([
   [
     withOptimizedImages, {}
-  ]
+  ],
+  [withPurgeCss, {
+    purgeCssEnabled: ({ dev, isServer }) => (!dev && !isServer) // Only enable PurgeCSS for client-side production builds
+  }]
 ], {
   exportTrailingSlash: false,
   webpack(config, options) {
