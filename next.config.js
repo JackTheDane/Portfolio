@@ -8,6 +8,9 @@ module.exports = withPlugins([
   ]
 ], {
   exportTrailingSlash: false,
+  sassOptions: {
+    outputStyle: 'expanded',
+  },
   webpack(config, options) {
     config.resolve.alias['data'] = path.join(__dirname, 'data')
     config.resolve.alias['images'] = path.join(__dirname, 'public/images')

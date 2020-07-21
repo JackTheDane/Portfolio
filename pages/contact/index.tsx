@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import styles from './styles.module.scss';
-import Head from 'next/head';
 import { PaperPlaneIcon } from 'icons/PaperPlane';
 import { OutboundRoutes } from 'data/routes/OutboundRoutes';
 import { LinkedInIcon } from 'icons/LinkedIn';
@@ -58,7 +57,7 @@ const Contact = ({ }: ContactProps) => {
         <div className="divider-dark hide-lg" />
 
         <h5 className="text-light mt-5 mb-0" >
-          Send me an email, and I'll get back to you as soon as I can!
+          Send me an email and let's talk!
         </h5>
 
         <div className="mb-5 py-5">

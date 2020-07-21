@@ -1,12 +1,10 @@
 import styles from './styles.module.scss';
 import { BrandColors } from 'data/BrandColors';
 import { UXIcon } from 'icons/UX';
-import { BriefcaseIcon } from 'icons/Briefcase';
 import { IExperienceItem } from 'models/interfaces/IExperienceItem';
 import { ExperienceTimeline } from 'components/domains/experience/ExperienceTimeline';
 import { EducationIcon } from 'icons/Education';
 import { PageHeader } from 'components/domains/content/PageHeader';
-import Head from 'next/head';
 const KEALogo: string = require('images/brands/kea.png?size=60');
 
 const coreSkills: {
@@ -15,19 +13,19 @@ const coreSkills: {
 }[] = [
     {
       name: "React",
-      iconElement: <img src={require('images/tech/react.png?resize&size=50&inline')} alt="React logo" />
+      iconElement: <img src={require('images/tech/react.png?resize&size=50')} alt="React logo" />
     },
     {
       name: "TypeScript",
-      iconElement: <img className="s-rounded" src={require('images/tech/ts.png?resize&size=50&inline')} alt="TypeScript logo" />
+      iconElement: <img className="s-rounded" src={require('images/tech/ts.png?resize&size=50')} alt="TypeScript logo" />
     },
     {
       name: "JavaScript",
-      iconElement: <img className="s-rounded" src={require('images/tech/js.png?resize&size=50&inline')} alt="JavaScript logo" />
+      iconElement: <img className="s-rounded" src={require('images/tech/js.png?resize&size=50')} alt="JavaScript logo" />
     },
     {
       name: "CSS3",
-      iconElement: <img src={require('images/tech/css.png?resize&size=50&inline')} alt="CSS3 logo" />
+      iconElement: <img src={require('images/tech/css.png?resize&size=50')} alt="CSS3 logo" />
     },
     {
       name: "UX Design",
