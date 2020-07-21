@@ -79,7 +79,8 @@ const AppCustomized = ({ Component, pageProps }: AppProps) => {
           display: none;
         }
 
-        nav {
+        nav,
+        a {
           visibility: hidden;
         }
 

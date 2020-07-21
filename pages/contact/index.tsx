@@ -55,7 +55,7 @@ const Contact = ({ }: ContactProps) => {
 
       <main className={`${styles.root} content`}>
 
-        <div className="divider-dark" />
+        <div className="divider-dark hide-lg" />
 
         <h5 className="text-light mt-5 mb-0" >
           Send me an email, and I'll get back to you as soon as I can!

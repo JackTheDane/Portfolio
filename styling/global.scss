@@ -10,6 +10,17 @@ body,
   background-color: $primary-color-dark;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+label {
+  user-select: none;
+}
+
 html,
 body,
 #__next {
@@ -263,8 +274,9 @@ body {
     width: 100%;
   }
 
-  nav {
-    visibility: visible;
+  nav,
+  a {
+    visibility: initial;
   }
 }
 

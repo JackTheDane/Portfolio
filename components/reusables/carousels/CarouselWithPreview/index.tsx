@@ -25,7 +25,7 @@ export const CarouselWithPreview = ({
     slidesPerView: 'auto',
     shouldSwiperUpdate: true,
     touchRatio: 0.5,
-    preloadImages: false,
+    preloadImages: true,
     slideToClickedSlide: true,
     slideActiveClass: styles.selected,
   };
