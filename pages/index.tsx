@@ -58,46 +58,40 @@ const FrontPage = ({
         <div className={`${styles.profile} content`}>
 
 
-          <div className={`text-light hide-lg d-flex flex-col ${styles.introHeader}`} >
-            <h1 className="mb-0 d-inline-flex bg-primary px-3 py-2 card">
-              Hi, I'm Martin!
-          </h1>
+          <div className={`text-light mb-3 hide-lg d-flex flex-col ${styles.introHeader}`} >
+            <h1 className="mb-0 d-inline-flex">
+              Hi, I'm Martin! 👋
+            </h1>
 
-            <div className="d-flex justify-center hide-lg mt-3" style={{ fontSize: '.85rem', flexWrap: 'wrap' }}>
+
+
+            {/* <div className="d-flex justify-center hide-lg mt-3" style={{ fontSize: '.85rem', flexWrap: 'wrap' }}>
               <span className="py-1 text-light d-flex mr-5 align-center">
-                <CodeIcon className="mr-2 d-flex" style={{ fontSize: '1.1em' }} />
+              <CodeIcon className="mr-2 d-flex" style={{ fontSize: '1.1em' }} />
               Frontend Developer
-            </span>
+              </span>
 
               <span className="py-1 text-light d-flex align-center">
-                <MapMarkerIcon className="mr-2 d-flex" style={{ fontSize: '.75em' }} />
+              <MapMarkerIcon className="mr-2 d-flex" style={{ fontSize: '.75em' }} />
               Gentofte, Denmark
-            </span>
-            </div>
+              </span>
+            </div> */}
           </div>
+          <div className="divider-dark mb-2"></div>
+        </div>
 
-          <div className={`${styles.secondaryText} text-light py-3`}>
-            <div className="hide-lg mt-3">
-              <p>
-                I build <b>Fast & User-friendly experiences</b> with a focus <b>UX, maintainability and performance</b>
-              </p>
-              <p className="mb-0">
-                I have background as a Multimedia Designer and a Fullstack Web Developer and have been a part of the web development world since 2015.
-            </p>
-            </div>
-            <div className="show-lg fw-medium text-left pb-3" style={{ fontSize: 'min(4vh, 2.25rem)', lineHeight: 1 }}>
-              I build
-            <div className="mt-2 mb-3">
-                <span className="mx-0 fw-bold" style={{ lineHeight: 1, fontSize: '1.4em' }}>
-                  <div>
-                    Fast<span className="text-secondary ml-2" style={{ fontSize: '.75em', fontWeight: 600 }}>&</span>
-                  </div>
-                  Focused
-                </span>
+
+        <div className={`${styles.secondaryText} text-left pb-3 content mt-5 text-light py-3`}>
+          I build
+              <div className="mt-2 mb-3">
+            <span className="mx-0 fw-bold" style={{ lineHeight: 1, fontSize: '1.4em' }}>
+              <div>
+                Fast<span className="text-secondary ml-2" style={{ fontSize: '.75em', fontWeight: 600 }}>&</span>
               </div>
-            User experiences
+                    Focused
+                  </span>
           </div>
-          </div>
+              User experiences
         </div>
 
         <div className={`${styles.content}`}>

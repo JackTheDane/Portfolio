@@ -1,5 +1,12 @@
 @import "styling/spectre/variables";
 
+.root {
+  :global(.label) {
+    background-color: $primary-color-dark;
+    font-size: .8rem;
+  }
+}
+
 .imageWrapper {
   &,
   img,

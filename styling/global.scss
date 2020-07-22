@@ -229,7 +229,7 @@ img {
 
 .divider-dark {
   @extend .divider;
-  border-top-color: $dark-color;
+  border-top-color: rgba($color: $dark-color, $alpha: 0.4);
 }
 
 .divider-highlight {
