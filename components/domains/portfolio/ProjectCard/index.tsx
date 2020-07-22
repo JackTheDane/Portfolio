@@ -30,7 +30,7 @@ export const ProjectCard = ({
   classes
 }: ProjectCardProps) => {
 
-  let rootClass: string = 'card';
+  let rootClass: string = `card ${styles.root}`;
   let imageClass: string = 's-rounded';
   let imageWrapperClass: string = styles.imageWrapper;
   let cardHeaderClass: string = `${styles.cardHeader} card-header card-title text-light py-3`;
@@ -55,12 +55,17 @@ export const ProjectCard = ({
         <ProgressiveImageLoader className={imageClass} src={images[0]} imageHeight={imageHeight || '50%'} staticImageSize={DynamicLocalImageSizes.small} />
       </div>
 
-      <h5 className={cardHeaderClass}>
-        {title}
-        <small className="d-block text-gray mt-1">
+      <div className={cardHeaderClass}>
+        <h4 className="mb-2">
+          {title}
+        </h4>
+        <div className="d-flex mt-2">
+          {skills.slice(0, 3).map((skill) => <small className="label mr-3 label-primary">{skill}</small>)}
+        </div>
+        {/* <small className="d-block text-gray mt-1">
           {skills.slice(0, 3).join(', ')}
-        </small>
-      </h5>
+        </small> */}
+      </div>
     </NavLink>
   )
 }
