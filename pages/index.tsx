@@ -105,7 +105,7 @@ const FrontPage = ({
               </span>
             <span className="mt-3">
               {/* <CodeIcon className="mr-2 d-flex" style={{ fontSize: '1.1em' }} /> */}
-                💼 Frontend Developer
+                💼 Full-stack Developer
               </span>
           </h5>
         </div>
