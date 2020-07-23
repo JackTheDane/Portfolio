@@ -13,11 +13,12 @@ import { CodeIcon } from 'icons/Code';
 import { ProjectCardClasses, ProjectCard } from 'components/domains/portfolio/ProjectCard';
 import { PageHeader } from 'components/domains/content/PageHeader';
 import { ProgressiveImageLoader } from 'components/reusables/ProgressiveImageLoader';
-import { DynamicLocalImageSizes, DynamicLocalImageTypes } from 'utils/images/getDynamicLocalImage';
+import { DynamicLocalImageSizes, DynamicLocalImageTypes, getDynamicLocalImage } from 'utils/images/getDynamicLocalImage';
 import { ReplyIcon } from 'icons/Reply';
 import { route } from 'next/dist/next-server/server/router';
 import { ExpandIcon } from 'icons/Expand';
-import { ArrowLeftIcon } from 'icons/ArrowLeft';
+import { ArrowRightIcon } from 'icons/ArrowRight';
+import { CloneIcon } from 'icons/Clone';
 
 interface FrontPageProps {
   projects: IProject[];
@@ -34,7 +35,7 @@ const FrontPage = ({
   projects
 }: FrontPageProps) => {
 
-  const portfolioPreviews: JSX.Element[] = projects.map(
+  const portfolioPreviews: JSX.Element[] = projects.slice(0, 2).map(
     (project): JSX.Element => (
       <div key={project.slug} className={`${styles.projectColumn}`}>
         <ProjectCard imageHeight="0px" project={project} classes={projectClasses} />
@@ -45,11 +46,14 @@ const FrontPage = ({
   portfolioPreviews.push(
     <NavLink
       href={`/${SiteRoutes.portfolio}`}
-      className={`${styles.projectColumn} ${styles.viewMoreSlide} ${styles.projectImage} d-flex text-center text-light card bg-primary`}
+      className={`${styles.projectColumn} ${styles.viewMoreSlide} ${styles.projectImage} d-flex text-center text-light card`}
     >
-      <EyeIcon />
-      <div className="my-3">
-        Click for more projects
+      <div className={styles.bg} style={{ backgroundImage: `url(${getDynamicLocalImage(projects[projects.length - 1].images[0], DynamicLocalImageTypes.lqip)})` }} />
+
+      <CloneIcon className={styles.normalIcon} />
+
+      <div className={`my-3 ${styles.viewMoreSlideText}`}>
+        View all projects
       </div>
     </NavLink>
   )
@@ -80,7 +84,7 @@ const FrontPage = ({
             <NavLink href={SiteRoutes.aboutMe} className={`d-block s-circle ${styles.profileImageButton}`}>
               <ProgressiveImageLoader src="profile.jpg" imageHeight="130px" style={{ width: 130, height: 130 }} staticImageSize={DynamicLocalImageSizes.xsmall} />
               <div className={styles.moreAboutMeIcon}>
-                <ArrowLeftIcon />
+                <ArrowRightIcon />
               </div>
             </NavLink>
 
