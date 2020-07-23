@@ -106,7 +106,7 @@ const ProjectPage = ({
                   skills &&
                   <div>
                     {skills.map(skill => (
-                      <div className="chip mr-2 mb-2" key={skill} style={{ fontSize: '.7rem' }}>{skill}</div>
+                      <div className="label mr-2 mb-2" key={skill} style={{ fontSize: '.75rem' }}>{skill}</div>
                     ))}
                   </div>
                 }

@@ -104,16 +104,12 @@
     border-radius: 10px;
     background-color: transparent;
     font-weight: 300;
-    font-size: min(4vh, 2.25rem);
+    font-size: min(4vh, 2.15rem);
 
     line-height: 1;
 
     & > *:last-child {
       margin-bottom: 0;
-    }
-
-    p {
-      margin-bottom: 0.8rem;
     }
 
     b {
@@ -135,6 +131,39 @@
   .prevSlideButton,
   .projectImage {
     height: 160px;
+  }
+
+  .profileImageButton {
+    position: relative;
+    overflow: hidden;
+
+    .moreAboutMeIcon {
+      transition: opacity .2s;
+      opacity: 0;
+      background-color: $primary-color-dark;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+
+      i {
+        font-size: 2rem;
+      }
+    }
+
+    &:hover {
+
+      .moreAboutMeIcon {
+        opacity: .95;
+      }
+    }
   }
 }
 
@@ -182,18 +211,12 @@
       height: 260px;
     }
 
-
-    .profileTitleText {
-      margin-left: 20px;
-
-      h1 {
-        font-size: 2rem;
-      }
-
+    .workSection {
       h4 {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
       }
     }
+
 
     .subcontentTitle {
       font-size: 1.2rem;

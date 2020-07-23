@@ -56,7 +56,6 @@ export const ProgressiveImageLoader = ({
   }, [])
 
   const imgProps: React.DetailedHTMLProps<React.ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement> = {
-    ...rest,
     className: imageClassNames,
     onLoad: () => setIsImageLoaded(true),
     ref: image
@@ -79,14 +78,13 @@ export const ProgressiveImageLoader = ({
   const rootStyles: React.CSSProperties = { paddingTop: imageHeight || '56.25%' };
 
   return (
-    <figure className={`${styles.root} ${!isImageCached && !isImageLoaded ? 'loading loading-lg' : ''} ${className || ''} ${isImageLoaded ? styles.loaded : ''}`} style={rootStyles}>
+    <figure className={`${styles.root} ${!isImageCached && !isImageLoaded ? 'loading loading-lg' : ''} ${className || ''} ${isImageLoaded ? styles.loaded : ''}`} style={rootStyles} {...rest}>
       <img
         {...imgProps}
       />
       {
         !isImageCached && (
           <img
-            {...rest}
             className={overlayClassNames}
             style={overlayStyle}
             src={overlaySrc}
