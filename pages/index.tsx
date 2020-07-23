@@ -12,6 +12,12 @@ import { MapMarkerIcon } from 'icons/MapMarker';
 import { CodeIcon } from 'icons/Code';
 import { ProjectCardClasses, ProjectCard } from 'components/domains/portfolio/ProjectCard';
 import { PageHeader } from 'components/domains/content/PageHeader';
+import { ProgressiveImageLoader } from 'components/reusables/ProgressiveImageLoader';
+import { DynamicLocalImageSizes, DynamicLocalImageTypes } from 'utils/images/getDynamicLocalImage';
+import { ReplyIcon } from 'icons/Reply';
+import { route } from 'next/dist/next-server/server/router';
+import { ExpandIcon } from 'icons/Expand';
+import { ArrowLeftIcon } from 'icons/ArrowLeft';
 
 interface FrontPageProps {
   projects: IProject[];
@@ -55,43 +61,56 @@ const FrontPage = ({
       <PageHeader hideTabTitle mobileOnly pageTitle="Hi, I'm Martin!" />
 
       <main className={`${styles.about} d-flex`}>
-        <div className={`${styles.profile} content`}>
-
-
-          <div className={`text-light mb-3 hide-lg d-flex flex-col ${styles.introHeader}`} >
-            <h1 className="mb-0 d-inline-flex">
-              Hi, I'm Martin! 👋
-            </h1>
-
-
-
-            {/* <div className="d-flex justify-center hide-lg mt-3" style={{ fontSize: '.85rem', flexWrap: 'wrap' }}>
-              <span className="py-1 text-light d-flex mr-5 align-center">
-              <CodeIcon className="mr-2 d-flex" style={{ fontSize: '1.1em' }} />
-              Frontend Developer
-              </span>
-
-              <span className="py-1 text-light d-flex align-center">
-              <MapMarkerIcon className="mr-2 d-flex" style={{ fontSize: '.75em' }} />
-              Gentofte, Denmark
-              </span>
-            </div> */}
-          </div>
-          <div className="divider-dark mb-2"></div>
-        </div>
-
-
-        <div className={`${styles.secondaryText} text-left pb-3 content mt-5 text-light py-3`}>
-          I build
+        <div className="content d-flex justify-space-between" style={{ width: '100%' }}>
+          <div className={`${styles.secondaryText} text-left pb-3 mt-a text-light py-3`}>
+            I build
               <div className="mt-2 mb-3">
-            <span className="mx-0 fw-bold" style={{ lineHeight: 1, fontSize: '1.4em' }}>
-              <div>
-                Fast<span className="text-secondary ml-2" style={{ fontSize: '.75em', fontWeight: 600 }}>&</span>
-              </div>
+              <span className="mx-0 fw-bold" style={{ lineHeight: 1, fontSize: '1.5em' }}>
+                <div>
+                  Fast<span className="text-secondary ml-2" style={{ fontSize: '.75em', fontWeight: 300 }}>&</span>
+                </div>
                     Focused
                   </span>
-          </div>
+            </div>
               User experiences
+        </div>
+
+          <div className="hide-lg d-flex flex-col align-end">
+
+
+            {/* <h1 className="mb-0 h5 d-inline-flex">
+              Hi, I'm Martin!
+            </h1> */}
+            <NavLink href={SiteRoutes.aboutMe} className={`d-block s-circle ${styles.profileImageButton}`}>
+              <ProgressiveImageLoader src="profile.jpg" imageHeight="150px" style={{ width: 150, height: 150 }} staticImageSize={DynamicLocalImageSizes.xsmall} />
+              <div className={styles.moreAboutMeIcon}>
+                <ArrowLeftIcon style={{ transform: 'scaleX(-1)' }} />
+              </div>
+            </NavLink>
+
+            <div className="text-light text-italic mt-3" style={{ marginRight: 65 }}>
+              Learn more about me
+              <ReplyIcon className="ml-2" />
+            </div>
+
+
+          </div>
+
+        </div>
+
+        <div className={`text-light content mb-3 mt-3 d-flex flex-col`} style={{ width: '100%' }} >
+          <div className="divider-dark" style={{ width: '100%' }} />
+
+          <h5 className="d-flex fw-medium mt-3" style={{ flexWrap: 'wrap' }}>
+            <span className=" mr-5">
+              {/* <MapMarkerIcon className="mr-2 d-flex" style={{ fontSize: '.75em' }} /> */}
+                👋 Martin Bøje Petersen
+              </span>
+            <span className="">
+              {/* <CodeIcon className="mr-2 d-flex" style={{ fontSize: '1.1em' }} /> */}
+                💼 Frontend Developer
+              </span>
+          </h5>
         </div>
 
         <div className={`${styles.content}`}>
@@ -101,10 +120,10 @@ const FrontPage = ({
               <h4 className="text-light pr-1 pb-2" style={{ marginBottom: 0 }}>
                 My work
             </h4>
-              <NavLink className={`ml-a btn btn-link hide-md text-light ${styles.viewMoreButton}`} href={`/${SiteRoutes.portfolio}`}>
+              {/* <NavLink className={`ml-a btn btn-link hide-md text-light ${styles.viewMoreButton}`} href={`/${SiteRoutes.portfolio}`}>
                 <EyeIcon className="mr-3 text-light" />
               View all work
-            </NavLink>
+            </NavLink> */}
             </div>
           </div>
 

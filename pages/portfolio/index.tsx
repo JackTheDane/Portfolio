@@ -6,13 +6,9 @@ import Head from 'next/head';
 import styles from './styles.module.scss';
 import { IProject } from 'models/interfaces/IProject';
 import { GetStaticProps } from 'next';
-import { ProgressiveImageLoader } from 'components/reusables/ProgressiveImageLoader';
-import { SiteRoutes } from 'data/routes/SiteRoutes';
-import { NavLink } from 'components/reusables/NavLink';
 import { OutboundRoutes } from 'data/routes/OutboundRoutes';
 import { GitHubIcon } from 'icons/Github';
 import { BrandColors } from 'data/BrandColors';
-import { DynamicLocalImageSizes } from 'utils/images/getDynamicLocalImage';
 import { PageHeader } from 'components/domains/content/PageHeader';
 import { ProjectCard, ProjectCardClasses } from 'components/domains/portfolio/ProjectCard';
 
