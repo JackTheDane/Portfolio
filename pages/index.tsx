@@ -64,8 +64,8 @@ const FrontPage = ({
     <>
       <PageHeader hideTabTitle mobileOnly />
 
-      <main className={`${styles.about} d-flex`}>
-        <div className="content d-flex justify-space-between col-12">
+      <main className={`${styles.about} content-page-footer d-flex`}>
+        <div className="content d-flex mt-a justify-space-between col-12">
           <div className={`${styles.secondaryText} text-left pb-3 mt-a text-light py-3`}>
             I build
               <div className="mt-2 mb-3">
@@ -88,7 +88,7 @@ const FrontPage = ({
               </div>
             </NavLink>
 
-            <div className="text-light text-italic mt-3" style={{ marginRight: 65 }}>
+            <div className="text-light text-italic mt-3" style={{ marginRight: 60 }}>
               Learn more about me
               <ReplyIcon className="ml-2" />
             </div>
