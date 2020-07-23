@@ -19,34 +19,34 @@ export const PageHeader = ({
   return (
     <>
 
-    {
-      pageTitle && !hideTabTitle && (
-        <Head>
+      {
+        pageTitle && !hideTabTitle && (
+          <Head>
             <title>{pageTitle} - Martin Bøje Petersen</title>
-        </Head>
-      )
-    }
+          </Head>
+        )
+      }
 
-    <div className={`${styles.wrapper} ${className || ''} content-page-header`}>
+      <div className={`${styles.wrapper} ${className || ''} content-page-header`}>
 
-      <div className={`content ${styles.root} ${mobileOnly ? styles.mobileOnly : ''}`} >
-        <div className="pageBackground" />
-        <div className="d-flex justify-space-between" style={{ height: '100%', width: '100%' }}>
+        <div className={`content ${styles.root} ${mobileOnly ? styles.mobileOnly : ''}`} >
+          <div className="pageBackground" />
+          <div className="d-flex justify-space-between col-12" style={{ height: '100%' }}>
 
-          <NavLink href="/" className={`d-flex align-center text-light ${styles.link}`}>
-            <div key="logo" className={`${styles.icon} pr-2 py-1`} >
-              <img src={require('images/mainLogoOnly-white.png?size=60')} style={{ height: '100%' }} />
-            </div>
+            <NavLink href="/" className={`d-flex align-center text-light ${styles.link}`}>
+              <div key="logo" className={`${styles.icon} pr-2 py-1`} >
+                <img src={require('images/mainLogoOnly-white.png?size=60')} style={{ height: '100%' }} />
+              </div>
 
-            {pageTitle && <h1><span>{pageTitle}</span></h1>}
-          </NavLink>
+              {pageTitle && <h1><span>{pageTitle}</span></h1>}
+            </NavLink>
 
-          {children}
+            {children}
+
+          </div>
 
         </div>
-
       </div>
-    </div>
 
     </>
   )

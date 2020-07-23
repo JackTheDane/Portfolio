@@ -5,6 +5,8 @@ import { IExperienceItem } from 'models/interfaces/IExperienceItem';
 import { ExperienceTimeline } from 'components/domains/experience/ExperienceTimeline';
 import { EducationIcon } from 'icons/Education';
 import { PageHeader } from 'components/domains/content/PageHeader';
+import { ProgressiveImageLoader } from 'components/reusables/ProgressiveImageLoader';
+import { DynamicLocalImageSizes } from 'utils/images/getDynamicLocalImage';
 const KEALogo: string = require('images/brands/kea.png?size=60');
 
 const coreSkills: {
@@ -50,7 +52,7 @@ const experience: IExperienceItem[] = [
     company: "PeopleNet A/S",
     workTitle: "Frontend Developer & IT Consultant",
     startYear: 2018,
-    endYear: <span className="text-light" style={{ fontWeight: 600 }}>Now</span>,
+    endYear: <span style={{ fontWeight: 600 }}>Now</span>,
     logoSrc: require('images/brands/peopleNet.png?size=60'),
     description: "PeopleNet is a Consultant Agency specializing in Microsoft solutions. My primary responsibility here have involved developing and maintaining intranet solutions for major Danish companies using React, TypeScript & SCSS Modules to interact with the Microsoft SharePoint REST API.",
   },
@@ -94,16 +96,40 @@ const Experience = () => {
   return (
     <>
       <PageHeader pageTitle="Experience" mobileOnly />
-      <main className={`text-center justify-center content columns ${styles.experience}`}>
+      <main className={`justify-center text-light content columns ${styles.experience}`}>
 
         <div className="column col-10 col-md-12">
 
-          <div className="mb-3">
-            <h2 className="text-light">
-              Skills
-            </h2>
+          <div className="mb-5 mt-2 columns ">
 
-            <div className={`d-flex justify-center text-light ${styles.coreSkills}`}>
+
+            <div className="column col-sm-12">
+              <h2 className="mb-0">
+                About me
+              </h2>
+              <div className="divider-dark mt-3 mb-4"></div>
+              <p>
+                My name is Martin Bøje Petersen, and I am a Danish Web Developer, who specializes in creating excellent user experiences.
+              </p>
+
+              <p>
+                I am an educated Multimedia Designer and Fullstack Web Developer, with an interest in all things related to the development process, from first requirement draft, to final deployment to the production server.
+              </p>
+
+            </div>
+
+            <div className="column d-flex flex-col hide-lg align-center col-sm-12" style={{ flexGrow: 0 }}>
+              <ProgressiveImageLoader className="s-circle" src="profile.jpg" imageHeight="170px" style={{ width: 170, height: 170, overflow: 'hidden' }} staticImageSize={DynamicLocalImageSizes.xsmall} />
+              {/* <i className="mt-1">Me (2018)</i> */}
+            </div>
+          </div>
+
+          <div className="mb-3 text-center">
+            <h4>
+              My skills include
+            </h4>
+
+            <div className={`d-flex text-center justify-center  ${styles.coreSkills}`}>
               {coreSkills.map(({ name, iconElement }): JSX.Element => {
                 return (
                   <div key={name}>
@@ -125,21 +151,25 @@ const Experience = () => {
             )}
           </div>
 
-          <div className="py-5 mt-2 text-light text-left">
+          <div className="py-5 mt-2  text-left">
             <div className="my-5">
 
-              <h2 className="mb-5 pb-3">
+              <h2 className="mb-0">
                 Work Experience
               </h2>
+
+              <div className="divider-dark mt-3 mb-5"></div>
 
               <ExperienceTimeline items={experience} />
             </div>
 
             <div className="my-5">
 
-              <h2 className="mb-5 pb-3">
+              <h2 className="mb-0">
                 Education
               </h2>
+
+              <div className="divider-dark mt-3 mb-5"></div>
 
               <ExperienceTimeline items={education} fallbackIcon={<EducationIcon style={{ fontSize: '1.5rem', transform: 'translateY(-5%)' }} />} />
             </div>

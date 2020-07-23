@@ -62,9 +62,6 @@ export const ProjectCard = ({
         <div className="d-flex mt-2">
           {skills.slice(0, 3).map((skill) => <small key={skill} className="label mr-3 label-primary">{skill}</small>)}
         </div>
-        {/* <small className="d-block text-gray mt-1">
-          {skills.slice(0, 3).join(', ')}
-        </small> */}
       </div>
     </NavLink>
   )

@@ -58,10 +58,10 @@ const FrontPage = ({
   return (
 
     <>
-      <PageHeader hideTabTitle mobileOnly pageTitle="Hi, I'm Martin!" />
+      <PageHeader hideTabTitle mobileOnly />
 
       <main className={`${styles.about} d-flex`}>
-        <div className="content d-flex justify-space-between" style={{ width: '100%' }}>
+        <div className="content d-flex justify-space-between col-12">
           <div className={`${styles.secondaryText} text-left pb-3 mt-a text-light py-3`}>
             I build
               <div className="mt-2 mb-3">
@@ -77,12 +77,8 @@ const FrontPage = ({
 
           <div className="hide-lg d-flex flex-col align-end">
 
-
-            {/* <h1 className="mb-0 h5 d-inline-flex">
-              Hi, I'm Martin!
-            </h1> */}
             <NavLink href={SiteRoutes.aboutMe} className={`d-block s-circle ${styles.profileImageButton}`}>
-              <ProgressiveImageLoader src="profile.jpg" imageHeight="150px" style={{ width: 150, height: 150 }} staticImageSize={DynamicLocalImageSizes.xsmall} />
+              <ProgressiveImageLoader src="profile.jpg" imageHeight="130px" style={{ width: 130, height: 130 }} staticImageSize={DynamicLocalImageSizes.xsmall} />
               <div className={styles.moreAboutMeIcon}>
                 <ArrowLeftIcon />
               </div>
@@ -92,21 +88,18 @@ const FrontPage = ({
               Learn more about me
               <ReplyIcon className="ml-2" />
             </div>
-
-
           </div>
-
         </div>
 
-        <div className={`text-light content mb-3 mt-3 d-flex flex-col`} style={{ width: '100%' }} >
-          <div className="divider-dark" style={{ width: '100%' }} />
+        <div className={`text-light content mb-3 mt-3 d-flex flex-col col-12`} >
+          <div className="divider-dark col-12" />
 
-          <h5 className="d-flex fw-medium mt-3" style={{ flexWrap: 'wrap' }}>
-            <span className=" mr-5">
+          <h5 className="d-flex fw-medium" style={{ flexWrap: 'wrap' }}>
+            <span className="mr-5  mt-3">
               {/* <MapMarkerIcon className="mr-2 d-flex" style={{ fontSize: '.75em' }} /> */}
                 👋 Martin Bøje Petersen
               </span>
-            <span className="">
+            <span className="mt-3">
               {/* <CodeIcon className="mr-2 d-flex" style={{ fontSize: '1.1em' }} /> */}
                 💼 Frontend Developer
               </span>

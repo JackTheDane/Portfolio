@@ -2,7 +2,6 @@ import React, { useEffect, useState, useRef } from 'react';
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import Head from 'next/head';
 import { IProject } from 'models/interfaces/IProject';
 import { GetStaticProps } from 'next';
 import styles from './styles.module.scss';
@@ -15,8 +14,6 @@ import { LinkIcon } from 'icons/Link';
 import { CarouselWithPreview } from 'components/reusables/carousels/CarouselWithPreview';
 import { PageHeader } from 'components/domains/content/PageHeader';
 import { getDynamicLocalImage, DynamicLocalImageSizes } from 'utils/images/getDynamicLocalImage';
-import { ExpandIcon } from 'icons/Expand';
-import { CompressIcon } from 'icons/Compress';
 
 interface ProjectPaginationItem {
   title: string;
@@ -99,7 +96,6 @@ const ProjectPage = ({
             </div>
 
             <div className="d-flex" style={{ alignItems: 'center', flexWrap: 'wrap' }}>
-              {/* <h3 className="text-gray fw-medium mr-3" style={{ flexShrink: 0, maxWidth: '100%' }}>{role}</h3> */}
 
               <div style={{ flexShrink: 0, maxWidth: '100%' }}>
                 {
@@ -131,7 +127,7 @@ const ProjectPage = ({
 
           {
             paginationItems && (
-              <ul className="pagination pt-3" style={{ marginTop: 'auto' }}>
+              <ul className="pagination pt-3 mt-a">
                 {paginationItems.prev && (
                   <li className="page-item page-prev">
                     <NavLink href={`/${SiteRoutes.portfolio}/[slug]`} as={`/${SiteRoutes.portfolio}/${paginationItems.prev.slug}`}>
