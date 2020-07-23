@@ -1,4 +1,5 @@
 @import "../styling/spectre/variables";
+@import "styling/utils";
 
 .about {
   display: flex;
@@ -23,14 +24,16 @@
   }
 
   .projectColumn {
-    // visibility: hidden;
-    margin-right: 15px;
     width: calc((100% - 100px) / 2);
 
     :global(.card) {
       background-color: transparent;
       text-decoration: none;
     }
+  }
+
+  .projectColumn + .projectColumn {
+    margin-left: 30px;
   }
 
   :global(.swiper-container-initialized) {
@@ -43,7 +46,6 @@
     }
   }
 
-  .viewMoreButton,
   .viewMoreSlide {
     &,
     &:hover,
@@ -59,9 +61,51 @@
     justify-content: center;
     max-height: 30vh;
     margin-right: 0;
+    position: relative;
+    background-color: transparent;
+
+    .normalIcon {
+      transition: transform 0.2s;
+    }
+
+    .bg {
+      background-color: $primary-color-dark;
+      background-blend-mode: overlay;
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      width: 100%;
+      z-index: -1;
+      @include better-blur(10);
+    }
+
+    .viewMoreSlideText {
+      // padding-bottom: 5px;
+
+      &::after {
+        content: "";
+        width: 100%;
+        height: 2px;
+        background-color: $highlight-color;
+        display: block;
+        margin-top: 3px;
+      }
+    }
 
     i {
-      font-size: 1.5em;
+      font-size: 2rem;
+    }
+
+    &:hover {
+      .normalIcon {
+        transform: translateY(-3px) scale(1.1);
+      }
     }
   }
 
@@ -141,7 +185,6 @@
     .moreAboutMeIcon {
       transition: opacity 0.3s;
       opacity: 0;
-      transform: scaleX(-1);
       background: radial-gradient(rgba($primary-color-dark, 0.95), darken($primary-color-dark, 10%));
       // background-color: $primary-color-dark;
       position: absolute;
@@ -155,11 +198,6 @@
       justify-content: center;
       align-items: center;
       color: #fff;
-
-      i {
-        transition: transform 0.2s ease-out;
-        font-size: 2rem;
-      }
     }
 
     &:hover {
@@ -167,11 +205,22 @@
         opacity: 1;
 
         i {
-          transition-duration: 0.2;
           transition-delay: 0.25s;
-          transition-timing-function: cubic-bezier(0.295, 0.555, 0.19, 2);
-          transform: translateX(-8px);
         }
+      }
+    }
+  }
+  .profileImageButton .moreAboutMeIcon {
+    i {
+      transition: transform 0.2s ease-out;
+      font-size: 2rem;
+    }
+
+    &:hover {
+      i {
+        transition-duration: 0.2;
+        transition-timing-function: cubic-bezier(0.295, 0.555, 0.19, 2);
+        transform: translateX(8px);
       }
     }
   }
