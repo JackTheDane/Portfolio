@@ -51,7 +51,7 @@ const Projects = ({
       <main className={`${styles.projects}`}>
         <div className="content">
           <div className={`${styles.pageContent}`}>
-            <div style={{ width: '100%' }}>
+            <div className="col-12">
 
               <div className={`${styles.projectsWrapper} columns`}>
 

@@ -139,10 +139,10 @@
     border: 1px solid $primary-color-dark;
 
     .moreAboutMeIcon {
-      transition: opacity 0.2s;
+      transition: opacity 0.3s;
       opacity: 0;
       transform: scaleX(-1);
-      background: radial-gradient(rgba($primary-color-dark, 0.92), darken($primary-color-dark, 8%));
+      background: radial-gradient(rgba($primary-color-dark, 0.95), darken($primary-color-dark, 10%));
       // background-color: $primary-color-dark;
       position: absolute;
       top: 0;
@@ -167,8 +167,8 @@
         opacity: 1;
 
         i {
-          transition-duration: 0.3;
-          transition-delay: 0.1s;
+          transition-duration: 0.2;
+          transition-delay: 0.25s;
           transition-timing-function: cubic-bezier(0.295, 0.555, 0.19, 2);
           transform: translateX(-8px);
         }
