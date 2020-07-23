@@ -136,11 +136,14 @@
   .profileImageButton {
     position: relative;
     overflow: hidden;
+    border: 1px solid $primary-color-dark;
 
     .moreAboutMeIcon {
-      transition: opacity .2s;
+      transition: opacity 0.2s;
       opacity: 0;
-      background-color: $primary-color-dark;
+      transform: scaleX(-1);
+      background: radial-gradient(rgba($primary-color-dark, 0.92), darken($primary-color-dark, 8%));
+      // background-color: $primary-color-dark;
       position: absolute;
       top: 0;
       bottom: 0;
@@ -154,14 +157,21 @@
       color: #fff;
 
       i {
+        transition: transform 0.2s ease-out;
         font-size: 2rem;
       }
     }
 
     &:hover {
-
       .moreAboutMeIcon {
-        opacity: .95;
+        opacity: 1;
+
+        i {
+          transition-duration: 0.3;
+          transition-delay: 0.1s;
+          transition-timing-function: cubic-bezier(0.295, 0.555, 0.19, 2);
+          transform: translateX(-8px);
+        }
       }
     }
   }
@@ -179,7 +189,6 @@
 
 @media (max-width: $size-md - 1) {
   .about {
-
     .projectCarousel {
       padding-right: 0;
       padding-left: 0;
@@ -200,7 +209,6 @@
 
 @media (min-width: $size-lg) {
   .about {
-
     .profile {
       margin: 0;
     }
@@ -216,7 +224,6 @@
         font-size: 1.3rem;
       }
     }
-
 
     .subcontentTitle {
       font-size: 1.2rem;

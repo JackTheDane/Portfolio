@@ -84,7 +84,7 @@ const FrontPage = ({
             <NavLink href={SiteRoutes.aboutMe} className={`d-block s-circle ${styles.profileImageButton}`}>
               <ProgressiveImageLoader src="profile.jpg" imageHeight="150px" style={{ width: 150, height: 150 }} staticImageSize={DynamicLocalImageSizes.xsmall} />
               <div className={styles.moreAboutMeIcon}>
-                <ArrowLeftIcon style={{ transform: 'scaleX(-1)' }} />
+                <ArrowLeftIcon />
               </div>
             </NavLink>
 
