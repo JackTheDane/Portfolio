@@ -56,11 +56,11 @@ export const ProjectCard = ({
       </div>
 
       <div className={cardHeaderClass}>
-        <h5 className="mb-2 fw-medium">
+        <h5 className="mb-2">
           {title}
         </h5>
         <div className="d-flex mt-2">
-          {skills.slice(0, 3).map((skill) => <small key={skill} className="label mr-3 label-primary">{skill}</small>)}
+          {skills.slice(0, 3).map((skill) => <small key={skill} className="label mr-2 label-primary">{skill}</small>)}
         </div>
       </div>
     </NavLink>

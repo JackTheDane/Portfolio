@@ -6,19 +6,15 @@ import { IProject } from 'models/interfaces/IProject';
 import path from 'path';
 import { NavLink } from 'components/reusables/NavLink';
 import { SiteRoutes } from 'data/routes/SiteRoutes';
-import { EyeIcon } from 'icons/Eye';
 import { BaseCarousel } from 'components/reusables/carousels/BaseCarousel';
-import { MapMarkerIcon } from 'icons/MapMarker';
-import { CodeIcon } from 'icons/Code';
 import { ProjectCardClasses, ProjectCard } from 'components/domains/portfolio/ProjectCard';
 import { PageHeader } from 'components/domains/content/PageHeader';
 import { ProgressiveImageLoader } from 'components/reusables/ProgressiveImageLoader';
 import { DynamicLocalImageSizes, DynamicLocalImageTypes, getDynamicLocalImage } from 'utils/images/getDynamicLocalImage';
 import { ReplyIcon } from 'icons/Reply';
-import { route } from 'next/dist/next-server/server/router';
-import { ExpandIcon } from 'icons/Expand';
 import { ArrowRightIcon } from 'icons/ArrowRight';
 import { CloneIcon } from 'icons/Clone';
+import { getProjectPosts } from 'utils/data/getProjectsPosts';
 
 interface FrontPageProps {
   projects: IProject[];
@@ -95,17 +91,15 @@ const FrontPage = ({
           </div>
         </div>
 
-        <div className={`text-light content mb-3 mt-3 d-flex flex-col col-12`} >
+        <div className={`text-light content mt-2 mb-3 d-flex flex-col col-12`} >
           <div className="divider-dark col-12" />
 
           <h5 className="d-flex fw-medium" style={{ flexWrap: 'wrap' }}>
-            <span className="mr-5  mt-3">
-              {/* <MapMarkerIcon className="mr-2 d-flex" style={{ fontSize: '.75em' }} /> */}
-                👋 Martin Bøje Petersen
+            <span className="mr-5 mt-2">
+              👋 Martin Bøje Petersen
               </span>
-            <span className="mt-3">
-              {/* <CodeIcon className="mr-2 d-flex" style={{ fontSize: '1.1em' }} /> */}
-                💼 Full-stack Developer
+            <span className="mt-2">
+              💼 Full-stack Developer
               </span>
           </h5>
         </div>
@@ -113,14 +107,10 @@ const FrontPage = ({
         <div className={`${styles.content}`}>
 
           <div className={`${styles.workSection} content mb-4`}>
-            <div className="d-flex justify-center align-end justify-space-between">
+            <div className="d-flex align-end justify-space-between">
               <h4 className="text-light pr-1 pb-2" style={{ marginBottom: 0 }}>
                 My work
             </h4>
-              {/* <NavLink className={`ml-a btn btn-link hide-md text-light ${styles.viewMoreButton}`} href={`/${SiteRoutes.portfolio}`}>
-                <EyeIcon className="mr-3 text-light" />
-              View all work
-            </NavLink> */}
             </div>
           </div>
 
@@ -144,50 +134,9 @@ const FrontPage = ({
 }
 
 export const getStaticProps: GetStaticProps<FrontPageProps> = async () => {
-  const projectsFolder: string = 'data/posts/projects';
-  // Get the content of the md file by checking for it using the file name + the .md extension
-  const postFileNames: string[] = fs.readdirSync(projectsFolder).slice(0, 3); // Get only the first 3 as a preview
-
-  const projects: IProject[] = await Promise.all(postFileNames.map(
-    (fn): Promise<IProject> => new Promise((res, rej) => {
-
-
-      try {
-        fs.readFile(path.join(projectsFolder, fn), async (err, data) => {
-
-          if (err) {
-            rej(err);
-            return;
-          }
-
-          try {
-            const { data: { title, role, url, skills, images } } = matter(data.toString());
-
-            res({
-              title,
-              slug: fn.replace('.md', ''),
-              url,
-              images: images.slice(0, 1),
-              role,
-              skills
-            });
-          } catch (error) {
-            console.log(error);
-            rej(error);
-          }
-
-        });
-
-      } catch (error) {
-        console.log(error);
-        rej(error);
-      }
-    })
-  ))
-
   return {
     props: {
-      projects
+      projects: (await getProjectPosts()).map(({ images, ...rest }): IProject => ({ ...rest, images: images.slice(0, 1) }))
     }
   }
 }

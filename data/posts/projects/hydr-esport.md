@@ -4,6 +4,7 @@ role: "Front-end"
 url: "https://www.hydr-esport.com/"
 skills: [ "WordPress", "PHP", "Gulp", "Sass", "JavaScript", "CSS3" ]
 images: ['projects/hydr-esport/hydr-forside.jpg','projects/hydr-esport/hydr-medlemskab.jpg','projects/hydr-esport/hydr-side.jpg']
+order: 2
 ---
 
 Hydr Esport is a company that specializes in offering coaching and tournaments for Esport competitors, but also regular hobbyists and companies wanting to hold Esport events for their employees.

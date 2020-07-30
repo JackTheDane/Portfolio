@@ -11,6 +11,7 @@ import { GitHubIcon } from 'icons/Github';
 import { BrandColors } from 'data/BrandColors';
 import { PageHeader } from 'components/domains/content/PageHeader';
 import { ProjectCard, ProjectCardClasses } from 'components/domains/portfolio/ProjectCard';
+import { getProjectPosts } from 'utils/data/getProjectsPosts';
 
 export interface ProjectsProps {
   projects: IProject[];
@@ -78,50 +79,9 @@ const Projects = ({
 }
 
 export const getStaticProps: GetStaticProps<ProjectsProps> = async () => {
-  const projectsFolder: string = 'data/posts/projects';
-  // Get the content of the md file by checking for it using the file name + the .md extension
-  const postFileNames: string[] = fs.readdirSync(projectsFolder);
-
-  const projects: IProject[] = await Promise.all(postFileNames.map(
-    (fn): Promise<IProject> => new Promise((res, rej) => {
-
-
-      try {
-        fs.readFile(path.join(projectsFolder, fn), async (err, data) => {
-
-          if (err) {
-            rej(err);
-            return;
-          }
-
-          try {
-            const { data: { title, role, url, skills, images } } = matter(data.toString());
-
-            res({
-              title,
-              slug: fn.replace('.md', ''),
-              url,
-              images: images.slice(0, 1),
-              role,
-              skills
-            });
-          } catch (error) {
-            console.log(error);
-            rej(error);
-          }
-
-        });
-
-      } catch (error) {
-        console.log(error);
-        rej(error);
-      }
-    })
-  ))
-
   return {
     props: {
-      projects
+      projects: (await getProjectPosts()).map(({ images, ...rest }): IProject => ({ ...rest, images: images.slice(0, 1) }))
     }
   }
 }

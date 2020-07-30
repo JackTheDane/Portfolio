@@ -4,8 +4,9 @@ role: "Front-end & Design"
 url: "http://mbpmedia.com/bookbusiness/"
 skills: [ "Bootstrap", "Gulp", "Sass", "JavaScript ES6+", "CSS3" ]
 images: ['projects/book-business/bb-forside.jpg','projects/book-business/bb-search.jpg']
-
+order: 3
 ---
+
 In 2017 I made this small site for a university course. The task was to create a simple site to facilitate booking flights business people who were frequently flying the same routes.
 
 In this prototype, my focus was to highlight important inputs, while minimizing the amount of clicks needed to perform a search. The result was a system in which users search for time slots (Early, Late, All) to minimize necessary clicks, with an easy overview of their previous flights to facilitate booking similar trips in the future.

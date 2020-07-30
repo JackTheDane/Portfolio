@@ -4,6 +4,7 @@ role: "Front-end & Design"
 url: "http://dentalmedia.io/en/"
 skills: [ "WordPress", "PHP", "Gulp", "Sass", "JavaScript", "CSS3" ]
 images: ['projects/dental-media/dm-forside.jpg','projects/dental-media/dm-header.jpg','projects/dental-media/dm-readmore.jpg','projects/dental-media/dm-steps.jpg']
+order: 1
 ---
 
 Dental Media ApS is a digital marketing agency and software provider aimed at helping dentists worldwide to get more patients into their clinics.

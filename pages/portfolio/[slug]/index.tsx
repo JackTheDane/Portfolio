@@ -238,6 +238,7 @@ export const getStaticProps: GetStaticProps<ProjectPageProps> = async ({ params:
     title,
     url,
     role,
+    github,
     images,
     skills
   } } = matter(markdownWithMetadata);
@@ -250,7 +251,8 @@ export const getStaticProps: GetStaticProps<ProjectPageProps> = async ({ params:
       images,
       role,
       title,
-      url,
+      url: url || '',
+      github: github || '',
       skills,
       slug: slug as string
     }
