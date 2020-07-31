@@ -3,7 +3,7 @@ title: "MBP Media"
 role: "Front-end & Design"
 github: "https://www.mbpmedia.com"
 skills: [ "React", "TypeScript", "NextJS", "Sass", "CI/CD", "Static Site Generation", "Spectre CSS", "SwiperJS" ]
-images: ['2020-07-30-16-29-44.png', '2020-07-30-15-59-44.png', '2020-07-30-16-30-55.png']
+images: ['2020-07-30-16-29-44.jpg', '2020-07-30-15-59-44.jpg', '2020-07-30-16-30-55.jpg']
 order: 0
 ---
 

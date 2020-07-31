@@ -1,5 +1,4 @@
-@import "../styling/spectre/variables";
-@import "styling/utils";
+@import "styling/spectre/variables";
 
 .about {
   display: flex;
@@ -12,120 +11,13 @@
     align-items: flex-start;
   }
 
-  .projectCarousel {
-    :global(.card-header) {
-      padding-left: 0 !important;
-    }
-  }
-
   .profile {
     margin-bottom: auto;
     margin-top: auto;
-  }
-
-  .projectColumn {
-    width: calc((100% - 100px) / 2);
-
-    :global(.card) {
-      background-color: transparent;
-      text-decoration: none;
-    }
-  }
-
-  .projectColumn + .projectColumn {
-    margin-left: 30px;
-  }
-
-  :global(.swiper-container-initialized) {
-    .projectColumn {
-      visibility: visible;
-    }
-
-    .nextSlideButton {
-      display: block;
-    }
-  }
-
-  .viewMoreSlide {
-    &,
-    &:hover,
-    &:active,
-    &:focus {
-      text-decoration: none;
-      color: #fff;
-    }
-  }
-
-  .viewMoreSlide {
-    align-items: center;
-    justify-content: center;
-    max-height: 30vh;
-    margin-right: 0;
-    position: relative;
-    background-color: transparent;
-
-    .normalIcon {
-      transition: transform 0.2s;
-    }
-
-    .bg {
-      background-color: $primary-color-dark;
-      background-blend-mode: overlay;
-      background-size: cover;
-      background-position: center center;
-      background-repeat: no-repeat;
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 100%;
-      width: 100%;
-      z-index: -1;
-      @include better-blur(10);
-    }
-
-    .viewMoreSlideText {
-      // padding-bottom: 5px;
-
-      &::after {
-        content: "";
-        width: 100%;
-        height: 2px;
-        background-color: $highlight-color;
-        display: block;
-        margin-top: 3px;
-      }
-    }
-
-    i {
-      font-size: 2rem;
-    }
-
-    &:hover {
-      .normalIcon {
-        transform: translateY(-3px) scale(1.125);
-      }
-    }
-  }
-
-  .projectColumn,
-  .cardHeader {
-    transition: opacity 0.3s;
-  }
-
-  .cardHeader {
-    background-color: #fff;
-  }
-
-  .profile {
     display: flex;
     flex-direction: column;
     flex-shrink: 0;
-    // justify-content: center;
-    // flex-grow: 1;
     width: 100%;
-    flex-direction: column;
   }
 
   .content {
@@ -171,11 +63,7 @@
     }
   }
 
-  .nextSlideButton,
-  .prevSlideButton,
-  .projectImage {
-    height: 160px;
-  }
+
 
   .profileImageButton {
     position: relative;
@@ -226,46 +114,10 @@
   }
 }
 
-@media (max-width: $size-sm - 1) {
-  .about {
-    .projectCarousel {
-      .projectColumn {
-        width: calc(100% - 80px);
-      }
-    }
-  }
-}
-
-@media (max-width: $size-md - 1) {
-  .about {
-    .projectCarousel {
-      padding-right: 0;
-      padding-left: 0;
-
-      .nextSlideButton {
-        i {
-          transform: translateX(-10px);
-        }
-      }
-
-      :global(.swiper-container) {
-        padding-right: 15px;
-        padding-left: 15px;
-      }
-    }
-  }
-}
-
 @media (min-width: $size-lg) {
   .about {
     .profile {
       margin: 0;
-    }
-
-    .nextSlideButton,
-    .prevSlideButton,
-    .projectImage {
-      height: 260px;
     }
 
     .workSection {
@@ -276,31 +128,6 @@
 
     .subcontentTitle {
       font-size: 1.2rem;
-    }
-
-    // .content {
-    //   margin-top: 30px;
-    //   margin-bottom: auto;
-    // }
-
-    .projectCarousel {
-      .cardHeader {
-        opacity: 0;
-      }
-
-      &:hover {
-        .projectColumn {
-          opacity: 0.65;
-
-          &:hover {
-            opacity: 1;
-
-            .cardHeader {
-              opacity: 1;
-            }
-          }
-        }
-      }
     }
   }
 }

@@ -47,6 +47,7 @@
     "responsive-loader": "^1.2.0",
     "sass": "^1.26.3",
     "sharp": "^0.25.2",
-    "swiper": "^5.3.6"
+    "swiper": "^5.3.6",
+    "webp-loader": "^0.6.0"
   }
 }

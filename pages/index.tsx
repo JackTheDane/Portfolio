@@ -1,59 +1,23 @@
-import fs from 'fs';
-import matter from 'gray-matter';
 import styles from './styles.module.scss';
 import { GetStaticProps } from 'next';
 import { IProject } from 'models/interfaces/IProject';
-import path from 'path';
 import { NavLink } from 'components/reusables/NavLink';
 import { SiteRoutes } from 'data/routes/SiteRoutes';
-import { BaseCarousel } from 'components/reusables/carousels/BaseCarousel';
-import { ProjectCardClasses, ProjectCard } from 'components/domains/portfolio/ProjectCard';
 import { PageHeader } from 'components/domains/content/PageHeader';
 import { ProgressiveImageLoader } from 'components/reusables/ProgressiveImageLoader';
-import { DynamicLocalImageSizes, DynamicLocalImageTypes, getDynamicLocalImage } from 'utils/images/getDynamicLocalImage';
+import { DynamicLocalImageSizes } from 'utils/images/getDynamicLocalImage';
 import { ReplyIcon } from 'icons/Reply';
 import { ArrowRightIcon } from 'icons/ArrowRight';
-import { CloneIcon } from 'icons/Clone';
 import { getProjectPosts } from 'utils/data/getProjectsPosts';
+import { ProjectsPreview } from 'components/domains/portfolio/ProjectsPreview';
 
 interface FrontPageProps {
   projects: IProject[];
 }
 
-
-const projectClasses: ProjectCardClasses = {
-  imageWrapper: styles.imageWrapper,
-  image: styles.projectImage
-};
-
-
 const FrontPage = ({
   projects
 }: FrontPageProps) => {
-
-  const portfolioPreviews: JSX.Element[] = projects.slice(0, 2).map(
-    (project): JSX.Element => (
-      <div key={project.slug} className={`${styles.projectColumn}`}>
-        <ProjectCard imageHeight="0px" project={project} classes={projectClasses} />
-      </div>
-    )
-  );
-
-  portfolioPreviews.push(
-    <NavLink
-      href={`/${SiteRoutes.portfolio}`}
-      className={`${styles.projectColumn} ${styles.viewMoreSlide} ${styles.projectImage} d-flex text-center text-light card`}
-    >
-      <div className={styles.bg} style={{ backgroundImage: `url(${getDynamicLocalImage(projects[projects.length - 1].images[0], DynamicLocalImageTypes.lqip)})` }} />
-
-      <CloneIcon className={styles.normalIcon} />
-
-      <div className={`my-3 ${styles.viewMoreSlideText}`}>
-        View all projects
-      </div>
-    </NavLink>
-  )
-
 
   return (
 
@@ -69,10 +33,10 @@ const FrontPage = ({
                 <div>
                   Fast<span className="text-secondary ml-2" style={{ fontSize: '.75em', fontWeight: 300 }}>&</span>
                 </div>
-                    Focused
-                  </span>
+                Focused
+              </span>
             </div>
-              User experiences
+            User experiences
         </div>
 
           <div className="hide-lg d-flex flex-col align-end">
@@ -115,17 +79,8 @@ const FrontPage = ({
           </div>
 
 
-          <div className={`${styles.projectCarousel} content`}>
-            <BaseCarousel
-              slidesPerView="auto"
-              spaceBetween={0}
-              children={portfolioPreviews}
-              centerInsufficientSlides={true}
-              classNames={{
-                nextNavButton: styles.nextSlideButton,
-                prevNavButton: styles.prevSlideButton
-              }}
-            />
+          <div className="content">
+            <ProjectsPreview projects={projects} />
           </div>
         </div>
       </main>
