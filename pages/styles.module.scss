@@ -11,6 +11,13 @@
     align-items: flex-start;
   }
 
+  .explainerSection {
+
+    span {
+      font-size: inherit;
+    }
+  }
+
   .profile {
     margin-bottom: auto;
     margin-top: auto;
@@ -118,6 +125,10 @@
   .about {
     .profile {
       margin: 0;
+    }
+
+    .explainerSection {
+      font-size: 1.2rem;
     }
 
     .workSection {

@@ -58,13 +58,13 @@ const FrontPage = ({
         <div className={`text-light content mt-2 mb-3 d-flex flex-col col-12`} >
           <div className="divider-dark col-12" />
 
-          <h5 className="d-flex fw-medium" style={{ flexWrap: 'wrap' }}>
+          <h5 className={`d-flex fw-medium ${styles.explainerSection}`} style={{ flexWrap: 'wrap' }}>
             <span className="mr-5 mt-2">
               👋 Martin Bøje Petersen
-              </span>
+            </span>
             <span className="mt-2">
               💼 Full-stack Developer
-              </span>
+            </span>
           </h5>
         </div>
 
