@@ -64,7 +64,7 @@ export const BaseCarousel = ({
           className={`swiper-slide ${slideClass}`}
           key={'CarImg_' + i}
         >
-          {includeBlurryBg && <div className={styles.blurryBg} style={{ backgroundImage: `url(${getDynamicLocalImage(image, DynamicLocalImageTypes.lqip)})` }} />}
+          {includeBlurryBg && <div className={styles.blurryBg} style={{ backgroundImage: `url(${getDynamicLocalImage(image)})` }} />}
           <ProgressiveImageLoader
             src={image}
             className={styles.imageLoader}

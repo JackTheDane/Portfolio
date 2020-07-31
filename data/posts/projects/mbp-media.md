@@ -1,7 +1,7 @@
 ---
 title: "MBP Media"
 role: "Front-end & Design"
-github: "https://www.mbpmedia.com"
+github: "https://github.com/JackTheDane/PortfolioSSG"
 skills: [ "React", "TypeScript", "NextJS", "Sass", "CI/CD", "Static Site Generation", "Spectre CSS", "SwiperJS" ]
 images: ['2020-07-30-16-29-44.jpg', '2020-07-30-15-59-44.jpg', '2020-07-30-16-30-55.jpg']
 order: 0
@@ -9,9 +9,9 @@ order: 0
 
 In the first half of 2020, I decided to update my personal portfolio site: _MBPMedia.com_, with certain improvements gathered since the original site was first created. These include utilizing _Static Site Generation_ (SSG), improving navigation and mobile experience, as well as revamping the design to better highlight the projects.
 
-<!-- **To view my original portfolio site, [click here.](https://duckduckgo.com)** -->
-
 The site is hosted using Netlify for Continuous Integration & Deployment.
+
+**To view my original portfolio site, [click here.](https://mbp-portfolio-old.netlify.app)**
 
 ### Why Static Site Generation?
 

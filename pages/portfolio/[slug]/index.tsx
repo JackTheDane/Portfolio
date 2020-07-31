@@ -14,6 +14,8 @@ import { LinkIcon } from 'icons/Link';
 import { CarouselWithPreview } from 'components/reusables/carousels/CarouselWithPreview';
 import { PageHeader } from 'components/domains/content/PageHeader';
 import { getDynamicLocalImage, DynamicLocalImageSizes } from 'utils/images/getDynamicLocalImage';
+import { GitHubIcon } from 'icons/Github';
+import { BrandColors } from 'data/BrandColors';
 
 interface ProjectPaginationItem {
   title: string;
@@ -31,7 +33,7 @@ interface ProjectPageProps extends IProject {
 
 const ProjectPage = ({
   images,
-  role,
+  github,
   skills,
   title,
   url,
@@ -87,9 +89,24 @@ const ProjectPage = ({
                     target='_blank'
                     rel='noopener'
                     data-tooltip="View live site"
-                    className={`btn btn-primary tooltip tooltip-right ml-3 ${styles.siteLinkButton}`}
+                    className={`btn btn-action btn-primary tooltip tooltip-top ml-3 ${styles.siteLinkButton}`}
                   >
                     <LinkIcon />
+                  </a>
+                )
+              }
+
+              {github
+                && (
+                  <a
+                    href={github}
+                    target='_blank'
+                    rel='noopener'
+                    data-tooltip="View repository"
+                    className={`btn btn-action btn-primary tooltip tooltip-top ml-3 ${styles.siteLinkButton}`}
+                    style={{ backgroundColor: BrandColors.GitHub, border: 'none' }}
+                  >
+                    <GitHubIcon />
                   </a>
                 )
               }
