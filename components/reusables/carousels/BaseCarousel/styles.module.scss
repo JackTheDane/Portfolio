@@ -1,4 +1,5 @@
 @import "styling/spectre/variables";
+@import "styling/utils";
 
 .root {
   width: 100%;
@@ -13,6 +14,39 @@
     background-size: cover;
     background-repeat: no-repeat;
   }
+
+    .blurryBg {
+
+      @include better-blur(30);
+      width: 100%;
+
+      background-color: rgb(225, 225, 225);
+      background-blend-mode: multiply;
+      background-size: cover;
+      background-position: center center;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 100%;
+
+      // &::before,
+      // &::after {
+      //   content: '';
+      //   width: 50%;
+      //   background-image: inherit;
+      //   display: block;
+      // }
+
+      // &::before {
+      //   background-position: left center;
+      // }
+
+      // &::after {
+      //   background-position: right center;
+      // }
+    }
 
   .imageLoader {
     padding-top: 60% !important;

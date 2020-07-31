@@ -3,7 +3,7 @@ import styles from './styles.module.scss';
 import Swiper from 'react-id-swiper';
 import { IExtendedSwiperOptions } from '../IExtendedSwiperOptions';
 import { ProgressiveImageLoader } from '../../ProgressiveImageLoader';
-import { DynamicLocalImageSizes } from '../../../../utils/images/getDynamicLocalImage';
+import { DynamicLocalImageSizes, getDynamicLocalImage, DynamicLocalImageTypes } from '../../../../utils/images/getDynamicLocalImage';
 import { ChevronLeftIcon } from 'icons/ChevronLeft';
 import { ChevronRightIcon } from 'icons/ChevronRight';
 
@@ -17,12 +17,14 @@ export interface CarouselProps extends Partial<IExtendedSwiperOptions> {
     slide?: string;
   }
   staticImageSize?: DynamicLocalImageSizes;
+  includeBlurryBg?: boolean;
 }
 
 export const BaseCarousel = ({
   images,
   classNames,
   children,
+  includeBlurryBg,
   ...rest
 }: CarouselProps) => {
 
@@ -62,6 +64,7 @@ export const BaseCarousel = ({
           className={`swiper-slide ${slideClass}`}
           key={'CarImg_' + i}
         >
+          {includeBlurryBg && <div className={styles.blurryBg} style={{ backgroundImage: `url(${getDynamicLocalImage(image, DynamicLocalImageTypes.lqip)})` }} />}
           <ProgressiveImageLoader
             src={image}
             className={styles.imageLoader}
