@@ -146,7 +146,7 @@ const ProjectPage = ({
             paginationItems && (
               <ul className="pagination pt-3 mt-a">
                 {paginationItems.prev && (
-                  <li className="page-item page-prev">
+                  <li key={paginationItems.prev.slug} className="page-item page-prev">
                     <NavLink href={`/${SiteRoutes.portfolio}/[slug]`} as={`/${SiteRoutes.portfolio}/${paginationItems.prev.slug}`}>
                       <div className={`s-rounded ${styles.previewImage}`} style={{ backgroundImage: `url('${getDynamicLocalImage(paginationItems.prev.previewImage, DynamicLocalImageSizes.xsmall)}')` }} />
                       <div className="page-item-subtitle">Previous</div>
@@ -155,7 +155,7 @@ const ProjectPage = ({
                   </li>
                 )}
                 {paginationItems.next && (
-                  <li className="page-item page-next">
+                  <li key={paginationItems.next.slug} className="page-item page-next">
                     <NavLink className="d-flex flex-col" href={`/${SiteRoutes.portfolio}/[slug]`} as={`/${SiteRoutes.portfolio}/${paginationItems.next.slug}`}>
                       <div className={`s-rounded ml-a ${styles.previewImage}`} style={{ backgroundImage: `url('${getDynamicLocalImage(paginationItems.next.previewImage, DynamicLocalImageSizes.xsmall)}')` }} />
                       <div className="page-item-subtitle">Next</div>
