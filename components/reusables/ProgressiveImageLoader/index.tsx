@@ -13,6 +13,7 @@ export interface ProgressiveImageLoaderProps extends Omit<React.DetailedHTMLProp
   imageHeight?: string;
   /** Sets a non-dynamic size (using src, not srcSet) for a given image. Useful for smaller images that do not need to scale to full page width */
   staticImageSize?: DynamicLocalImageSizes;
+  shouldImageBeContained?: boolean;
   classNames?: {
     overlayImg?: string;
     img?: string;
@@ -25,6 +26,7 @@ export const ProgressiveImageLoader = ({
   imageHeight,
   classNames,
   staticImageSize,
+  shouldImageBeContained,
   ...rest
 }: ProgressiveImageLoaderProps) => {
 
@@ -32,16 +34,17 @@ export const ProgressiveImageLoader = ({
   const [isImageCached, setIsImageCached] = useState(false);
 
   const image = useRef<HTMLImageElement>();
+  let blurryBgElement: JSX.Element;
 
-  // const src: string = getDynamicLocalImage(pathToFile);
+  // Check if the image has already been fetched and cached - If yes, hide loader immediately
+  useEffect(() => {
+    if (image && image.current && image.current.complete) setIsImageCached(true);
+  }, [])
+
   const overlaySrc: string = getDynamicLocalImage(pathToFile, DynamicLocalImageTypes.lqip);
+  const overlayStyle: React.CSSProperties = { opacity: isImageLoaded ? 1 : 0 };
 
-  const overlayStyle: React.CSSProperties = {};
-
-  if (isImageLoaded) {
-    overlayStyle.opacity = 0;
-  }
-
+  // Classnames
   let imageClassNames: string = styles.image;
   let overlayClassNames: string = styles.overlay;
 
@@ -49,11 +52,6 @@ export const ProgressiveImageLoader = ({
     if (classNames.img) imageClassNames += ' ' + classNames.img;
     if (classNames.overlayImg) overlayClassNames += ' ' + classNames.overlayImg;
   }
-
-  // Check if the image has already been fetched and cached - If yes, hide loader immediately
-  useEffect(() => {
-    if (image && image.current && image.current.complete) setIsImageCached(true);
-  }, [])
 
   const imgProps: React.DetailedHTMLProps<React.ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement> = {
     className: imageClassNames,
@@ -69,16 +67,31 @@ export const ProgressiveImageLoader = ({
     imgProps.src = src;
     imgProps.srcSet = srcSet;
     imgProps.sizes = `
-      (max-width: 600px) 600px,
-      (max-width: 900px) 900px,
-      1200px
+    (max-width: 600px) 600px,
+    (max-width: 900px) 900px,
+    1200px
     `;
   }
 
-  const rootStyles: React.CSSProperties = { paddingTop: imageHeight || '56.25%' };
+  if (shouldImageBeContained) {
+    imgProps.className += ` ${styles.imgContained}`;
+
+    if (isImageCached || isImageLoaded) {
+      blurryBgElement = (
+        <div className={styles.blurryBg}>
+          <img src={imgProps.src} srcSet={imgProps.srcSet} sizes={imgProps.sizes} style={{ height: '100%', width: '100%' }} />
+        </div>
+      );
+    }
+  }
 
   return (
-    <figure className={`${styles.root} ${!isImageCached && !isImageLoaded ? 'loading loading-lg' : ''} ${className || ''} ${isImageLoaded ? styles.loaded : ''}`} style={rootStyles} {...rest}>
+    <figure
+      className={`${styles.root} ${!isImageCached && !isImageLoaded ? 'loading loading-lg' : ''} ${className || ''} ${isImageLoaded ? styles.loaded : ''}`}
+      style={{ paddingTop: imageHeight || '56.25%' }}
+      {...rest}
+    >
+      {blurryBgElement}
       <img
         {...imgProps}
       />

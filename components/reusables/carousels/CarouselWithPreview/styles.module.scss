@@ -14,10 +14,6 @@
   }
 
   .mainCarousel {
-    img {
-      object-fit: contain;
-    }
-
     :global(.swiper-slide) {
       position: relative;
     }
@@ -41,10 +37,9 @@
     }
   }
 
-
   :global(.swiper-container-initialized) {
     .slidePreview {
-      opacity: .6;
+      opacity: 0.6;
       transition: all 0.2s;
       transition-property: transform opacity;
     }

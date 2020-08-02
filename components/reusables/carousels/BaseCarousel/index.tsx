@@ -68,6 +68,7 @@ export const BaseCarousel = ({
           <ProgressiveImageLoader
             src={image}
             className={styles.imageLoader}
+            shouldImageBeContained={includeBlurryBg}
           />
         </div>
       );

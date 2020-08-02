@@ -11,7 +11,7 @@ In the first half of 2020, I decided to update my personal portfolio site: _MBPM
 
 The site is hosted using Netlify for Continuous Integration & Deployment.
 
-**To view my original portfolio site, [click here.](https://mbp-portfolio-old.netlify.app)**
+**Want to view my original portfolio site? [Click here.](https://mbp-portfolio-old.netlify.app)**
 
 ### Why Static Site Generation?
 

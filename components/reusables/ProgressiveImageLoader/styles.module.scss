@@ -1,4 +1,4 @@
-@import 'styling/utils';
+@import "styling/utils";
 
 .root {
   position: relative;
@@ -15,9 +15,9 @@
 }
 
 .image,
-.overlay {
-  object-fit: cover;
-  object-position: center center;
+.overlay,
+.blurryBg,
+.blurryBg::after {
   position: absolute;
   top: 0;
   left: 0;
@@ -27,8 +27,27 @@
   height: 100%;
 }
 
+.image,
+.overlay,
+.blurryBg img {
+  object-fit: cover;
+  object-position: center center;
+}
+
+.imgContained {
+  object-fit: contain;
+}
+
+.blurryBg {
+  @include better-blur(12);
+
+  &::after {
+    content: "";
+    background-color: rgba($color: #000000, $alpha: 0.5);
+  }
+}
 
 .overlay {
-  @include better-blur(20);
-  transition: opacity .3s ease-out;
+  @include better-blur(12);
+  transition: opacity 0.3s ease-out;
 }

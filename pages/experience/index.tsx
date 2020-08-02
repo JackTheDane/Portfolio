@@ -96,87 +96,82 @@ const Experience = () => {
   return (
     <>
       <PageHeader pageTitle="Experience" mobileOnly />
-      <main className={`justify-center text-light content columns ${styles.experience}`}>
+      <main className={`justify-center text-light content ${styles.experience}`}>
 
-        <div className="column col-10 col-md-12">
-
-          <div className="mb-5 mt-2 columns ">
+        <div className="mb-5 mt-2 columns ">
 
 
-            <div className="column col-sm-12">
-              <h2 className="mb-0">
-                About me
+          <div className="column col-sm-12">
+            <h2 className="mb-0">
+              About me
               </h2>
-              <div className="divider-dark mt-3 mb-4"></div>
-              <p>
-                My name is Martin Bøje Petersen, and I am a Danish Web Developer, who specializes in creating excellent user experiences.
+            <div className="divider-dark mt-3 mb-4"></div>
+            <p>
+              My name is Martin Bøje Petersen, and I am a Danish Web Developer, who specializes in creating excellent user experiences.
               </p>
 
-              <p>
-                I am an educated Multimedia Designer and Fullstack Web Developer, with an interest in all things related to the development process, from first requirement draft, to final deployment to the production server.
+            <p>
+              I am an educated Multimedia Designer and Fullstack Web Developer, with an interest in all things related to the development process, from first requirement draft, to final deployment to the production server.
               </p>
 
-            </div>
-
-            <div className="column d-flex flex-col hide-lg align-center col-sm-12" style={{ flexGrow: 0 }}>
-              <ProgressiveImageLoader className="s-circle" src="profile.jpg" imageHeight="170px" style={{ width: 170, height: 170, overflow: 'hidden' }} staticImageSize={DynamicLocalImageSizes.xsmall} />
-              {/* <i className="mt-1">Me (2018)</i> */}
-            </div>
           </div>
 
-          <div className="mb-3 text-center">
-            <h4>
-              My skills include
-            </h4>
-
-            <div className={`d-flex text-center justify-center  ${styles.coreSkills}`}>
-              {coreSkills.map(({ name, iconElement }): JSX.Element => {
-                return (
-                  <div key={name}>
-                    <figure className="d-flex flex-col align-center">
-                      <div className={styles.skillIcon}>
-                        {iconElement}
-                      </div>
-                      <figcaption className="mt-3 fw-medium">{name}</figcaption>
-                    </figure>
-                  </div>
-                )
-              })}
-            </div>
+          <div className="column d-flex flex-col hide-lg align-center col-sm-12" style={{ flexGrow: 0 }}>
+            <ProgressiveImageLoader className="s-circle" src="profile.jpg" imageHeight="170px" style={{ width: 170, height: 170, overflow: 'hidden' }} staticImageSize={DynamicLocalImageSizes.xsmall} />
+            {/* <i className="mt-1">Me (2018)</i> */}
           </div>
-
-          <div className={`d-flex justify-center mx-a ${styles.secondarySkills}`}>
-            {secondarySkills.map(
-              (skillName): JSX.Element => <div key={skillName} className="chip mb-3 mr-3 text-light p-3">{skillName}</div>
-            )}
-          </div>
-
-          <div className="py-5 mt-2  text-left">
-            <div className="my-5">
-
-              <h2 className="mb-0">
-                Work Experience
-              </h2>
-
-              <div className="divider-dark mt-3 mb-5"></div>
-
-              <ExperienceTimeline items={experience} />
-            </div>
-
-            <div className="my-5">
-
-              <h2 className="mb-0">
-                Education
-              </h2>
-
-              <div className="divider-dark mt-3 mb-5"></div>
-
-              <ExperienceTimeline items={education} fallbackIcon={<EducationIcon style={{ fontSize: '1.5rem', transform: 'translateY(-5%)' }} />} />
-            </div>
-          </div>
-
         </div>
 
+        <div className="mb-3 text-center">
+          <h4>
+            My skills include
+            </h4>
+
+          <div className={`d-flex text-center justify-center  ${styles.coreSkills}`}>
+            {coreSkills.map(({ name, iconElement }): JSX.Element => {
+              return (
+                <div key={name}>
+                  <figure className="d-flex flex-col align-center">
+                    <div className={styles.skillIcon}>
+                      {iconElement}
+                    </div>
+                    <figcaption className="mt-3 fw-medium">{name}</figcaption>
+                  </figure>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+
+        <div className={`d-flex justify-center mx-a ${styles.secondarySkills}`}>
+          {secondarySkills.map(
+            (skillName): JSX.Element => <div key={skillName} className="chip mb-3 mr-3 text-light p-3">{skillName}</div>
+          )}
+        </div>
+
+        <div className="py-5 mt-2  text-left">
+          <div className="my-5">
+
+            <h2 className="mb-0">
+              Work Experience
+              </h2>
+
+            <div className="divider-dark mt-3 mb-5"></div>
+
+            <ExperienceTimeline items={experience} />
+          </div>
+
+          <div className="my-5">
+
+            <h2 className="mb-0">
+              Education
+              </h2>
+
+            <div className="divider-dark mt-3 mb-5"></div>
+
+            <ExperienceTimeline items={education} fallbackIcon={<EducationIcon style={{ fontSize: '1.5rem', transform: 'translateY(-5%)' }} />} />
+          </div>
+        </div>
 
       </main>
     </>

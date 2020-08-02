@@ -89,7 +89,7 @@ const ProjectPage = ({
                     target='_blank'
                     rel='noopener'
                     data-tooltip="View live site"
-                    className={`btn btn-action btn-primary tooltip tooltip-top ml-3 ${styles.siteLinkButton}`}
+                    className={`btn btn-action btn-primary tooltip tooltip-right ml-3 ${styles.siteLinkButton}`}
                   >
                     <LinkIcon />
                   </a>
@@ -103,7 +103,7 @@ const ProjectPage = ({
                     target='_blank'
                     rel='noopener'
                     data-tooltip="View repository"
-                    className={`btn btn-action btn-primary tooltip tooltip-top ml-3 ${styles.siteLinkButton}`}
+                    className={`btn btn-action btn-primary tooltip tooltip-right ml-3 ${styles.siteLinkButton}`}
                     style={{ backgroundColor: BrandColors.GitHub, border: 'none' }}
                   >
                     <GitHubIcon />
