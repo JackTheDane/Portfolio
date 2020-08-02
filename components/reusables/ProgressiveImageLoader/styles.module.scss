@@ -49,5 +49,5 @@
 
 .overlay {
   @include better-blur(12);
-  transition: opacity 0.3s ease-out;
+  transition: opacity 0.45s ease-out;
 }
