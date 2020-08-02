@@ -42,7 +42,7 @@ export const ProgressiveImageLoader = ({
   }, [])
 
   const overlaySrc: string = getDynamicLocalImage(pathToFile, DynamicLocalImageTypes.lqip);
-  const overlayStyle: React.CSSProperties = { opacity: isImageLoaded ? 1 : 0 };
+  const overlayStyle: React.CSSProperties = { opacity: isImageLoaded ? 0 : 1 };
 
   // Classnames
   let imageClassNames: string = styles.image;
