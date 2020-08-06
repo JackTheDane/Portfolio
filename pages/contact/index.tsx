@@ -7,6 +7,7 @@ import { GitHubIcon } from 'icons/Github';
 import { EnvelopeIcon } from 'icons/Envelope';
 import { BrandColors } from 'data/BrandColors';
 import { PageHeader } from 'components/domains/content/PageHeader';
+import { LinkIcon } from 'icons/Link';
 
 const secondaryButtons: {
   name: string;
@@ -34,6 +35,12 @@ const secondaryButtons: {
       icon: <GitHubIcon />,
       link: OutboundRoutes.gitHub,
       color: BrandColors.GitHub
+    },
+    {
+      name: 'CV',
+      secondaryText: 'Download my resume',
+      icon: <LinkIcon />,
+      link: OutboundRoutes.CV
     }
   ]
 
