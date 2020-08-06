@@ -1,7 +1,7 @@
 ---
 title: "Book Business"
 role: "Front-end & Design"
-url: "http://mbpmedia.com/bookbusiness/"
+url: "https://jackthedane.github.io/book-business/"
 skills: [ "Bootstrap", "Gulp", "Sass", "JavaScript ES6+", "CSS3" ]
 images: ['projects/book-business/bb-forside.jpg','projects/book-business/bb-search.jpg']
 order: 3
