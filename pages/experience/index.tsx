@@ -107,7 +107,7 @@ const Experience = () => {
               </h2>
             <div className="divider-dark mt-3 mb-4"></div>
             <p>
-              My name is Martin Bøje Petersen and I am a Danish Web Developer, who specializes in creating excellent user experiences.
+              My name is Martin Bøje Petersen and I am a Danish Web Developer with +3 years of professional experiences and a love for creating excellent user experiences.
             </p>
 
             <p>

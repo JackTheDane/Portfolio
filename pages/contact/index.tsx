@@ -38,7 +38,7 @@ const secondaryButtons: {
     },
     {
       name: 'CV',
-      secondaryText: 'Download my resume',
+      secondaryText: 'Download PDF',
       icon: <LinkIcon />,
       link: OutboundRoutes.CV
     }
@@ -112,7 +112,7 @@ const Contact = ({ }: ContactProps) => {
               secondaryText,
               color
             }) => (
-                <div key={link} className="mb-5 column col-sm-12 col-md-6 col-4 text-center">
+                <div key={link} className="mb-5 column col-sm-12 col-md-6 col-3 text-center">
                   <a
                     href={link}
                     className="text-light d-flex"
