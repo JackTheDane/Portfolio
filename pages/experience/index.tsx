@@ -15,19 +15,19 @@ const coreSkills: {
 }[] = [
     {
       name: "React",
-      iconElement: <img src={require('images/tech/react.png?resize&size=50')} alt="React logo" />
+      iconElement: <ProgressiveImageLoader src="tech/react.png" staticImageSize={DynamicLocalImageSizes.xsmall} imageHeight='100%' alt="React logo" />
     },
     {
       name: "TypeScript",
-      iconElement: <img className="s-rounded" src={require('images/tech/ts.png?resize&size=50')} alt="TypeScript logo" />
+      iconElement: <ProgressiveImageLoader src="tech/ts.png" staticImageSize={DynamicLocalImageSizes.xsmall} imageHeight='100%' className="s-rounded" alt="TypeScript logo" />
     },
     {
       name: "JavaScript",
-      iconElement: <img className="s-rounded" src={require('images/tech/js.png?resize&size=50')} alt="JavaScript logo" />
+      iconElement: <ProgressiveImageLoader src="tech/js.png" staticImageSize={DynamicLocalImageSizes.xsmall} imageHeight='100%' className="s-rounded" alt="JavaScript logo" />
     },
     {
       name: "CSS3",
-      iconElement: <img src={require('images/tech/css.png?resize&size=50')} alt="CSS3 logo" />
+      iconElement: <ProgressiveImageLoader src="tech/css.png" staticImageSize={DynamicLocalImageSizes.xsmall} imageHeight='100%' alt="CSS3 logo" />
     },
     {
       name: "UX Design",
