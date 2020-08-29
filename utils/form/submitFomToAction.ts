@@ -1,13 +1,30 @@
-import { MessageResultStates } from './../../models/enums/MessageResultStates';
 import { getSerializedFormData } from './getSerializedFormData';
 
-export const submitFomToAction = async (form: HTMLFormElement): Promise<Response> => {
+export const submitFomToAction = (form: HTMLFormElement): Promise<void> => new Promise((resolve, reject) => {
+
+  if (!form.action) {
+    reject('No form action set');
+    return;
+  }
+
   const serializedFormData: URLSearchParams = getSerializedFormData(form);
 
   // Post using Netlify
-  return fetch(form.action, {
+  fetch(form.action, {
     method: 'POST',
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
     body: serializedFormData
   })
-}
+    .then(({
+      ok,
+      status,
+      statusText
+    }) => {
+      if (ok) {
+        resolve();
+      } else {
+        reject(`${status} - ${statusText}`);
+      }
+    })
+    .catch(reject)
+});

@@ -98,7 +98,9 @@ const Contact = ({ }: ContactProps) => {
         }
 
         <div className="mb-5 py-5">
-          <form onSubmit={onSubmit} name="mbp-contact" method="POST" data-netlify="true" netlify-honeypot="n-o_b-o-t">
+          <form
+            // onSubmit={onSubmit}
+            name="mbp-contact" method="POST" data-netlify="true" netlify-honeypot="n-o_b-o-t">
             <div className="form-group">
               <input
                 className="form-input"
