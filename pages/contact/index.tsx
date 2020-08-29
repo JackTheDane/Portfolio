@@ -62,8 +62,6 @@ const Contact = ({ }: ContactProps) => {
 
       const form: HTMLFormElement = e.target as HTMLFormElement;
 
-      setTimeout(() => { setSubmissionState(MessageResultStates.success) }, 2000)
-
       // Post using Netlify
       submitFomToAction(form)
         .then(r => {
@@ -128,7 +126,11 @@ const Contact = ({ }: ContactProps) => {
             </div>
 
             <div className="form-group">
-              <button type="submit" className={`btn btn-block btn-success btn-icon-right btn-lg ${submissionState === MessageResultStates.working ? 'loading' : ''}`} disabled={!(emailInput && messageInput)}>
+              <button
+                type="submit"
+                className={`btn btn-block btn-success btn-icon-right btn-lg ${submissionState === MessageResultStates.working ? 'loading' : ''}`}
+                disabled={!(emailInput && messageInput && submissionState !== MessageResultStates.working)}
+              >
                 Send
                 <PaperPlaneIcon className="ml-3" />
               </button>
