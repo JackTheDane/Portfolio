@@ -108,6 +108,7 @@ const Contact = ({ }: ContactProps) => {
                 name="email"
                 placeholder="Your@email.com"
                 onChange={e => setEmailInput(e.target.value)}
+                value={emailInput}
               />
             </div>
 
@@ -124,6 +125,7 @@ const Contact = ({ }: ContactProps) => {
                 rows={8}
                 placeholder="Dear Martin..."
                 onChange={e => setMessageInput(e.target.value)}
+                value={messageInput}
               />
             </div>
 
