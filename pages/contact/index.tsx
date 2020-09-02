@@ -133,7 +133,7 @@ const Contact = ({ }: ContactProps) => {
               <button
                 type="submit"
                 className={`btn btn-block btn-success btn-icon-right btn-lg ${submissionState === MessageResultStates.working ? 'loading' : ''}`}
-                disabled={!(emailInput && messageInput && submissionState !== MessageResultStates.working)}
+                disabled={!emailInput || !messageInput || submissionState === MessageResultStates.working}
               >
                 Send
                 <PaperPlaneIcon className="ml-3" />
