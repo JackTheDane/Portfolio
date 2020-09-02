@@ -96,7 +96,7 @@ export const ProgressiveImageLoader = ({
         {...imgProps}
       />
       {
-        !!isImageCached && (
+        !isImageCached && (
           <img
             className={overlayClassNames}
             style={overlayStyle}
