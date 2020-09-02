@@ -87,7 +87,7 @@ export const ProgressiveImageLoader = ({
 
   return (
     <figure
-      className={`${styles.root} ${!isImageCached && !isImageLoaded && staticImageSize !== DynamicLocalImageSizes.xsmall ? 'loading loading-lg' : ''} ${className || ''} ${isImageLoaded ? styles.loaded : ''}`}
+      className={`${styles.root} ${/*!isImageCached && !isImageLoaded && staticImageSize !== DynamicLocalImageSizes.xsmall ? 'loading loading-lg' : ''*/ ''} ${className || ''} ${isImageLoaded ? styles.loaded : ''}`}
       style={{ paddingTop: imageHeight || '56.25%' }}
       {...rest}
     >
@@ -96,7 +96,7 @@ export const ProgressiveImageLoader = ({
         {...imgProps}
       />
       {
-        !isImageCached && (
+        !!isImageCached && (
           <img
             className={overlayClassNames}
             style={overlayStyle}

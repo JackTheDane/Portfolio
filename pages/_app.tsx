@@ -7,6 +7,7 @@ import Head from 'next/head';
 import Router, { useRouter } from 'next/router';
 import { SiteRoutes } from 'data/routes/SiteRoutes';
 import { useState, useEffect } from 'react';
+import { ProgressiveImageLoader } from 'components/reusables/ProgressiveImageLoader';
 // const bgImage = require('images/bg.jpg?size=800');
 
 const AppCustomized = ({ Component, pageProps }: AppProps) => {
@@ -21,9 +22,6 @@ const AppCustomized = ({ Component, pageProps }: AppProps) => {
   const onRouteChangeStarted = (): void => {
     setIsRedirecting(true);
   }
-
-
-  // Router.
 
 
   useEffect(
@@ -53,7 +51,9 @@ const AppCustomized = ({ Component, pageProps }: AppProps) => {
         </title>
       </Head>
       <div className={`${styles.app} ${isFrontPage ? styles.frontPage : ''}`}>
-        <div className="pageBackground" />
+        {/* <div className="pageBackground" /> */}
+
+        <ProgressiveImageLoader src="bg.jpg" className={styles.progressiveBg} imageHeight="100%" />
 
         <Nav />
 
