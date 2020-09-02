@@ -111,6 +111,8 @@ const Contact = ({ }: ContactProps) => {
               />
             </div>
 
+            <input type="hidden" name="form-name" value="mbp-contact" />
+
             <input type="hidden" name="n-o_b-o-t" />
 
             <div className="form-group my-3">
