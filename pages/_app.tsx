@@ -51,9 +51,7 @@ const AppCustomized = ({ Component, pageProps }: AppProps) => {
         </title>
       </Head>
       <div className={`${styles.app} ${isFrontPage ? styles.frontPage : ''}`}>
-        {/* <div className="pageBackground" /> */}
-
-        <ProgressiveImageLoader src="bg.jpg" className={styles.progressiveBg} imageHeight="100%" />
+        <div className="pageBackground" />
 
         <Nav />
 
