@@ -83,10 +83,6 @@ const AppCustomized = ({ Component, pageProps }: AppProps) => {
           background-image: url('${backgroundImage}')
         }
 
-        .pageBackground.placeholder {
-          transition: opacity .6s ease-in-out;
-        }
-
         .pageBackground.placeholder::before {
           background-image: url('${require('images/bg.jpg?lqip')}')
         }
