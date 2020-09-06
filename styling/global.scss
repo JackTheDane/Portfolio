@@ -253,7 +253,7 @@ img {
   overflow: hidden;
 
   &.placeholder {
-    transition: opacity .6s ease-in-out;
+    transition: opacity .3s ease;
   }
 
   &::before {

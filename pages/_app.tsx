@@ -8,6 +8,8 @@ import Router, { useRouter } from 'next/router';
 import { SiteRoutes } from 'data/routes/SiteRoutes';
 import { useState, useEffect } from 'react';
 
+const bgImageLqip: string = require('images/bg.jpg?lqip');
+
 const AppCustomized = ({ Component, pageProps }: AppProps) => {
 
   const { pathname } = useRouter();
@@ -32,7 +34,7 @@ const AppCustomized = ({ Component, pageProps }: AppProps) => {
       // Load image in background using dummy image
       const newImg = new Image;
       newImg.onload = function () { // Once loaded, set as background image
-        setTimeout(() => setBackgroundImage(newImg.src), 1000);
+        setBackgroundImage(newImg.src);
       }
       newImg.src = require('images/bg.jpg');
 
@@ -53,6 +55,21 @@ const AppCustomized = ({ Component, pageProps }: AppProps) => {
   return (
     <>
       <Head>
+
+        <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#144777" />
+        <meta name="theme-color" content="#144777" />
+        <meta name="msapplication-TileColor" content="#144777" />
+        <meta name="msapplication-navbutton-color" content="#144777" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="Keywords" content="React,TypeScript,Web,Developer,Frontend,Full,stack,CSS,SQL,PHP,WordPress" />
+        <meta name="Description"
+          content="Danish Web Developer with +3 years of professional experiences and a love for creating excellent user experiences." />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
         <title>
           Martin Bøje Petersen
         </title>
@@ -80,11 +97,11 @@ const AppCustomized = ({ Component, pageProps }: AppProps) => {
         }
 
         .pageBackground::before {
-          background-image: url('${backgroundImage}')
+          background-image: url('${backgroundImage || bgImageLqip}')
         }
 
         .pageBackground.placeholder::before {
-          background-image: url('${require('images/bg.jpg?lqip')}')
+          background-image: url('${bgImageLqip}')
         }
       `}</style>
         <script></script>
